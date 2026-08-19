@@ -279,10 +279,11 @@
   // Submissions are emailed to the academy via FormSubmit (free service).
   // The first-ever submission sends an activation link to this inbox.
   const FORM_ENDPOINT = "https://formsubmit.co/ajax/darklightchess64@gmail.com";
-  // Every enquiry is also pushed into the Darklight CRM as a new lead.
-  // Sent as text/plain so the browser skips the CORS preflight the CRM
-  // doesn't answer; the response is opaque, so this is fire-and-forget.
-  const CRM_ENDPOINT = "https://darklightchess-aios.vercel.app/api/clickup/leads";
+  // Every enquiry is also pushed into the Darklight CRM as a new lead, via the
+  // public lead-capture webhook (not the session-authed dashboard API — the
+  // browser has no session). Authenticated by a per-branch shared secret instead.
+  const CRM_ENDPOINT = "https://darklightchess-aios.vercel.app/api/webhooks/lead-capture";
+  const CRM_SECRET = "dffb01de3549b163e0e4e1d69268816c7cc4c45699e58f91445e2fe1a9694c80";
   const WHATSAPP = "918300155259";
 
   // The CRM API only accepts international-format phone numbers (+91…),
@@ -303,6 +304,10 @@
       email: data.email,
       phone: normalizePhone(data.phone),
       source: "website",
+      // The webhook requires availability to run coach-matching; this form
+      // doesn't collect it, so send a wide-open placeholder.
+      available_days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      available_time: "Flexible",
       notes: [
         `Course: ${data.course}`,
         `Mode: ${data.mode}`,
@@ -312,9 +317,18 @@
     };
     return fetch(CRM_ENDPOINT, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-lead-webhook-secret": CRM_SECRET,
+      },
       body: JSON.stringify(lead),
+    }).then((res) => {
+      if (!res.ok) {
+        res.json().then((body) => console.error("[CRM] lead push failed", res.status, body)).catch(() => {
+          console.error("[CRM] lead push failed", res.status);
+        });
+      }
+      return res;
     });
   }
 
@@ -374,8 +388,10 @@
     statusBox.className = "form-status";
     statusBox.textContent = "";
 
-    // Push the lead into the CRM (fire-and-forget — opaque response)
-    try { sendToCrm(data); } catch (_) { /* network unavailable — email still goes out */ }
+    // Push the lead into the CRM (fire-and-forget — failures are logged, not surfaced to the user)
+    try {
+      sendToCrm(data).catch((err) => console.error("[CRM] lead push errored", err));
+    } catch (_) { /* network unavailable — email still goes out */ }
 
     let delivered = false;
     try {
