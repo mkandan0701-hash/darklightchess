@@ -1,0 +1,230 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import { BRANCH_SAIBABA_COLONY, BRANCH_SOWRIPALAYAM } from "../consts";
+
+const faqs = [
+  {
+    question: "Where is Darklight Chess Academy located in Coimbatore?",
+    answer:
+      "Our primary centre is in Saibaba Colony, Coimbatore, with a second branch in Sowripalayam. We also teach online, so families anywhere can join a live class even if they aren't near either centre.",
+  },
+  {
+    question: "Does the academy have more than one branch in Coimbatore?",
+    answer:
+      "Yes. Our Saibaba Colony branch is the main centre, and we also run classes from our Sowripalayam branch. Both offer offline group and one-to-one coaching; check the location section below for exact addresses and directions.",
+  },
+  {
+    question: "Is Darklight Chess Academy suitable for complete beginners as well as tournament players?",
+    answer:
+      "Yes. We run separate tracks for beginners, intermediate players and tournament-focused advanced players, so a child who has never touched a chessboard and a rated tournament player can both find a batch that fits their level.",
+  },
+  {
+    question: "How do I book a free demo class at your Coimbatore academy?",
+    answer:
+      "Fill in the enquiry form on this page or WhatsApp us directly. We'll ask a few quick questions about age and experience, then schedule a free demo — online or at whichever Coimbatore branch suits you — before you commit to anything.",
+  },
+  {
+    question: "Do you offer both online and offline chess classes in Coimbatore?",
+    answer:
+      "Yes. Families in and around Coimbatore can choose offline classes at either branch, fully online classes, or a mix of both — for example, offline on weekends and an online session midweek.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Academy in Coimbatore | Darklight Chess Academy"
+  description="Looking for professional chess coaching in Coimbatore? Darklight Chess Academy offers structured chess classes for kids, beginners and tournament players, online and offline."
+  path="/chess-academy-coimbatore/"
+  includeLocalBusinessSchema={true}
+>
+  <PageHero
+    eyebrow="Coimbatore"
+    title="Chess Academy in Coimbatore for <span class='gold'>Kids &amp; Tournament Players</span>"
+    subtitle="Structured chess coaching in Coimbatore for every level — beginner to tournament-ready — with both offline centres and live online classes."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Chess Academy in Coimbatore", path: "/chess-academy-coimbatore/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        If you're searching for a chess academy in Coimbatore, the honest first question to ask isn't "who is the best" — it's "who has a structured path for my child's actual level, and will they stick with it?" Darklight Chess Academy was built around that question. We run graded courses from complete-beginner to tournament-ready, teach both at our Coimbatore centres and online, and every batch follows a curriculum rather than ad-hoc games.
+      </p>
+      <p>
+        This page covers what a class actually looks like, who our programmes suit, how we track progress, and where to find us in Coimbatore. If you'd rather just see it in person, the fastest way is to <a href="/#contact">book a free demo class</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why Learn Chess at Darklight</p>
+        <h2>What Makes Our Coaching Different</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>A Graded Curriculum, Not Just Games</h3>
+          <p>Every level — beginner, intermediate, advanced — has defined topics: openings, tactics, endgames and strategy taught in sequence, not random puzzles.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧑‍🏫</div>
+          <h3>Coaches Who Track Individuals</h3>
+          <p>Coaches note where each student is strong and where they're guessing, so lessons and homework can target the actual gap, not the whole class average.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Real Tournament Exposure</h3>
+          <p>Regular academy tournaments give students low-pressure competitive experience before they enter open or FIDE-rated events.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Our Programmes</p>
+        <h2>Chess Classes Available at Darklight</h2>
+        <p class="section-sub">Each track is a dedicated page with full detail — this is the quick overview.</p>
+      </div>
+      <div class="cards-grid four">
+        <div class="course-card">
+          <div class="course-icon">♟</div>
+          <h3>Kids Chess Coaching</h3>
+          <p>Age-appropriate coaching for children, from first moves to school-level competition.</p>
+          <a href="/chess-classes-for-kids-coimbatore/" class="card-learn-more">Explore kids' classes →</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">♝</div>
+          <h3>Beginner Training</h3>
+          <p>Rules, tactics and opening principles for total beginners of any age.</p>
+          <a href="/chess-classes-for-beginners/" class="card-learn-more">Explore beginner classes →</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">♜</div>
+          <h3>Tournament Preparation</h3>
+          <p>Rating improvement, positional play and event-specific prep for competitive players.</p>
+          <a href="/tournament-chess-coaching/" class="card-learn-more">Explore tournament coaching →</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">♛</div>
+          <h3>One-to-One Coaching</h3>
+          <p>Fully personalised sessions for students who want individual attention and pace.</p>
+          <a href="/one-to-one-chess-coaching/" class="card-learn-more">Explore 1-to-1 coaching →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Format</p>
+        <h2>Online and Offline Options</h2>
+      </div>
+      <p>
+        Both formats run on the same curriculum, taught by the same coaching team. <a href="/chess-academy-coimbatore/">Offline classes</a> at our Coimbatore centres suit families who want face-to-face coaching and a fixed weekly rhythm. <a href="/online-chess-classes/">Online classes</a> suit families outside Coimbatore, busy weekday evenings, or students who are simply comfortable learning on a screen with a live coach. Many of our Coimbatore families actually mix both — offline on weekends, online midweek. Read our full <a href="/blog/online-vs-offline-chess-classes-coimbatore/">online vs offline comparison</a> if you're deciding between the two.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">How We Coach</p>
+        <h2>Coaching Methodology &amp; Progress Tracking</h2>
+      </div>
+      <p>
+        Classes are built around demonstration, guided practice and review — a coach explains a concept on the board, students apply it in paired games or puzzles, then the coach reviews what actually happened in those games. This is deliberately not "watch and repeat"; students play, then learn from their own mistakes with a coach present.
+      </p>
+      <p>
+        Coaches keep informal notes on each student's recurring weaknesses (say, missing forks, or castling too late) and adjust homework accordingly. Between classes, students get specific puzzle sets or positions to practice — not generic worksheets — and coaches check on that homework at the start of the next session. Parents can ask their coach directly for an update on where their child stands at any point.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Getting Started</p>
+        <h2>Why Parents Choose Structured Chess Coaching</h2>
+      </div>
+      <p>
+        It's possible to learn chess from videos or apps alone, and some children do. What structured coaching adds is accountability and correction — a coach who notices a bad habit before it becomes permanent, sets a weekly rhythm so practice actually happens, and gives a child real opponents and real tournaments to grow against. For most families, that combination is what turns "knows how the pieces move" into "plays chess well."
+      </p>
+      <h3>Who Can Join</h3>
+      <p>
+        We take students from around age 5 through adults, at every experience level from first-time beginners to rated tournament players. Siblings can also join together in the same batch — see our sibling classes on the homepage for details.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Coimbatore Locations</p>
+        <h2>Find Us in Coimbatore</h2>
+      </div>
+      <div class="maps-grid">
+        <div class="map-wrap">
+          <p class="map-label">📍 {BRANCH_SAIBABA_COLONY.label}</p>
+          <iframe
+            title="Darklight Chess Academy, Saibaba Colony branch on Google Maps"
+            src={BRANCH_SAIBABA_COLONY.mapEmbedSrc}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-directions btn btn-gold" href={BRANCH_SAIBABA_COLONY.directionsUrl} target="_blank" rel="noopener">📍 Get Directions</a>
+        </div>
+        <div class="map-wrap">
+          <p class="map-label">📍 {BRANCH_SOWRIPALAYAM.label}</p>
+          <iframe
+            title="Darklight Chess Academy, Sowripalayam branch on Google Maps"
+            src={BRANCH_SOWRIPALAYAM.mapEmbedSrc}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-directions btn btn-gold" href={BRANCH_SOWRIPALAYAM.directionsUrl} target="_blank" rel="noopener">📍 Get Directions</a>
+        </div>
+      </div>
+      <p style="margin-top:1.6rem; color:var(--muted); text-align:center;">
+        Our Saibaba Colony branch is easily reached from RS Puram, Vadavalli and Gandhipuram. The Sowripalayam branch is convenient for families in Peelamedu, Singanallur and Ramanathapuram. If neither commute works for you, our <a href="/online-chess-classes/">online classes</a> are the same curriculum, live, from home.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="See Our Coaching in Action"
+        subtext="Book a free demo class at our Coimbatore academy — online or offline — and get an honest level assessment before you commit to anything."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>

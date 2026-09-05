@@ -1,0 +1,29 @@
+---
+import BreadcrumbSchema from "./schema/BreadcrumbSchema.astro";
+
+interface Crumb {
+  name: string;
+  path: string;
+}
+
+interface Props {
+  items: Crumb[]; // first item should be { name: "Home", path: "/" }
+}
+
+const { items } = Astro.props;
+---
+
+<BreadcrumbSchema items={items} />
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {items.map((item, i) => (
+      <li>
+        {i === items.length - 1 ? (
+          <span aria-current="page">{item.name}</span>
+        ) : (
+          <a href={item.path}>{item.name}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

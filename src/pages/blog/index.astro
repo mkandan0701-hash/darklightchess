@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import BlogCard from "../../components/BlogCard.astro";
+
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout
+  title="Chess Blog | Tips for Parents & Players | Darklight Chess Academy"
+  description="Guides on chess coaching in Coimbatore, tournament preparation and chess fundamentals for parents and players, from Darklight Chess Academy's coaches."
+  path="/blog/"
+>
+  <PageHero
+    eyebrow="Our Blog"
+    title="Chess Wisdom From <span class='gold'>Our Coaches</span>"
+    subtitle="Tips, guides and insights to help every parent and player make the right move — on chess coaching in Coimbatore, tournament preparation and the fundamentals."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p style="text-align:center; color:var(--muted);">New articles are on the way — check back soon.</p>
+      ) : (
+        <div class="cards-grid three blog-grid">
+          {posts.map((post) => (
+            <BlogCard
+              slug={post.id}
+              title={post.data.title}
+              description={post.data.description}
+              category={post.data.category}
+              readTime={post.data.readTime}
+              image={post.data.image}
+              imageAlt={post.data.imageAlt}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

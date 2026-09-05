@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const faqs = [
+  {
+    question: "How do online chess classes work?",
+    answer:
+      "Classes run live over video call with a coach, using a shared digital board for demonstration and instant puzzle sharing. It's not pre-recorded content — you're playing and interacting with a real coach in real time.",
+  },
+  {
+    question: "Do online classes suit families in Coimbatore, or only outside India?",
+    answer:
+      "Both. Many Coimbatore families choose online classes for the convenience — no commute, easy to fit around school and homework — while others mix online with our offline centres. It isn't only for students outside the city.",
+  },
+  {
+    question: "What do I need for an online class?",
+    answer:
+      "A laptop or tablet with a stable internet connection and a video-calling app is enough to start. A physical board at home is useful for practice but not required.",
+  },
+  {
+    question: "Are there batches for different time zones?",
+    answer:
+      "Yes, we run an international online batch scheduled for non-Indian time zones, alongside standard India-timing batches.",
+  },
+];
+---
+
+<BaseLayout
+  title="Online Chess Classes in Coimbatore | Darklight Chess Academy"
+  description="Live online chess classes from Darklight Chess Academy, Coimbatore — structured coaching for kids, beginners and tournament players, from anywhere."
+  path="/online-chess-classes/"
+>
+  <PageHero
+    eyebrow="Learn From Anywhere"
+    title="Online Chess Classes in <span class='gold'>Coimbatore</span>"
+    subtitle="The same structured curriculum as our offline centres, taught live online — for Coimbatore families and students anywhere else."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Online Chess Classes", path: "/online-chess-classes/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Online chess classes at Darklight aren't a scaled-down version of our offline coaching — they follow the exact same curriculum, taught by the same coaching team, live over video call. For many families in Coimbatore, online is simply more convenient than a commute; for students outside India, it's often the only realistic option to learn from Indian coaches on a schedule that fits their day.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How It Works</p>
+        <h2>What an Online Class Looks Like</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">🎥</div>
+          <h3>Live, Not Recorded</h3>
+          <p>Every class is a live session with a coach — real-time demonstration, questions and feedback, not pre-recorded videos.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🖥️</div>
+          <h3>Shared Digital Board</h3>
+          <p>Coaches demonstrate positions and share puzzles instantly on a shared digital board that every student can see clearly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Time-Zone Friendly Batches</h3>
+          <p>Standard India-timing batches plus a dedicated international batch scheduled for non-Indian time zones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Is Online Right for You?</p>
+        <h2>Online vs Offline</h2>
+      </div>
+      <p>
+        Online tends to suit students who are comfortable on a screen, families with tight evening schedules, or anyone outside easy reach of our <a href="/chess-academy-coimbatore/">Coimbatore centres</a>. It's not automatically the "easier" option — students still need a quiet space and a consistent weekly slot to make real progress. If you're weighing this against in-person classes, our <a href="/blog/online-vs-offline-chess-classes-coimbatore/">detailed comparison</a> covers it honestly, including cases where a hybrid schedule works best.
+      </p>
+      <p>
+        Whether you're a total beginner, coaching a child, or preparing for tournaments, the online format supports all of it — see our <a href="/chess-classes-for-beginners/">beginner classes</a>, <a href="/chess-classes-for-kids-coimbatore/">kids' classes</a> and <a href="/tournament-chess-coaching/">tournament coaching</a> pages for level-specific detail. Students who'd prefer individual pacing over a group batch can also take online <a href="/one-to-one-chess-coaching/">one-to-one coaching</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Try an Online Class, Free"
+        subtext="Book a free online demo class and see how a live Darklight session actually runs, wherever you are."
+        course="Free Demo Class"
+        whatsappMessage="Hi Darklight Chess Academy! I'd like to know more about your online chess classes."
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import { WHATSAPP_NUMBER } from "../consts";
+
+interface Props {
+  heading: string;
+  subtext: string;
+  course: string; // value to preselect in the enquiry form's course dropdown
+  whatsappMessage?: string;
+}
+
+const {
+  heading,
+  subtext,
+  course,
+  whatsappMessage = `Hi Darklight Chess Academy! I'd like to enquire about: ${course}.`,
+} = Astro.props;
+
+const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<div class="cta-banner reveal">
+  <h3>{heading}</h3>
+  <p>{subtext}</p>
+  <div class="cta-banner-actions">
+    <a href="/#contact" class="btn btn-gold btn-lg book-btn" data-course={course}>🗓️ Book a Free Demo Class</a>
+    <a href={waLink} target="_blank" rel="noopener" class="btn btn-outline btn-lg cta-whatsapp">💬 WhatsApp Us</a>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | Darklight Chess Academy"
+  description="The page you're looking for doesn't exist. Explore Darklight Chess Academy's chess classes and coaching in Coimbatore instead."
+  path="/404/"
+  noindex={true}
+>
+  <section class="section page-hero" style="padding-top:9rem;">
+    <div class="container" style="text-align:center;">
+      <p class="eyebrow">404</p>
+      <h1 style="font-family:var(--font-head); font-size:clamp(2rem,4.6vw,3.2rem); margin:0.5rem 0 1.2rem;">
+        This square is <span class="gold">empty</span>
+      </h1>
+      <p class="page-hero-sub" style="margin:0 auto 2rem;">
+        The page you're looking for has moved or doesn't exist. Here are a few good places to start instead.
+      </p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="/" class="btn btn-gold btn-lg">Back to Homepage</a>
+        <a href="/chess-academy-coimbatore/" class="btn btn-outline btn-lg">Chess Academy in Coimbatore</a>
+        <a href="/blog/" class="btn btn-outline btn-lg">Read Our Blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

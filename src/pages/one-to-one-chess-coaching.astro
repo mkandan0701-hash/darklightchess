@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const faqs = [
+  {
+    question: "How is one-to-one coaching different from group classes?",
+    answer:
+      "The entire session is built around one student's pace, gaps and goals — there's no shared curriculum schedule to keep up with or wait for. It suits students who want faster progress on specific weaknesses, or simply prefer individual attention.",
+  },
+  {
+    question: "Is one-to-one coaching only for advanced players?",
+    answer:
+      "No — it's available at every level, from complete beginners who want individual pacing to tournament players working on specific rating goals.",
+  },
+  {
+    question: "Can siblings share a one-to-one session?",
+    answer:
+      "One-to-one sessions are designed around a single student's pace. For siblings learning together, our sibling group classes (see the homepage) are usually a better and more affordable fit.",
+  },
+  {
+    question: "Is one-to-one coaching available online?",
+    answer:
+      "Yes, one-to-one sessions run both online and offline at our Coimbatore centres.",
+  },
+];
+---
+
+<BaseLayout
+  title="One-to-One Chess Coaching in Coimbatore | Darklight Chess Academy"
+  description="Personalised one-to-one chess coaching in Coimbatore, online or offline — for beginners who want individual pacing and competitive players targeting specific goals."
+  path="/one-to-one-chess-coaching/"
+>
+  <PageHero
+    eyebrow="Personalised Coaching"
+    title="One-to-One Chess Coaching in <span class='gold'>Coimbatore</span>"
+    subtitle="Fully individual sessions, paced around one student's level and goals — for any age, from first-timers to competitive players."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "One-to-One Chess Coaching", path: "/one-to-one-chess-coaching/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Group classes work well for most students, but some do better with a coach's undivided attention — moving faster through material they've already grasped, spending more time on a specific weakness, or simply preferring one-on-one interaction over a group setting. One-to-one coaching at Darklight is built for exactly that, at any level.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why Choose 1-to-1</p>
+        <h2>What Personalised Coaching Adds</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Targeted on Your Gaps</h3>
+          <p>Every session is planned around what this specific student needs next — not a fixed group curriculum pace.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>Flexible Scheduling</h3>
+          <p>Easier to schedule around school, work or travel than a fixed-batch group class.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧑‍🏫</div>
+          <h3>Full Coach Attention</h3>
+          <p>Every minute of the session is focused on one student — ideal for working through a specific rating plateau or weakness quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Who It's For</p>
+        <h2>Any Level, Any Age</h2>
+      </div>
+      <p>
+        One-to-one coaching suits complete beginners who want individual pacing just as well as it suits <a href="/tournament-chess-coaching/">tournament players</a> working on a specific rating goal. If you're coaching a child and unsure whether group or individual sessions fit better, our <a href="/chess-classes-for-kids-coimbatore/">kids' chess classes page</a> covers that decision in more detail. One-to-one sessions are available <a href="/online-chess-classes/">online</a> or offline at our <a href="/chess-academy-coimbatore/">Coimbatore centres</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Start With a Free 1-to-1 Demo"
+        subtext="Book a free demo session and experience personalised coaching before you commit."
+        course="Free Demo Class"
+        whatsappMessage="Hi Darklight Chess Academy! I'd like to know more about one-to-one chess coaching."
+      />
+    </div>
+  </section>
+</BaseLayout>

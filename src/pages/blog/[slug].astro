@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import ArticleSchema from "../../components/schema/ArticleSchema.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const path = `/blog/${post.id}/`;
+---
+
+<BaseLayout title={`${post.data.title} | Darklight Chess Academy Blog`} description={post.data.description} path={path} image={post.data.image}>
+  <ArticleSchema
+    title={post.data.title}
+    description={post.data.description}
+    path={path}
+    publishDate={post.data.publishDate}
+    updatedDate={post.data.updatedDate}
+    image={post.data.image}
+  />
+  <PageHero
+    eyebrow={post.data.category}
+    title={post.data.title}
+    subtitle={post.data.description}
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog/" },
+      { name: post.data.title, path },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <p class="blog-post-meta">
+        {post.data.category} · {post.data.readTime} · {post.data.author}
+      </p>
+      <div class="prose">
+        <Content />
+      </div>
+      <CtaBanner
+        heading="Ready to put this into practice?"
+        subtext="Book a free demo class and our coaches will show you exactly how we teach it — online or at our Coimbatore centers."
+        course="Free Demo Class"
+      />
+      <p style="text-align:center; margin-top:1.6rem;">
+        <a href="/blog/" class="card-learn-more">← Back to all articles</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

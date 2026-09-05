@@ -1,0 +1,68 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Seo from "../components/Seo.astro";
+import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
+import WebSiteSchema from "../components/schema/WebSiteSchema.astro";
+import LocalBusinessSchema from "../components/schema/LocalBusinessSchema.astro";
+import { WHATSAPP_LINK } from "../consts";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+  includeLocalBusinessSchema?: boolean;
+}
+
+const {
+  title,
+  description,
+  path,
+  image,
+  noindex = false,
+  includeLocalBusinessSchema = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <Seo title={title} description={description} path={path} image={image} noindex={noindex} />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <OrganizationSchema />
+  <WebSiteSchema />
+  {includeLocalBusinessSchema && <LocalBusinessSchema />}
+</head>
+<body>
+  <Header />
+
+  <slot />
+
+  <Footer />
+
+  <a
+    href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Hi Darklight Chess Academy! I would like to book a free demo class.")}`}
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat on WhatsApp"
+  >💬</a>
+  <button class="to-top" id="toTop" aria-label="Back to top">♔</button>
+
+  <!-- Chessboard page-transition loader -->
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="chess-loader" id="chessLoader"></div>
+    <p class="loader-label"><span class="loader-knight">♞</span> <span id="loaderText">Loading…</span></p>
+  </div>
+
+  <script is:inline src="/assets/js/main.js"></script>
+</body>
+</html>

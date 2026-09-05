@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const faqs = [
+  {
+    question: "I've never played chess. Can I still join?",
+    answer:
+      "Yes — this track is built specifically for complete beginners, whether you're a child or an adult. No prior experience or knowledge of the rules is assumed.",
+  },
+  {
+    question: "How long does it take to go from beginner to playing confidently?",
+    answer:
+      "It varies by how often you practice, but most students who attend classes consistently and do the weekly puzzle homework can play a full, sensible game within a few months.",
+  },
+  {
+    question: "Do beginners need their own chess set or board?",
+    answer:
+      "It helps to have a basic set at home for practice, but it isn't required to start — the class itself provides everything you need, and we'll guide you on simple tools for practicing between sessions.",
+  },
+  {
+    question: "Is the beginner track available online?",
+    answer:
+      "Yes, beginner classes run both online and offline at our Coimbatore centres, on the same curriculum. Choose whichever fits your schedule and learning style.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Classes for Beginners | Darklight Chess Academy"
+  description="Beginner chess classes for kids and adults, online and offline in Coimbatore. Learn the rules, tactics and opening principles with a structured, no-pressure start."
+  path="/chess-classes-for-beginners/"
+>
+  <PageHero
+    eyebrow="Start Here"
+    title="Chess Classes for <span class='gold'>Beginners</span>"
+    subtitle="A structured, no-pressure start to chess — for children and adults alike, online or at our Coimbatore centres."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Chess Classes for Beginners", path: "/chess-classes-for-beginners/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Starting chess as a total beginner can feel intimidating, especially watching others who already "know how to play." Our beginner track exists specifically to remove that gap — everyone in the batch starts from the same place, and the curriculum is built so each class adds exactly one new idea rather than assuming prior knowledge.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What You'll Learn</p>
+        <h2>The Beginner Curriculum</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">♟</div>
+          <h3>Rules &amp; Piece Movement</h3>
+          <p>How each piece moves and captures, check and checkmate, castling, and other basic rules — taught through play, not memorisation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Basic Tactics</h3>
+          <p>Forks, pins and simple combinations — the patterns that decide most beginner-level games.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h3>Opening Principles</h3>
+          <p>Controlling the centre, developing pieces early and castling on time — see our full breakdown in the blog below.</p>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:2rem;">
+        <a href="/blog/5-opening-principles-every-beginner-should-master/" class="card-learn-more">Read: 5 Opening Principles Every Beginner Should Master →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Who This Is For</p>
+        <h2>Kids and Adults, Same Structured Start</h2>
+      </div>
+      <p>
+        We run beginner batches for children as well as adults who are picking up chess for the first time — the pace and structure adapt, but the same principle applies: one idea at a time, with plenty of guided practice. If your beginner is a child, you may also want our <a href="/chess-classes-for-kids-coimbatore/">kids' chess classes page</a>, which covers age-specific detail. When you're ready for more competitive play, the natural next step is our <a href="/chess-classes-coimbatore/">intermediate classes</a> or, for tournament ambitions, <a href="/tournament-chess-coaching/">tournament coaching</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Format</p>
+        <h2>Online or Offline in Coimbatore</h2>
+      </div>
+      <p>
+        Beginner classes run both <a href="/chess-academy-coimbatore/">offline at our Coimbatore centres</a> and <a href="/online-chess-classes/">online</a>, on identical material. If you'd rather have completely individual pacing instead of a group batch, our <a href="/one-to-one-chess-coaching/">one-to-one coaching</a> is also available from day one.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Take Your First Class, Free"
+        subtext="Book a free demo class — no prior experience needed, and no pressure to continue if it isn't the right fit."
+        course="Beginner Level"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  readTime: string;
+  image: string;
+  imageAlt: string;
+}
+
+const { slug, title, description, category, readTime, image, imageAlt } = Astro.props;
+---
+
+<article class="blog-card reveal">
+  <a href={`/blog/${slug}/`} class="blog-thumb">
+    <img src={image} alt={imageAlt} loading="lazy" />
+  </a>
+  <div class="blog-body">
+    <p class="blog-meta">{category} · {readTime}</p>
+    <h3><a href={`/blog/${slug}/`}>{title}</a></h3>
+    <p>{description}</p>
+    <a href={`/blog/${slug}/`} class="btn-link">Read Article →</a>
+  </div>
+</article>

@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const faqs = [
+  {
+    question: "My child has never played a tournament. Is this track too advanced?",
+    answer:
+      "Not necessarily — we typically start students with a low-pressure academy-level tournament before moving to open or rated events, specifically so the first competitive experience isn't overwhelming.",
+  },
+  {
+    question: "Do you help students prepare for a specific upcoming tournament?",
+    answer:
+      "Yes, coaches can tailor sessions around an upcoming event a student has registered for, alongside the regular curriculum.",
+  },
+  {
+    question: "What does tournament coaching actually cover?",
+    answer:
+      "Rating-focused practice, positional understanding, endgame technique, and reviewing a student's own played games to find recurring mistakes under real game conditions — not just puzzles.",
+  },
+  {
+    question: "Is tournament coaching available online?",
+    answer:
+      "Yes, tournament preparation runs both online and offline at our Coimbatore centres, including game review sessions conducted over video call.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Tournament Coaching in Coimbatore | Darklight Chess Academy"
+  description="Tournament-focused chess coaching in Coimbatore — rating improvement, positional play and game review, plus regular academy tournaments for competitive exposure."
+  path="/tournament-chess-coaching/"
+>
+  <PageHero
+    eyebrow="Competitive Chess"
+    title="Chess Tournament Coaching in <span class='gold'>Coimbatore</span>"
+    subtitle="Rating-focused coaching for students preparing to compete — with regular academy tournaments as a stepping stone to bigger events."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Tournament Chess Coaching", path: "/tournament-chess-coaching/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Playing well in casual games and playing well under tournament conditions are different skills. Our tournament coaching track is built for students who already know the fundamentals and want to specifically improve their competitive results — through rating-focused practice, positional training, and honest review of their own games.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What's Covered</p>
+        <h2>Inside Tournament Coaching</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Rating Improvement</h3>
+          <p>Targeted practice on the specific gaps that show up in a student's rated or academy games, not generic drilling.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">♛</div>
+          <h3>Positional Play &amp; Endgames</h3>
+          <p>The strategic understanding and endgame technique that separates tactically-sharp beginners from consistently strong competitors.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Game Review</h3>
+          <p>Coaches go through a student's own played games to find recurring mistakes under real tournament pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Getting Competitive Experience</p>
+        <h2>Academy Tournaments as a Stepping Stone</h2>
+      </div>
+      <p>
+        We run regular academy-level tournaments specifically so students get real competitive experience — playing an unfamiliar opponent, managing a clock, handling a loss — in a familiar, encouraging setting before they enter open or FIDE-rated events. For a parent's-eye view of why this staged approach matters, read <a href="/blog/how-tournaments-build-your-childs-confidence/">how tournaments build your child's confidence</a>.
+      </p>
+      <p>
+        This track builds directly on our <a href="/chess-classes-coimbatore/">core chess classes</a> — most students move into tournament coaching once they've completed our beginner and intermediate material. If your child is newer to chess, start with <a href="/chess-classes-for-beginners/">beginner classes</a> or, for younger children, <a href="/chess-classes-for-kids-coimbatore/">kids' chess classes</a> first.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Get Tournament-Ready"
+        subtext="Book a free demo class and talk to a coach about your (or your child's) tournament goals."
+        course="Advanced Level"
+      />
+    </div>
+  </section>
+</BaseLayout>

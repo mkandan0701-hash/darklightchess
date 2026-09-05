@@ -1,0 +1,27 @@
+---
+import { SITE_URL } from "../../consts";
+
+interface Crumb {
+  name: string;
+  path: string; // e.g. "/" or "/chess-academy-coimbatore/"
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.name,
+    item: new URL(item.path, SITE_URL).toString(),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

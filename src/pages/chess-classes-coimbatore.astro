@@ -1,0 +1,154 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const faqs = [
+  {
+    question: "How are chess classes structured at Darklight?",
+    answer:
+      "Each class combines a short teaching segment on one topic (an opening idea, a tactic, an endgame technique), guided practice against a partner or the coach, and a review of what came up in those games. Classes are grouped by level, not just age, so the material matches what students already know.",
+  },
+  {
+    question: "What is a typical batch size?",
+    answer:
+      "We keep group batches small enough that a coach can watch every board during practice and give individual feedback in the same session, rather than teaching to the room and moving on.",
+  },
+  {
+    question: "Can I switch between online and offline classes?",
+    answer:
+      "Yes. Since both formats follow the same curriculum, students can move between them, or attend a mix — for example offline on weekends and online on a weekday — without falling behind.",
+  },
+  {
+    question: "How do I know which class level is right for my child?",
+    answer:
+      "Book a free demo class. A coach will play a few positions with your child and ask about prior experience, then recommend beginner, intermediate or advanced placement.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Classes in Coimbatore | Darklight Chess Academy"
+  description="Structured chess classes in Coimbatore for every level, online and offline. See how a Darklight class actually works, and find the right batch for you."
+  path="/chess-classes-coimbatore/"
+>
+  <PageHero
+    eyebrow="Coimbatore"
+    title="Chess Classes in <span class='gold'>Coimbatore</span>"
+    subtitle="What actually happens in a Darklight chess class — how levels are structured, how batches run, and how to find the right one."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Chess Classes in Coimbatore", path: "/chess-classes-coimbatore/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        "Chess classes" can mean very different things — a casual weekend club, an app-based course, or structured coaching with a curriculum and a coach who tracks your progress. At Darklight, it's the third one. This page walks through what a class actually looks like week to week, so you know what you're signing up for before you book a demo.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Inside a Class</p>
+        <h2>What a Darklight Chess Class Looks Like</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">1️⃣</div>
+          <h3>Teach</h3>
+          <p>A short, focused segment on one idea — an opening trap, a tactical pattern, an endgame technique — explained on the board.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">2️⃣</div>
+          <h3>Practice</h3>
+          <p>Students apply the idea immediately, in paired games or puzzle sets, while the coach moves between boards.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">3️⃣</div>
+          <h3>Review</h3>
+          <p>The coach walks through what actually happened in the practice games — including the mistakes — before the class ends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Choose Your Track</p>
+        <h2>Classes by Level</h2>
+      </div>
+      <div class="cards-grid four">
+        <div class="course-card">
+          <div class="course-icon">♟</div>
+          <h3>Beginner</h3>
+          <p>Rules, basic tactics and opening principles for total beginners of any age.</p>
+          <a href="/chess-classes-for-beginners/" class="card-learn-more">Learn more →</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">♞</div>
+          <h3>Kids-Focused</h3>
+          <p>Age-appropriate pacing and engagement techniques for younger children.</p>
+          <a href="/chess-classes-for-kids-coimbatore/" class="card-learn-more">Learn more →</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">♜</div>
+          <h3>Tournament Track</h3>
+          <p>Rating improvement and event-specific preparation for competitive players.</p>
+          <a href="/tournament-chess-coaching/" class="card-learn-more">Learn more →</a>
+        </div>
+        <div class="course-card">
+          <div class="course-icon">♛</div>
+          <h3>One-to-One</h3>
+          <p>Fully individual pacing for students who want personal attention.</p>
+          <a href="/one-to-one-chess-coaching/" class="card-learn-more">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Format</p>
+        <h2>Group Classes, Online, or Both</h2>
+      </div>
+      <p>
+        Most students join a group batch — learning alongside peers at a similar level keeps sessions competitive and fun, and group batches run both <a href="/chess-academy-coimbatore/">offline at our Coimbatore centres</a> and <a href="/online-chess-classes/">online</a>. Students who want individual pacing instead of a group can choose <a href="/one-to-one-chess-coaching/">one-to-one coaching</a>. There's no wrong choice here — it depends on whether your child learns better with peers around or with a coach's undivided attention.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Find Your Right Batch"
+        subtext="Book a free demo class and we'll place you at the level that actually fits — no guesswork."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>

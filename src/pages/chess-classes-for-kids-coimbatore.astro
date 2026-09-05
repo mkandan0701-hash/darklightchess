@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+const faqs = [
+  {
+    question: "What age can children start chess at Darklight?",
+    answer:
+      "We've taught children as young as 4–6 years old, and there's no strict minimum age — what matters more is whether a child can sit through a short focused activity. If you're unsure, a free demo class is the easiest way to check.",
+  },
+  {
+    question: "What happens in a beginner kids' chess class?",
+    answer:
+      "The coach introduces one idea at a time — how pieces move, then basic checkmates, then simple tactics — through short explanations and a lot of hands-on play. Young beginners spend most of the class actually playing, not listening to lectures.",
+  },
+  {
+    question: "How often should kids practice chess outside class?",
+    answer:
+      "A short, consistent habit beats long irregular sessions — most of our students do 15–20 minutes of puzzles a few times a week between classes. Coaches set specific homework each week rather than leaving practice open-ended.",
+  },
+  {
+    question: "How does Darklight track my child's progress?",
+    answer:
+      "Coaches keep informal notes on each student's recurring strengths and mistakes and adjust homework and in-class attention accordingly. You can ask your child's coach directly for an update on where they stand at any point.",
+  },
+  {
+    question: "When should my child start playing chess tournaments?",
+    answer:
+      "Once a child is comfortable with basic tactics and can complete a full game without a coach's help, we typically suggest an academy-level tournament first — a low-pressure setting to get used to competition — before moving to open or rated events.",
+  },
+  {
+    question: "Should my child do online or offline classes?",
+    answer:
+      "Younger children (roughly 4–7) often engage better in person, sitting at a real board with a coach across the table. Older children who are comfortable on a screen do very well online. Many families also mix both. See our full comparison in the blog for more detail.",
+  },
+  {
+    question: "How does a trial or demo class work?",
+    answer:
+      "You fill in the enquiry form or WhatsApp us with your child's age and experience. We schedule a free demo — online or at one of our Coimbatore centres — where a coach assesses your child's level and you can see how a class actually runs before committing.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Classes for Kids in Coimbatore | Darklight Chess Academy"
+  description="Chess classes for kids in Coimbatore, from first moves to tournament play. Age-appropriate coaching, progress tracking and a free demo class for every child."
+  path="/chess-classes-for-kids-coimbatore/"
+>
+  <PageHero
+    eyebrow="For Parents"
+    title="Chess Classes for <span class='gold'>Kids</span> in Coimbatore"
+    subtitle="Age-appropriate chess coaching for children in Coimbatore, from first moves to their first tournament — answers to the questions parents actually ask us."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Chess Classes for Kids in Coimbatore", path: "/chess-classes-for-kids-coimbatore/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Most parents who contact us about kids' chess classes have the same underlying questions: is my child too young (or too old) to start, what actually happens in a class, and how will I know if it's working? This page is written to answer exactly that, based on what our coaches see week to week teaching children in Coimbatore and online.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Getting Started</p>
+        <h2>What Age Can Children Start?</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">🧒</div>
+          <h3>Age 4–7: First Moves</h3>
+          <p>Piece movement, simple checkmates and basic rules, taught through play rather than explanation. In-person classes tend to hold attention best at this age.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧑</div>
+          <h3>Age 8–12: Building Skills</h3>
+          <p>Tactics, opening principles and early strategy, with academy-level friendly competition to build confidence.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧑‍🎓</div>
+          <h3>Age 13+: Competitive Play</h3>
+          <p>Deeper strategy, endgame technique and tournament preparation for students ready to compete seriously.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">In the Classroom</p>
+        <h2>What Happens in a Beginner Class</h2>
+      </div>
+      <p>
+        Young beginners learn best by playing, not by being lectured at. A typical first-level class introduces one concept — say, how the knight moves, or a basic checkmate pattern — and then gets students playing it out immediately in short paired games. The coach circulates, corrects mistakes on the spot, and reviews a couple of games with the whole group at the end. Homework is usually a small, specific puzzle set tied to that week's topic, not open-ended "practice more."
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Format</p>
+        <h2>Online vs Offline for Kids</h2>
+      </div>
+      <p>
+        Younger children generally focus better sitting at a real board with a coach in the room, which is why our <a href="/chess-academy-coimbatore/">offline Coimbatore centres</a> work well for the 4–7 age group. Older kids who are comfortable on screens often do just as well with <a href="/online-chess-classes/">online classes</a> — and it removes the commute entirely. If you're not sure which fits your child, our detailed <a href="/blog/online-vs-offline-chess-classes-coimbatore/">online vs offline guide</a> covers the trade-offs, or just ask us during the demo class.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Beyond the Classroom</p>
+        <h2>Progress Tracking, Homework &amp; Tournaments</h2>
+      </div>
+      <p>
+        Because classes are small, coaches get to know each child's specific gaps — not just "needs to improve" but which pattern they keep missing. That shapes both in-class attention and weekly homework. When a child is ready, we recommend starting with an <a href="/tournament-chess-coaching/">academy-level tournament</a> rather than jumping straight into an open or rated event — it's real competition without the pressure of an unfamiliar hall full of strangers. Read more about why this staged approach works in <a href="/blog/how-tournaments-build-your-childs-confidence/">how tournaments build your child's confidence</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions Parents Ask Us</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="See How Your Child Takes to Chess"
+        subtext="Book a free demo class — a coach will assess your child's level and recommend the right batch, with no obligation."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>
