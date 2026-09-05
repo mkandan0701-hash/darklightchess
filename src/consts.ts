@@ -3,7 +3,7 @@
 // hardcoding these values, so they can never drift out of sync again.
 
 export const SITE_NAME = "Darklight Chess Academy";
-export const SITE_URL = "https://darklightchess.com";
+export const SITE_URL = "https://www.darklightchess.com";
 export const SITE_TAGLINE = "Because every move matters.";
 
 export const PHONE_DISPLAY = "+91 83001 55259";
