@@ -110,6 +110,7 @@ ul { list-style: none; }
 .hero h1 .gold { color: var(--gold); }
 .hero-sub { font-size: 1.1rem; color: #d9d9ea; max-width: 620px; margin-bottom: 2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.4rem; }
+.hero-microtrust { font-size: 0.85rem; color: #b9b9d6; margin: -1.2rem 0 1.4rem; }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 .hero-badges span {
   background: rgba(255, 255, 255, 0.09);
