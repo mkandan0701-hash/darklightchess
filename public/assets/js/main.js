@@ -32,8 +32,8 @@
   }
 
   let loaderTimer;
-  function navigateWithLoader(hash, label) {
-    const target = document.querySelector(hash);
+  function navigateWithLoader(hash, label, scrollTarget) {
+    const target = scrollTarget || document.querySelector(hash);
     if (!target) return;
     if (reducedMotion) {
       target.scrollIntoView();
@@ -44,9 +44,15 @@
     loaderText.textContent = `Loading ${label}…`;
     pageLoader.classList.add("active");
     pageLoader.setAttribute("aria-hidden", "false");
-    // jump while the board covers the screen, then reveal the new section
+    // Jump while the board covers the screen, then reveal the new section.
+    // "instant" (not "auto") forces a true single-frame jump regardless of
+    // the page's global smooth-scroll CSS — otherwise the browser still
+    // animates the scroll, and on the homepage that means visibly scrolling
+    // past the lazy-loaded gallery images further up the page. Those images
+    // load in as they enter view and shift the layout mid-scroll, throwing
+    // off the landing position (e.g. the contact form below).
     loaderTimer = setTimeout(() => {
-      target.scrollIntoView({ behavior: "auto" });
+      target.scrollIntoView({ behavior: "instant" });
       history.replaceState(null, "", hash);
       loaderTimer = setTimeout(() => {
         pageLoader.classList.remove("active");
@@ -81,7 +87,11 @@
           return;
         }
         e.preventDefault();
-        navigateWithLoader(hash, a.textContent.trim());
+        // Demo/course CTAs (they carry data-course) should land straight on
+        // the form fields, not just the top of the long contact section.
+        const scrollTarget =
+          course && hash === "#contact" ? document.getElementById("enquiryForm") : null;
+        navigateWithLoader(hash, a.textContent.trim(), scrollTarget);
       }
     })
   );
@@ -255,7 +265,16 @@
         courseSelect.value = course;
         courseSelect.dispatchEvent(new Event("change"));
       }
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      // Jump straight to the form fields, not just the top of the (long,
+      // two-column-on-desktop/stacked-on-mobile) contact section — otherwise
+      // mobile visitors land above the contact-info block and have to keep
+      // scrolling to actually reach the form. Routed through the page-loader
+      // helper so the jump is instant (under the loader cover) instead of an
+      // animated scroll through the lazy-loaded gallery further up the page,
+      // which shifts layout as its images load and throws off a plain
+      // scrollIntoView({behavior:"smooth"}) mid-flight.
+      const scrollTarget = document.getElementById("enquiryForm") || contactSection;
+      navigateWithLoader("#contact", btn.textContent.trim(), scrollTarget);
     })
   );
 
