@@ -1,6 +1,6 @@
 ---
 import Marquee from "./Marquee.astro";
-import { globalCountries } from "../data/countries";
+import { countriesServed, globalCountries } from "../data/countries";
 
 // Windows doesn't ship colour flag emoji, so load Noto Color Emoji subset to just these flags.
 const flagText = encodeURIComponent(globalCountries.map((c) => c.flag).join(""));
@@ -19,7 +19,7 @@ const secondRow = globalCountries.slice(half);
     <div class="section-head reveal">
       <p class="gp-eyebrow">— Global Presence —</p>
       <h2 class="gp-title">Our Global Presence</h2>
-      <p class="gp-desc">Students from {globalCountries.length}+ Countries choose Darklight Chess Academy, including:</p>
+      <p class="gp-desc">Students from {countriesServed}+ Countries choose Darklight Chess Academy, including:</p>
     </div>
   </div>
   <div class="gp-rows">

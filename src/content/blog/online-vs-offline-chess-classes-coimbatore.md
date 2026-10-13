@@ -1,6 +1,6 @@
 ---
 title: "Online vs Offline Chess Classes: Which Is Right for You?"
-description: "Darklight Chess Academy teaches both formats every week — online across 8+ countries and offline in Coimbatore. Here's the honest comparison we give every parent."
+description: "Darklight Chess Academy teaches both formats every week — online across 30+ countries and offline in Coimbatore. Here's the honest comparison we give every parent."
 primaryKeyword: "online vs offline chess classes Coimbatore"
 secondaryKeywords:
   - "online chess classes in Coimbatore"
@@ -13,7 +13,7 @@ publishDate: 2025-12-05
 draft: false
 ---
 
-Darklight teaches both formats every week — [online batches](/online-chess-classes/) across 8+ countries and offline centers in [Coimbatore](/chess-academy-coimbatore/). Neither is "better"; they suit different families. Here's the honest comparison we give every parent at counselling.
+Darklight teaches both formats every week — [online batches](/online-chess-classes/) across 30+ countries and offline centers in [Coimbatore](/chess-academy-coimbatore/). Neither is "better"; they suit different families. Here's the honest comparison we give every parent at counselling.
 
 ## Choose online if…
 
