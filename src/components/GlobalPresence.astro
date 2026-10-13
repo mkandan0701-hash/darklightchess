@@ -6,9 +6,10 @@ import { globalCountries } from "../data/countries";
 const flagText = encodeURIComponent(globalCountries.map((c) => c.flag).join(""));
 const emojiFontHref = `https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap&text=${flagText}`;
 
-// Offset the second row so the two rows don't line up.
-const half = Math.floor(globalCountries.length / 2);
-const secondRow = [...globalCountries.slice(half), ...globalCountries.slice(0, half)];
+// Each row shows a different half of the list.
+const half = Math.ceil(globalCountries.length / 2);
+const firstRow = globalCountries.slice(0, half);
+const secondRow = globalCountries.slice(half);
 ---
 
 <link rel="stylesheet" href={emojiFontHref} />
@@ -18,12 +19,11 @@ const secondRow = [...globalCountries.slice(half), ...globalCountries.slice(0, h
     <div class="section-head reveal">
       <p class="gp-eyebrow">— Global Presence —</p>
       <h2 class="gp-title">Our Global Presence</h2>
-      <p class="gp-subtitle">Connecting Young Chess Minds Across Borders.</p>
-      <p class="gp-desc">Students from {globalCountries.length}+ countries choose Darklight Chess Academy for professional chess coaching.</p>
+      <p class="gp-desc">Students from {globalCountries.length}+ Countries choose Darklight Chess Academy, including:</p>
     </div>
   </div>
   <div class="gp-rows">
-    <Marquee items={globalCountries} direction="left" duration={40} label="Countries our students come from" />
-    <Marquee items={secondRow} direction="right" duration={45} label="Countries our students come from (continued)" />
+    <Marquee items={firstRow} direction="left" duration={40} label="Countries our students come from" />
+    <Marquee items={secondRow} direction="right" duration={45} label="More countries our students come from" />
   </div>
 </section>
