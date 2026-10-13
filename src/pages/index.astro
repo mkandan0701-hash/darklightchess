@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogCard from "../components/BlogCard.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
+import GlobalPresence from "../components/GlobalPresence.astro";
 import {
   BRANCH_SAIBABA_COLONY,
   BRANCH_SOWRIPALAYAM,
@@ -61,6 +62,9 @@ import { homeFaqs } from "../data/faq-home";
       </div>
     </div>
   </section>
+
+  <!-- ============ GLOBAL PRESENCE ============ -->
+  <GlobalPresence />
 
   <!-- ============ ABOUT ============ -->
   <section class="section about" id="about">

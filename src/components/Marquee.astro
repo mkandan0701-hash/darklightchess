@@ -1,0 +1,48 @@
+---
+import type { Country } from "../data/countries";
+
+interface Props {
+  items: Country[];
+  direction?: "left" | "right";
+  duration?: number; // seconds per full cycle
+  label: string;
+  minItems?: number; // badges per group — enough to cover wide viewports
+}
+
+const { items, direction = "left", duration = 40, label, minItems = 16 } = Astro.props;
+
+// One group = the real list plus enough repeats to be wider than the viewport.
+// The track holds two identical groups and animates by exactly one group (-50%),
+// so the loop point is invisible.
+const repeats = Math.max(0, Math.ceil(minItems / Math.max(items.length, 1)) - 1);
+const padding = Array.from({ length: repeats }, () => items).flat();
+---
+
+<div
+  class={`marquee marquee-${direction}`}
+  role="region"
+  aria-label={label}
+  style={`--marquee-duration:${duration}s`}
+>
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <ul class="marquee-list">
+        {items.map((c) => (
+          <li class="country-badge"><span class="country-flag" aria-hidden="true">{c.flag}</span>{c.name}</li>
+        ))}
+      </ul>
+      {padding.length > 0 && (
+        <div class="marquee-list marquee-dup" aria-hidden="true">
+          {padding.map((c) => (
+            <span class="country-badge"><span class="country-flag">{c.flag}</span>{c.name}</span>
+          ))}
+        </div>
+      )}
+    </div>
+    <div class="marquee-group marquee-dup" aria-hidden="true">
+      {[...items, ...padding].map((c) => (
+        <span class="country-badge"><span class="country-flag">{c.flag}</span>{c.name}</span>
+      ))}
+    </div>
+  </div>
+</div>
