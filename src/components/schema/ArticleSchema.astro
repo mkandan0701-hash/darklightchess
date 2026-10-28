@@ -1,5 +1,5 @@
 ---
-import { SITE_NAME, SITE_URL } from "../../consts";
+import { ORG_ID, SITE_NAME, SITE_URL } from "../../consts";
 
 interface Props {
   title: string;
@@ -8,28 +8,28 @@ interface Props {
   publishDate: Date;
   updatedDate?: Date;
   image?: string;
+  author?: string;
 }
 
-const { title, description, path, publishDate, updatedDate, image } = Astro.props;
+const { title, description, path, publishDate, updatedDate, image, author = SITE_NAME } = Astro.props;
+const url = new URL(path, SITE_URL).toString();
 
 const schema: Record<string, unknown> = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   headline: title,
   description,
-  url: new URL(path, SITE_URL).toString(),
+  url,
+  mainEntityOfPage: url,
+  inLanguage: "en",
   datePublished: publishDate.toISOString(),
   dateModified: (updatedDate ?? publishDate).toISOString(),
-  author: {
-    "@type": "Organization",
-    name: SITE_NAME,
-    url: SITE_URL,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: SITE_NAME,
-    url: SITE_URL,
-  },
+  // Posts are attributed to the academy unless a named coach wrote them.
+  author:
+    author === SITE_NAME
+      ? { "@id": ORG_ID }
+      : { "@type": "Person", name: author, worksFor: { "@id": ORG_ID } },
+  publisher: { "@id": ORG_ID },
 };
 
 if (image) {

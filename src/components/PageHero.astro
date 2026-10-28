@@ -22,5 +22,6 @@ const { eyebrow, title, subtitle, breadcrumbItems } = Astro.props;
     <p class="eyebrow">{eyebrow}</p>
     <h1 set:html={title} />
     <p class="page-hero-sub">{subtitle}</p>
+    <slot />
   </div>
 </section>

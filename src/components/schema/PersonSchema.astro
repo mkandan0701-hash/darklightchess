@@ -1,0 +1,29 @@
+---
+// Person markup for a coach profile. Use only the role and achievements shown
+// on the page — never add credentials the academy hasn't published.
+import { ORG_ID, SITE_URL } from "../../consts";
+
+interface Props {
+  name: string;
+  jobTitle: string;
+  path: string; // page + anchor, e.g. "/coaches/#marimuthu-k"
+  image?: string;
+  description?: string;
+}
+
+const { name, jobTitle, path, image, description } = Astro.props;
+
+const schema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": new URL(path, SITE_URL).toString(),
+  name,
+  jobTitle,
+  url: new URL(path, SITE_URL).toString(),
+  worksFor: { "@id": ORG_ID },
+};
+if (image) schema.image = new URL(image, SITE_URL).toString();
+if (description) schema.description = description;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

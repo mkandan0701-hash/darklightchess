@@ -3,13 +3,26 @@
 // owner decision (2026-09-05). The Sowripalayam branch is described in page
 // content and has its own map embed, but does not get a separate top-level
 // LocalBusiness entity to keep local-pack signals focused on one location.
-import { EMAIL, PHONE_TEL, PRIMARY_BRANCH, SITE_NAME, SITE_URL, SOCIALS } from "../../consts";
+import {
+  EMAIL,
+  LOCAL_BUSINESS_ID,
+  LOGO_PATH,
+  ORG_ID,
+  PHONE_TEL,
+  PRIMARY_BRANCH,
+  SITE_NAME,
+  SITE_URL,
+  SOCIALS,
+} from "../../consts";
 
 const schema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "EducationalOrganization"],
+  "@id": LOCAL_BUSINESS_ID,
   name: SITE_NAME,
-  url: SITE_URL,
+  url: new URL("/chess-academy-coimbatore/", SITE_URL).toString(),
+  image: new URL(LOGO_PATH, SITE_URL).toString(),
+  parentOrganization: { "@id": ORG_ID },
   telephone: PHONE_TEL,
   email: EMAIL,
   address: {

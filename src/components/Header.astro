@@ -1,26 +1,28 @@
 ---
 import { LOGO_PATH } from "../consts";
+import { imageSize } from "../lib/image-size";
+
+const logo = imageSize(LOGO_PATH);
 ---
 
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="/" class="brand">
-      <img src={LOGO_PATH} alt="Darklight Chess Academy logo" />
+      <img src={LOGO_PATH} alt="Darklight Chess Academy logo" width={logo.width} height={logo.height} />
       <span>Darklight <em>Chess Academy</em></span>
     </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#courses">Courses</a>
-      <a href="#coaches">Coaches</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#testimonials">Testimonials</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="/#home" class="active">Home</a>
+      <a href="/online-chess-classes/">Online Classes</a>
+      <a href="/#courses">Courses</a>
+      <a href="/coaches/">Coaches</a>
+      <a href="/about/">About</a>
+      <a href="/#testimonials">Testimonials</a>
       <a href="/blog/">Blog</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-gold nav-cta" data-course="Free Demo Class">Book a Free Demo</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#contact" class="btn btn-gold nav-cta" data-course="Free Demo Class">Book a Free Demo</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>

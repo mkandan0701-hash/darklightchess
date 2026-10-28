@@ -71,21 +71,19 @@
       navLinks.classList.remove("open");
       hamburger.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
-      const hash = a.getAttribute("href");
-      if (hash && hash.startsWith("#")) {
+      // Nav links are real, crawlable "/#section" URLs. On the homepage we
+      // intercept them for the loader + in-page jump; elsewhere the browser
+      // simply follows the href to the homepage section.
+      const href = a.getAttribute("href") || "";
+      const hash = href.startsWith("/#") ? href.slice(1) : href.startsWith("#") ? href : null;
+      if (hash) {
         // nav CTA can preselect a course before jumping to the form
         const course = a.dataset.course;
         if (course) {
           const sel = document.getElementById("fCourse");
           if (sel) sel.value = course;
         }
-        // On pages that don't have this section (anything but the homepage),
-        // fall back to a real navigation to the homepage anchor instead of
-        // silently doing nothing.
-        if (!document.querySelector(hash)) {
-          window.location.href = "/" + hash;
-          return;
-        }
+        if (!document.querySelector(hash)) return;
         e.preventDefault();
         // Demo/course CTAs (they carry data-course) should land straight on
         // the form fields, not just the top of the long contact section.
@@ -98,7 +96,7 @@
 
   /* ---------- Active nav link on scroll ---------- */
   const sections = [...document.querySelectorAll("section[id]")];
-  const linkFor = (id) => navLinks.querySelector(`a[href="#${id}"]:not(.btn)`);
+  const linkFor = (id) => navLinks.querySelector(`a[href="/#${id}"]:not(.btn)`);
   const sectionSpy = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -320,6 +318,10 @@
           `Course: ${data.course}`,
           `Mode: ${data.mode}`,
           `Age group: ${data.age}`,
+          data.country ? `Country: ${data.country}` : "",
+          data.timezone ? `Time zone: ${data.timezone}` : "",
+          data.experience ? `Experience: ${data.experience}` : "",
+          data.page ? `Page: ${data.page}` : "",
           data.message ? `Message: ${data.message}` : "",
         ].filter(Boolean).join(" | "),
       };
@@ -347,12 +349,24 @@
       age: (v) => (v ? "" : "Please choose an age group."),
       mode: (v) => (v ? "" : "Please choose a mode."),
       course: (v) => (v ? "" : "Please choose a level."),
+      country: (v) => (v ? "" : "Please choose a country."),
+      experience: (v) => (v ? "" : "Please choose an experience level."),
+      consent: (v, el) => (el.checked ? "" : "Please tick to agree before submitting."),
     };
+
+    // Prefill the visitor's time zone (editable) so coaches can offer slots.
+    const tzInput = document.getElementById("fTimezone");
+    const prefillTimezone = () => {
+      try {
+        if (tzInput && !tzInput.value) tzInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      } catch (_) { /* Intl unavailable — leave blank */ }
+    };
+    prefillTimezone();
 
     function validateField(input) {
       const check = validators[input.name];
       if (!check) return true;
-      const msg = check(input.value);
+      const msg = check(input.value, input);
       const group = input.closest(".form-group");
       group.classList.toggle("invalid", !!msg);
       const err = group.querySelector(".err");
@@ -377,6 +391,15 @@
       }
 
       const data = Object.fromEntries(new FormData(form).entries());
+      // Honeypot filled in → almost certainly a bot. Pretend success, send nothing.
+      const isBot = !!data._honey;
+      delete data._honey;
+      if (isBot) {
+        statusBox.className = "form-status ok";
+        statusBox.textContent = "✅ Thank you! Your enquiry has been sent.";
+        form.reset();
+        return;
+      }
       data.submittedAt = new Date().toISOString();
 
       // Keep a local copy of every enquiry (viewable in DevTools > Application > Local Storage)
@@ -413,9 +436,15 @@
       }
 
       const waText = encodeURIComponent(
-        `Hi Darklight Chess Academy! I'm ${data.name}. I'd like to enquire about "${data.course}" (${data.mode}, age group ${data.age}). ${data.message || ""}`
+        `Hi Darklight Chess Academy! I'm ${data.name}${data.country ? ` from ${data.country}` : ""}. I'd like to enquire about "${data.course}" (${data.mode}, age group ${data.age}). ${data.message || ""}`
       );
       const waLink = `https://wa.me/${WHATSAPP}?text=${waText}`;
+
+      // Conversion signal for analytics, if a tag manager / GA4 is added later.
+      // No analytics script is loaded by the site today, so this is a no-op.
+      if (Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({ event: "generate_lead", lead_course: data.course, lead_mode: data.mode, lead_country: data.country, lead_page: data.page });
+      }
 
       if (delivered) {
         statusBox.className = "form-status ok";
@@ -424,6 +453,7 @@
           `We'll get back to you within 24 hours.<br/>` +
           `Want a faster reply? <a href="${waLink}" target="_blank" rel="noopener"><strong>Message us on WhatsApp →</strong></a>`;
         form.reset();
+        prefillTimezone();
       } else {
         statusBox.className = "form-status ok";
         statusBox.innerHTML =
@@ -431,6 +461,7 @@
           `To reach us instantly, <a href="${waLink}" target="_blank" rel="noopener"><strong>send it on WhatsApp →</strong></a> ` +
           `or call <a href="tel:+918300155259">+91 83001 55259</a>.`;
         form.reset();
+        prefillTimezone();
       }
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Enquiry ♞";

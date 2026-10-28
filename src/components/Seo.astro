@@ -1,33 +1,71 @@
 ---
 import { DEFAULT_OG_IMAGE, SITE_NAME } from "../consts";
+import { absoluteUrl, alternatesFor, isNoindexPath } from "../lib/seo";
+import { imageSize } from "../lib/image-size";
 
 interface Props {
   title: string;
   description: string;
   path: string; // e.g. "/chess-academy-coimbatore/"
   image?: string;
-  noindex?: boolean;
+  imageAlt?: string;
+  noindex?: boolean; // hard noindex, nofollow (e.g. 404)
+  ogType?: "website" | "article";
+  locale?: string; // og:locale, e.g. "en_GB"
+  publishedTime?: Date;
+  modifiedTime?: Date;
 }
 
-const { title, description, path, image = DEFAULT_OG_IMAGE, noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  path,
+  image = DEFAULT_OG_IMAGE,
+  imageAlt = title,
+  noindex = false,
+  ogType = "website",
+  locale = "en_IN",
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
 
-const canonicalUrl = new URL(path, Astro.site).toString();
-const ogImageUrl = new URL(image, Astro.site).toString();
+const canonicalUrl = absoluteUrl(path);
+const ogImageUrl = absoluteUrl(image);
+const ogImageSize = imageSize(image);
+// Pages listed in NOINDEX_PATHS are built but held back from the index; their
+// links are still followed. Hreflang is only emitted for indexable cluster pages.
+const heldBack = !noindex && isNoindexPath(path);
+const robots = noindex
+  ? "noindex, nofollow"
+  : heldBack
+    ? "noindex, follow"
+    : "index, follow, max-image-preview:large";
+const alternates = noindex || heldBack ? [] : alternatesFor(path);
+const gscToken = import.meta.env.PUBLIC_GSC_VERIFICATION;
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta name="robots" content={robots} />
+{alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+{gscToken && <meta name="google-site-verification" content={gscToken} />}
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content={locale} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content={String(ogImageSize.width)} />
+<meta property="og:image:height" content={String(ogImageSize.height)} />
+<meta property="og:image:alt" content={imageAlt} />
+{publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />

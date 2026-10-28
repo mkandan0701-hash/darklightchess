@@ -1,0 +1,25 @@
+---
+// <img> with intrinsic width/height filled in at build time (prevents layout
+// shift). Lazy + async by default; pass eager for above-the-fold images.
+import type { HTMLAttributes } from "astro/types";
+import { imageSize } from "../lib/image-size";
+
+interface Props extends HTMLAttributes<"img"> {
+  src: string;
+  alt: string;
+  eager?: boolean;
+}
+
+const { src, alt, eager = false, ...rest } = Astro.props;
+const { width, height } = imageSize(src);
+---
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={eager ? "eager" : "lazy"}
+  decoding="async"
+  {...rest}
+/>
