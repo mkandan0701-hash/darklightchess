@@ -3,6 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogCard from "../components/BlogCard.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
 import GlobalPresence from "../components/GlobalPresence.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
+import Img from "../components/Img.astro";
+import { coaches } from "../data/coaches";
 import {
   BRANCH_SAIBABA_COLONY,
   BRANCH_SOWRIPALAYAM,
@@ -15,9 +18,10 @@ import { homeFaqs } from "../data/faq-home";
 ---
 
 <BaseLayout
-  title="Darklight Chess Academy | Chess Classes & Coaching in Coimbatore"
-  description="Darklight Chess Academy offers structured chess classes and coaching in Coimbatore for kids, beginners and tournament players, with online and offline options."
+  title="Darklight Chess Academy | Online Chess Academy & Coaching"
+  description="Live online chess classes for kids and adults worldwide with FIDE-rated coaches, from beginner to tournament level — plus offline centres in Coimbatore. Free demo."
   path="/"
+  preloadImage="/assets/images/hero-kid-web.jpg"
   includeLocalBusinessSchema={true}
 >
   <!-- ============ HERO ============ -->
@@ -46,7 +50,7 @@ import { homeFaqs } from "../data/faq-home";
     <div class="container stats-grid">
       <div class="stat reveal">
         <span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span>
-        <p>Students Enrolled</p>
+        <p>Students Taught</p>
       </div>
       <div class="stat reveal">
         <span class="stat-num" data-count="25">0</span><span class="stat-plus">+</span>
@@ -75,17 +79,17 @@ import { homeFaqs } from "../data/faq-home";
       </div>
       <div class="about-grid">
         <div class="about-media reveal">
-          <img src="/assets/images/gallery-b4.jpg" alt="Students learning chess at Darklight Chess Academy" />
+          <Img src="/assets/images/gallery-b4.jpg" alt="Students learning chess at Darklight Chess Academy" />
           <div class="about-card">
             <p>"Darklight Chess Academy was a dream for me, and I started it with an aim to empower chess coaches and explore the world of chess with a motive to take chess to all the people across the globe."</p>
             <span>— Karuppasamy, Founder</span>
           </div>
         </div>
         <div class="about-text reveal">
-          <p>Darklight Chess Academy, based in Tamil Nadu, India, is a growing hub for chess enthusiasts of all levels — from curious beginners to seasoned masters. With over 70+ active students across our physical centers and online platforms, we've built a learning ecosystem where both players and coaches thrive.</p>
+          <p>Darklight Chess Academy, based in Tamil Nadu, India, is a growing hub for chess enthusiasts of all levels — from curious beginners to seasoned masters. With 70+ currently active students across our physical centers and online platforms, we've built a learning ecosystem where both players and coaches thrive.</p>
           <p>Our mission is clear: <strong>to make world-class chess coaching accessible to everyone, anywhere.</strong> Whether our students are learning in person or remotely, they benefit from structured training, personalized mentorship, and performance-driven coaching.</p>
           <ul class="check-list">
-            <li><a href="/online-chess-classes/">Online chess classes</a> available across India &amp; internationally</li>
+            <li><a href="/online-chess-classes/">Online chess classes</a> for students in the <a href="/online-chess-classes-usa/">USA</a>, <a href="/online-chess-classes-uk/">UK</a>, <a href="/online-chess-classes-canada/">Canada</a>, <a href="/online-chess-classes-india/">India</a> and beyond</li>
             <li><a href="/chess-academy-coimbatore/">Offline coaching centers in Coimbatore</a>, Tamil Nadu</li>
             <li>Individual and group classes — learn with chess buddies or one-on-one</li>
             <li>Regular academy tournaments to learn, compete and grow</li>
@@ -153,13 +157,13 @@ import { homeFaqs } from "../data/faq-home";
         <p class="section-sub">Whether you're starting fresh or looking to compete at the highest level — online access globally and offline centers in Tamil Nadu.</p>
       </div>
       <div class="program-links reveal">
-        <a href="/chess-academy-coimbatore/">Chess Academy in Coimbatore</a>
-        <a href="/chess-classes-coimbatore/">Chess Classes in Coimbatore</a>
-        <a href="/chess-classes-for-kids-coimbatore/">Kids Chess Classes</a>
+        <a href="/online-chess-classes/">Online Classes for Kids</a>
         <a href="/chess-classes-for-beginners/">Beginner Classes</a>
-        <a href="/online-chess-classes/">Online Classes</a>
-        <a href="/tournament-chess-coaching/">Tournament Coaching</a>
-        <a href="/one-to-one-chess-coaching/">One-to-One Coaching</a>
+        <a href="/advanced-chess-training/">Intermediate &amp; Advanced</a>
+        <a href="/tournament-chess-coaching/">Tournament Preparation</a>
+        <a href="/one-to-one-chess-coaching/">Private 1-to-1 Lessons</a>
+        <a href="/chess-academy-coimbatore/">Chess Academy in Coimbatore</a>
+        <a href="/chess-classes-for-kids-coimbatore/">Kids Classes in Coimbatore</a>
       </div>
       <div class="cards-grid four">
         <div class="course-card reveal">
@@ -182,7 +186,7 @@ import { homeFaqs } from "../data/faq-home";
             <li>Includes practice tournaments &amp; endgame study</li>
           </ul>
           <button class="btn btn-purple book-btn" data-course="Intermediate Level">Book Now</button>
-          <a href="/chess-classes-coimbatore/" class="card-learn-more">Learn more →</a>
+          <a href="/advanced-chess-training/" class="card-learn-more">Learn more →</a>
         </div>
         <div class="course-card reveal">
           <div class="course-icon">♜</div>
@@ -193,7 +197,7 @@ import { homeFaqs } from "../data/faq-home";
             <li>FIDE-compliant training plans</li>
           </ul>
           <button class="btn btn-purple book-btn" data-course="Advanced Level">Book Now</button>
-          <a href="/tournament-chess-coaching/" class="card-learn-more">Learn more →</a>
+          <a href="/advanced-chess-training/" class="card-learn-more">Learn more →</a>
         </div>
         <div class="course-card reveal">
           <div class="course-icon">♛</div>
@@ -224,61 +228,24 @@ import { homeFaqs } from "../data/faq-home";
         <p class="section-sub light-sub">Shaping top chess talent across India and internationally at Darklight Chess Academy.</p>
       </div>
       <div class="coach-grid">
-        <article class="coach-card featured reveal">
-          <div class="coach-photo"><img src="/assets/images/founder-karuppasamy.jpg" alt="Karuppasamy – Founder of Darklight Chess Academy" /></div>
-          <div class="coach-info">
-            <h3>Karuppasamy</h3>
-            <p class="coach-role">Founder of DLCA cum Coach</p>
-            <blockquote>"Chess isn't just a game — it's a lifestyle. There's no age limit to learning or mastering it."</blockquote>
-            <p class="coach-bio">A passionate mentor and visionary, Karuppasamy founded Darklight Chess Academy with a bold ambition: to empower chess coaches and spread chess culture globally. His belief in lifelong learning and chess as a tool for personal development drives our academy's core.</p>
-          </div>
-        </article>
-        <article class="coach-card featured reveal">
-          <div class="coach-photo"><img src="/assets/images/cofounder-manikandan.jpg" alt="Manikandan – Co-founder and Head Coach" /></div>
-          <div class="coach-info">
-            <h3>Manikandan</h3>
-            <p class="coach-role">Co-Founder and Head Coach</p>
-            <blockquote>"The excitement in our students when they share victories — from living rooms to international arenas — is what fuels us every day."</blockquote>
-            <p class="coach-bio">Manikandan plays a pivotal role in operations and quality control, ensuring that every student and coach gets the guidance they need to succeed.</p>
-            <p class="coach-achievement">🏅 Under-15 National Championship Participant (2016), Tamil Nadu State Medalist.</p>
-          </div>
-        </article>
-        <article class="coach-card reveal">
-          <div class="coach-photo"><img src="/assets/images/coach-marimuthu.jpg" alt="Marimuthu K – Head Coach" /></div>
-          <div class="coach-info">
-            <h3>Marimuthu K</h3>
-            <p class="coach-role">Head Coach</p>
-            <blockquote>"Patience and discipline are at the heart of every good move."</blockquote>
-            <p class="coach-achievement">🏅 Represented India at Olympiad in Greece 2021, Multiple-time National Champion in Open FIDE (VI).</p>
-          </div>
-        </article>
-        <article class="coach-card reveal">
-          <div class="coach-photo"><img src="/assets/images/coach-gopinath.jpg" alt="Gopinath – Head Coach" /></div>
-          <div class="coach-info">
-            <h3>Gopinath</h3>
-            <p class="coach-role">Head Coach</p>
-            <blockquote>"Remote training doesn't mean remote results."</blockquote>
-            <p class="coach-achievement">🏅 Open FIDE Title Winner.</p>
-          </div>
-        </article>
-        <article class="coach-card reveal">
-          <div class="coach-photo"><img src="/assets/images/coach-mega.jpg" alt="Mega Chakraborty – Head Coach" /></div>
-          <div class="coach-info">
-            <h3>Mega Chakraborty</h3>
-            <p class="coach-role">Head Coach</p>
-            <blockquote>"Vision is not what the eyes see, but what the mind foresees on the board."</blockquote>
-            <p class="coach-achievement">🏅 Asian Silver Medalist, Represented India in World Women Championship (VI) 2024.</p>
-          </div>
-        </article>
-        <article class="coach-card reveal">
-          <div class="coach-photo monogram"><span>S</span></div>
-          <div class="coach-info">
-            <h3>Shankaranarayanan</h3>
-            <p class="coach-role">Head Coach</p>
-            <blockquote>"Every pawn has the power to become a queen — it's the journey that matters."</blockquote>
-          </div>
-        </article>
+        {coaches.map((c) => (
+          <article class={`coach-card reveal${c.featured ? " featured" : ""}`}>
+            {c.image ? (
+              <div class="coach-photo"><Img src={c.image} alt={c.imageAlt ?? c.name} /></div>
+            ) : (
+              <div class="coach-photo monogram"><span>{c.name.charAt(0)}</span></div>
+            )}
+            <div class="coach-info">
+              <h3>{c.name}</h3>
+              <p class="coach-role">{c.role}</p>
+              <blockquote>"{c.quote}"</blockquote>
+              {c.bio && <p class="coach-bio">{c.bio}</p>}
+              {c.achievement && <p class="coach-achievement">🏅 {c.achievement}</p>}
+            </div>
+          </article>
+        ))}
       </div>
+      <p style="text-align:center; margin-top:2.2rem;"><a href="/coaches/" class="btn btn-gold">Meet All Our Coaches</a></p>
     </div>
   </section>
 
@@ -297,38 +264,39 @@ import { homeFaqs } from "../data/faq-home";
       </div>
       <div class="gallery-grid reveal">
         <!-- Student Achievements -->
-        <img data-cat="achievement" src="/assets/images/gallery-a8.jpg"  alt="Anuroop – winner of the 1st Intra Academy Level Chess Tournament" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-b1.jpg"  alt="Young student with his trophy and medal" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-a11.jpg" alt="Aayush – 1st place in Silver Knight tournament, USA" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-b7.jpg"  alt="Hasvanth – 2nd place, Intra Academy Chess Tournament" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-a12.jpg" alt="Devansh – achieving in New Delhi Open" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-b6.jpg"  alt="Student holding his tournament trophy" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-a13.jpg" alt="Sanjeeth S N – Under 07 champion" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-b10.jpg" alt="Adithya Prabhu – 3rd place, Intra Academy Chess Tournament" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-a9.jpg"  alt="Shiva Prabhu – youngest player of the academy" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-new1.jpg" alt="Champion Aayush – states tournament, USA" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/poster-harinandan.jpg" alt="Harinandan – 1st place, USA Chess Festival" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/poster-virat.jpg" alt="Virat – 2nd place, Grand Chess Tournament 2026" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/poster-trichy-champion.jpg" alt="Champion – Star Chess Foundation International Open, Trichy 2026" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/poster-harinanthan.jpg" alt="Harinanthan – Continental Chess Concord Tournament, California" loading="lazy" />
-        <img data-cat="achievement" src="/assets/images/gallery-new2.jpg" alt="Champ Sudhindra – state level tournament, Under 10" loading="lazy" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a8.jpg" alt="Anuroop – winner of the 1st Intra Academy Level Chess Tournament" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b1.jpg" alt="Young student with his trophy and medal" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a11.jpg" alt="Aayush – 1st place in Silver Knight tournament, USA" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b7.jpg" alt="Hasvanth – 2nd place, Intra Academy Chess Tournament" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a12.jpg" alt="Devansh – achieving in New Delhi Open" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b6.jpg" alt="Student holding his tournament trophy" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a13.jpg" alt="Sanjeeth S N – Under 07 champion" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b10.jpg" alt="Adithya Prabhu – 3rd place, Intra Academy Chess Tournament" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a9.jpg" alt="Shiva Prabhu – youngest player of the academy" />
+        <Img data-cat="achievement" src="/assets/images/gallery-new1.jpg" alt="Champion Aayush – states tournament, USA" />
+        <Img data-cat="achievement" src="/assets/images/poster-harinandan.jpg" alt="Harinandan – 1st place, USA Chess Festival" />
+        <Img data-cat="achievement" src="/assets/images/poster-virat.jpg" alt="Virat – 2nd place, Grand Chess Tournament 2026" />
+        <Img data-cat="achievement" src="/assets/images/poster-trichy-champion.jpg" alt="Champion – Star Chess Foundation International Open, Trichy 2026" />
+        <Img data-cat="achievement" src="/assets/images/poster-harinanthan.jpg" alt="Harinanthan – Continental Chess Concord Tournament, California" />
+        {/* TODO(owner): gallery-new2.jpg is missing from the repo (404 on the live site). Re-upload it, then restore:
+        <Img data-cat="achievement" src="/assets/images/gallery-new2.jpg" alt="Champ Sudhindra – state level tournament, Under 10" /> */}
         <!-- Highlights -->
-        <img data-cat="highlight" src="/assets/images/gallery-a1.jpg"  alt="Darklight students at a chess tournament" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a2.jpg"  alt="Student at the Toronto chess centre" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a5.jpg"  alt="Darklight players at an international tournament" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a7.jpg"  alt="Team Darklight at a tournament venue" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-b5.jpg"  alt="Academy team at a tournament hall" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a10.jpg" alt="Students and coaches at a tournament" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-c1.jpg"  alt="Coach at the tournament board" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a6.jpg"  alt="Meeting world champion Magnus Carlsen" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-b3.jpg"  alt="With grandmaster Fabiano Caruana" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-b2.jpg"  alt="With an international grandmaster" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-b4.jpg"  alt="Meeting chess stars at an international event" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-b9.jpg"  alt="Coaches with an international player" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a14.jpg" alt="Young student training with board and tablet" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/gallery-a15.jpg" alt="Online training session in progress" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" loading="lazy" />
-        <img data-cat="highlight" src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" loading="lazy" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a1.jpg" alt="Darklight students at a chess tournament" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a2.jpg" alt="Student at the Toronto chess centre" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a5.jpg" alt="Darklight players at an international tournament" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a7.jpg" alt="Team Darklight at a tournament venue" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b5.jpg" alt="Academy team at a tournament hall" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a10.jpg" alt="Students and coaches at a tournament" />
+        <Img data-cat="highlight" src="/assets/images/gallery-c1.jpg" alt="Coach at the tournament board" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a6.jpg" alt="Meeting world champion Magnus Carlsen" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b3.jpg" alt="With grandmaster Fabiano Caruana" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b2.jpg" alt="With an international grandmaster" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b4.jpg" alt="Meeting chess stars at an international event" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b9.jpg" alt="Coaches with an international player" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a14.jpg" alt="Young student training with board and tablet" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a15.jpg" alt="Online training session in progress" />
+        <Img data-cat="highlight" src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" />
+        <Img data-cat="highlight" src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" />
       </div>
     </div>
   </section>
@@ -483,7 +451,7 @@ import { homeFaqs } from "../data/faq-home";
       </div>
       <div class="contact-grid">
         <div class="contact-info reveal">
-          <img src="/assets/images/contact-us.png" alt="Contact Darklight Chess Academy" class="contact-illustration" />
+          <Img src="/assets/images/contact-us.png" alt="Contact Darklight Chess Academy" class="contact-illustration" />
           <ul>
             <li>
               <span class="ci-icon">📍</span>
@@ -524,71 +492,7 @@ import { homeFaqs } from "../data/faq-home";
             </li>
           </ul>
         </div>
-        <form class="enquiry-form reveal" id="enquiryForm" novalidate>
-          <h3>Please fill the below details</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fName">Full Name *</label>
-              <input type="text" id="fName" name="name" placeholder="Enter your name" required />
-              <small class="err"></small>
-            </div>
-            <div class="form-group">
-              <label for="fPhone">Phone / WhatsApp *</label>
-              <input type="tel" id="fPhone" name="phone" placeholder="+91 98765 43210" required />
-              <small class="err"></small>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fEmail">Email *</label>
-              <input type="email" id="fEmail" name="email" placeholder="Enter your email" required />
-              <small class="err"></small>
-            </div>
-            <div class="form-group">
-              <label for="fAge">Student's Age Group *</label>
-              <select id="fAge" name="age" required>
-                <option value="">Choose age group</option>
-                <option>4 – 7 years</option>
-                <option>8 – 12 years</option>
-                <option>13 – 17 years</option>
-                <option>18+ / Adult</option>
-              </select>
-              <small class="err"></small>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fMode">Preferred Mode *</label>
-              <select id="fMode" name="mode" required>
-                <option value="">Choose mode</option>
-                <option>Online (India)</option>
-                <option>Online (International batch)</option>
-                <option>Offline – Coimbatore</option>
-              </select>
-              <small class="err"></small>
-            </div>
-            <div class="form-group">
-              <label for="fCourse">Course / Interest *</label>
-              <select id="fCourse" name="course" required>
-                <option value="">Choose a level</option>
-                <option>Free Demo Class</option>
-                <option>Beginner Level</option>
-                <option>Intermediate Level</option>
-                <option>Advanced Level</option>
-                <option>Special Tracks</option>
-                <option>Sibling Class</option>
-              </select>
-              <small class="err"></small>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="fMsg">Message (optional)</label>
-            <textarea id="fMsg" name="message" rows="3" placeholder="Tell us about your chess experience or preferred timings…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-lg btn-block" id="submitBtn">Submit Enquiry ♞</button>
-          <p class="form-note">We'll get back to you within 24 hours. Your details stay private.</p>
-          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-        </form>
+        <EnquiryForm />
       </div>
       <div class="maps-grid">
         <div class="map-wrap reveal">

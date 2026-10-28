@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import Img from "../components/Img.astro";
+import PersonSchema from "../components/schema/PersonSchema.astro";
+import { coaches } from "../data/coaches";
+---
+
+<BaseLayout
+  title="Our Chess Coaches | Darklight Chess Academy"
+  description="Meet the coaches at Darklight Chess Academy — founders and head coaches, with their roles and tournament achievements, teaching online worldwide and in Coimbatore."
+  path="/coaches/"
+  image="/assets/images/cofounder-manikandan.jpg"
+  imageAlt="Manikandan – Co-founder and Head Coach"
+>
+  {coaches.map((c) => (
+    <PersonSchema
+      name={c.name}
+      jobTitle={c.role}
+      path={`/coaches/#${c.id}`}
+      image={c.image}
+      description={[c.bio, c.achievement].filter(Boolean).join(" ") || undefined}
+    />
+  ))}
+  <PageHero
+    eyebrow="Meet Our Coaches"
+    title="FIDE-Rated Coaches &amp; <span class='gold'>Certified Trainers</span>"
+    subtitle="The people who teach at Darklight Chess Academy — online for students worldwide and in person at our Coimbatore centres."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Our Coaches", path: "/coaches/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Darklight's coaching team teaches live online classes for students worldwide and offline classes at our two Coimbatore centres. The roles and achievements below are as each coach has published them with the academy. When you book a free demo class, we suggest a coach and batch based on the student's level and time zone.
+      </p>
+      {coaches.map((c) => (
+        <article class="coach-profile" id={c.id}>
+          {c.image ? (
+            <Img src={c.image} alt={c.imageAlt ?? c.name} />
+          ) : (
+            <div class="monogram" aria-hidden="true">{c.name.charAt(0)}</div>
+          )}
+          <div>
+            <h2>{c.name}</h2>
+            <p class="coach-role">{c.role}</p>
+            <blockquote>“{c.quote}”</blockquote>
+            {c.bio && <p>{c.bio}</p>}
+            {c.achievement && <p><strong>Achievements:</strong> {c.achievement}</p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">How We Coach</p>
+        <h2>What Learning With Our Coaches Looks Like</h2>
+      </div>
+      <p>
+        Every new student starts with a free demo and a level assessment, then joins a group batch or <a href="/one-to-one-chess-coaching/">private 1-to-1 lessons</a> at the right level — from <a href="/chess-classes-for-beginners/">beginner</a> to <a href="/advanced-chess-training/">advanced</a>. Coaches review students' own games and run regular academy tournaments. Read more <a href="/about/">about the academy</a>, or see how <a href="/online-chess-classes/">online classes</a> work.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Learn With Our Coaches"
+        subtext="Book a free demo class — online from anywhere, or at our Coimbatore centres."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>

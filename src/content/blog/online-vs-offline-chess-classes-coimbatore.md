@@ -10,6 +10,9 @@ readTime: "4 min read"
 image: "/assets/images/webinar.png"
 imageAlt: "Online chess class illustration"
 publishDate: 2025-12-05
+nextStep:
+  href: "/online-chess-classes/"
+  label: "How our live online chess classes work"
 draft: false
 ---
 

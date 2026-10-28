@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import Img from "../components/Img.astro";
+import { BRANCHES, EMAIL, PHONE_DISPLAY, PHONE_TEL, SITE_DESCRIPTION, SOCIALS } from "../consts";
+import { countriesServed } from "../data/countries";
+---
+
+<BaseLayout
+  title="About Us | Darklight Chess Academy, Online & Coimbatore"
+  description={`About Darklight Chess Academy: who we are, how we coach, our founders, our two centres in Coimbatore and our live online classes for students in ${countriesServed}+ countries.`}
+  path="/about/"
+  image="/assets/images/gallery-b4.jpg"
+  imageAlt="Students learning chess at Darklight Chess Academy"
+>
+  <PageHero
+    eyebrow="About Us"
+    title="About <span class='gold'>Darklight Chess Academy</span>"
+    subtitle="A chess academy from Coimbatore, India, teaching live online classes worldwide and in-person classes at two centres in the city."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">In Short</p>
+        <h2>Who We Are</h2>
+      </div>
+      <p>{SITE_DESCRIPTION}</p>
+      <dl class="facts-list">
+        <dt>Founder</dt>
+        <dd>Karuppasamy</dd>
+        <dt>Co-founder &amp; Head Coach</dt>
+        <dd>Manikandan</dd>
+        <dt>Based in</dt>
+        <dd>Coimbatore, Tamil Nadu, India</dd>
+        <dt>Offline centres</dt>
+        <dd>
+          {BRANCHES.map((b) => (
+            <>{b.streetAddress}, {b.addressLocality} {b.postalCode}<br /></>
+          ))}
+        </dd>
+        <dt>Online classes</dt>
+        <dd>Live classes for students in {countriesServed}+ countries</dd>
+        <dt>Students</dt>
+        <dd>500+ taught to date; 70+ currently active</dd>
+        <dt>Coaching team</dt>
+        <dd>25+ chess coaches — <a href="/coaches/">meet the head coaches</a></dd>
+        <dt>Contact</dt>
+        <dd><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> · <a href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
+        <dt>Social profiles</dt>
+        <dd>
+          <a href={SOCIALS.instagram} rel="noopener" target="_blank">Instagram</a> ·
+          <a href={SOCIALS.facebook} rel="noopener" target="_blank">Facebook</a> ·
+          <a href={SOCIALS.youtube} rel="noopener" target="_blank">YouTube</a> ·
+          <a href={SOCIALS.linkedin} rel="noopener" target="_blank">LinkedIn</a>
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Our Story</p>
+        <h2>Why the Academy Exists</h2>
+      </div>
+      <Img src="/assets/images/gallery-b4.jpg" alt="Students learning chess at Darklight Chess Academy" style="border-radius:16px; margin-bottom:1.6rem;" />
+      <blockquote style="font-style:italic; border-left:3px solid var(--gold); padding-left:1rem; margin-bottom:1rem;">
+        “Darklight Chess Academy was a dream for me, and I started it with an aim to empower chess coaches and explore the world of chess with a motive to take chess to all the people across the globe.”
+        <br /><strong>— Karuppasamy, Founder</strong>
+      </blockquote>
+      <p>
+        Our mission is to make world-class chess coaching accessible to everyone, anywhere. In practice that means two things: in-person classes for families in Coimbatore, and <a href="/online-chess-classes/">live online classes</a> for students who could never reach a centre — from other Indian cities to the US, UK and Canada.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Methodology</p>
+        <h2>How We Coach</h2>
+      </div>
+      <ol class="check-list">
+        <li><strong>Free demo and level assessment.</strong> A coach looks at how the student plays and places them at the right level.</li>
+        <li><strong>A structured curriculum by level.</strong> <a href="/chess-classes-for-beginners/">Beginner</a> (rules, basic tactics, opening principles), <a href="/advanced-chess-training/">intermediate</a> (middlegame strategy, combinations, endgames) and <a href="/advanced-chess-training/">advanced</a> (positional play, rating improvement, FIDE-compliant training plans).</li>
+        <li><strong>Group or individual.</strong> Small group batches, <a href="/one-to-one-chess-coaching/">private 1-to-1 lessons</a>, and sibling classes, online or offline, weekday or weekend.</li>
+        <li><strong>Learning from real games.</strong> Coaches review students' own played games to find the mistakes that repeat.</li>
+        <li><strong>Competitive experience in stages.</strong> Regular academy tournaments come before open or rated events; see <a href="/tournament-chess-coaching/">tournament preparation</a>.</li>
+      </ol>
+      <p>
+        We also run special tracks — school and institutional programmes, holiday camps and offline workshops. Ask about them when you <a href="/#contact">enquire</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="See How We Teach"
+        subtext="Book a free demo class — online from anywhere, or at our Coimbatore centres."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>

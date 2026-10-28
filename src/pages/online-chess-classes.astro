@@ -1,53 +1,135 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import CtaBanner from "../components/CtaBanner.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
+import CourseSchema from "../components/schema/CourseSchema.astro";
+import { publishedMarkets } from "../data/markets";
+import { countriesServed } from "../data/countries";
 
-const faqs = [
+const marketBlurbs: Record<string, string> = {
+  usa: "Eastern to Pacific time",
+  uk: "GMT / BST",
+  canada: "Pacific to Newfoundland time",
+  india: "IST batches + Coimbatore centres",
+};
+
+const countryLinks = publishedMarkets
+  .map((m) => `<a href="${m.path}">${m.countryName}</a>`)
+  .join(", ");
+
+// Each answer opens with a direct one-sentence answer (`lead`), then detail.
+// `answer` (plain text) feeds FAQPage markup and must match what's visible.
+const questions = [
   {
     question: "How do online chess classes work?",
-    answer:
-      "Classes run live over video call with a coach, using a shared digital board for demonstration and instant puzzle sharing. It's not pre-recorded content — you're playing and interacting with a real coach in real time.",
+    lead: "A coach teaches the class live over video call, demonstrating on a shared digital board that every student can see.",
+    more: "It isn't pre-recorded content: students solve positions, play, ask questions and get feedback in real time, in a small group batch or a one-to-one session. Classes follow the same structured curriculum as our offline centres in Coimbatore.",
   },
   {
-    question: "Do online classes suit families in Coimbatore, or only outside India?",
-    answer:
-      "Both. Many Coimbatore families choose online classes for the convenience — no commute, easy to fit around school and homework — while others mix online with our offline centres. It isn't only for students outside the city.",
+    question: "Are online chess classes effective for children?",
+    lead: "They can be, as long as the classes are live, interactive and attended consistently.",
+    more: `What makes coaching work is a coach watching the student think and correcting mistakes as they happen — a live online class allows exactly that. One of our students recently won a tournament in Canada after being coached entirely online. Online does need a quiet space and a fixed weekly slot; our <a href="/blog/online-vs-offline-chess-classes-coimbatore/">online vs offline comparison</a> covers when each format suits a child best.`,
   },
   {
-    question: "What do I need for an online class?",
-    answer:
-      "A laptop or tablet with a stable internet connection and a video-calling app is enough to start. A physical board at home is useful for practice but not required.",
+    question: "How often should children attend chess lessons?",
+    lead: "Start with a fixed weekly slot; the right frequency depends on the student's level and goals, and the coach recommends one after the level assessment.",
+    more: `Regularity matters more than volume: a consistent slot, plus short practice between classes — a few puzzles or games — keeps new ideas from fading. Students preparing for a specific event can add sessions through our <a href="/tournament-chess-coaching/">tournament preparation</a> track.`,
   },
   {
-    question: "Are there batches for different time zones?",
-    answer:
-      "Yes, we run an international online batch scheduled for non-Indian time zones, alongside standard India-timing batches.",
+    question: "How can parents track their child's chess progress?",
+    lead: "Look for three things: a clear starting level, regular review of your child's own games, and real games against unfamiliar opponents.",
+    more: "At Darklight, the free demo includes a level assessment so there's a clear starting point. Coaches review students' own played games to find recurring mistakes, and academy tournaments give a low-pressure way to see progress in real games. Over time, a rating from rated tournaments — FIDE or your national federation — becomes an objective measure.",
+  },
+  {
+    question: "What should parents look for in an online chess coach?",
+    lead: "A verifiable playing record, a structured curriculum, live interaction, and a clear way of placing your child at the right level.",
+    more: `Ask for a demo class before paying, look at the coach's actual tournament history, and check that the schedule fits your time zone. You can read our coaches' backgrounds and achievements on the <a href="/coaches/">coaches page</a>.`,
+  },
+  {
+    question: "What does my child need for an online chess class?",
+    lead: "A laptop or tablet with a stable internet connection is enough to start.",
+    more: "A physical board at home is useful for practice between classes, but it isn't required — everything in class happens on the shared digital board.",
+  },
+  {
+    question: "How much do online chess classes cost?",
+    lead: "Fees depend on the format — group batch or 1-to-1 — and how often the student attends, and we share them when you enquire.",
+    more: "We don't publish a fixed price list. The first demo class is free with no commitment, and siblings who learn together get a discount.",
+  },
+  {
+    question: "Are there class times for my time zone?",
+    lead: "Yes — alongside standard India-timing batches, we run an international online batch for students in other time zones.",
+    more: `Exact slots are confirmed when you enquire. See time-zone details for ${countryLinks}.`,
   },
 ];
+
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, "");
+const faqItems = questions.map((q) => ({ question: q.question, answer: `${q.lead} ${stripTags(q.more)}` }));
+
+const levels = [
+  { href: "/chess-classes-for-beginners/", name: "Beginners", text: "Rules, basic tactics and opening principles — age 5+ and adults." },
+  { href: "/advanced-chess-training/", name: "Intermediate & Advanced", text: "Middlegame strategy, endgames and rating-focused training." },
+  { href: "/tournament-chess-coaching/", name: "Tournament Preparation", text: "Game review and preparation for a specific event." },
+  { href: "/one-to-one-chess-coaching/", name: "Private 1-to-1 Lessons", text: "A session built around one student's pace and goals." },
+];
+
+const description =
+  "Live online chess classes for kids and adults worldwide — group or 1-to-1 with FIDE-rated coaches, from beginner to tournament level. Book a free demo class.";
 ---
 
 <BaseLayout
-  title="Online Chess Classes in Coimbatore | Darklight Chess Academy"
-  description="Live online chess classes from Darklight Chess Academy, Coimbatore — structured coaching for kids, beginners and tournament players, from anywhere."
+  title="Online Chess Classes for Kids | Darklight Chess Academy"
+  description={description}
   path="/online-chess-classes/"
+  image="/assets/images/webinar.png"
+  imageAlt="Online chess class illustration"
 >
+  <CourseSchema
+    name="Online Chess Classes"
+    description={description}
+    path="/online-chess-classes/"
+    modes={["online"]}
+    educationalLevel="Beginner to advanced"
+  />
   <PageHero
-    eyebrow="Learn From Anywhere"
-    title="Online Chess Classes in <span class='gold'>Coimbatore</span>"
-    subtitle="The same structured curriculum as our offline centres, taught live online — for Coimbatore families and students anywhere else."
+    eyebrow="Live Online Coaching · Worldwide"
+    title="Online Chess Classes for <span class='gold'>Kids</span>"
+    subtitle="Live, interactive chess coaching from Darklight Chess Academy in India — group batches or 1-to-1, for complete beginners through to tournament players, wherever you live."
     breadcrumbItems={[
       { name: "Home", path: "/" },
       { name: "Online Chess Classes", path: "/online-chess-classes/" },
     ]}
-  />
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">🗓️ Book a Free Demo Class</a>
+      <a href="#questions" class="btn btn-outline btn-lg">Parents' Questions</a>
+    </div>
+  </PageHero>
 
   <section class="section">
     <div class="container narrow">
-      <p>
-        Online chess classes at Darklight aren't a scaled-down version of our offline coaching — they follow the exact same curriculum, taught by the same coaching team, live over video call. For many families in Coimbatore, online is simply more convenient than a commute; for students outside India, it's often the only realistic option to learn from Indian coaches on a schedule that fits their day.
-      </p>
+      <div class="section-head">
+        <p class="eyebrow">At a Glance</p>
+        <h2>Our Online Chess Classes in Brief</h2>
+      </div>
+      <dl class="facts-list">
+        <dt>Format</dt>
+        <dd>Live video classes with a coach on a shared digital board — not recorded videos.</dd>
+        <dt>Class types</dt>
+        <dd>Group batches, <a href="/one-to-one-chess-coaching/">private 1-to-1 lessons</a> and sibling classes.</dd>
+        <dt>Ages</dt>
+        <dd>Children from about 4 years old, teenagers and adults.</dd>
+        <dt>Levels</dt>
+        <dd>Complete beginner to rated tournament player, placed after a free level assessment.</dd>
+        <dt>Time zones</dt>
+        <dd>India-timing batches plus an international batch; slots confirmed on enquiry.</dd>
+        <dt>Coaches</dt>
+        <dd>FIDE-rated coaches and certified trainers — <a href="/coaches/">see their profiles</a>.</dd>
+        <dt>Fees</dt>
+        <dd>Shared on enquiry; the first demo class is free.</dd>
+        <dt>Based in</dt>
+        <dd>Coimbatore, Tamil Nadu, India, with <a href="/chess-academy-coimbatore/">two offline centres</a> there.</dd>
+      </dl>
     </div>
   </section>
 
@@ -74,50 +156,85 @@ const faqs = [
           <p>Standard India-timing batches plus a dedicated international batch scheduled for non-Indian time zones.</p>
         </div>
       </div>
+      <div class="steps" style="margin-top:2.6rem;">
+        <div class="step"><span class="step-num">1</span><h3>Book a Free Demo</h3><p>Fill in the form and tell us your time zone.</p></div>
+        <div class="step"><span class="step-num">2</span><h3>Level Assessment</h3><p>A coach assesses the student's game to place them at the right level.</p></div>
+        <div class="step"><span class="step-num">3</span><h3>Choose Your Batch</h3><p>Weekday or weekend, group or 1-to-1.</p></div>
+        <div class="step"><span class="step-num">4</span><h3>Start Learning</h3><p>Structured training with personalised mentorship.</p></div>
+      </div>
     </div>
   </section>
 
   <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Programmes</p>
+        <h2>Online Classes for Every Level</h2>
+      </div>
+      <div class="market-links">
+        {levels.map((l) => (
+          <a href={l.href}>{l.name}<small>{l.text}</small></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Where Our Students Are</p>
+        <h2>Online Chess Classes in Your Country</h2>
+        <p class="section-sub">Students join us from {countriesServed}+ countries. These pages cover time zones, local tournaments and results from students in each country.</p>
+      </div>
+      <div class="market-links">
+        {publishedMarkets.map((m) => (
+          <a href={m.path}>Online chess classes in {m.countryName}<small>{marketBlurbs[m.slug]}</small></a>
+        ))}
+      </div>
+      <p style="text-align:center; margin-top:1.4rem;">Somewhere else? We coach students in other countries too — tell us your time zone in the form below.</p>
+    </div>
+  </section>
+
+  <section class="section" id="questions">
     <div class="container narrow">
       <div class="section-head">
-        <p class="eyebrow">Is Online Right for You?</p>
-        <h2>Online vs Offline</h2>
+        <p class="eyebrow">Parents' Questions</p>
+        <h2>Online Chess Classes: Questions Parents Ask</h2>
       </div>
-      <p>
-        Online tends to suit students who are comfortable on a screen, families with tight evening schedules, or anyone outside easy reach of our <a href="/chess-academy-coimbatore/">Coimbatore centres</a>. It's not automatically the "easier" option — students still need a quiet space and a consistent weekly slot to make real progress. If you're weighing this against in-person classes, our <a href="/blog/online-vs-offline-chess-classes-coimbatore/">detailed comparison</a> covers it honestly, including cases where a hybrid schedule works best.
-      </p>
-      <p>
-        Whether you're a total beginner, coaching a child, or preparing for tournaments, the online format supports all of it — see our <a href="/chess-classes-for-beginners/">beginner classes</a>, <a href="/chess-classes-for-kids-coimbatore/">kids' classes</a> and <a href="/tournament-chess-coaching/">tournament coaching</a> pages for level-specific detail. Students who'd prefer individual pacing over a group batch can also take online <a href="/one-to-one-chess-coaching/">one-to-one coaching</a>.
-      </p>
+      {questions.map((q) => (
+        <div class="answer-block">
+          <h3>{q.question}</h3>
+          <p class="answer-lead">{q.lead}</p>
+          <p set:html={q.more} />
+        </div>
+      ))}
+      <FaqSchema items={faqItems} />
     </div>
   </section>
 
   <section class="section bg-soft">
     <div class="container narrow">
       <div class="section-head">
-        <p class="eyebrow">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
+        <p class="eyebrow">Is Online Right for You?</p>
+        <h2>Online or In Person?</h2>
       </div>
-      <div class="accordion">
-        {faqs.map((faq) => (
-          <details>
-            <summary>{faq.question}</summary>
-            <p>{faq.answer}</p>
-          </details>
-        ))}
-      </div>
-      <FaqSchema items={faqs} />
+      <p>
+        Online tends to suit students who are comfortable on a screen, families with tight schedules, and anyone who doesn't live near our <a href="/chess-academy-coimbatore/">Coimbatore centres</a>. It isn't automatically the "easier" option — students still need a quiet space and a consistent weekly slot to make real progress. Families in Coimbatore can also mix online and in-person classes on the same curriculum.
+      </p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section contact" id="contact">
     <div class="container">
-      <CtaBanner
-        heading="Try an Online Class, Free"
-        subtext="Book a free online demo class and see how a live Darklight session actually runs, wherever you are."
-        course="Free Demo Class"
-        whatsappMessage="Hi Darklight Chess Academy! I'd like to know more about your online chess classes."
-      />
+      <div class="lead-grid">
+        <div class="lead-copy">
+          <p class="eyebrow">Free Demo Class</p>
+          <h2>Try an Online Class, Free</h2>
+          <p>Book a free online demo class and see how a live Darklight session runs, wherever you are. A coach assesses the student's level, and we suggest a batch or 1-to-1 slot that fits your time zone.</p>
+          <p>No cost and no commitment. Prefer to talk first? Use the WhatsApp button at the bottom of the screen.</p>
+        </div>
+        <EnquiryForm />
+      </div>
     </div>
   </section>
 </BaseLayout>

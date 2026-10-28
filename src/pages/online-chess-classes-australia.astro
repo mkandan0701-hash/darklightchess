@@ -1,0 +1,8 @@
+---
+import CountryLandingPage from "../components/CountryLandingPage.astro";
+import { markets } from "../data/markets";
+
+const market = markets.find((m) => m.slug === "australia")!;
+---
+
+<CountryLandingPage market={market} />
