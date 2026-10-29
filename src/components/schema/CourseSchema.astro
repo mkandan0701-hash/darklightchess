@@ -1,0 +1,33 @@
+---
+// schema.org Course for a coaching programme page. Only list the delivery
+// modes the page itself says are offered — markup must match visible content.
+import { ORG_ID, SITE_URL } from "../../consts";
+
+interface Props {
+  name: string;
+  description: string;
+  path: string;
+  modes: ("online" | "onsite")[];
+  educationalLevel?: string;
+}
+
+const { name, description, path, modes, educationalLevel } = Astro.props;
+
+const schema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name,
+  description,
+  url: new URL(path, SITE_URL).toString(),
+  inLanguage: "en",
+  provider: { "@id": ORG_ID },
+  hasCourseInstance: modes.map((courseMode) => ({
+    "@type": "CourseInstance",
+    courseMode,
+    ...(courseMode === "onsite" ? { location: "Coimbatore, Tamil Nadu, India" } : {}),
+  })),
+};
+if (educationalLevel) schema.educationalLevel = educationalLevel;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

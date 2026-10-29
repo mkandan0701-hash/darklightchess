@@ -6,6 +6,17 @@ export const SITE_NAME = "Darklight Chess Academy";
 export const SITE_URL = "https://www.darklightchess.com";
 export const SITE_TAGLINE = "Because every move matters.";
 
+// One canonical description of the business, reused by Organization schema,
+// llms.txt and About page so every surface describes the academy identically.
+export const SITE_DESCRIPTION =
+  "Darklight Chess Academy is a chess academy based in Coimbatore, Tamil Nadu, India. It teaches live online chess classes to students worldwide and offline classes at two centres in Coimbatore, for children and adults from complete beginner to tournament level.";
+
+// Stable JSON-LD node ids so page-level schema (articles, courses, coaches)
+// can reference the organization instead of redefining it.
+export const ORG_ID = "https://www.darklightchess.com/#organization";
+export const WEBSITE_ID = "https://www.darklightchess.com/#website";
+export const LOCAL_BUSINESS_ID = "https://www.darklightchess.com/chess-academy-coimbatore/#localbusiness";
+
 export const PHONE_DISPLAY = "+91 83001 55259";
 export const PHONE_TEL = "+918300155259";
 export const WHATSAPP_NUMBER = "918300155259";

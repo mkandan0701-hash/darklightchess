@@ -46,3 +46,34 @@ The site currently has **no Google Analytics 4, Google Tag Manager, or any other
 - **Weekly:** glance at Search Console for any sudden drops (indexing issues, manual actions, big ranking swings).
 - **Monthly:** full review — organic clicks/impressions trend, keyword position movement on the priority list, top landing pages, indexed page count, Core Web Vitals status, and enquiry/WhatsApp/phone conversion counts once GA4 is live.
 - **Quarterly:** revisit `docs/content-calendar-coimbatore.md` — which published posts are actually driving traffic, and adjust the next batch of drafts accordingly.
+
+## Update 2026-10-28 — international pages
+
+**What the site now provides for measurement (implemented, not yet active):**
+- A hidden `page` field on every enquiry form. The CRM lead notes and the FormSubmit email now include `Page: /online-chess-classes-usa/` etc., so each lead can be traced to its landing page with no analytics at all.
+- New form fields `country`, `timezone` and `experience` also go into the CRM notes, so you can count leads by country.
+- `main.js` pushes a `generate_lead` event to `window.dataLayer` **if** a tag manager or GA4 is ever added. Nothing listens today.
+- An optional Search Console HTML verification tag. Set the environment variable `PUBLIC_GSC_VERIFICATION` in Vercel and redeploy. Preferred alternative: verify a **Domain property** by DNS TXT record, which needs no code.
+
+**Manual steps (owner):**
+1. Search Console: add a Domain property for `darklightchess.com` (DNS). Submit `https://www.darklightchess.com/sitemap-index.xml`.
+2. In Search Console, use URL Inspection to request indexing for `/online-chess-classes/` and the 4 country pages.
+3. Analytics, choose one:
+   - **Vercel Web Analytics.** Cookieless, so no consent banner is needed. Enable it in the Vercel dashboard. It then needs its script added to `BaseLayout.astro` (ask a developer).
+   - **GA4.** This needs a cookie-consent banner for UK/EU visitors, plus Consent Mode, *before* it's switched on.
+
+**Reports to review monthly:**
+
+| Question | Where |
+|---|---|
+| Are the new pages indexed? | GSC → Pages (check the Australia page shows "Excluded by noindex") |
+| Which country sends impressions/clicks? | GSC → Performance → Countries (US, GB, CA, AU, IN) |
+| Which page ranks for which query? | GSC → Performance → Pages, then Queries; compare against `docs/keyword-map.csv` |
+| Is CTR low anywhere despite impressions? | GSC → pages with impressions > 100 and CTR < 1% → rewrite title/description first |
+| Which landing pages produce leads? | CRM lead notes → `Page:` and `Country:` values |
+| Leads → paid enrolments | CRM status (only reliable if the CRM records enrolment) |
+
+**What to improve first, by data:**
+1. Pages with impressions but position 8–20: add content depth and internal links.
+2. Country pages with impressions but no leads: check the time-zone copy and the form.
+3. Hub queries that look like questions: add or expand the matching Q&A, or publish the planned article.

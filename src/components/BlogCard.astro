@@ -1,4 +1,6 @@
 ---
+import Img from "./Img.astro";
+
 interface Props {
   slug: string;
   title: string;
@@ -14,7 +16,7 @@ const { slug, title, description, category, readTime, image, imageAlt } = Astro.
 
 <article class="blog-card reveal">
   <a href={`/blog/${slug}/`} class="blog-thumb">
-    <img src={image} alt={imageAlt} loading="lazy" />
+    <Img src={image} alt={imageAlt} />
   </a>
   <div class="blog-body">
     <p class="blog-meta">{category} · {readTime}</p>

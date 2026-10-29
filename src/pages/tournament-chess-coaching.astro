@@ -3,8 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
+import CourseSchema from "../components/schema/CourseSchema.astro";
 
 const faqs = [
+  {
+    question: "How can a child prepare for their first chess tournament?",
+    answer:
+      "Play a low-pressure event first, practise with a chess clock, and learn the basic tournament rules — such as touch-move and recording moves — before the day. We usually start students with an academy-level tournament for exactly this reason, then review the games together afterwards so the experience turns into lessons, whatever the result.",
+  },
   {
     question: "My child has never played a tournament. Is this track too advanced?",
     answer:
@@ -29,17 +35,25 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="Chess Tournament Coaching in Coimbatore | Darklight Chess Academy"
-  description="Tournament-focused chess coaching in Coimbatore — rating improvement, positional play and game review, plus regular academy tournaments for competitive exposure."
+  title="Chess Tournament Preparation Coaching | Darklight Chess Academy"
+  description="Tournament chess coaching online and in Coimbatore — rating-focused training, game review and preparation for specific events, plus academy tournaments."
   path="/tournament-chess-coaching/"
 >
+  <CourseSchema
+    name="Tournament Chess Preparation"
+    description="Rating-focused chess coaching for competitive students: positional play, endgames, review of the student's own tournament games and preparation for specific events."
+    path="/tournament-chess-coaching/"
+    modes={["online", "onsite"]}
+    educationalLevel="Intermediate to advanced"
+  />
   <PageHero
     eyebrow="Competitive Chess"
-    title="Chess Tournament Coaching in <span class='gold'>Coimbatore</span>"
-    subtitle="Rating-focused coaching for students preparing to compete — with regular academy tournaments as a stepping stone to bigger events."
+    title="Chess Coaching for <span class='gold'>Tournaments</span>"
+    subtitle="Rating-focused coaching for students preparing to compete, online from anywhere or in Coimbatore — with regular academy tournaments as a stepping stone to bigger events."
     breadcrumbItems={[
       { name: "Home", path: "/" },
-      { name: "Tournament Chess Coaching", path: "/tournament-chess-coaching/" },
+      { name: "Online Chess Classes", path: "/online-chess-classes/" },
+      { name: "Tournament Preparation", path: "/tournament-chess-coaching/" },
     ]}
   />
 
@@ -87,7 +101,7 @@ const faqs = [
         We run regular academy-level tournaments specifically so students get real competitive experience — playing an unfamiliar opponent, managing a clock, handling a loss — in a familiar, encouraging setting before they enter open or FIDE-rated events. For a parent's-eye view of why this staged approach matters, read <a href="/blog/how-tournaments-build-your-childs-confidence/">how tournaments build your child's confidence</a>.
       </p>
       <p>
-        This track builds directly on our <a href="/chess-classes-coimbatore/">core chess classes</a> — most students move into tournament coaching once they've completed our beginner and intermediate material. If your child is newer to chess, start with <a href="/chess-classes-for-beginners/">beginner classes</a> or, for younger children, <a href="/chess-classes-for-kids-coimbatore/">kids' chess classes</a> first.
+        This track builds directly on our <a href="/advanced-chess-training/">intermediate and advanced training</a> — most students move into tournament coaching once they've completed our beginner and intermediate material. If your child is newer to chess, start with <a href="/chess-classes-for-beginners/">beginner classes</a> first. Families outside India can see time zones and local tournament notes for the <a href="/online-chess-classes-usa/">USA</a>, <a href="/online-chess-classes-uk/">UK</a> and <a href="/online-chess-classes-canada/">Canada</a>.
       </p>
     </div>
   </section>

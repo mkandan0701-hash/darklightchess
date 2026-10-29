@@ -22,17 +22,20 @@ interface Props {
   description: string;
   path: string;
   image?: string;
+  imageAlt?: string;
   noindex?: boolean;
+  ogType?: "website" | "article";
+  locale?: string;
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  preloadImage?: string; // LCP image to fetch early (e.g. a CSS background hero)
   includeLocalBusinessSchema?: boolean;
 }
 
 const {
-  title,
-  description,
-  path,
-  image,
-  noindex = false,
+  preloadImage,
   includeLocalBusinessSchema = false,
+  ...seo
 } = Astro.props;
 ---
 
@@ -41,11 +44,12 @@ const {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <Seo title={title} description={description} path={path} image={image} noindex={noindex} />
+  <Seo {...seo} />
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href={cssHref} />
   <OrganizationSchema />
   <WebSiteSchema />

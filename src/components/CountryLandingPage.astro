@@ -1,0 +1,250 @@
+---
+// Renders one country page from src/data/markets.ts. Market-specific copy,
+// time zones, proof and FAQs come from the data; this template only supplies
+// structure, the course links and the enquiry form.
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "./PageHero.astro";
+import EnquiryForm from "./EnquiryForm.astro";
+import BlogCard from "./BlogCard.astro";
+import Img from "./Img.astro";
+import FaqSchema from "./schema/FaqSchema.astro";
+import { BRANCHES } from "../consts";
+import type { Market } from "../data/markets";
+import { HUB_PATH } from "../lib/seo";
+import { describeDifference, formatOffset, formatTime, toIst } from "../lib/time";
+
+interface Props {
+  market: Market;
+}
+
+const { market } = Astro.props;
+
+const exampleZone = market.timeZones.find((z) => z.zone === market.exampleZone);
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+
+const levels = [
+  { href: "/chess-classes-for-beginners/", name: "Beginners", text: "Rules, basic tactics and opening principles — age 5+ and adults." },
+  { href: "/advanced-chess-training/", name: "Intermediate & Advanced", text: "Middlegame strategy, endgames and rating-focused training." },
+  { href: "/tournament-chess-coaching/", name: "Tournament Preparation", text: "Game review and preparation for a specific event." },
+  { href: "/one-to-one-chess-coaching/", name: "Private 1-to-1 Lessons", text: "A session built around one student's pace and goals." },
+];
+---
+
+<BaseLayout
+  title={market.title}
+  description={market.description}
+  path={market.path}
+  locale={market.ogLocale}
+>
+  <PageHero
+    eyebrow={market.eyebrow}
+    title={market.heroTitle}
+    subtitle={market.heroSubtitle}
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Online Chess Classes", path: HUB_PATH },
+      { name: market.countryName, path: market.path },
+    ]}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">🗓️ Book a Free Demo Class</a>
+      <a href="/coaches/" class="btn btn-outline btn-lg">Meet the Coaches</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container narrow">
+      {market.intro.map((p) => <p set:html={p} />)}
+    </div>
+  </section>
+
+  {market.timeZones.length > 0 && (
+    <section class="section bg-soft">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">Scheduling</p>
+          <h2>Class Times and Time Zones</h2>
+        </div>
+        <p>
+          Classes are booked in your local time from the slots our coaches have open. Exact days and times are confirmed with you before the free demo — we don't publish a fixed timetable, because slots depend on your time zone and the student's level.
+        </p>
+        <div class="table-wrap">
+          <table class="tz-table">
+            <caption>Your time zone compared with India (IST, UTC+5:30)</caption>
+            <thead>
+              <tr><th scope="col">Time zone</th><th scope="col">Standard time</th><th scope="col">Daylight time</th></tr>
+            </thead>
+            <tbody>
+              {market.timeZones.map((z) => (
+                <tr>
+                  <th scope="row">{z.zone}{z.note && <><br /><small class="tz-note">{z.note}</small></>}</th>
+                  <td>{formatOffset(z.standard)} · {describeDifference(z.standard)}</td>
+                  <td>{z.daylight !== undefined ? `${formatOffset(z.daylight)} · ${describeDifference(z.daylight)}` : "Not observed"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {exampleZone && market.examples.length > 0 && (
+          <div class="table-wrap">
+            <table class="tz-table">
+              <caption>What a {exampleZone.zone} class time is in India</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Your time</th>
+                  <th scope="col">{exampleZone.daylight !== undefined ? "In India, while you're on standard time" : "In India"}</th>
+                  {exampleZone.daylight !== undefined && <th scope="col">In India, while you're on daylight time</th>}
+                </tr>
+              </thead>
+              <tbody>
+                {market.examples.map((ex) => (
+                  <tr>
+                    <th scope="row">{ex.day} {formatTime(ex.hour)}</th>
+                    <td>{toIst(ex.day, ex.hour, exampleZone.standard)}</td>
+                    {exampleZone.daylight !== undefined && <td>{toIst(ex.day, ex.hour, exampleZone.daylight)}</td>}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {market.dstNote && <p class="tz-note">{market.dstNote}</p>}
+      </div>
+    </section>
+  )}
+
+  {market.formMode === "Online (India)" && (
+    <section class="section bg-soft">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">Offline Option</p>
+          <h2>Our Centres in Coimbatore</h2>
+        </div>
+        <p>All our physical classes are in Coimbatore. Everywhere else in India, students learn online on the same curriculum.</p>
+        <ul class="check-list">
+          {BRANCHES.map((b) => (
+            <li><strong>{b.label}:</strong> {b.streetAddress}, {b.addressLocality}, {b.addressRegion} {b.postalCode}</li>
+          ))}
+        </ul>
+        <p><a href="/chess-academy-coimbatore/">See our Coimbatore academy, directions and offline batches →</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Programmes</p>
+        <h2>Choose a Level</h2>
+        <p class="section-sub">Not sure where your child fits? The free demo includes a level assessment, and we place them from there.</p>
+      </div>
+      <div class="market-links">
+        {levels.map((l) => (
+          <a href={l.href}>{l.name}<small>{l.text}</small></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Competing</p>
+        <h2>{market.chessContext.heading}</h2>
+      </div>
+      {market.chessContext.paragraphs.map((p) => <p set:html={p} />)}
+    </div>
+  </section>
+
+  {market.proof.items.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Proof, Not Promises</p>
+          <h2>{market.proof.heading}</h2>
+        </div>
+        <div class="proof-grid">
+          {market.proof.items.map((item) =>
+            item.cite ? (
+              <figure class="proof-card">
+                <blockquote>“{item.text}”</blockquote>
+                <figcaption>— {item.cite}</figcaption>
+              </figure>
+            ) : (
+              <div class="proof-card">
+                {item.image && <Img src={item.image} alt={item.imageAlt ?? item.text} />}
+                <p>{item.text}</p>
+              </div>
+            )
+          )}
+        </div>
+        <p style="text-align:center; margin-top:1.6rem;">
+          <a href="/coaches/" class="card-learn-more">Meet the coaches behind these results →</a>
+        </p>
+      </div>
+    </section>
+  )}
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions From Families in {market.countryName}</h2>
+      </div>
+      <div class="accordion">
+        {market.faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={market.faqs} />
+      <p style="margin-top:1.4rem;">
+        More general questions — how online classes work, how often to attend, fees and tracking progress — are answered on our <a href={HUB_PATH}>online chess classes page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="lead-grid">
+        <div class="lead-copy">
+          <p class="eyebrow">Free Demo Class</p>
+          <h2>Book a Free Demo Class</h2>
+          <p>The demo is free with no commitment. A coach assesses the student's level, and we suggest a batch or one-to-one slot that fits your time zone.</p>
+          <p>Fees depend on the format (group or 1-to-1) and how often the student attends, and we share them when you enquire. Siblings learning together get a discount.</p>
+          <p>Prefer to talk first? Use the WhatsApp button at the bottom of the screen.</p>
+        </div>
+        <EnquiryForm country={market.countryName} mode={market.formMode} />
+      </div>
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Further Reading</p>
+          <h2>Guides From Our Coaches</h2>
+        </div>
+        <div class="cards-grid three blog-grid">
+          {posts.map((post) => (
+            <BlogCard
+              slug={post.id}
+              title={post.data.title}
+              description={post.data.description}
+              category={post.data.category}
+              readTime={post.data.readTime}
+              image={post.data.image}
+              imageAlt={post.data.imageAlt}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

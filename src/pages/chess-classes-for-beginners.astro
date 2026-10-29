@@ -3,8 +3,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
+import CourseSchema from "../components/schema/CourseSchema.astro";
 
 const faqs = [
+  {
+    question: "What is the best age to start chess coaching?",
+    answer:
+      "Many children are ready for structured chess classes from about age 5, and we have taught children as young as 4–6 — there's no upper age limit, and adults start from scratch with us too. Readiness matters more than age: a child who can concentrate on a short activity and follow simple rules is usually ready for a beginner class.",
+  },
+  {
+    question: "Can beginners learn chess online?",
+    answer:
+      "Yes. The beginner track runs live online on the same curriculum as our offline classes, and no prior knowledge is assumed. A coach demonstrates each idea on a shared digital board, students practise it straight away in class, and mistakes are corrected as they happen.",
+  },
   {
     question: "I've never played chess. Can I still join?",
     answer:
@@ -20,25 +31,28 @@ const faqs = [
     answer:
       "It helps to have a basic set at home for practice, but it isn't required to start — the class itself provides everything you need, and we'll guide you on simple tools for practicing between sessions.",
   },
-  {
-    question: "Is the beginner track available online?",
-    answer:
-      "Yes, beginner classes run both online and offline at our Coimbatore centres, on the same curriculum. Choose whichever fits your schedule and learning style.",
-  },
 ];
 ---
 
 <BaseLayout
-  title="Chess Classes for Beginners | Darklight Chess Academy"
-  description="Beginner chess classes for kids and adults, online and offline in Coimbatore. Learn the rules, tactics and opening principles with a structured, no-pressure start."
+  title="Chess Classes for Beginners, Online | Darklight Chess Academy"
+  description="Online chess classes for complete beginners — kids from age 5 and adults. Learn the rules, basic tactics and opening principles live with a coach. Free demo class."
   path="/chess-classes-for-beginners/"
 >
+  <CourseSchema
+    name="Beginner Chess Classes"
+    description="Live chess classes for complete beginners, children and adults: rules and piece movement, basic tactics and opening principles."
+    path="/chess-classes-for-beginners/"
+    modes={["online", "onsite"]}
+    educationalLevel="Beginner"
+  />
   <PageHero
     eyebrow="Start Here"
     title="Chess Classes for <span class='gold'>Beginners</span>"
-    subtitle="A structured, no-pressure start to chess — for children and adults alike, online or at our Coimbatore centres."
+    subtitle="A structured, no-pressure start to chess — for children and adults alike, live online from anywhere or at our Coimbatore centres."
     breadcrumbItems={[
       { name: "Home", path: "/" },
+      { name: "Online Chess Classes", path: "/online-chess-classes/" },
       { name: "Chess Classes for Beginners", path: "/chess-classes-for-beginners/" },
     ]}
   />
@@ -87,7 +101,7 @@ const faqs = [
         <h2>Kids and Adults, Same Structured Start</h2>
       </div>
       <p>
-        We run beginner batches for children as well as adults who are picking up chess for the first time — the pace and structure adapt, but the same principle applies: one idea at a time, with plenty of guided practice. If your beginner is a child, you may also want our <a href="/chess-classes-for-kids-coimbatore/">kids' chess classes page</a>, which covers age-specific detail. When you're ready for more competitive play, the natural next step is our <a href="/chess-classes-coimbatore/">intermediate classes</a> or, for tournament ambitions, <a href="/tournament-chess-coaching/">tournament coaching</a>.
+        We run beginner batches for children as well as adults who are picking up chess for the first time — the pace and structure adapt, but the same principle applies: one idea at a time, with plenty of guided practice. If your beginner is a child, our <a href="/online-chess-classes/">online chess classes for kids</a> page answers the questions parents ask most. When you're ready for more competitive play, the natural next step is <a href="/advanced-chess-training/">intermediate and advanced training</a> or, for tournament ambitions, <a href="/tournament-chess-coaching/">tournament preparation</a>.
       </p>
     </div>
   </section>
@@ -96,10 +110,10 @@ const faqs = [
     <div class="container narrow">
       <div class="section-head">
         <p class="eyebrow">Format</p>
-        <h2>Online or Offline in Coimbatore</h2>
+        <h2>Learn Online, or In Person in Coimbatore</h2>
       </div>
       <p>
-        Beginner classes run both <a href="/chess-academy-coimbatore/">offline at our Coimbatore centres</a> and <a href="/online-chess-classes/">online</a>, on identical material. If you'd rather have completely individual pacing instead of a group batch, our <a href="/one-to-one-chess-coaching/">one-to-one coaching</a> is also available from day one.
+        Beginner classes run <a href="/online-chess-classes/">live online</a> for students anywhere, and <a href="/chess-academy-coimbatore/">offline at our Coimbatore centres</a>, on identical material. If you'd rather have completely individual pacing instead of a group batch, our <a href="/one-to-one-chess-coaching/">one-to-one coaching</a> is also available from day one.
       </p>
     </div>
   </section>

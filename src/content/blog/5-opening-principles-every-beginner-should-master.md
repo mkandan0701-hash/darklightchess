@@ -10,6 +10,9 @@ readTime: "4 min read"
 image: "/assets/images/stock1.jpg"
 imageAlt: "Chess opening principles illustration"
 publishDate: 2025-11-10
+nextStep:
+  href: "/chess-classes-for-beginners/"
+  label: "See how our beginner classes teach opening principles"
 draft: false
 ---
 

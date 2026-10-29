@@ -10,6 +10,9 @@ readTime: "3 min read"
 image: "/assets/images/stock4.jpg"
 imageAlt: "Two players at a chess board illustration"
 publishDate: 2025-11-24
+nextStep:
+  href: "/tournament-chess-coaching/"
+  label: "Explore tournament preparation coaching"
 draft: false
 ---
 

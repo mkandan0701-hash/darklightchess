@@ -1,0 +1,84 @@
+---
+// TODO(owner): review this policy (ideally with legal advice) before relying
+// on it. It describes the data flows the site actually has today — keep it in
+// sync if the form, CRM, analytics or embeds change.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { EMAIL, PHONE_DISPLAY, PRIMARY_BRANCH, SITE_NAME } from "../consts";
+
+const lastUpdated = "28 October 2026";
+---
+
+<BaseLayout
+  title="Privacy Policy | Darklight Chess Academy"
+  description="How Darklight Chess Academy collects, uses and protects the details you share through our enquiry form, including information about children."
+  path="/privacy-policy/"
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Privacy <span class='gold'>Policy</span>"
+    subtitle={`Last updated: ${lastUpdated}`}
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Privacy Policy", path: "/privacy-policy/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <p>
+          This policy explains what information {SITE_NAME} ("we", "us") collects through this website, why, and who it is shared with. We are based at {PRIMARY_BRANCH.streetAddress}, {PRIMARY_BRANCH.addressLocality}, {PRIMARY_BRANCH.addressRegion} {PRIMARY_BRANCH.postalCode}, India.
+        </p>
+
+        <h2>What we collect</h2>
+        <p>When you submit our enquiry / free demo form, we collect:</p>
+        <ul>
+          <li>your name, email address and phone or WhatsApp number;</li>
+          <li>the student's age group, chess experience, preferred class mode and course;</li>
+          <li>your country and time zone (the time zone is filled in automatically from your browser, and you can change it);</li>
+          <li>any message you write, and the page you submitted the form from.</li>
+        </ul>
+        <p>We do not ask for the student's full name, date of birth or school, and we don't collect payment details through this website.</p>
+
+        <h2>Information about children</h2>
+        <p>
+          Many of our students are children. If the student is under 18, the form should be completed by a parent or guardian, and we communicate with that adult about scheduling and enrolment.
+        </p>
+
+        <h2>How we use it</h2>
+        <p>
+          Only to reply to your enquiry, arrange a demo class, suggest a suitable batch, coach and time slot, and — if you enrol — run classes and keep in touch about them. We do not sell your information or use it for third-party advertising.
+        </p>
+
+        <h2>Who it is shared with</h2>
+        <ul>
+          <li><strong>FormSubmit</strong> (formsubmit.co), an email-forwarding service, delivers your form submission to our inbox.</li>
+          <li><strong>Our student management system</strong>, where your enquiry is recorded as a new lead so our team can follow up.</li>
+          <li><strong>WhatsApp</strong>, only if you choose to message us on WhatsApp — that conversation is then subject to WhatsApp's own privacy policy.</li>
+        </ul>
+        <p>
+          A copy of your submission is also saved in your own browser's local storage on the device you used. It isn't sent anywhere, and you can remove it by clearing this site's data in your browser.
+        </p>
+
+        <h2>Cookies, embeds and third parties</h2>
+        <p>
+          This website does not currently use analytics or advertising cookies. Some pages embed Google Maps, and the site loads fonts from Google Fonts; these Google services may receive your IP address and set their own cookies under Google's privacy policy. The site is hosted on Vercel, which keeps standard server logs.
+        </p>
+
+        <h2>How long we keep it</h2>
+        <p>
+          We keep enquiry details for as long as we need them to respond and, if you enrol, for as long as you are a student with us. You can ask us to delete them at any time.
+        </p>
+
+        <h2>Your choices</h2>
+        <p>
+          You can ask to see, correct or delete the information we hold about you or your child, or ask us to stop contacting you, by emailing <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or calling {PHONE_DISPLAY}.
+        </p>
+
+        <h2>Changes</h2>
+        <p>If we change how we handle information, we'll update this page and the date at the top.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

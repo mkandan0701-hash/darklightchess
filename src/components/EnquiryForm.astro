@@ -1,0 +1,132 @@
+---
+// The single enquiry / free-demo form. Field names and ids are what
+// public/assets/js/main.js validates and submits (FormSubmit email + CRM lead),
+// so keep them stable. Rendered on the homepage and on landing pages, always
+// inside a <section id="contact"> so "Book a Free Demo" buttons scroll to it.
+interface Props {
+  country?: string; // preselect, must match an option below
+  mode?: string; // preselect, must match an option below
+  heading?: string;
+}
+
+const { country = "", mode = "", heading = "Please fill the below details" } = Astro.props;
+
+const countries = [
+  "United States",
+  "United Kingdom",
+  "Canada",
+  "Australia",
+  "India",
+  "United Arab Emirates",
+  "Singapore",
+  "Ireland",
+  "New Zealand",
+  "Other",
+];
+const modes = ["Online (India)", "Online (International batch)", "Offline – Coimbatore"];
+const pagePath = Astro.url.pathname;
+---
+
+<form class="enquiry-form reveal" id="enquiryForm" novalidate>
+  <h3>{heading}</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fName">Parent / Student Name *</label>
+      <input type="text" id="fName" name="name" placeholder="Enter your name" autocomplete="name" required />
+      <small class="err"></small>
+    </div>
+    <div class="form-group">
+      <label for="fPhone">Phone / WhatsApp *</label>
+      <input type="tel" id="fPhone" name="phone" placeholder="Include country code, e.g. +1, +44, +91" autocomplete="tel" required />
+      <small class="err"></small>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fEmail">Email *</label>
+      <input type="email" id="fEmail" name="email" placeholder="Enter your email" autocomplete="email" required />
+      <small class="err"></small>
+    </div>
+    <div class="form-group">
+      <label for="fAge">Student's Age Group *</label>
+      <select id="fAge" name="age" required>
+        <option value="">Choose age group</option>
+        <option>4 – 7 years</option>
+        <option>8 – 12 years</option>
+        <option>13 – 17 years</option>
+        <option>18+ / Adult</option>
+      </select>
+      <small class="err"></small>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fCountry">Country *</label>
+      <select id="fCountry" name="country" autocomplete="country-name" required>
+        <option value="">Choose country</option>
+        {countries.map((c) => <option selected={c === country}>{c}</option>)}
+      </select>
+      <small class="err"></small>
+    </div>
+    <div class="form-group">
+      <label for="fTimezone">Time Zone</label>
+      <input type="text" id="fTimezone" name="timezone" placeholder="e.g. America/New_York" />
+      <small class="err"></small>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fMode">Preferred Mode *</label>
+      <select id="fMode" name="mode" required>
+        <option value="">Choose mode</option>
+        {modes.map((m) => <option selected={m === mode}>{m}</option>)}
+      </select>
+      <small class="err"></small>
+    </div>
+    <div class="form-group">
+      <label for="fExperience">Chess Experience *</label>
+      <select id="fExperience" name="experience" required>
+        <option value="">Choose experience</option>
+        <option>Complete beginner</option>
+        <option>Knows the rules</option>
+        <option>Plays regularly / school level</option>
+        <option>Rated tournament player</option>
+      </select>
+      <small class="err"></small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fCourse">Course / Interest *</label>
+    <select id="fCourse" name="course" required>
+      <option value="">Choose a level</option>
+      <option>Free Demo Class</option>
+      <option>Beginner Level</option>
+      <option>Intermediate Level</option>
+      <option>Advanced Level</option>
+      <option>Private 1-to-1 Lessons</option>
+      <option>Special Tracks</option>
+      <option>Sibling Class</option>
+    </select>
+    <small class="err"></small>
+  </div>
+  <div class="form-group">
+    <label for="fMsg">Message (optional)</label>
+    <textarea id="fMsg" name="message" rows="3" placeholder="Preferred days and times, or anything about the student's chess so far…"></textarea>
+  </div>
+  <div class="form-group form-consent">
+    <label for="fConsent">
+      <input type="checkbox" id="fConsent" name="consent" value="yes" required />
+      <span>I agree to be contacted about this enquiry by email, phone or WhatsApp, and I've read the <a href="/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>. *</span>
+    </label>
+    <small class="err"></small>
+  </div>
+  <!-- Honeypot: hidden from people, filled in by bots. Submissions with a value are dropped. -->
+  <div class="hp-field" aria-hidden="true">
+    <label for="fHoney">Leave this field empty</label>
+    <input type="text" id="fHoney" name="_honey" tabindex="-1" autocomplete="off" />
+  </div>
+  <input type="hidden" name="page" value={pagePath} />
+  <button type="submit" class="btn btn-gold btn-lg btn-block" id="submitBtn">Submit Enquiry ♞</button>
+  <p class="form-note">We'll get back to you within 24 hours. Your details stay private.</p>
+  <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+</form>

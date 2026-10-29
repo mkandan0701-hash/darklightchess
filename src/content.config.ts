@@ -15,6 +15,9 @@ const blog = defineCollection({
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().default("Darklight Chess Academy"),
+    // Contextual call-to-action shown after the article, pointing readers to
+    // the most relevant course or landing page.
+    nextStep: z.object({ href: z.string(), label: z.string() }).optional(),
     // Draft posts are excluded from routing, the blog listing, and the
     // sitemap — they exist in the repo as implementation-ready content
     // waiting for the owner's review before going live (see

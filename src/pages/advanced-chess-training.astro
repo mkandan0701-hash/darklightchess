@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import CourseSchema from "../components/schema/CourseSchema.astro";
+
+const faqs = [
+  {
+    question: "How do I know if my child is ready for intermediate or advanced training?",
+    answer:
+      "If they know all the rules, play full games comfortably and recognise basic tactics such as forks and pins, they are usually ready for intermediate material. The level assessment in the free demo class confirms where they should start.",
+  },
+  {
+    question: "How can my child improve their chess rating?",
+    answer:
+      "By fixing the recurring mistakes that show up in their own games, rather than only learning new openings. Rating gains usually come from fewer blunders, better endgame technique and steadier play under the clock — which is why our training is built around reviewing students' own games and playing regularly in rated or academy events.",
+  },
+  {
+    question: "What is the difference between advanced training and tournament preparation?",
+    answer:
+      "Advanced training builds long-term playing strength — strategy, positional play and endgames — while tournament preparation focuses on performing well in a specific event. Most competitive students do both.",
+  },
+  {
+    question: "Is intermediate and advanced training available online?",
+    answer:
+      "Yes. Both levels run live online for students anywhere, and offline at our Coimbatore centres, on the same training plans.",
+  },
+];
+
+const description =
+  "Intermediate and advanced chess training online — middlegame strategy, endgames and FIDE-compliant training plans for rated and aspiring tournament players.";
+---
+
+<BaseLayout
+  title="Advanced Chess Training Online | Darklight Chess Academy"
+  description={description}
+  path="/advanced-chess-training/"
+>
+  <CourseSchema
+    name="Intermediate and Advanced Chess Training"
+    description={description}
+    path="/advanced-chess-training/"
+    modes={["online", "onsite"]}
+    educationalLevel="Intermediate to advanced"
+  />
+  <PageHero
+    eyebrow="Beyond the Basics"
+    title="Intermediate &amp; <span class='gold'>Advanced</span> Chess Training"
+    subtitle="For students who know the rules and want to get genuinely stronger — from school-level players to rated tournament competitors, online or in Coimbatore."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Online Chess Classes", path: "/online-chess-classes/" },
+      { name: "Intermediate & Advanced Training", path: "/advanced-chess-training/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      <p>
+        Once a student can play a full game, progress stops coming from new rules and starts coming from understanding: why one plan is better than another, how to convert an advantage, and how to avoid the same mistake twice. Our intermediate and advanced levels are built around that shift, with training based on the student's own games rather than generic drills.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Two Levels</p>
+        <h2>What Each Level Covers</h2>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card">
+          <div class="feature-icon">♝</div>
+          <h3>Intermediate Level</h3>
+          <p>Strong middlegame strategy, combinations and openings. Ideal for school-level players and casual tournament goers, and includes practice tournaments and endgame study.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">♜</div>
+          <h3>Advanced Level</h3>
+          <p>Tournament preparation, rating improvement and positional play. Designed for rated players and championship aspirants, with FIDE-compliant training plans.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Game Review</h3>
+          <p>At both levels, coaches go through students' own played games to find the recurring mistakes that cost points.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Where It Leads</p>
+        <h2>From Training to Competing</h2>
+      </div>
+      <p>
+        Regular academy tournaments give intermediate students real games against unfamiliar opponents in a familiar setting. Students aiming at specific events can add <a href="/tournament-chess-coaching/">tournament preparation</a>, and anyone who wants fully individual pacing can take this material as <a href="/one-to-one-chess-coaching/">private 1-to-1 lessons</a>. If the basics still feel shaky, start with our <a href="/chess-classes-for-beginners/">beginner classes</a> — there's no rush.
+      </p>
+      <p>
+        For parents, our article on <a href="/blog/how-tournaments-build-your-childs-confidence/">how tournaments build a child's confidence</a> explains why competitive experience matters as much as lessons at this stage.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Find the Right Level, Free"
+        subtext="Book a free demo class — a coach assesses the student's current level and recommends intermediate or advanced training."
+        course="Intermediate Level"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -4,56 +4,118 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 import ArticleSchema from "../../components/schema/ArticleSchema.astro";
 import CtaBanner from "../../components/CtaBanner.astro";
+import BlogCard from "../../components/BlogCard.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, posts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, posts } = Astro.props;
 const { Content } = await render(post);
 const path = `/blog/${post.id}/`;
+const { data } = post;
+
+// Keep the brand in the title when it fits (~65 chars), otherwise shorten it.
+const fullTitle = `${data.title} | Darklight Chess Academy`;
+const title = fullTitle.length <= 65 ? fullTitle : `${data.title} | Darklight Chess`.length <= 65 ? `${data.title} | Darklight Chess` : data.title;
+
+// Related: same category first, then most recent.
+const related = posts
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => {
+    const cat = Number(b.data.category === data.category) - Number(a.data.category === data.category);
+    return cat || b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+  })
+  .slice(0, 3);
+
+const dateFmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 ---
 
-<BaseLayout title={`${post.data.title} | Darklight Chess Academy Blog`} description={post.data.description} path={path} image={post.data.image}>
+<BaseLayout
+  title={title}
+  description={data.description}
+  path={path}
+  image={data.image}
+  imageAlt={data.imageAlt}
+  ogType="article"
+  publishedTime={data.publishDate}
+  modifiedTime={data.updatedDate ?? data.publishDate}
+>
   <ArticleSchema
-    title={post.data.title}
-    description={post.data.description}
+    title={data.title}
+    description={data.description}
     path={path}
-    publishDate={post.data.publishDate}
-    updatedDate={post.data.updatedDate}
-    image={post.data.image}
+    publishDate={data.publishDate}
+    updatedDate={data.updatedDate}
+    image={data.image}
+    author={data.author}
   />
   <PageHero
-    eyebrow={post.data.category}
-    title={post.data.title}
-    subtitle={post.data.description}
+    eyebrow={data.category}
+    title={data.title}
+    subtitle={data.description}
     breadcrumbItems={[
       { name: "Home", path: "/" },
       { name: "Blog", path: "/blog/" },
-      { name: post.data.title, path },
+      { name: data.title, path },
     ]}
   />
 
   <section class="section">
     <div class="container">
       <p class="blog-post-meta">
-        {post.data.category} · {post.data.readTime} · {post.data.author}
+        {data.category} · {data.readTime} · {data.author}
+      </p>
+      <p class="post-dates">
+        Published <time datetime={data.publishDate.toISOString()}>{dateFmt(data.publishDate)}</time>
+        {data.updatedDate && (
+          <> · Updated <time datetime={data.updatedDate.toISOString()}>{dateFmt(data.updatedDate)}</time></>
+        )}
       </p>
       <div class="prose">
         <Content />
       </div>
+      {data.nextStep && (
+        <p class="next-step">
+          <strong>Next step:</strong> <a href={data.nextStep.href}>{data.nextStep.label} →</a>
+        </p>
+      )}
       <CtaBanner
         heading="Ready to put this into practice?"
-        subtext="Book a free demo class and our coaches will show you exactly how we teach it — online or at our Coimbatore centers."
+        subtext="Book a free demo class and our coaches will show you exactly how we teach it — live online from anywhere, or at our Coimbatore centres."
         course="Free Demo Class"
       />
-      <p style="text-align:center; margin-top:1.6rem;">
-        <a href="/blog/" class="card-learn-more">← Back to all articles</a>
-      </p>
     </div>
   </section>
+
+  {related.length > 0 && (
+    <section class="section bg-soft">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Keep Reading</p>
+          <h2>Related Articles</h2>
+        </div>
+        <div class="cards-grid three blog-grid">
+          {related.map((p) => (
+            <BlogCard
+              slug={p.id}
+              title={p.data.title}
+              description={p.data.description}
+              category={p.data.category}
+              readTime={p.data.readTime}
+              image={p.data.image}
+              imageAlt={p.data.imageAlt}
+            />
+          ))}
+        </div>
+        <p style="text-align:center; margin-top:1.6rem;">
+          <a href="/blog/" class="card-learn-more">← Back to all articles</a>
+        </p>
+      </div>
+    </section>
+  )}
 </BaseLayout>

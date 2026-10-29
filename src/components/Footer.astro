@@ -9,12 +9,16 @@ import {
   SOCIALS,
   WHATSAPP_LINK,
 } from "../consts";
+import { publishedMarkets } from "../data/markets";
+import { imageSize } from "../lib/image-size";
+
+const logo = imageSize(LOGO_PATH);
 ---
 
 <footer class="footer">
   <div class="container footer-grid">
     <div class="f-brand">
-      <img src={LOGO_PATH} alt="Darklight Chess Academy" />
+      <img src={LOGO_PATH} alt="Darklight Chess Academy" width={logo.width} height={logo.height} loading="lazy" decoding="async" />
       <p>Professional chess coaching for players of all levels — beginner, intermediate, advanced, and master. Online across the globe, offline in Coimbatore.</p>
       <p class="f-tag">♞ Because every move matters.</p>
       <div class="socials">
@@ -34,23 +38,26 @@ import {
     </div>
     <div class="f-col">
       <h4>Quick Links</h4>
-      <a href="#about">About Us</a>
-      <a href="#courses">Courses</a>
-      <a href="#coaches">Coaches</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="/about/">About Us</a>
+      <a href="/coaches/">Our Coaches</a>
+      <a href="/#gallery">Gallery</a>
+      <a href="/#testimonials">Testimonials</a>
       <a href="/blog/">Blog</a>
-      <a href="#faq">FAQs</a>
+      <a href="/#faq">FAQs</a>
+      <h4 style="margin-top:1.4rem;">Online by Country</h4>
+      {publishedMarkets.map((m) => <a href={m.path}>{m.countryName}</a>)}
     </div>
     <div class="f-col">
-      <h4>Programs</h4>
+      <h4>Online Programs</h4>
+      <a href="/online-chess-classes/">Online Chess Classes for Kids</a>
+      <a href="/chess-classes-for-beginners/">Beginner Chess Classes</a>
+      <a href="/advanced-chess-training/">Intermediate &amp; Advanced Training</a>
+      <a href="/one-to-one-chess-coaching/">Private 1-to-1 Lessons</a>
+      <a href="/tournament-chess-coaching/">Tournament Preparation</a>
+      <h4 style="margin-top:1.4rem;">In Coimbatore</h4>
       <a href="/chess-academy-coimbatore/">Chess Academy in Coimbatore</a>
       <a href="/chess-classes-coimbatore/">Chess Classes in Coimbatore</a>
-      <a href="/chess-classes-for-kids-coimbatore/">Kids Chess Classes</a>
-      <a href="/chess-classes-for-beginners/">Beginner Chess Classes</a>
-      <a href="/online-chess-classes/">Online Chess Classes</a>
-      <a href="/tournament-chess-coaching/">Tournament Chess Coaching</a>
-      <a href="/one-to-one-chess-coaching/">One-to-One Coaching</a>
+      <a href="/chess-classes-for-kids-coimbatore/">Kids Chess Classes in Coimbatore</a>
     </div>
     <div class="f-col">
       <h4>Contact</h4>
@@ -62,6 +69,6 @@ import {
     </div>
   </div>
   <div class="footer-bar">
-    <p>© <span id="year"></span> Darklight Chess Academy. All Rights Reserved.</p>
+    <p>© <span id="year"></span> Darklight Chess Academy. All Rights Reserved. · <a href="/privacy-policy/">Privacy Policy</a></p>
   </div>
 </footer>
