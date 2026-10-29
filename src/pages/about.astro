@@ -11,8 +11,8 @@ import { countriesServed } from "../data/countries";
   title="About Us | Darklight Chess Academy, Online & Coimbatore"
   description={`About Darklight Chess Academy: who we are, how we coach, our founders, our two centres in Coimbatore and our live online classes for students in ${countriesServed}+ countries.`}
   path="/about/"
-  image="/assets/images/gallery-b4.jpg"
-  imageAlt="Students learning chess at Darklight Chess Academy"
+  image="/assets/images/about-olympiad.jpg"
+  imageAlt="At the 44th FIDE Chess Olympiad with an international chess player"
 >
   <PageHero
     eyebrow="About Us"
@@ -53,10 +53,10 @@ import { countriesServed } from "../data/countries";
         <dt>Contact</dt>
         <dd><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> · <a href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
         <dt>Social profiles</dt>
-        <dd>
-          <a href={SOCIALS.instagram} rel="noopener" target="_blank">Instagram</a> ·
-          <a href={SOCIALS.facebook} rel="noopener" target="_blank">Facebook</a> ·
-          <a href={SOCIALS.youtube} rel="noopener" target="_blank">YouTube</a> ·
+        <dd class="inline-links">
+          <a href={SOCIALS.instagram} rel="noopener" target="_blank">Instagram</a>
+          <a href={SOCIALS.facebook} rel="noopener" target="_blank">Facebook</a>
+          <a href={SOCIALS.youtube} rel="noopener" target="_blank">YouTube</a>
           <a href={SOCIALS.linkedin} rel="noopener" target="_blank">LinkedIn</a>
         </dd>
       </dl>
@@ -69,7 +69,10 @@ import { countriesServed } from "../data/countries";
         <p class="eyebrow">Our Story</p>
         <h2>Why the Academy Exists</h2>
       </div>
-      <Img src="/assets/images/gallery-b4.jpg" alt="Students learning chess at Darklight Chess Academy" style="border-radius:16px; margin-bottom:1.6rem;" />
+      <figure class="story-photo">
+        <Img src="/assets/images/about-olympiad.jpg" alt="At the 44th FIDE Chess Olympiad with an international chess player" />
+        <figcaption>At the 44th FIDE Chess Olympiad with an international chess player.</figcaption>
+      </figure>
       <blockquote style="font-style:italic; border-left:3px solid var(--gold); padding-left:1rem; margin-bottom:1rem;">
         “Darklight Chess Academy was a dream for me, and I started it with an aim to empower chess coaches and explore the world of chess with a motive to take chess to all the people across the globe.”
         <br /><strong>— Karuppasamy, Founder</strong>

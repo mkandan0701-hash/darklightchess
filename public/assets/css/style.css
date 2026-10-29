@@ -28,7 +28,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
@@ -363,7 +363,7 @@ ul { list-style: none; }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: start; }
-.contact-illustration { max-width: 320px; margin-bottom: 1.6rem; }
+.contact-illustration { width: 100%; max-width: 440px; margin: 0 0 2rem; }
 .contact-info ul li { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
 .ci-icon {
   flex: 0 0 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
@@ -763,3 +763,10 @@ ul { list-style: none; }
   .facts-list { grid-template-columns: 1fr; gap: 0.2rem; }
   .facts-list dd { margin-bottom: 0.6rem; }
 }
+
+/* ---------- About page ---------- */
+.story-photo { margin: 0 0 1.8rem; }
+.story-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: center 30%; border-radius: var(--radius); box-shadow: var(--shadow); }
+.story-photo figcaption { margin-top: 0.6rem; font-size: 0.85rem; color: var(--muted); text-align: center; }
+.facts-list a { color: var(--purple); font-weight: 600; }
+.facts-list .inline-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
