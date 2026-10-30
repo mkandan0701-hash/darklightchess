@@ -1,0 +1,24 @@
+---
+import Img from "./Img.astro";
+import { partners } from "../data/partners";
+---
+
+<section class="section partners" id="partners">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Partners</p>
+      <h2>Institutions We've Partnered With</h2>
+      <p class="section-sub">Schools and organisations in India and abroad trust Darklight Chess Academy for chess coaching.</p>
+    </div>
+    <ul class="partners-grid">
+      {partners.map((p) => (
+        <li class="partner-card reveal">
+          <div class="partner-logo">
+            <Img src={p.logo} alt={`${p.name} logo`} />
+          </div>
+          <p class="partner-name">{p.name}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

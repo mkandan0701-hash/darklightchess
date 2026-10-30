@@ -703,6 +703,19 @@ ul { list-style: none; }
   .marquee-dup { display: none; }
 }
 
+/* ---------- Partner institutions ---------- */
+.partners-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.4rem; }
+.partner-card { background: var(--white); border: 1px solid #ececf4; border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.2rem 1rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; text-align: center; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.partner-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(13, 13, 31, 0.16); }
+.partner-logo { height: 110px; width: 100%; display: flex; align-items: center; justify-content: center; }
+.partner-logo img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.partner-name { font-size: 0.85rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+@media (max-width: 560px) {
+  .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+  .partner-logo { height: 80px; }
+  .partner-name { font-size: 0.78rem; }
+}
+
 /* ---------- Enquiry form: consent + honeypot ---------- */
 .form-consent label { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 500; font-size: 0.82rem; line-height: 1.5; cursor: pointer; }
 .form-consent input[type="checkbox"] { width: 18px; height: 18px; margin-top: 0.15rem; flex-shrink: 0; accent-color: var(--purple); }
