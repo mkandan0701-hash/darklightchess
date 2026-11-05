@@ -12,6 +12,8 @@ import FaqSchema from "./schema/FaqSchema.astro";
 import { BRANCHES } from "../consts";
 import type { Market } from "../data/markets";
 import { HUB_PATH } from "../lib/seo";
+import { currencies, inr, PRICE_INR_PER_HOUR } from "../data/pricing";
+import { WHATSAPP_LINK } from "../consts";
 import { describeDifference, formatOffset, formatTime, toIst } from "../lib/time";
 
 interface Props {
@@ -24,6 +26,11 @@ const exampleZone = market.timeZones.find((z) => z.zone === market.exampleZone);
 const posts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 3);
+
+const waText = encodeURIComponent(`Hi Darklight Chess Academy! I'm in ${market.countryName} and would like to book a free demo class.`);
+const waHref = `${WHATSAPP_LINK}?text=${waText}`;
+const lastUpdated = market.lastUpdated ? new Date(market.lastUpdated) : undefined;
+const priceCurrencies = (market.currencies ?? []).map((c) => currencies[c]).filter(Boolean);
 
 const levels = [
   { href: "/chess-classes-for-beginners/", name: "Beginners", text: "Rules, basic tactics and opening principles — age 5+ and adults." },
@@ -55,11 +62,40 @@ const levels = [
     </div>
   </PageHero>
 
+  {market.answer && (
+    <section class="section answer-block">
+      <div class="container narrow">
+        <p class="answer-lead"><strong>{market.answer}</strong></p>
+        {market.quickFacts && (
+          <aside class="quick-facts" aria-label="Quick facts">
+            <h2>Quick facts</h2>
+            <ul class="check-list">
+              {market.quickFacts.map((f) => <li set:html={f} />)}
+            </ul>
+          </aside>
+        )}
+        {lastUpdated && <p class="tz-note">Last updated: <time datetime={market.lastUpdated}>{lastUpdated.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></p>}
+      </div>
+    </section>
+  )}
+
   <section class="section">
     <div class="container narrow">
       {market.intro.map((p) => <p set:html={p} />)}
     </div>
   </section>
+
+  {(market.sections ?? []).map((sec) => (
+    <section class="section">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">{sec.eyebrow}</p>
+          <h2>{sec.heading}</h2>
+        </div>
+        {sec.paragraphs.map((p) => <p set:html={p} />)}
+      </div>
+    </section>
+  ))}
 
   {market.timeZones.length > 0 && (
     <section class="section bg-soft">
@@ -188,6 +224,44 @@ const levels = [
     </section>
   )}
 
+  {priceCurrencies.length > 0 && (
+    <section class="section">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">Fees</p>
+          <h2>How much do online chess lessons cost for families in {market.countryName}?</h2>
+        </div>
+        <p>
+          Lessons start from <strong>{inr} per hour</strong>. Fees are set in Indian rupees, so the amount you pay in {priceCurrencies[0].label} depends on the exchange rate on the day. As a guide only, {inr} is {priceCurrencies.map((c) => `about ${c.symbol}${c.approx}`).join(" or ")} at recent rates. Siblings learning together get a discount, and the first demo class is free.
+        </p>
+        <p class="tz-note">Currency figures are indicative and rounded. Ask us for the exact amount when you enquire. Full details are on the <a href="/pricing/">pricing page</a>.</p>
+      </div>
+    </section>
+  )}
+
+  {market.answer && (
+    <section class="section">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">Choosing a Coach</p>
+          <h2>Online academy, local club or marketplace tutor: which suits your child?</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="tz-table">
+            <thead><tr><th scope="col"></th><th scope="col">Online academy (like us)</th><th scope="col">Local chess club</th><th scope="col">Marketplace tutor</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Curriculum</th><td>Structured levels from beginner to tournament prep</td><td>Often informal, varies by volunteer</td><td>Depends on the individual tutor</td></tr>
+              <tr><th scope="row">Scheduling</th><td>Flexible, fitted around school and your time zone</td><td>Fixed weekly slot</td><td>Flexible, agreed per tutor</td></tr>
+              <tr><th scope="row">Coaching team</th><td>Several coaches with national and international playing experience</td><td>One or two organisers</td><td>One person</td></tr>
+              <tr><th scope="row">Playing in person</th><td>Not included; your child can still enter local events</td><td>Yes, face-to-face games</td><td>Not usually</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Many families do both: a local club for the social side, and an online academy for structured coaching. We are happy for your child to do either alongside our classes.</p>
+      </div>
+    </section>
+  )}
+
   <section class="section bg-soft">
     <div class="container narrow">
       <div class="section-head">
@@ -216,8 +290,8 @@ const levels = [
           <p class="eyebrow">Free Demo Class</p>
           <h2>Book a Free Demo Class</h2>
           <p>The demo is free with no commitment. A coach assesses the student's level, and we suggest a batch or one-to-one slot that fits your time zone.</p>
-          <p>Fees depend on the format (group or 1-to-1) and how often the student attends, and we share them when you enquire. Siblings learning together get a discount.</p>
-          <p>Prefer to talk first? Use the WhatsApp button at the bottom of the screen.</p>
+          <p>{market.currencies ? <>Lessons start from {inr} per hour.</> : <>Fees depend on the format and how often the student attends, and we share them when you enquire.</>} Siblings learning together get a discount.</p>
+          <p>Prefer to talk first? <a href={waHref} target="_blank" rel="noopener" data-whatsapp="country">Message us on WhatsApp</a> or use the button at the bottom of the screen.</p>
         </div>
         <EnquiryForm country={market.countryName} mode={market.formMode} />
       </div>

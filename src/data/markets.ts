@@ -31,7 +31,7 @@ export interface Market {
   path: string;
   published: boolean;
   countryName: string; // must match an option in the enquiry form's Country select
-  hreflang: string;
+  hreflang: string; // "" = multi-country page, kept out of the hreflang cluster
   ogLocale: string;
   title: string;
   description: string;
@@ -46,12 +46,18 @@ export interface Market {
   chessContext: { heading: string; paragraphs: string[] }; // trusted HTML
   proof: { heading: string; items: ProofItem[] };
   faqs: Faq[];
+  // Optional answer-first upgrades (used by the UK, Gulf and Europe pages).
+  answer?: string; // 40-60 word direct answer shown under the hero
+  quickFacts?: string[]; // trusted HTML list items
+  sections?: { eyebrow: string; heading: string; paragraphs: string[] }[]; // trusted HTML
+  currencies?: string[]; // codes from src/data/pricing.ts shown as approximate conversions
+  lastUpdated?: string; // ISO date
   formMode: "Online (India)" | "Online (International batch)";
 }
 
 const TOURNAMENT_LINK = `<a href="/tournament-chess-coaching/">tournament coaching</a>`;
 
-export const markets: Market[] = [
+export const baseMarkets: Market[] = [
   {
     slug: "usa",
     path: "/online-chess-classes-usa/",
@@ -133,6 +139,7 @@ export const markets: Market[] = [
           "Yes. Tournament coaching can be built around a specific event your child has entered, US Chess–rated or not, and includes reviewing their own games afterwards. A Darklight student recently took 1st place at the USA Chess Festival.",
       },
     ],
+    currencies: ["USD"],
     formMode: "Online (International batch)",
   },
   {
@@ -194,6 +201,8 @@ export const markets: Market[] = [
           "Yes. Lessons are online and the whole UK shares one time zone, so the same scheduling applies wherever you are.",
       },
     ],
+    currencies: ["GBP", "EUR"],
+    lastUpdated: "2026-11-05",
     formMode: "Online (International batch)",
   },
   {
@@ -267,6 +276,7 @@ export const markets: Market[] = [
           "Yes. Coaches can tailor sessions around a specific event your child has entered and review their tournament games afterwards to find recurring mistakes.",
       },
     ],
+    currencies: ["CAD"],
     formMode: "Online (International batch)",
   },
   {
@@ -390,5 +400,9 @@ export const markets: Market[] = [
     formMode: "Online (International batch)",
   },
 ];
+
+import { intlMarkets } from "./markets-intl";
+
+export const markets: Market[] = [...baseMarkets, ...intlMarkets];
 
 export const publishedMarkets = markets.filter((m) => m.published);

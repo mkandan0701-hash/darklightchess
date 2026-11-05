@@ -9,7 +9,7 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: 500, label: "Students Taught" },
+  { value: 70, label: "Active Students" },
   { value: 25, label: "Chess Coaches" },
   { value: countriesServed, label: "Countries" },
   { value: 80, label: "Clients" },

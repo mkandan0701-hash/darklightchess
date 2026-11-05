@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import { currencies, inr, PRICING_UPDATED } from "../data/pricing";
+
+const rows = [
+  ["India", "INR", inr],
+  ["United Kingdom", "GBP", ""],
+  ["United Arab Emirates", "AED", ""],
+  ["Qatar", "QAR", ""],
+  ["Saudi Arabia", "SAR", ""],
+  ["Kuwait", "KWD", ""],
+  ["Bahrain", "BHD", ""],
+  ["Oman", "OMR", ""],
+  ["Ireland, Germany, Netherlands, Belgium", "EUR", ""],
+  ["Switzerland", "CHF", ""],
+  ["Norway", "NOK", ""],
+  ["United States", "USD", ""],
+  ["Canada", "CAD", ""],
+];
+const faqs = [
+  {
+    question: "How much do online chess lessons cost at Darklight Chess Academy?",
+    answer: "Lessons start from ₹1,000 per hour. Fees are set in Indian rupees; amounts in other currencies on this page are indicative conversions that move with the exchange rate.",
+  },
+  {
+    question: "Is the first class free?",
+    answer: "Yes. The demo class is free, with no commitment, and includes a level assessment by a coach.",
+  },
+  {
+    question: "Do siblings get a discount?",
+    answer: "Yes, siblings learning together get a discount. Ask us for the details when you enquire.",
+  },
+  {
+    question: "Do you charge in my local currency?",
+    answer: "Fees are set in Indian rupees. The local-currency figures shown are approximate and rounded, so ask us for the exact amount when you enquire.",
+  },
+];
+---
+
+<BaseLayout
+  title="Online Chess Lesson Fees | Darklight Chess Academy"
+  description="Online chess lessons from ₹1,000 per hour, with approximate prices in GBP, AED, QAR, SAR, EUR, USD and more. Free demo class, sibling discount."
+  path="/pricing/"
+>
+  <PageHero
+    eyebrow="Fees"
+    title="Online Chess Lesson <span class='gold'>Fees</span>"
+    subtitle="Lessons start from ₹1,000 per hour, with a free demo class first."
+    breadcrumbItems={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing/" }]}
+  />
+  <section class="section">
+    <div class="container narrow">
+      <p class="answer-lead"><strong>Darklight Chess Academy lessons start from {inr} per hour. The first demo class is free, and siblings learning together get a discount.</strong></p>
+      <h2>What does ₹1,000 per hour cost in my currency?</h2>
+      <p>Fees are set in Indian rupees. The table shows a rounded, indicative conversion at recent exchange rates. It is a guide, not a quote, so ask us for the exact amount when you enquire.</p>
+      <div class="table-wrap">
+        <table class="tz-table">
+          <caption>Approximate cost of one hour of coaching</caption>
+          <thead><tr><th scope="col">Where you live</th><th scope="col">Currency</th><th scope="col">From (per hour)</th></tr></thead>
+          <tbody>
+            {rows.map(([where, code, fixed]) => (
+              <tr>
+                <th scope="row">{where}</th>
+                <td>{code}</td>
+                <td>{fixed || `about ${currencies[code].symbol}${currencies[code].approx}`}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="tz-note">Last updated: <time datetime={PRICING_UPDATED}>5 November 2026</time>. Conversions are rounded and indicative.</p>
+      <h2>Is there a difference between group and 1-to-1 pricing?</h2>
+      <p>The rate above is the confirmed starting price. Tell us whether you prefer a small group batch or <a href="/one-to-one-chess-coaching/">one-to-one lessons</a> when you book the demo, and we will confirm the exact fee for that format.</p>
+      <h2>Questions about fees</h2>
+      <div class="accordion">
+        {faqs.map((f) => <details><summary>{f.question}</summary><p>{f.answer}</p></details>)}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+  <CtaBanner />
+</BaseLayout>

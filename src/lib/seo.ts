@@ -20,11 +20,11 @@ export const HREFLANG_CLUSTER: Alternate[] = [
   { hreflang: "x-default", href: absoluteUrl(HUB_PATH) },
   { hreflang: "en", href: absoluteUrl(HUB_PATH) },
   ...markets
-    .filter((m) => m.published)
+    .filter((m) => m.published && m.hreflang)
     .map((m) => ({ hreflang: m.hreflang, href: absoluteUrl(m.path) })),
 ];
 
-const clusterPaths = new Set([HUB_PATH, ...markets.filter((m) => m.published).map((m) => m.path)]);
+const clusterPaths = new Set([HUB_PATH, ...markets.filter((m) => m.published && m.hreflang).map((m) => m.path)]);
 
 export const alternatesFor = (path: string): Alternate[] =>
   clusterPaths.has(path) ? HREFLANG_CLUSTER : [];

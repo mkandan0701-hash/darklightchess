@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import { describeDifference, formatOffset } from "../lib/time";
+
+const zones = [
+  { zone: "India (IST)", standard: 5.5, link: "/online-chess-classes-india/" },
+  { zone: "UK and Ireland (GMT / BST)", standard: 0, daylight: 1, link: "/online-chess-classes-uk/" },
+  { zone: "Germany, Netherlands, Belgium, Switzerland, Norway (CET / CEST)", standard: 1, daylight: 2, link: "/online-chess-classes-europe/" },
+  { zone: "UAE and Oman (GST)", standard: 4, link: "/online-chess-classes-uae/" },
+  { zone: "Qatar, Saudi Arabia, Kuwait, Bahrain (AST)", standard: 3, link: "/online-chess-classes-qatar/" },
+  { zone: "US Eastern (ET)", standard: -5, daylight: -4, link: "/online-chess-classes-usa/" },
+  { zone: "Canada Eastern (ET)", standard: -5, daylight: -4, link: "/online-chess-classes-canada/" },
+];
+const faqs = [
+  {
+    question: "What time are Darklight Chess Academy online classes?",
+    answer: "Timings are flexible. We schedule around the student's school day and time zone, and confirm the slot when you book the free demo class.",
+  },
+  {
+    question: "Do you have weekend classes?",
+    answer: "Yes, weekend sessions are available alongside weekday after-school slots, subject to coach availability.",
+  },
+  {
+    question: "Do class times change when clocks change?",
+    answer: "India does not change its clocks, so for countries that do (UK, Europe, US, Canada) the gap to India shifts by one hour. We agree the slot in your local time and keep it there.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Class Timings by Time Zone | Darklight Chess Academy"
+  description="Online chess class timings for the UK, Gulf, Europe, US and India. Flexible slots with a time-zone table showing the gap to India."
+  path="/class-timings/"
+>
+  <PageHero
+    eyebrow="Scheduling"
+    title="Chess Class Timings by <span class='gold'>Time Zone</span>"
+    subtitle="Flexible lessons, booked in your local time."
+    breadcrumbItems={[{ name: "Home", path: "/" }, { name: "Class timings", path: "/class-timings/" }]}
+  />
+  <section class="section">
+    <div class="container narrow">
+      <p class="answer-lead"><strong>Our class timings are flexible. We schedule lessons in your local time, around school hours, and confirm the slot when you book the free demo class.</strong></p>
+      <h2>How far is my time zone from India?</h2>
+      <div class="table-wrap">
+        <table class="tz-table">
+          <caption>Offsets compared with India (IST, UTC+5:30)</caption>
+          <thead><tr><th scope="col">Region</th><th scope="col">Standard time</th><th scope="col">Daylight time</th></tr></thead>
+          <tbody>
+            {zones.map((z) => (
+              <tr>
+                <th scope="row"><a href={z.link}>{z.zone}</a></th>
+                <td>{formatOffset(z.standard)} · {describeDifference(z.standard)}</td>
+                <td>{z.daylight !== undefined ? `${formatOffset(z.daylight)} · ${describeDifference(z.daylight)}` : "Not observed"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <h2>Questions about timings</h2>
+      <div class="accordion">
+        {faqs.map((f) => <details><summary>{f.question}</summary><p>{f.answer}</p></details>)}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+  <CtaBanner />
+</BaseLayout>
