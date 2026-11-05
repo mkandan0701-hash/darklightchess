@@ -127,6 +127,7 @@
   /* ---------- Animated stat counters ---------- */
   const animateCount = (el) => {
     const target = +el.dataset.count;
+    el.textContent = "0";
     const dur = 1800;
     const t0 = performance.now();
     const tick = (t) => {
@@ -145,7 +146,7 @@
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.2 }
   );
   document.querySelectorAll(".stat-num").forEach((el) => statObs.observe(el));
 

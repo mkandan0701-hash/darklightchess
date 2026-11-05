@@ -7,6 +7,7 @@ import Partners from "../components/Partners.astro";
 import EnquiryForm from "../components/EnquiryForm.astro";
 import Img from "../components/Img.astro";
 import { coaches } from "../data/coaches";
+import { stats } from "../data/stats";
 import {
   BRANCH_SAIBABA_COLONY,
   BRANCH_SOWRIPALAYAM,
@@ -49,22 +50,12 @@ import { homeFaqs } from "../data/faq-home";
   <!-- ============ STATS ============ -->
   <section class="stats" id="stats">
     <div class="container stats-grid">
-      <div class="stat reveal">
-        <span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span>
-        <p>Students Taught</p>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-count="25">0</span><span class="stat-plus">+</span>
-        <p>Chess Coaches</p>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-count="30">0</span><span class="stat-plus">+</span>
-        <p>Countries</p>
-      </div>
-      <div class="stat reveal">
-        <span class="stat-num" data-count="80">0</span><span class="stat-plus">+</span>
-        <p>Clients</p>
-      </div>
+      {stats.map((s) => (
+        <div class="stat reveal">
+          <span class="stat-num" data-count={s.value}>{s.value}</span><span class="stat-plus">+</span>
+          <p>{s.label}</p>
+        </div>
+      ))}
     </div>
   </section>
 
