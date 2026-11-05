@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
+import Img from "../components/Img.astro";
+import {
+  BRANCH_SAIBABA_COLONY,
+  BRANCH_SOWRIPALAYAM,
+  EMAIL,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  SOCIALS,
+} from "../consts";
+---
+
+<BaseLayout
+  title="Contact & Book a Free Demo | Darklight Chess Academy"
+  description="Contact Darklight Chess Academy in Coimbatore or book a free online demo class. Call, WhatsApp, email or use the enquiry form."
+  path="/contact/"
+>
+  <PageHero
+    eyebrow="Contact"
+    title="Book Your <span class='gold'>Free Demo Class</span>"
+    subtitle="Ask a question or book a free demo. Our team will guide you on the right course and schedule."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact/" },
+    ]}
+  />
+
+  <!-- ============ CONTACT / ENQUIRY FORM ============ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contact Us</p>
+        <h2>Book Your Free Demo Class</h2>
+        <p class="section-sub">Got questions or ready to begin? Connect with us now and our team will guide you on the best course, schedule, and coaching format for you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <Img src="/assets/images/contact-us-illustration.png" alt="Illustration of the Darklight support team answering calls and messages" class="contact-illustration" />
+          <ul>
+            <li>
+              <span class="ci-icon">📍</span>
+              <div><strong>{BRANCH_SAIBABA_COLONY.label}</strong><br />{BRANCH_SAIBABA_COLONY.streetAddress},<br />{BRANCH_SAIBABA_COLONY.addressLocality}, {BRANCH_SAIBABA_COLONY.addressRegion} {BRANCH_SAIBABA_COLONY.postalCode}<br />
+              <a href={BRANCH_SAIBABA_COLONY.directionsUrl} target="_blank" rel="noopener">Get Directions ↗</a></div>
+            </li>
+            <li>
+              <span class="ci-icon">📍</span>
+              <div><strong>{BRANCH_SOWRIPALAYAM.label}</strong><br />{BRANCH_SOWRIPALAYAM.streetAddress},<br />{BRANCH_SOWRIPALAYAM.addressLocality}, {BRANCH_SOWRIPALAYAM.addressRegion} {BRANCH_SOWRIPALAYAM.postalCode}<br />
+              <a href={BRANCH_SOWRIPALAYAM.directionsUrl} target="_blank" rel="noopener">Get Directions ↗</a></div>
+            </li>
+            <li>
+              <span class="ci-icon">📞</span>
+              <div><strong>Call / WhatsApp</strong><br /><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a></div>
+            </li>
+            <li>
+              <span class="ci-icon">✉️</span>
+              <div><strong>Email</strong><br /><a href={`mailto:${EMAIL}`}>{EMAIL}</a></div>
+            </li>
+            <li>
+              <span class="ci-icon">🤝</span>
+              <div><strong>Follow Us</strong>
+                <div class="socials on-light">
+                  <a href={SOCIALS.instagram} target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.7" cy="6.3" r="1.4" fill="currentColor" stroke="none"/></svg>
+                  </a>
+                  <a href={SOCIALS.facebook} target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.6l.5-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6h1.5V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8v3h2.5v7h3z"/></svg>
+                  </a>
+                  <a href={SOCIALS.youtube} target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 4.8 2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-4.8zM9.8 15.1V8.9L15.7 12l-5.9 3.1z"/></svg>
+                  </a>
+                  <a href={SOCIALS.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.49 2.49 0 1 1 0 4.98 2.49 2.49 0 0 1 0-4.98zM3 9.75h4v10.75H3V9.75zm6.5 0h3.83v1.47h.05c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v6.22h-4v-5.52c0-1.31-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.62h-4V9.75z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <EnquiryForm />
+      </div>
+      <div class="maps-grid">
+        <div class="map-wrap reveal">
+          <p class="map-label">📍 {BRANCH_SAIBABA_COLONY.label}</p>
+          <iframe
+            title="Darklight Chess Academy, Saibaba Colony branch on Google Maps"
+            src={BRANCH_SAIBABA_COLONY.mapEmbedSrc}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-directions btn btn-gold" href={BRANCH_SAIBABA_COLONY.directionsUrl} target="_blank" rel="noopener">📍 Get Directions</a>
+        </div>
+        <div class="map-wrap reveal">
+          <p class="map-label">📍 {BRANCH_SOWRIPALAYAM.label}</p>
+          <iframe
+            title="Darklight Chess Academy, Sowripalayam branch on Google Maps"
+            src={BRANCH_SOWRIPALAYAM.mapEmbedSrc}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-directions btn btn-gold" href={BRANCH_SOWRIPALAYAM.directionsUrl} target="_blank" rel="noopener">📍 Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

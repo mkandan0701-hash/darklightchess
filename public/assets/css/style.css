@@ -802,3 +802,4 @@ ul { list-style: none; }
 .compare-table th { background: var(--dark); color: var(--white); }
 @media (max-width: 1100px) { .ladder { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 700px) { .ladder { grid-template-columns: 1fr; } }
+@media (max-width: 1280px) { .nav-links { gap: 0.9rem; } .nav-links a { font-size: 0.86rem; } }

@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+---
+
+<BaseLayout
+  title="Student Achievements & Reviews | Darklight Chess Academy"
+  description="What students and parents say about Darklight Chess Academy, with success stories from India, the UAE, the UK and more."
+  path="/achievements/"
+>
+  <PageHero
+    eyebrow="Achievements"
+    title="Student <span class='gold'>Success Stories</span>"
+    subtitle="Hear from students and parents across India and abroad."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Achievements", path: "/achievements/" },
+    ]}
+  />
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials bg-soft" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">What Our Students Say</p>
+        <h2>Real Success Stories From India and Abroad</h2>
+        <p class="section-sub">Students who have improved through Darklight Chess Academy's expert coaching.</p>
+      </div>
+      <div class="slider reveal" id="testimonialSlider">
+        <div class="slides" id="slides">
+          <figure class="t-card">
+            <div class="t-quote">❝</div>
+            <blockquote>I joined offline sessions in Coimbatore. Coach Vinoth helped me go from 1100 to 1450 in under six months.</blockquote>
+            <figcaption>— Srinath M., Tamil Nadu</figcaption>
+          </figure>
+          <figure class="t-card">
+            <div class="t-quote">❝</div>
+            <blockquote>My son attends from Dubai via online sessions. The improvement is visible. We love how interactive the classes are.</blockquote>
+            <figcaption>— Fatima A., UAE</figcaption>
+          </figure>
+          <figure class="t-card">
+            <div class="t-quote">❝</div>
+            <blockquote>I'm from the UK, and the timezone-friendly online batch fits perfectly. I'm now confidently playing in local UK tournaments.</blockquote>
+            <figcaption>— Raj Patel, London</figcaption>
+          </figure>
+          <figure class="t-card">
+            <div class="t-quote">❝</div>
+            <blockquote>After trying multiple platforms, I found Darklight to be the most structured and professional.</blockquote>
+            <figcaption>— Preeti Sharma, Delhi</figcaption>
+          </figure>
+          <figure class="t-card">
+            <div class="t-quote">❝</div>
+            <blockquote>I've won against my parents, classmates, and even my school seniors — all thanks to Darklight coaching.</blockquote>
+            <figcaption>— A proud Darklight student</figcaption>
+          </figure>
+        </div>
+        <div class="slider-nav">
+          <button id="prevSlide" aria-label="Previous testimonial">‹</button>
+          <div class="dots" id="sliderDots"></div>
+          <button id="nextSlide" aria-label="Next testimonial">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <CtaBanner
+        heading="Ready to Make the First Move?"
+        subtext="Book a free demo class. We'll assess your level and recommend where to start. No commitment."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import Img from "../../components/Img.astro";
+---
+
+<BaseLayout
+  title="Gallery | Darklight Chess Academy"
+  description="Photos from Darklight Chess Academy classes, tournaments and events, including student wins in India, the USA and beyond."
+  path="/gallery/"
+>
+  <PageHero
+    eyebrow="Gallery"
+    title="Moments From <span class='gold'>Our Academy</span>"
+    subtitle="Real photos from our classes, tournaments and events."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Gallery", path: "/gallery/" },
+    ]}
+  />
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Gallery</p>
+        <h2>Representing Darklight Chess Academy Across the Board</h2>
+        <p class="section-sub">Real moments from our classes, tournaments and events.</p>
+      </div>
+      <div class="gallery-tabs reveal" id="galleryTabs" role="tablist">
+        <button class="g-tab active" data-filter="all">All</button>
+        <button class="g-tab" data-filter="achievement">🏆 Student Achievements</button>
+        <button class="g-tab" data-filter="highlight">✨ Highlights</button>
+      </div>
+      <div class="gallery-grid reveal">
+        <!-- Student Achievements -->
+        <Img data-cat="achievement" src="/assets/images/gallery-a8.jpg" alt="Anuroop – winner of the 1st Intra Academy Level Chess Tournament" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b1.jpg" alt="Young student with his trophy and medal" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a11.jpg" alt="Aayush – 1st place in Silver Knight tournament, USA" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b7.jpg" alt="Hasvanth – 2nd place, Intra Academy Chess Tournament" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a12.jpg" alt="Devansh – achieving in New Delhi Open" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b6.jpg" alt="Student holding his tournament trophy" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a13.jpg" alt="Sanjeeth S N – Under 07 champion" />
+        <Img data-cat="achievement" src="/assets/images/gallery-b10.jpg" alt="Adithya Prabhu – 3rd place, Intra Academy Chess Tournament" />
+        <Img data-cat="achievement" src="/assets/images/gallery-a9.jpg" alt="Shiva Prabhu – youngest player of the academy" />
+        <Img data-cat="achievement" src="/assets/images/gallery-new1.jpg" alt="Champion Aayush – states tournament, USA" />
+        <Img data-cat="achievement" src="/assets/images/poster-harinandan.jpg" alt="Harinandan – 1st place, USA Chess Festival" />
+        <Img data-cat="achievement" src="/assets/images/poster-virat.jpg" alt="Virat – 2nd place, Grand Chess Tournament 2026" />
+        <Img data-cat="achievement" src="/assets/images/poster-trichy-champion.jpg" alt="Champion – Star Chess Foundation International Open, Trichy 2026" />
+        <Img data-cat="achievement" src="/assets/images/poster-harinanthan.jpg" alt="Harinanthan – Continental Chess Concord Tournament, California" />
+        {/* TODO(owner): gallery-new2.jpg is missing from the repo (404 on the live site). Re-upload it, then restore:
+        <Img data-cat="achievement" src="/assets/images/gallery-new2.jpg" alt="Champ Sudhindra – state level tournament, Under 10" /> */}
+        <!-- Highlights -->
+        <Img data-cat="highlight" src="/assets/images/gallery-a1.jpg" alt="Darklight students at a chess tournament" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a2.jpg" alt="Student at the Toronto chess centre" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a5.jpg" alt="Darklight players at an international tournament" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a7.jpg" alt="Team Darklight at a tournament venue" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b5.jpg" alt="Academy team at a tournament hall" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a10.jpg" alt="Students and coaches at a tournament" />
+        <Img data-cat="highlight" src="/assets/images/gallery-c1.jpg" alt="Coach at the tournament board" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a6.jpg" alt="Meeting world champion Magnus Carlsen" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b3.jpg" alt="With grandmaster Fabiano Caruana" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b2.jpg" alt="With an international grandmaster" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b4.jpg" alt="Meeting chess stars at an international event" />
+        <Img data-cat="highlight" src="/assets/images/gallery-b9.jpg" alt="Coaches with an international player" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a14.jpg" alt="Young student training with board and tablet" />
+        <Img data-cat="highlight" src="/assets/images/gallery-a15.jpg" alt="Online training session in progress" />
+        <Img data-cat="highlight" src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" />
+        <Img data-cat="highlight" src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" />
+      </div>
+    </div>
+  </section>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
+    <img src="" alt="Gallery image enlarged" id="lbImg" />
+    <button class="lb-next" id="lbNext" aria-label="Next image">›</button>
+  </div>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <CtaBanner
+        heading="Ready to Make the First Move?"
+        subtext="Book a free demo class. We'll assess your level and recommend where to start. No commitment."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>

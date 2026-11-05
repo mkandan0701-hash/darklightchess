@@ -230,7 +230,7 @@ import { levels } from "../data/levels";
     </div>
   </section>
 
-  <!-- ============ GALLERY ============ -->
+  <!-- ============ GALLERY PREVIEW ============ -->
   <section class="section gallery" id="gallery">
     <div class="container">
       <div class="section-head reveal">
@@ -238,51 +238,19 @@ import { levels } from "../data/levels";
         <h2>Representing Darklight Chess Academy Across the Board</h2>
         <p class="section-sub">Real moments from our classes, tournaments and events.</p>
       </div>
-      <div class="gallery-tabs reveal" id="galleryTabs" role="tablist">
-        <button class="g-tab active" data-filter="all">All</button>
-        <button class="g-tab" data-filter="achievement">🏆 Student Achievements</button>
-        <button class="g-tab" data-filter="highlight">✨ Highlights</button>
-      </div>
       <div class="gallery-grid reveal">
-        <!-- Student Achievements -->
-        <Img data-cat="achievement" src="/assets/images/gallery-a8.jpg" alt="Anuroop – winner of the 1st Intra Academy Level Chess Tournament" />
-        <Img data-cat="achievement" src="/assets/images/gallery-b1.jpg" alt="Young student with his trophy and medal" />
-        <Img data-cat="achievement" src="/assets/images/gallery-a11.jpg" alt="Aayush – 1st place in Silver Knight tournament, USA" />
-        <Img data-cat="achievement" src="/assets/images/gallery-b7.jpg" alt="Hasvanth – 2nd place, Intra Academy Chess Tournament" />
-        <Img data-cat="achievement" src="/assets/images/gallery-a12.jpg" alt="Devansh – achieving in New Delhi Open" />
-        <Img data-cat="achievement" src="/assets/images/gallery-b6.jpg" alt="Student holding his tournament trophy" />
-        <Img data-cat="achievement" src="/assets/images/gallery-a13.jpg" alt="Sanjeeth S N – Under 07 champion" />
-        <Img data-cat="achievement" src="/assets/images/gallery-b10.jpg" alt="Adithya Prabhu – 3rd place, Intra Academy Chess Tournament" />
-        <Img data-cat="achievement" src="/assets/images/gallery-a9.jpg" alt="Shiva Prabhu – youngest player of the academy" />
-        <Img data-cat="achievement" src="/assets/images/gallery-new1.jpg" alt="Champion Aayush – states tournament, USA" />
-        <Img data-cat="achievement" src="/assets/images/poster-harinandan.jpg" alt="Harinandan – 1st place, USA Chess Festival" />
-        <Img data-cat="achievement" src="/assets/images/poster-virat.jpg" alt="Virat – 2nd place, Grand Chess Tournament 2026" />
-        <Img data-cat="achievement" src="/assets/images/poster-trichy-champion.jpg" alt="Champion – Star Chess Foundation International Open, Trichy 2026" />
-        <Img data-cat="achievement" src="/assets/images/poster-harinanthan.jpg" alt="Harinanthan – Continental Chess Concord Tournament, California" />
-        {/* TODO(owner): gallery-new2.jpg is missing from the repo (404 on the live site). Re-upload it, then restore:
-        <Img data-cat="achievement" src="/assets/images/gallery-new2.jpg" alt="Champ Sudhindra – state level tournament, Under 10" /> */}
-        <!-- Highlights -->
-        <Img data-cat="highlight" src="/assets/images/gallery-a1.jpg" alt="Darklight students at a chess tournament" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a2.jpg" alt="Student at the Toronto chess centre" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a5.jpg" alt="Darklight players at an international tournament" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a7.jpg" alt="Team Darklight at a tournament venue" />
-        <Img data-cat="highlight" src="/assets/images/gallery-b5.jpg" alt="Academy team at a tournament hall" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a10.jpg" alt="Students and coaches at a tournament" />
-        <Img data-cat="highlight" src="/assets/images/gallery-c1.jpg" alt="Coach at the tournament board" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a6.jpg" alt="Meeting world champion Magnus Carlsen" />
-        <Img data-cat="highlight" src="/assets/images/gallery-b3.jpg" alt="With grandmaster Fabiano Caruana" />
-        <Img data-cat="highlight" src="/assets/images/gallery-b2.jpg" alt="With an international grandmaster" />
-        <Img data-cat="highlight" src="/assets/images/gallery-b4.jpg" alt="Meeting chess stars at an international event" />
-        <Img data-cat="highlight" src="/assets/images/gallery-b9.jpg" alt="Coaches with an international player" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a14.jpg" alt="Young student training with board and tablet" />
-        <Img data-cat="highlight" src="/assets/images/gallery-a15.jpg" alt="Online training session in progress" />
-        <Img data-cat="highlight" src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" />
-        <Img data-cat="highlight" src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" />
+        <Img src="/assets/images/gallery-a8.jpg" alt="Anuroop, winner of the 1st Intra Academy Level Chess Tournament" />
+        <Img src="/assets/images/gallery-a11.jpg" alt="Aayush, 1st place in Silver Knight tournament, USA" />
+        <Img src="/assets/images/gallery-a1.jpg" alt="Darklight students at a chess tournament" />
+        <Img src="/assets/images/gallery-a7.jpg" alt="Team Darklight at a tournament venue" />
+        <Img src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" />
+        <Img src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" />
       </div>
+      <p class="ladder-more reveal"><a href="/gallery/" class="btn-link">View full gallery →</a></p>
     </div>
   </section>
 
-  <!-- ============ TESTIMONIALS ============ -->
+  <!-- ============ TESTIMONIALS PREVIEW ============ -->
   <section class="section testimonials bg-soft" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
@@ -290,42 +258,27 @@ import { levels } from "../data/levels";
         <h2>Real Success Stories From India and Abroad</h2>
         <p class="section-sub">Students who have improved through Darklight Chess Academy's expert coaching.</p>
       </div>
-      <div class="slider reveal" id="testimonialSlider">
-        <div class="slides" id="slides">
-          <figure class="t-card">
-            <div class="t-quote">❝</div>
-            <blockquote>I joined offline sessions in Coimbatore. Coach Vinoth helped me go from 1100 to 1450 in under six months.</blockquote>
-            <figcaption>— Srinath M., Tamil Nadu</figcaption>
-          </figure>
-          <figure class="t-card">
-            <div class="t-quote">❝</div>
-            <blockquote>My son attends from Dubai via online sessions. The improvement is visible. We love how interactive the classes are.</blockquote>
-            <figcaption>— Fatima A., UAE</figcaption>
-          </figure>
-          <figure class="t-card">
-            <div class="t-quote">❝</div>
-            <blockquote>I'm from the UK, and the timezone-friendly online batch fits perfectly. I'm now confidently playing in local UK tournaments.</blockquote>
-            <figcaption>— Raj Patel, London</figcaption>
-          </figure>
-          <figure class="t-card">
-            <div class="t-quote">❝</div>
-            <blockquote>After trying multiple platforms, I found Darklight to be the most structured and professional.</blockquote>
-            <figcaption>— Preeti Sharma, Delhi</figcaption>
-          </figure>
-          <figure class="t-card">
-            <div class="t-quote">❝</div>
-            <blockquote>I've won against my parents, classmates, and even my school seniors — all thanks to Darklight coaching.</blockquote>
-            <figcaption>— A proud Darklight student</figcaption>
-          </figure>
-        </div>
-        <div class="slider-nav">
-          <button id="prevSlide" aria-label="Previous testimonial">‹</button>
-          <div class="dots" id="sliderDots"></div>
-          <button id="nextSlide" aria-label="Next testimonial">›</button>
-        </div>
+      <div class="cards-grid three">
+        <figure class="t-card reveal">
+          <div class="t-quote">❝</div>
+          <blockquote>My son attends from Dubai via online sessions. The improvement is visible. We love how interactive the classes are.</blockquote>
+          <figcaption>— Fatima A., UAE</figcaption>
+        </figure>
+        <figure class="t-card reveal">
+          <div class="t-quote">❝</div>
+          <blockquote>I'm from the UK, and the timezone-friendly online batch fits perfectly. I'm now confidently playing in local UK tournaments.</blockquote>
+          <figcaption>— Raj Patel, London</figcaption>
+        </figure>
+        <figure class="t-card reveal">
+          <div class="t-quote">❝</div>
+          <blockquote>After trying multiple platforms, I found Darklight to be the most structured and professional.</blockquote>
+          <figcaption>— Preeti Sharma, Delhi</figcaption>
+        </figure>
       </div>
+      <p class="ladder-more reveal"><a href="/achievements/" class="btn-link">More success stories →</a></p>
     </div>
   </section>
+
 
   <!-- ============ PARTNERS ============ -->
   <Partners />
@@ -427,87 +380,14 @@ import { levels } from "../data/levels";
 
   <!-- ============ CONTACT / ENQUIRY FORM ============ -->
   <section class="section contact" id="contact">
-    <div class="container">
+    <div class="container narrow">
       <div class="section-head reveal">
         <p class="eyebrow">Contact Us</p>
         <h2>Book Your Free Demo Class</h2>
-        <p class="section-sub">Got questions or ready to begin? Connect with us now and our team will guide you on the best course, schedule, and coaching format for you.</p>
+        <p class="section-sub">Got questions or ready to begin? Tell us a little and our team will guide you on the best course, schedule and coaching format.</p>
       </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <Img src="/assets/images/contact-us-illustration.png" alt="Illustration of the Darklight support team answering calls and messages" class="contact-illustration" />
-          <ul>
-            <li>
-              <span class="ci-icon">📍</span>
-              <div><strong>{BRANCH_SAIBABA_COLONY.label}</strong><br />{BRANCH_SAIBABA_COLONY.streetAddress},<br />{BRANCH_SAIBABA_COLONY.addressLocality}, {BRANCH_SAIBABA_COLONY.addressRegion} {BRANCH_SAIBABA_COLONY.postalCode}<br />
-              <a href={BRANCH_SAIBABA_COLONY.directionsUrl} target="_blank" rel="noopener">Get Directions ↗</a></div>
-            </li>
-            <li>
-              <span class="ci-icon">📍</span>
-              <div><strong>{BRANCH_SOWRIPALAYAM.label}</strong><br />{BRANCH_SOWRIPALAYAM.streetAddress},<br />{BRANCH_SOWRIPALAYAM.addressLocality}, {BRANCH_SOWRIPALAYAM.addressRegion} {BRANCH_SOWRIPALAYAM.postalCode}<br />
-              <a href={BRANCH_SOWRIPALAYAM.directionsUrl} target="_blank" rel="noopener">Get Directions ↗</a></div>
-            </li>
-            <li>
-              <span class="ci-icon">📞</span>
-              <div><strong>Call / WhatsApp</strong><br /><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a></div>
-            </li>
-            <li>
-              <span class="ci-icon">✉️</span>
-              <div><strong>Email</strong><br /><a href={`mailto:${EMAIL}`}>{EMAIL}</a></div>
-            </li>
-            <li>
-              <span class="ci-icon">🤝</span>
-              <div><strong>Follow Us</strong>
-                <div class="socials on-light">
-                  <a href={SOCIALS.instagram} target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.7" cy="6.3" r="1.4" fill="currentColor" stroke="none"/></svg>
-                  </a>
-                  <a href={SOCIALS.facebook} target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.6l.5-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6h1.5V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8v3h2.5v7h3z"/></svg>
-                  </a>
-                  <a href={SOCIALS.youtube} target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 4.8 2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-4.8zM9.8 15.1V8.9L15.7 12l-5.9 3.1z"/></svg>
-                  </a>
-                  <a href={SOCIALS.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.49 2.49 0 1 1 0 4.98 2.49 2.49 0 0 1 0-4.98zM3 9.75h4v10.75H3V9.75zm6.5 0h3.83v1.47h.05c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v6.22h-4v-5.52c0-1.31-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.62h-4V9.75z"/></svg>
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <EnquiryForm />
-      </div>
-      <div class="maps-grid">
-        <div class="map-wrap reveal">
-          <p class="map-label">📍 {BRANCH_SAIBABA_COLONY.label}</p>
-          <iframe
-            title="Darklight Chess Academy, Saibaba Colony branch on Google Maps"
-            src={BRANCH_SAIBABA_COLONY.mapEmbedSrc}
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen></iframe>
-          <a class="map-directions btn btn-gold" href={BRANCH_SAIBABA_COLONY.directionsUrl} target="_blank" rel="noopener">📍 Get Directions</a>
-        </div>
-        <div class="map-wrap reveal">
-          <p class="map-label">📍 {BRANCH_SOWRIPALAYAM.label}</p>
-          <iframe
-            title="Darklight Chess Academy, Sowripalayam branch on Google Maps"
-            src={BRANCH_SOWRIPALAYAM.mapEmbedSrc}
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen></iframe>
-          <a class="map-directions btn btn-gold" href={BRANCH_SOWRIPALAYAM.directionsUrl} target="_blank" rel="noopener">📍 Get Directions</a>
-        </div>
-      </div>
+      <EnquiryForm />
+      <p class="ladder-more reveal"><a href="/contact/" class="btn-link">Addresses, phone &amp; maps →</a></p>
     </div>
   </section>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
-    <button class="lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
-    <img src="" alt="Gallery image enlarged" id="lbImg" />
-    <button class="lb-next" id="lbNext" aria-label="Next image">›</button>
-  </div>
 </BaseLayout>
