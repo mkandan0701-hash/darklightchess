@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+
+// Every answer here restates facts published elsewhere on the site. Do not add
+// prices other than the confirmed INR 1,000 per hour.
+const groups = [
+  {
+    heading: "About the academy",
+    items: [
+      { question: "What is Darklight Chess Academy?", answer: "A chess academy based in Coimbatore, Tamil Nadu, India. It teaches live online chess classes to students worldwide and offline classes at two centres in Coimbatore." },
+      { question: "Who runs the academy?", answer: "The founder is Karuppasamy and the co-founder and head coach is Manikandan." },
+      { question: "Who are the coaches?", answer: "They include Marimuthu K, who represented India at the Olympiad in Greece in 2021, Mega Chakraborty, an Asian silver medalist who represented India at the World Women Championship in 2024, and Gopinath, an Open FIDE title winner. The full list is on the coaches page." },
+      { question: "Which countries do your students come from?", answer: "More than 30 countries, including the UK, UAE, Oman, Qatar, Saudi Arabia, Kuwait, Bahrain, Germany, the Netherlands, Belgium, Switzerland, Norway, the US and Canada." },
+      { question: "Do you have physical centres?", answer: "Yes, two in Coimbatore: Saibaba Colony and Sowripalayam. Everywhere else, classes are online." },
+    ],
+  },
+  {
+    heading: "How online classes work",
+    items: [
+      { question: "Are the online classes live?", answer: "Yes. A coach teaches on a shared digital board and the student plays and asks questions in real time. They are not pre-recorded videos." },
+      { question: "Are the lessons in English?", answer: "Yes." },
+      { question: "Is there a group option and a one-to-one option?", answer: "Yes. Students can join a small group batch or take private one-to-one lessons." },
+      { question: "What equipment does my child need?", answer: "A computer, laptop or tablet with a stable internet connection. A chess set at home helps for practice but is not required." },
+      { question: "Can I watch or follow my child's progress?", answer: "Ask the coach about progress when you enquire. Coaches review the student's games and set practice between sessions." },
+    ],
+  },
+  {
+    heading: "Fees and the free demo",
+    items: [
+      { question: "How much do lessons cost?", answer: "Lessons start from ₹1,000 per hour. Fees are set in Indian rupees, and our pricing page shows indicative amounts in other currencies." },
+      { question: "Is the first class free?", answer: "Yes. The demo is free, with no commitment, and includes a level assessment." },
+      { question: "Is there a sibling discount?", answer: "Yes, siblings learning together get a discount." },
+      { question: "How do I book the demo?", answer: "Use the form on any country page or the contact section of the homepage, or message us on WhatsApp at +91 83001 55259." },
+    ],
+  },
+  {
+    heading: "Timings and time zones",
+    items: [
+      { question: "What time are the classes?", answer: "Timings are flexible. We schedule around the student's school day and time zone, and confirm the slot when you book the demo." },
+      { question: "How far is the UK from India?", answer: "India is 5½ hours ahead of the UK in winter (GMT) and 4½ hours ahead in summer (BST)." },
+      { question: "How far are the UAE and Oman from India?", answer: "India is 1½ hours ahead of the UAE and Oman, all year." },
+      { question: "How far are Qatar, Saudi Arabia, Kuwait and Bahrain from India?", answer: "India is 2½ hours ahead of these countries, all year." },
+      { question: "How far is Central Europe from India?", answer: "India is 4½ hours ahead of Germany, the Netherlands, Belgium, Switzerland and Norway in winter, and 3½ hours ahead in summer." },
+    ],
+  },
+  {
+    heading: "Levels and tournaments",
+    items: [
+      { question: "What age can a child start?", answer: "Many children are ready from about age 5. There is no upper age limit, and adults can join too." },
+      { question: "Can complete beginners join?", answer: "Yes. The beginner track assumes no prior knowledge." },
+      { question: "Do you prepare students for tournaments?", answer: "Yes. Tournament coaching can be built around an event the student has entered, with the games reviewed afterwards." },
+      { question: "Will lessons give my child a chess rating?", answer: "Ratings come from playing in rated tournaments, such as ECF events in England or FIDE-rated events. Lessons prepare the student to play well in them." },
+      { question: "Can my child also join a local chess club?", answer: "Yes. Many families combine a local club for games with online coaching for structured training." },
+      { question: "Do you teach adults?", answer: "Yes, from complete beginners to improving players." },
+    ],
+  },
+];
+const all = groups.flatMap((g) => g.items);
+---
+
+<BaseLayout
+  title="Chess Classes FAQ | Darklight Chess Academy"
+  description="Answers to common questions about Darklight Chess Academy online chess classes: fees from ₹1,000 per hour, timings by time zone, coaches, ages and tournaments."
+  path="/faq/"
+>
+  <PageHero
+    eyebrow="FAQ"
+    title="Online Chess Classes: <span class='gold'>Frequently Asked Questions</span>"
+    subtitle="Fees, timings, coaches, ages and tournaments, answered."
+    breadcrumbItems={[{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }]}
+  />
+  <section class="section">
+    <div class="container narrow">
+      {groups.map((g) => (
+        <>
+          <h2>{g.heading}</h2>
+          <div class="accordion">
+            {g.items.map((f) => <details><summary>{f.question}</summary><p>{f.answer}</p></details>)}
+          </div>
+        </>
+      ))}
+      <FaqSchema items={all} />
+      <p style="margin-top:1.4rem;">See also: <a href="/pricing/">fees</a>, <a href="/class-timings/">class timings</a>, and country pages for the <a href="/online-chess-classes-uk/">UK</a>, <a href="/online-chess-classes-uae/">UAE</a> and <a href="/online-chess-classes-europe/">Europe</a>.</p>
+    </div>
+  </section>
+  <CtaBanner />
+</BaseLayout>

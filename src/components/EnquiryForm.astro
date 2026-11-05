@@ -20,6 +20,16 @@ const countries = [
   "United Arab Emirates",
   "Singapore",
   "Ireland",
+  "Germany",
+  "Netherlands",
+  "Switzerland",
+  "Belgium",
+  "Norway",
+  "Qatar",
+  "Saudi Arabia",
+  "Kuwait",
+  "Bahrain",
+  "Oman",
   "New Zealand",
   "Other",
 ];
@@ -126,6 +136,8 @@ const pagePath = Astro.url.pathname;
     <input type="text" id="fHoney" name="_honey" tabindex="-1" autocomplete="off" />
   </div>
   <input type="hidden" name="page" value={pagePath} />
+  <!-- Attribution: filled by main.js from the first landing URL + UTM/gclid of the visit -->
+  {["landing_url", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].map((n) => <input type="hidden" name={n} value="" data-attrib={n} />)}
   <button type="submit" class="btn btn-gold btn-lg btn-block" id="submitBtn">Submit Enquiry ♞</button>
   <p class="form-note">We'll get back to you within 24 hours. Your details stay private.</p>
   <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>

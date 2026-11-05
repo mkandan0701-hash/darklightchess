@@ -124,9 +124,27 @@
   );
   document.querySelectorAll(".reveal").forEach((el) => revealObs.observe(el));
 
+  /* ---------- Attribution capture (first landing URL + UTM/gclid) ---------- */
+  try {
+    const KEY = "dlca_attrib";
+    let attrib = JSON.parse(sessionStorage.getItem(KEY) || "null");
+    if (!attrib) {
+      const q = new URLSearchParams(location.search);
+      attrib = { landing_url: location.pathname + location.search };
+      ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach((k) => {
+        if (q.get(k)) attrib[k] = q.get(k).slice(0, 120);
+      });
+      sessionStorage.setItem(KEY, JSON.stringify(attrib));
+    }
+    document.querySelectorAll("[data-attrib]").forEach((el) => {
+      el.value = attrib[el.dataset.attrib] || "";
+    });
+  } catch (_) {}
+
   /* ---------- Animated stat counters ---------- */
   const animateCount = (el) => {
     const target = +el.dataset.count;
+    el.textContent = "0";
     const dur = 1800;
     const t0 = performance.now();
     const tick = (t) => {
@@ -145,7 +163,7 @@
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.2 }
   );
   document.querySelectorAll(".stat-num").forEach((el) => statObs.observe(el));
 
@@ -322,6 +340,9 @@
           data.timezone ? `Time zone: ${data.timezone}` : "",
           data.experience ? `Experience: ${data.experience}` : "",
           data.page ? `Page: ${data.page}` : "",
+          data.landing_url ? `Landing: ${data.landing_url}` : "",
+          data.utm_source ? `UTM: ${[data.utm_source, data.utm_medium, data.utm_campaign, data.utm_term, data.utm_content].filter(Boolean).join("/")}` : "",
+          data.gclid ? `gclid: ${data.gclid}` : "",
           data.message ? `Message: ${data.message}` : "",
         ].filter(Boolean).join(" | "),
       };

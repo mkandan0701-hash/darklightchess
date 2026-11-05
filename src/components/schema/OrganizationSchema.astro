@@ -25,6 +25,14 @@ const schema = {
   ],
   knowsAbout: ["Chess", "Chess coaching", "Online chess classes", "Chess tournament preparation"],
   sameAs: Object.values(SOCIALS),
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: PHONE_TEL,
+    email: EMAIL,
+    availableLanguage: ["English"],
+  },
+  areaServed: ["GB", "AE", "QA", "SA", "KW", "BH", "OM", "IE", "DE", "NL", "CH", "BE", "NO", "US", "CA", "IN"].map((c) => ({ "@type": "Country", name: c })),
 };
 ---
 

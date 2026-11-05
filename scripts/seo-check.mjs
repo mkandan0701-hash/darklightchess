@@ -17,6 +17,17 @@ if (!existsSync(DIST)) {
   process.exit(1);
 }
 
+// Required fields per schema.org type we emit.
+const REQUIRED = {
+  EducationalOrganization: ["name", "url", "logo"],
+  Course: ["name", "description", "provider"],
+  FAQPage: ["mainEntity"],
+  BreadcrumbList: ["itemListElement"],
+  BlogPosting: ["headline", "datePublished"],
+};
+const norm = (t) => decodeEntities(t).replace(/\s+/g, "");
+const visibleText = (html) => norm(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " "));
+
 function walk(dir) {
   return readdirSync(dir).flatMap((name) => {
     const p = join(dir, name);
@@ -36,7 +47,7 @@ const attr = (tag, name) => {
   const m = tag.match(new RegExp(`\\s${name}\\s*=\\s*("([^"]*)"|'([^']*)')`, "i"));
   return m ? (m[2] ?? m[3]) : null;
 };
-const decode = (s) =>
+const decodeEntities = (s) =>
   s.replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
 const pages = new Map();
@@ -48,13 +59,13 @@ for (const file of htmlFiles) {
   const links = [...head.matchAll(/<link\b[^>]*>/gi)].map((m) => m[0]);
   const metaContent = (key, val) => {
     const tag = metas.find((t) => (attr(t, key) || "").toLowerCase() === val);
-    return tag ? decode(attr(tag, "content") || "") : null;
+    return tag ? decodeEntities(attr(tag, "content") || "") : null;
   };
   const robots = (metaContent("name", "robots") || "").toLowerCase();
   pages.set(path, {
     file,
     html,
-    title: decode((head.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || "").trim(),
+    title: decodeEntities((head.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || "").trim(),
     description: metaContent("name", "description"),
     canonical: (links.find((t) => attr(t, "rel") === "canonical") && attr(links.find((t) => attr(t, "rel") === "canonical"), "href")) || null,
     alternates: links
@@ -100,6 +111,17 @@ for (const [path, d] of pages) {
       const nodes = Array.isArray(data["@graph"]) ? data["@graph"] : [data];
       if (!data["@context"]) err(path, "JSON-LD without @context");
       for (const n of nodes) if (!n["@type"]) err(path, "JSON-LD node without @type");
+      for (const n of nodes) {
+        const need = REQUIRED[n["@type"]];
+        if (need) for (const f of need) if (n[f] === undefined) err(path, `${n["@type"]} schema missing "${f}"`);
+        if (n["@type"] === "FAQPage") {
+          const visible = visibleText(d.html);
+          for (const q of n.mainEntity ?? []) {
+            if (!visible.includes(norm(q.name))) err(path, `FAQ schema question not visible on page: "${q.name.slice(0, 50)}"`);
+            if (!visible.includes(norm(q.acceptedAnswer?.text ?? ""))) err(path, `FAQ schema answer not visible on page: "${q.name.slice(0, 50)}"`);
+          }
+        }
+      }
     } catch (e) {
       err(path, `invalid JSON-LD: ${e.message}`);
     }
@@ -107,7 +129,7 @@ for (const [path, d] of pages) {
 
   // Internal links resolve
   for (const m of d.html.matchAll(/<a\b[^>]*\shref\s*=\s*"([^"]*)"/gi)) {
-    let href = decode(m[1]);
+    let href = decodeEntities(m[1]);
     if (/^(mailto:|tel:|javascript:)/i.test(href)) continue;
     if (/^https?:\/\//i.test(href)) {
       if (!href.startsWith(ORIGIN)) continue;

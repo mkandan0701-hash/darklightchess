@@ -7,7 +7,7 @@ Key facts (as published on this website):
 - Formats: live online classes (group batches, private 1-to-1 lessons, sibling classes) and offline classes in Coimbatore.
 - Online batches: standard India-timing batches plus an international batch for other time zones.
 - Levels: beginner, intermediate, advanced and tournament preparation.
-- Enrolment starts with a free demo class and level assessment. Fees are shared on enquiry; no price list is published.
+- Enrolment starts with a free demo class and level assessment. Lessons start from ₹1,000 per hour (INR); the first demo class is free and siblings get a discount. Class timings are flexible and set in the student's local time.
 - Offline centres: 4th Street, NSR Rd, Saibaba Colony, Coimbatore 641011; VV Complex, 14, Sowripalayam Rd, Rukmani Nagar, Coimbatore 641028.
 - Contact: +91 83001 55259 (phone / WhatsApp), darklightchess64@gmail.com
 
@@ -15,6 +15,18 @@ Key facts (as published on this website):
 - [Online chess classes for kids](https://www.darklightchess.com/online-chess-classes/): how classes work, levels, time zones, fees and parents' questions
 - [Online chess classes in the USA](https://www.darklightchess.com/online-chess-classes-usa/)
 - [Online chess lessons in the UK](https://www.darklightchess.com/online-chess-classes-uk/)
+- [Online chess classes in the UAE (Dubai, Abu Dhabi, Sharjah)](https://www.darklightchess.com/online-chess-classes-uae/)
+- [Online chess classes in Qatar](https://www.darklightchess.com/online-chess-classes-qatar/)
+- [Online chess classes in Saudi Arabia](https://www.darklightchess.com/online-chess-classes-saudi-arabia/)
+- [Online chess classes in Kuwait, Bahrain and Oman](https://www.darklightchess.com/online-chess-classes-kuwait-bahrain-oman/)
+- [Online chess lessons in Ireland](https://www.darklightchess.com/online-chess-classes-ireland/)
+- [Online chess lessons in English in Germany](https://www.darklightchess.com/online-chess-classes-germany/)
+- [Online chess lessons in English in the Netherlands](https://www.darklightchess.com/online-chess-classes-netherlands/)
+- [Online chess classes across Europe](https://www.darklightchess.com/online-chess-classes-europe/)
+- [Frequently asked questions](https://www.darklightchess.com/faq/)
+- [Full facts for AI assistants](https://www.darklightchess.com/llms-full.txt)
+- [Fees and pricing](https://www.darklightchess.com/pricing/)
+- [Class timings by time zone](https://www.darklightchess.com/class-timings/)
 - [Online chess classes in Canada](https://www.darklightchess.com/online-chess-classes-canada/)
 - [Online chess classes in India](https://www.darklightchess.com/online-chess-classes-india/)
 
