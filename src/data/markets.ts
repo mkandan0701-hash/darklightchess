@@ -160,6 +160,46 @@ export const baseMarkets: Market[] = [
       "Darklight Chess Academy coaches UK students online from India. Lessons are live with a coach on a shared digital board, in a group batch or one-to-one, and follow the same structured curriculum we teach at our centres in Coimbatore.",
       "The whole UK shares one time zone, and India is only 4½ hours ahead in summer (BST) and 5½ hours ahead in winter (GMT). We run a dedicated international batch for students outside Indian time zones — one of our London students described it as fitting “perfectly” — and you can also ask about one-to-one slots.",
     ],
+    answer:
+      "Darklight Chess Academy teaches live online chess lessons to children and adults across the UK, in English. India is 5½ hours ahead of UK winter time and 4½ hours ahead in summer, so after-school and weekend slots are available. Lessons start from ₹1,000 per hour (about £9), and the first demo class is free.",
+    quickFacts: [
+      "<strong>Format:</strong> live online, small groups or 1-to-1, on a shared digital board",
+      "<strong>Time zone:</strong> GMT in winter, BST in summer; India is 5½ or 4½ hours ahead",
+      "<strong>Timings:</strong> flexible, around the UK school day and weekends",
+      "<strong>Fees:</strong> from ₹1,000 per hour (about £9, indicative)",
+      "<strong>Levels:</strong> complete beginner to junior tournament preparation",
+      "<strong>First step:</strong> free demo class with a level assessment",
+    ],
+    sections: [
+      {
+        eyebrow: "UK Chess",
+        heading: "Will online lessons help my child get an ECF rating?",
+        paragraphs: [
+          'In England, the <a href="https://www.englishchess.org.uk/" rel="noopener">English Chess Federation (ECF)</a> rates over-the-board results, and a child gets a rating by playing in ECF-rated events. Online lessons do not issue a rating, but they prepare the child to play well in those events. We can build ' + "a plan around an event your child has entered and review the games afterwards.",
+        ],
+      },
+      {
+        eyebrow: "Junior events",
+        heading: "What UK junior events can a student work towards?",
+        paragraphs: [
+          'Many UK children start with school and primary events, local junior tournaments and weekend congresses. The <a href="https://ukchesschallenge.co.uk/" rel="noopener">UK Chess Challenge</a> is a school-age competition that builds through qualifying stages to its Megafinals, Gigafinals and Terafinal, and regional events such as the London Junior Chess Championships are open to young players. Formats and dates change each season, so check each organiser for the current details.',
+        ],
+      },
+      {
+        eyebrow: "Across the UK",
+        heading: "Do you teach children in London, Birmingham, Manchester and Leicester?",
+        paragraphs: [
+          "Yes, and the lesson is the same wherever you live, because it is online. London, Birmingham, Manchester, Leicester and everywhere else in the UK share one time zone, so scheduling does not change. What differs is the local junior circuit, which your county chess association or the ECF website lists.",
+        ],
+      },
+      {
+        eyebrow: "Coaches",
+        heading: "Who will be teaching my child?",
+        paragraphs: [
+          'Marimuthu K represented India at the Olympiad in Greece in 2021, and Mega Chakraborty is an Asian silver medalist who represented India at the World Women Championship in 2024. Meet all <a href="/coaches/">our coaches</a>.',
+        ],
+      },
+    ],
     timeZones: [{ zone: "UK (GMT / BST)", standard: 0, daylight: 1 }],
     exampleZone: "UK (GMT / BST)",
     examples: [
@@ -344,6 +384,30 @@ export const baseMarkets: Market[] = [
         question: "Do you prepare students for FIDE-rated tournaments in India?",
         answer:
           "Yes. Our advanced track uses FIDE-compliant training plans, coaches can tailor sessions to an upcoming event, and academy tournaments give students competitive experience before open or FIDE-rated events.",
+      },
+      {
+        question: "How much do online chess lessons cost in the UK?",
+        answer:
+          "Lessons start from ₹1,000 per hour, which is about £9 at recent exchange rates. The rupee figure is fixed, so the pound amount varies slightly. Siblings get a discount and the first demo class is free.",
+      },
+      {
+        question: "What age should a child start chess lessons?",
+        answer:
+          "Many children are ready from about age 5, if they can concentrate on a short activity and follow simple rules. There is no upper age limit.",
+      },
+      {
+        question: "Are online chess lessons good for children?",
+        answer:
+          "They can be, when the lesson is live with a coach who corrects mistakes as they happen. Ours run on a shared digital board, as a small group or one-to-one.",
+      },
+      {
+        question: "What is an ECF rating?",
+        answer:
+          "It is the English Chess Federation's rating for over-the-board results in England. A child gets one by playing in ECF-rated events.",
+      },
+      {
+        question: "Can adults learn too?",
+        answer: "Yes. Adults can join as complete beginners or improving players.",
       },
     ],
     formMode: "Online (India)",
