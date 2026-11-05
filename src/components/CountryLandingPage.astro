@@ -9,6 +9,7 @@ import EnquiryForm from "./EnquiryForm.astro";
 import BlogCard from "./BlogCard.astro";
 import Img from "./Img.astro";
 import FaqSchema from "./schema/FaqSchema.astro";
+import CourseSchema from "./schema/CourseSchema.astro";
 import { BRANCHES } from "../consts";
 import type { Market } from "../data/markets";
 import { HUB_PATH } from "../lib/seo";
@@ -46,6 +47,12 @@ const levels = [
   path={market.path}
   locale={market.ogLocale}
 >
+  <CourseSchema
+    name={`Online chess classes for students in ${market.countryName}`}
+    description={market.description}
+    path={market.path}
+    modes={["online"]}
+  />
   <PageHero
     eyebrow={market.eyebrow}
     title={market.heroTitle}

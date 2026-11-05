@@ -23,6 +23,8 @@ Key facts (as published on this website):
 - [Online chess lessons in English in Germany](https://www.darklightchess.com/online-chess-classes-germany/)
 - [Online chess lessons in English in the Netherlands](https://www.darklightchess.com/online-chess-classes-netherlands/)
 - [Online chess classes across Europe](https://www.darklightchess.com/online-chess-classes-europe/)
+- [Frequently asked questions](https://www.darklightchess.com/faq/)
+- [Full facts for AI assistants](https://www.darklightchess.com/llms-full.txt)
 - [Fees and pricing](https://www.darklightchess.com/pricing/)
 - [Class timings by time zone](https://www.darklightchess.com/class-timings/)
 - [Online chess classes in Canada](https://www.darklightchess.com/online-chess-classes-canada/)
