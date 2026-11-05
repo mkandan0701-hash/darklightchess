@@ -17,6 +17,7 @@ import {
   SOCIALS,
 } from "../consts";
 import { homeFaqs } from "../data/faq-home";
+import { levels } from "../data/levels";
 ---
 
 <BaseLayout
@@ -157,56 +158,44 @@ import { homeFaqs } from "../data/faq-home";
         <a href="/chess-academy-coimbatore/">Chess Academy in Coimbatore</a>
         <a href="/chess-classes-for-kids-coimbatore/">Kids Classes in Coimbatore</a>
       </div>
-      <div class="cards-grid four">
-        <div class="course-card reveal">
-          <div class="course-icon">♟</div>
-          <h3>Beginner Level</h3>
-          <p>Learn the rules, basic tactics &amp; opening principles</p>
-          <ul>
-            <li>Targeted for: Age 5+, adults, total beginners</li>
-            <li>Online classes available worldwide</li>
-          </ul>
-          <button class="btn btn-purple book-btn" data-course="Beginner Level">Book Now</button>
-          <a href="/chess-classes-for-beginners/" class="card-learn-more">Learn more →</a>
-        </div>
-        <div class="course-card reveal">
-          <div class="course-icon">♝</div>
-          <h3>Intermediate Level</h3>
-          <p>Build strong middle-game strategy, combinations &amp; openings</p>
-          <ul>
-            <li>Ideal for school-level players, casual tournament goers</li>
-            <li>Includes practice tournaments &amp; endgame study</li>
-          </ul>
-          <button class="btn btn-purple book-btn" data-course="Intermediate Level">Book Now</button>
-          <a href="/advanced-chess-training/" class="card-learn-more">Learn more →</a>
-        </div>
-        <div class="course-card reveal">
-          <div class="course-icon">♜</div>
-          <h3>Advanced Level</h3>
-          <p>Tournament prep, rating improvement, positional play</p>
-          <ul>
-            <li>Designed for rated players &amp; championship aspirants</li>
-            <li>FIDE-compliant training plans</li>
-          </ul>
-          <button class="btn btn-purple book-btn" data-course="Advanced Level">Book Now</button>
-          <a href="/advanced-chess-training/" class="card-learn-more">Learn more →</a>
-        </div>
-        <div class="course-card reveal">
-          <div class="course-icon">♛</div>
-          <h3>Special Tracks</h3>
-          <p>School &amp; Institutional Programs</p>
-          <ul>
-            <li>Holiday Camps &amp; Offline Workshops</li>
-            <li>International Online Batch (Non-Indian Time Zones)</li>
-          </ul>
-          <button class="btn btn-purple book-btn" data-course="Special Tracks">Book Now</button>
-          <a href="/online-chess-classes/" class="card-learn-more">Learn more →</a>
-        </div>
+      <div class="ladder">
+        {levels.map((l) => (
+          <div class="course-card ladder-card reveal">
+            <span class="ladder-step">Level {l.step}</span>
+            <div class="course-icon">{l.icon}</div>
+            <h3>{l.name}</h3>
+            <p class="ladder-rating">{l.rating}</p>
+            <p>{l.summary}</p>
+            <ul>{l.outcomes.map((o) => <li>{o}</li>)}</ul>
+            <button class="btn btn-purple book-btn" data-course={l.course}>Book Now</button>
+            <a href={l.href} class="card-learn-more">Learn more →</a>
+          </div>
+        ))}
       </div>
+      <p class="ladder-more reveal"><a href="/courses/" class="btn-link">Compare all levels →</a></p>
       <div class="sibling-note reveal">
         <h3>👨‍👩‍👧‍👦 Sibling Classes — Learn Together, Save Together</h3>
         <p>We encourage siblings to learn chess together so you can develop your skills side by side. Sibling classes come with special discounts — collaborate with your sibling or cousin and explore the world of chess with your partner in crime.</p>
         <button class="btn btn-gold book-btn" data-course="Sibling Class">Enquire About Sibling Classes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section class="section benefits" id="benefits">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Beyond the Board</p>
+        <h2>What Chess Builds in Your Child</h2>
+        <p class="section-sub">Chess is a game, but the habits it builds carry into school and life.</p>
+      </div>
+      <div class="cards-grid three">
+        <div class="feature-card reveal"><div class="feature-icon">🎯</div><h3>Focus</h3><p>Holding one position in mind for a whole game trains sustained attention.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">🧩</div><h3>Problem-Solving</h3><p>Every move is a small puzzle: weigh options, spot risks, choose a plan.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">🧠</div><h3>Memory &amp; Logic</h3><p>Patterns, openings and calculation exercise memory and logical thinking.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">⏳</div><h3>Patience</h3><p>Good moves take time. Students learn to slow down and think before acting.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">💪</div><h3>Confidence</h3><p>Winning, losing and learning from both builds resilience and self-belief.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">🖥️</div><h3>Productive Screen Time</h3><p>Live, coach-led classes keep online time active and purposeful.</p></div>
       </div>
     </div>
   </section>

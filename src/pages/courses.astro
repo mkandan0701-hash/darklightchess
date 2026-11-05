@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import { levels } from "../data/levels";
+
+const faqs = [
+  {
+    question: "How do I know which level my child should join?",
+    answer:
+      "Book a free demo class. The coach plays and talks with your child, assesses their level, and recommends the right starting point.",
+  },
+  {
+    question: "Can we move up a level later?",
+    answer:
+      "Yes. Students move up as their play improves, and coaches review progress regularly so the next level is always the right fit.",
+  },
+  {
+    question: "Are classes online or in person?",
+    answer:
+      "Both. Classes run live online for students worldwide and offline at our two centres in Coimbatore.",
+  },
+];
+---
+
+<BaseLayout
+  title="Chess Courses & Levels | Darklight Chess Academy"
+  description="Five clear chess levels from complete beginner to master track, taught live online and in Coimbatore by FIDE-rated coaches. Book a free demo class."
+  path="/courses/"
+>
+  <PageHero
+    eyebrow="Our Courses"
+    title="From First Move to <span class='gold'>Tournament Level</span>"
+    subtitle="Five clear levels so every student knows where they are and what comes next."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Courses", path: "/courses/" },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="ladder">
+        {levels.map((l) => (
+          <div class="course-card ladder-card reveal">
+            <span class="ladder-step">Level {l.step}</span>
+            <div class="course-icon">{l.icon}</div>
+            <h3>{l.name}</h3>
+            <p class="ladder-rating">{l.rating}</p>
+            <p>{l.summary}</p>
+            <ul>{l.outcomes.map((o) => <li>{o}</li>)}</ul>
+            <button class="btn btn-purple book-btn" data-course={l.course}>Book Now</button>
+            <a href={l.href} class="card-learn-more">Learn more →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Compare</p>
+        <h2>Levels at a Glance</h2>
+      </div>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead><tr><th>Level</th><th>Rating</th><th>Focus</th></tr></thead>
+          <tbody>
+            {levels.map((l) => (
+              <tr><td>{l.step}. {l.name}</td><td>{l.rating}</td><td>{l.summary}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Choosing a Level</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((f) => (
+          <details><summary>{f.question}</summary><p>{f.answer}</p></details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <CtaBanner
+        heading="Ready to Make the First Move?"
+        subtext="Book a free demo class. We'll assess your level and recommend where to start. No commitment."
+        course="Free Demo Class"
+      />
+    </div>
+  </section>
+</BaseLayout>
