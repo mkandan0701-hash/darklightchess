@@ -36,10 +36,12 @@ const benefits = [
   title="Darklight Chess Academy | Online Chess Academy & Coaching"
   description="Live online chess classes for kids and adults worldwide with FIDE-rated coaches, from beginner to tournament level — plus offline centres in Coimbatore. Free demo."
   path="/"
+  preloadImage="/assets/images/hero-academy-students.jpg"
   includeLocalBusinessSchema={true}
 >
   <!-- ============ HERO + BOOKING FORM ============ -->
   <section class="home-hero" id="home">
+    <Img src="/assets/images/hero-academy-students.jpg" alt="Students in a class at Darklight Chess Academy, seated with their notebooks in front of the academy banner" class="home-hero-bg" eager fetchpriority="high" />
     <div class="container home-hero-grid">
       <div class="home-hero-copy">
         <p class="hero-pill">♞ Live online chess coaching, trusted worldwide</p>
@@ -50,7 +52,7 @@ const benefits = [
           <li><span aria-hidden="true">♞</span> Five clear levels, from first move to tournament play</li>
           <li><span aria-hidden="true">♜</span> Online worldwide, offline in Coimbatore</li>
         </ul>
-        <a href="#courses" class="btn btn-dark btn-lg">Explore Courses →</a>
+        <a href="#courses" class="btn btn-outline btn-lg">Explore Courses →</a>
         <p class="hero-note">Free demo class · No cost, no commitment · <a href="/contact/">Addresses, phone &amp; maps</a></p>
       </div>
       <div id="contact">
