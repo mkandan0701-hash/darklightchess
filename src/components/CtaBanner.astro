@@ -2,16 +2,16 @@
 import { WHATSAPP_NUMBER } from "../consts";
 
 interface Props {
-  heading: string;
-  subtext: string;
-  course: string; // value to preselect in the enquiry form's course dropdown
+  heading?: string;
+  subtext?: string;
+  course?: string; // value to preselect in the enquiry form's course dropdown
   whatsappMessage?: string;
 }
 
 const {
-  heading,
-  subtext,
-  course,
+  heading = "Ready to Make the First Move?",
+  subtext = "Book a free demo class. We'll assess the student's level and recommend where to start.",
+  course = "Free Demo Class",
   whatsappMessage = `Hi Darklight Chess Academy! I'd like to enquire about: ${course}.`,
 } = Astro.props;
 
@@ -19,10 +19,12 @@ const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whats
 ---
 
 <div class="cta-banner reveal">
-  <h3>{heading}</h3>
-  <p>{subtext}</p>
+  <div class="cta-banner-copy">
+    <h3>{heading}</h3>
+    <p>{subtext}</p>
+  </div>
   <div class="cta-banner-actions">
-    <a href={`/contact/?course=${encodeURIComponent(course)}#contact`} class="btn btn-gold btn-lg book-btn" data-course={course}>🗓️ Book a Free Demo Class</a>
-    <a href={waLink} target="_blank" rel="noopener" class="btn btn-outline btn-lg cta-whatsapp">💬 WhatsApp Us</a>
+    <a href={`/contact/?course=${encodeURIComponent(course)}#contact`} class="btn btn-gold btn-lg book-btn" data-course={course}>Book a Free Demo Class</a>
+    <a href={waLink} target="_blank" rel="noopener" class="btn btn-outline btn-lg cta-whatsapp">WhatsApp Us</a>
   </div>
 </div>

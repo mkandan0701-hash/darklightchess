@@ -10,6 +10,7 @@ import {
   WHATSAPP_LINK,
 } from "../consts";
 import { publishedMarkets } from "../data/markets";
+import { levels } from "../data/levels";
 import { imageSize } from "../lib/image-size";
 
 const logo = imageSize(LOGO_PATH);
@@ -35,6 +36,11 @@ const logo = imageSize(LOGO_PATH);
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.49 2.49 0 1 1 0 4.98 2.49 2.49 0 0 1 0-4.98zM3 9.75h4v10.75H3V9.75zm6.5 0h3.83v1.47h.05c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v6.22h-4v-5.52c0-1.31-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.62h-4V9.75z"/></svg>
         </a>
       </div>
+    </div>
+    <div class="f-col">
+      <h4>Courses</h4>
+      {levels.map((l) => <a href={`/courses/${l.slug}/`}>{l.name}</a>)}
+      <a href="/courses/">All Courses</a>
     </div>
     <div class="f-col">
       <h4>Quick Links</h4>

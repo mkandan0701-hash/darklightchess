@@ -1,20 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import CtaBanner from "../components/CtaBanner.astro";
+import BookingSplit from "../components/BookingSplit.astro";
 import Img from "../components/Img.astro";
 import PersonCard from "../components/PersonCard.astro";
+import PersonProfile from "../components/PersonProfile.astro";
 import { BRANCHES, EMAIL, PHONE_DISPLAY, PHONE_TEL, SITE_DESCRIPTION, SOCIALS } from "../consts";
 import { countriesServed } from "../data/countries";
 import { coaches } from "../data/coaches";
 
 const founders = coaches.filter((c) => c.featured);
 const team = coaches.filter((c) => !c.featured);
-const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
+
+const pillars = [
+  { title: "Our Mission", text: "To make world-class chess coaching accessible to everyone, anywhere, in person in Coimbatore and live online worldwide." },
+  { title: "Our Vision", text: "To empower chess coaches and take chess to people across the globe." },
+  { title: "Our Approach", text: "Structured levels, strong fundamentals and learning from students' own games, with a coach's personal attention." },
+];
 
 const philosophy = [
-  { icon: "♞", title: "Strategic Thinking", text: "Students learn to plan ahead, weigh options and make decisions with a clear purpose, on the board and beyond it." },
-  { icon: "♜", title: "Strong Fundamentals", text: "Rules, tactics, openings and endgames are taught in a clear order so every new idea rests on solid ground." },
+  { icon: "♞", title: "Strategic Thinking", text: "Students learn to plan ahead, weigh options and make decisions with a clear purpose." },
+  { icon: "♜", title: "Strong Fundamentals", text: "Rules, tactics, openings and endgames are taught in a clear order, each idea building on the last." },
   { icon: "♚", title: "Discipline and Resilience", text: "Chess teaches patience, focus and the habit of learning from losses without losing confidence." },
   { icon: "♛", title: "Continuous Improvement", text: "Coaches review students' own games and track progress, so each level builds on the one before." },
 ];
@@ -28,8 +34,8 @@ const philosophy = [
   imageAlt="At the 44th FIDE Chess Olympiad with an international chess player"
 >
   <PageHero
-    eyebrow="About Darklight Chess Academy"
-    title="Building Champions. <span class='gold'>Shaping Thinkers.</span>"
+    eyebrow="About Darklight"
+    title="Building Champions.<br /><span class='gold'>Shaping Thinkers.</span>"
     subtitle="Darklight Chess Academy is a chess education academy that develops strategic thinking, discipline, confidence and competitive chess skills through structured coaching."
     breadcrumbItems={[
       { name: "Home", path: "/" },
@@ -38,73 +44,58 @@ const philosophy = [
   >
     <div class="hero-actions">
       <a href="/courses/" class="btn btn-gold btn-lg">Explore Our Courses</a>
-      <a href={demo} class="btn btn-outline btn-lg">Book a Free Demo</a>
+      <a href="/contact/?course=Free%20Demo%20Class#contact" class="btn btn-outline btn-lg book-btn" data-course="Free Demo Class">Book a Free Demo</a>
     </div>
   </PageHero>
 
-  <section class="section">
-    <div class="container about-intro">
-      <figure class="story-photo">
-        <Img src="/assets/images/about-olympiad.jpg" alt="At the 44th FIDE Chess Olympiad with an international chess player" />
-        <figcaption>At the 44th FIDE Chess Olympiad with an international chess player.</figcaption>
-      </figure>
-      <div>
-        <p>{SITE_DESCRIPTION}</p>
-        <div class="mvp-grid">
-          <div class="mvp">
-            <h3>Our Mission</h3>
-            <p>To make world-class chess coaching accessible to everyone, anywhere, through in-person classes in Coimbatore and live online classes worldwide.</p>
-          </div>
-          <div class="mvp">
-            <h3>Our Vision</h3>
-            <p>To empower chess coaches and take chess to people across the globe, supporting every student from their first moves to tournament play.</p>
-          </div>
-          <div class="mvp">
-            <h3>Our Teaching Philosophy</h3>
-            <p>Structured levels, strong fundamentals and learning from students' own games, with a coach's personal attention.</p>
-          </div>
+  <section class="section pillars-section">
+    <div class="container cards-grid three">
+      {pillars.map((p) => (
+        <div class="feature-card reveal">
+          <h2 class="pillar-title">{p.title}</h2>
+          <p>{p.text}</p>
         </div>
-      </div>
+      ))}
     </div>
   </section>
 
-  <section class="section bg-soft" id="founders">
+  <section class="section flush-top" id="founders">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Leadership</p>
+      <div class="section-head reveal">
+        <p class="eyebrow">Our Leadership</p>
         <h2>Founder &amp; Co-Founder</h2>
-        <p class="section-sub">The people who started and run Darklight Chess Academy.</p>
+        <p class="section-sub">The people who started Darklight and run it day to day.</p>
       </div>
-      <div class="people-grid two">
-        {founders.map((p) => <PersonCard person={p} />)}
+      <div class="profiles">
+        {founders.map((p, i) => <PersonProfile person={p} reverse={i % 2 === 1} />)}
       </div>
     </div>
   </section>
 
-  <section class="section" id="coaches">
+  <section class="section bg-soft" id="coaches">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">Our Team</p>
         <h2>Meet Our Coaches</h2>
         <p class="section-sub">Expert guidance. Personal attention. A stronger chess journey.</p>
       </div>
-      <div class="people-grid">
+      <div class="people-grid four">
         {team.map((p) => <PersonCard person={p} expandLabel="Read Full Profile" />)}
       </div>
-      <p class="ladder-more"><a class="btn btn-purple" href="/coaches/">View All Coaches</a></p>
+      <p class="ladder-more"><a class="btn btn-dark" href="/coaches/">View All Coaches →</a></p>
     </div>
   </section>
 
-  <section class="section bg-soft" id="philosophy">
+  <section class="section" id="philosophy">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">How We Teach</p>
         <h2>Our Teaching Philosophy</h2>
       </div>
       <div class="cards-grid four">
         {philosophy.map((p) => (
           <div class="feature-card reveal">
-            <div class="feature-icon phil-icon" aria-hidden="true">{p.icon}</div>
+            <div class="icon-tile" aria-hidden="true">{p.icon}</div>
             <h3>{p.title}</h3>
             <p>{p.text}</p>
           </div>
@@ -113,59 +104,73 @@ const philosophy = [
     </div>
   </section>
 
-  <section class="vision-band" id="vision">
+  <section class="section checker vision-band" id="vision">
     <div class="container narrow">
       <p class="eyebrow light">Our Vision</p>
       <h2>From First Moves to Tournament Preparation</h2>
       <p>
-        Darklight supports students at every stage. Beginners learn the rules and basic tactics, then move through
-        <a href="/courses/">five structured levels</a> covering strategy, calculation, endgames and openings, until they are ready for rated
+        Darklight supports students at every stage. Beginners learn the rules and basic tactics, then move through <a href="/courses/">five structured levels</a> covering strategy, calculation, endgames and openings, until they are ready for rated
         tournaments with <a href="/tournament-chess-coaching/">dedicated tournament preparation</a>.
       </p>
-      <a href={demo} class="btn btn-gold btn-lg">Start Your Chess Journey</a>
+      <a href="/contact/?course=Free%20Demo%20Class#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">Start Your Chess Journey</a>
     </div>
   </section>
 
   <section class="section">
-    <div class="container narrow">
-      <div class="section-head">
+    <div class="container glance">
+      <div>
+        <figure class="story-photo">
+          <Img src="/assets/images/about-olympiad.jpg" alt="At the 44th FIDE Chess Olympiad with an international chess player" />
+          <figcaption>At the 44th FIDE Chess Olympiad with an international chess player.</figcaption>
+        </figure>
+        <blockquote class="founder-quote">
+          “Darklight Chess Academy was a dream for me, and I started it with an aim to empower chess coaches and explore the world of chess with a motive to take chess to all the people across the globe.”
+          <br /><strong>Karuppasamy, Founder</strong>
+        </blockquote>
+      </div>
+      <div>
         <p class="eyebrow">At a Glance</p>
         <h2>Who We Are</h2>
+        <p>{SITE_DESCRIPTION}</p>
+        <dl class="facts-list">
+          <dt>Founder</dt>
+          <dd>Karuppasamy</dd>
+          <dt>Co-founder &amp; Head Coach</dt>
+          <dd>Manikandan</dd>
+          <dt>Based in</dt>
+          <dd>Coimbatore, Tamil Nadu, India</dd>
+          <dt>Offline centres</dt>
+          <dd>
+            {BRANCHES.map((b) => (
+              <>{b.streetAddress}, {b.addressLocality} {b.postalCode}<br /></>
+            ))}
+          </dd>
+          <dt>Online classes</dt>
+          <dd>Live classes for students in {countriesServed}+ countries</dd>
+          <dt>Students</dt>
+          <dd>500+ taught to date; 70+ currently active</dd>
+          <dt>Coaching team</dt>
+          <dd>25+ chess coaches — <a href="/coaches/">meet the head coaches</a></dd>
+          <dt>Contact</dt>
+          <dd><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> · <a href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
+          <dt>Social profiles</dt>
+          <dd class="inline-links">
+            <a href={SOCIALS.instagram} rel="noopener" target="_blank">Instagram</a>
+            <a href={SOCIALS.facebook} rel="noopener" target="_blank">Facebook</a>
+            <a href={SOCIALS.youtube} rel="noopener" target="_blank">YouTube</a>
+            <a href={SOCIALS.linkedin} rel="noopener" target="_blank">LinkedIn</a>
+          </dd>
+        </dl>
       </div>
-      <dl class="facts-list">
-        <dt>Founder</dt>
-        <dd>Karuppasamy</dd>
-        <dt>Co-founder &amp; Head Coach</dt>
-        <dd>Manikandan</dd>
-        <dt>Based in</dt>
-        <dd>Coimbatore, Tamil Nadu, India</dd>
-        <dt>Offline centres</dt>
-        <dd>
-          {BRANCHES.map((b) => (
-            <>{b.streetAddress}, {b.addressLocality} {b.postalCode}<br /></>
-          ))}
-        </dd>
-        <dt>Online classes</dt>
-        <dd>Live classes for students in {countriesServed}+ countries</dd>
-        <dt>Students</dt>
-        <dd>500+ taught to date; 70+ currently active</dd>
-        <dt>Coaching team</dt>
-        <dd>25+ chess coaches — <a href="/coaches/">meet the head coaches</a></dd>
-        <dt>Contact</dt>
-        <dd><a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> · <a href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
-        <dt>Social profiles</dt>
-        <dd class="inline-links">
-          <a href={SOCIALS.instagram} rel="noopener" target="_blank">Instagram</a>
-          <a href={SOCIALS.facebook} rel="noopener" target="_blank">Facebook</a>
-          <a href={SOCIALS.youtube} rel="noopener" target="_blank">YouTube</a>
-          <a href={SOCIALS.linkedin} rel="noopener" target="_blank">LinkedIn</a>
-        </dd>
-      </dl>
-      <blockquote class="founder-quote">
-        “Darklight Chess Academy was a dream for me, and I started it with an aim to empower chess coaches and explore the world of chess with a motive to take chess to all the people across the globe.”
-        <br /><strong>— Karuppasamy, Founder</strong>
-      </blockquote>
-      <h2 class="how-heading">How We Coach</h2>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head reveal">
+        <p class="eyebrow">Methodology</p>
+        <h2>How We Coach</h2>
+      </div>
       <ol class="check-list">
         <li><strong>Free demo and level assessment.</strong> A coach looks at how the student plays and places them at the right level.</li>
         <li><strong>A structured curriculum by level.</strong> <a href="/chess-classes-for-beginners/">Beginner</a> (rules, basic tactics, opening principles), <a href="/advanced-chess-training/">intermediate</a> (middlegame strategy, combinations, endgames) and <a href="/advanced-chess-training/">advanced</a> (positional play, rating improvement, FIDE-compliant training plans).</li>
@@ -174,18 +179,10 @@ const philosophy = [
         <li><strong>Competitive experience in stages.</strong> Regular academy tournaments come before open or rated events; see <a href="/tournament-chess-coaching/">tournament preparation</a>.</li>
       </ol>
       <p>
-        We also run special tracks — school and institutional programmes, holiday camps and offline workshops. Ask about them when you <a href="/contact/">enquire</a>, or read about our <a href="/online-chess-classes/">live online classes</a>.
+        We also run special tracks: school and institutional programmes, holiday camps and offline workshops. Ask about them when you <a href="/contact/">enquire</a>, or read about our <a href="/online-chess-classes/">live online classes</a>.
       </p>
     </div>
   </section>
 
-  <section class="section bg-soft">
-    <div class="container">
-      <CtaBanner
-        heading="See How We Teach"
-        subtext="Book a free demo class — online from anywhere, or at our Coimbatore centres."
-        course="Free Demo Class"
-      />
-    </div>
-  </section>
+  <BookingSplit heading="See How We Teach" text="Book a free demo class, online from anywhere or at our Coimbatore centres." />
 </BaseLayout>

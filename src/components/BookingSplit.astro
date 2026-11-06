@@ -1,0 +1,26 @@
+---
+// Dark pitch panel beside the single enquiry form. Carries id="contact", so the
+// page's .book-btn links jump here and preselect the course in place.
+import EnquiryForm from "./EnquiryForm.astro";
+
+interface Props {
+  heading?: string;
+  text?: string;
+}
+const {
+  heading = "Not Sure Which Level? Let a Coach Decide.",
+  text = "Book a free demo class. A coach will assess the student's level and recommend the right place to start, with no commitment.",
+} = Astro.props;
+---
+
+<section class="section booking" id="contact">
+  <div class="container booking-card">
+    <div class="booking-pitch">
+      <p class="eyebrow light">Free Demo Class</p>
+      <h2>{heading}</h2>
+      <p>{text}</p>
+      <span class="booking-piece" aria-hidden="true">♛</span>
+    </div>
+    <EnquiryForm heading="Book a free demo or enrol" />
+  </div>
+</section>

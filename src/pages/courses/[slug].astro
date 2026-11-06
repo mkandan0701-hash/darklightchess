@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PageHero from "../../components/PageHero.astro";
-import CtaBanner from "../../components/CtaBanner.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BookingSplit from "../../components/BookingSplit.astro";
 import CourseSchema from "../../components/schema/CourseSchema.astro";
 import { levels, getLevel } from "../../data/levels";
 
@@ -17,6 +17,12 @@ const enquire = `/contact/?course=${encodeURIComponent(l.course)}#contact`;
 const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
 const title = `${l.name} Chess Course | Darklight Chess Academy`;
 const description = `${l.name} chess course (Level ${l.step}): age ${l.age}, rating ${l.rating}, ${l.duration.toLowerCase()}, ${l.sessions.toLowerCase()}. Book a free demo.`;
+const facts = [
+  ["Age", l.age],
+  ["Rating", l.rating],
+  ["Duration", l.duration],
+  ["Live classes", l.sessions],
+];
 ---
 
 <BaseLayout title={title} description={description} path={path}>
@@ -27,85 +33,77 @@ const description = `${l.name} chess course (Level ${l.step}): age ${l.age}, rat
     modes={["online", "onsite"]}
     educationalLevel={l.name}
   />
-  <PageHero
-    eyebrow={`Level ${l.step}`}
-    title={`${l.name} <span class='gold'>Chess Course</span>`}
-    subtitle={l.description}
-    breadcrumbItems={[
-      { name: "Home", path: "/" },
-      { name: "Courses", path: "/courses/" },
-      { name: l.name, path },
-    ]}
-  >
-    <div class="hero-actions">
-      <a href={enquire} class="btn btn-gold btn-lg book-btn" data-course={l.course}>Enrol Now</a>
-      <a href={demo} class="btn btn-outline btn-lg book-btn" data-course="Free Demo Class">Book Free Demo</a>
-    </div>
-  </PageHero>
 
-  <section class="section">
+  <section class="page-hero level-hero">
+    <div class="container level-hero-grid">
+      <div>
+        <Breadcrumbs items={[
+          { name: "Home", path: "/" },
+          { name: "Courses", path: "/courses/" },
+          { name: l.name, path },
+        ]} />
+        <p class="eyebrow">Level {l.step} of {levels.length}</p>
+        <h1>{l.name} <span class="gold">Chess Course</span></h1>
+        <p class="page-hero-sub">{l.description}</p>
+        <div class="hero-actions">
+          <a href={demo} class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">Book Free Demo</a>
+          <a href={enquire} class="btn btn-outline btn-lg book-btn" data-course={l.course}>Enrol Now</a>
+        </div>
+      </div>
+      <span class="level-hero-piece" aria-hidden="true">{l.icon}</span>
+    </div>
     <div class="container">
-      <dl class="course-facts">
-        <div><dt>Age</dt><dd>{l.age}</dd></div>
-        <div><dt>Rating</dt><dd>{l.rating}</dd></div>
-        <div><dt>Duration</dt><dd>{l.duration}</dd></div>
-        <div><dt>Live classes</dt><dd>{l.sessions}</dd></div>
+      <dl class="fact-strip">
+        {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
       </dl>
-
-      <div class="course-two-col">
-        <div>
-          <h2>Who This Course Is For</h2>
-          <p>{l.whoFor}</p>
-          <h2>What Students Will Achieve</h2>
-          <ul class="check-list">{l.achieve.map((a) => <li>{a}</li>)}</ul>
-        </div>
-        <div>
-          <h2>Learning Outcomes</h2>
-          <ul class="check-list">{l.learningAreas.map((a) => <li>{a}</li>)}</ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section bg-soft">
-    <div class="container narrow">
-      <div class="section-head">
-        <p class="eyebrow">Syllabus</p>
-        <h2>Module-by-Module Curriculum</h2>
-      </div>
-      <ol class="module-list">
-        {l.modules.map((m, i) => (
-          <li>
-            <details open={i === 0}>
-              <summary><span class="module-num">Module {i + 1}</span> {m.title}</summary>
-              <ul>{m.topics.map((t) => <li>{t}</li>)}</ul>
-            </details>
-          </li>
-        ))}
-      </ol>
     </div>
   </section>
 
   <section class="section">
-    <div class="container narrow">
-      <div class="section-head">
-        <p class="eyebrow">Progression</p>
-        <h2>Assessment and Level-Up Criteria</h2>
+    <div class="container level-grid-2">
+      <div>
+        <h2>Who This Course Is For</h2>
+        <p class="level-lead">{l.whoFor}</p>
+        <div class="soft-card">
+          <h2>What Students Will Achieve</h2>
+          <ul class="tick-list">{l.achieve.map((a) => <li>{a}</li>)}</ul>
+        </div>
+        <div class="soft-card">
+          <h2>Assessment and Level-Up Criteria</h2>
+          <ul class="tick-list">{l.levelUp.map((a) => <li>{a}</li>)}</ul>
+        </div>
       </div>
-      <ul class="check-list">{l.levelUp.map((a) => <li>{a}</li>)}</ul>
-      {next && (
-        <p class="next-level">
-          Next level: <a href={`/courses/${next.slug}/`}>Level {next.step}: {next.name} →</a>
-        </p>
+      <div>
+        <h2>Complete Syllabus</h2>
+        <p class="level-lead">{l.modules.length} modules · {l.sessions}</p>
+        <ol class="module-list">
+          {l.modules.map((m, i) => (
+            <li>
+              <details open={i === 0}>
+                <summary><span class="module-num">{i + 1}</span> {m.title}</summary>
+                <ul>{m.topics.map((t) => <li>{t}</li>)}</ul>
+              </details>
+            </li>
+          ))}
+        </ol>
+        <div class="soft-card">
+          <h2>Learning Outcomes</h2>
+          <ul class="tick-list">{l.learningAreas.map((a) => <li>{a}</li>)}</ul>
+        </div>
+      </div>
+    </div>
+    <div class="container level-nav">
+      <a href={l.href}><small>How we teach this level</small><strong>Programme details</strong></a>
+      {next ? (
+        <a href={`/courses/${next.slug}/`} class="right"><small>Next level →</small><strong>{next.name}</strong></a>
+      ) : (
+        <a href="/courses/" class="right"><small>All levels →</small><strong>Compare Courses</strong></a>
       )}
-      <p class="next-level">
-        Related programme: <a href={l.href}>learn more about how we teach this level</a>. Or <a href="/courses/">compare all five levels</a>.
-      </p>
-      <CtaBanner
-        heading={`Start the ${l.name} Course`}
-        subtext="Book a free demo class and a coach will confirm the right starting level for your child."
-        course={l.course}
-      />
     </div>
   </section>
+
+  <BookingSplit
+    heading={`Start ${l.name} With a Free Class`}
+    text="Book a free demo class. A coach will assess the student's level and confirm the right starting point, with no commitment."
+  />
 </BaseLayout>

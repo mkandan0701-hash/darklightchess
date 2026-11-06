@@ -36,7 +36,7 @@ export const levels: Level[] = [
     step: 1,
     slug: "beginner",
     name: "Beginner",
-    icon: "♟",
+    icon: "♟︎", // text style, so phones don't draw the pawn as an emoji
     age: "3+",
     rating: "Unrated",
     duration: "3 Months",

@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import CtaBanner from "../components/CtaBanner.astro";
-import Img from "../components/Img.astro";
+import PersonProfile from "../components/PersonProfile.astro";
 import PersonSchema from "../components/schema/PersonSchema.astro";
 import { coaches } from "../data/coaches";
 ---
@@ -34,26 +34,13 @@ import { coaches } from "../data/coaches";
   />
 
   <section class="section">
-    <div class="container narrow">
+    <div class="container narrow coaches-intro">
       <p>
         Darklight's coaching team teaches live online classes for students worldwide and offline classes at our two Coimbatore centres. The roles and achievements below are as each coach has published them with the academy. When you book a free demo class, we suggest a coach and batch based on the student's level and time zone.
       </p>
-      {coaches.map((c) => (
-        <article class="coach-profile" id={c.id}>
-          {c.image ? (
-            <Img src={c.image} alt={c.imageAlt ?? c.name} />
-          ) : (
-            <div class="monogram" aria-hidden="true">{c.name.charAt(0)}</div>
-          )}
-          <div>
-            <h2>{c.name}</h2>
-            <p class="coach-role">{c.role}</p>
-            <blockquote>“{c.quote}”</blockquote>
-            {c.bio && <p>{c.bio}</p>}
-            {c.achievement && <p><strong>Achievements:</strong> {c.achievement}</p>}
-          </div>
-        </article>
-      ))}
+    </div>
+    <div class="container profiles">
+      {coaches.map((c, i) => <PersonProfile person={c} reverse={i % 2 === 1} heading="h2" />)}
     </div>
   </section>
 

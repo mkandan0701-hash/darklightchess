@@ -1,4 +1,5 @@
 ---
+// One rung of the course ladder on /courses/.
 import type { Level } from "../data/levels";
 interface Props { level: Level }
 const { level: l } = Astro.props;
@@ -6,21 +7,24 @@ const enquire = `/contact/?course=${encodeURIComponent(l.course)}#contact`;
 const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
 ---
 
-<article class="level-card reveal">
-  <span class="level-num">Level {l.step}</span>
-  <div class="level-icon" aria-hidden="true">{l.icon}</div>
-  <h3>{l.name}</h3>
-  <ul class="level-badges">
-    <li><span>Age</span> {l.age}</li>
-    <li><span>Rating</span> {l.rating}</li>
-    <li><span>Duration</span> {l.duration}</li>
-    <li><span>Sessions</span> {l.sessions}</li>
-  </ul>
-  <p class="level-desc">{l.description}</p>
-  <ul class="level-outcomes">{l.learningAreas.slice(0, 4).map((o) => <li>{o}</li>)}</ul>
-  <div class="level-actions">
-    <a class="btn btn-purple" href={`/courses/${l.slug}/`}>View Full Syllabus</a>
-    <a class="btn btn-gold book-btn" href={enquire} data-course={l.course}>Enrol Now</a>
-    <a class="level-demo" href={demo} data-course="Free Demo Class">Book Free Demo</a>
+<article class="rung reveal">
+  <div class="icon-tile" aria-hidden="true">{l.icon}</div>
+  <div class="rung-body">
+    <h3><span class="rung-level">Level {l.step}</span> <a href={`/courses/${l.slug}/`}>{l.name}</a></h3>
+    <p>{l.description}</p>
+    <ul class="rung-outcomes">{l.outcomes.map((o) => <li>{o}</li>)}</ul>
+    <div class="rung-foot">
+      <ul class="pills">
+        <li>Ages {l.age}</li>
+        <li>Rating {l.rating}</li>
+        <li>{l.duration}</li>
+        <li>{l.sessions}</li>
+      </ul>
+      <div class="rung-actions">
+        <a class="rung-link book-btn" href={demo} data-course="Free Demo Class">Book Free Demo</a>
+        <a class="rung-link book-btn" href={enquire} data-course={l.course}>Enrol Now</a>
+        <a class="rung-link strong" href={`/courses/${l.slug}/`}>Full syllabus →</a>
+      </div>
+    </div>
   </div>
 </article>

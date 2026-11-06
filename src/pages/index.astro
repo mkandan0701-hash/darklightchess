@@ -6,44 +6,55 @@ import GlobalPresence from "../components/GlobalPresence.astro";
 import Partners from "../components/Partners.astro";
 import EnquiryForm from "../components/EnquiryForm.astro";
 import Img from "../components/Img.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import PersonCard from "../components/PersonCard.astro";
 import { coaches } from "../data/coaches";
 import { stats } from "../data/stats";
-import {
-  BRANCH_SAIBABA_COLONY,
-  BRANCH_SOWRIPALAYAM,
-  EMAIL,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  SOCIALS,
-} from "../consts";
 import { homeFaqs } from "../data/faq-home";
 import { levels } from "../data/levels";
+
+const why = [
+  { title: "Expert Coaching", text: "Learn from FIDE-rated coaches and certified trainers shaping chess talent across India and internationally.", href: "/coaches/", image: "/assets/images/gallery-c1.jpg", alt: "Darklight coach at a tournament board" },
+  { title: "Online Coaching", text: "Interactive live classes tailored to your needs, accessible from anywhere in the world.", href: "/online-chess-classes/", image: "/assets/images/gallery-a15.jpg", alt: "Student in a live online chess class on a laptop" },
+  { title: "Offline Classes", text: "Face-to-face learning with personal attention at our Coimbatore centres.", href: "/chess-academy-coimbatore/", image: "/assets/images/class-photo.jpg", alt: "Chess class in progress at the academy" },
+  { title: "Group & Individual Classes", text: "Learn with chess buddies, or choose one-on-one coaching for a tailored experience.", href: "/one-to-one-chess-coaching/", image: "/assets/images/outdoor-event.jpg", alt: "Students playing chess together at an outdoor event" },
+  { title: "Tournaments & Events", text: "Academy tournaments help students learn from mistakes and compete with confidence.", href: "/tournament-chess-coaching/", image: "/assets/images/gallery-b1.jpg", alt: "Young Darklight student holding a trophy and medal" },
+  { title: "Every Age, Every Level", text: "Tailored courses for children and adults. Age is no barrier to learning chess.", href: "/chess-classes-for-kids-coimbatore/", image: "/assets/images/hero-kid-web.jpg", alt: "Young child playing chess" },
+];
+
+const benefits = [
+  { icon: "♟\uFE0E", title: "Focus", text: "Holding one position in mind for a whole game trains sustained attention." },
+  { icon: "♞", title: "Problem-Solving", text: "Every move is a small puzzle: weigh options, spot risks, choose a plan." },
+  { icon: "♝", title: "Memory & Logic", text: "Patterns, openings and calculation exercise memory and logical thinking." },
+  { icon: "♜", title: "Patience", text: "Good moves take time. Students learn to slow down and think before acting." },
+  { icon: "♛", title: "Confidence", text: "Winning, losing and learning from both builds resilience and self-belief." },
+  { icon: "♚", title: "Productive Screen Time", text: "Live, coach-led classes keep online time active and purposeful." },
+];
 ---
 
 <BaseLayout
   title="Darklight Chess Academy | Online Chess Academy & Coaching"
   description="Live online chess classes for kids and adults worldwide with FIDE-rated coaches, from beginner to tournament level — plus offline centres in Coimbatore. Free demo."
   path="/"
-  preloadImage="/assets/images/hero-kid-web.jpg"
   includeLocalBusinessSchema={true}
 >
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="home">
-    <div class="hero-bg" style="background-image:url('/assets/images/hero-kid-web.jpg')"></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <p class="hero-kicker reveal">♞ Live Online Chess Coaching, Trusted Worldwide</p>
-      <h1 class="reveal"><span class="gold">Online Chess Coaching</span> That Builds Champions</h1>
-      <p class="hero-tagline reveal">♞ Because every move matters.</p>
-      <p class="hero-sub reveal">One of our students recently won a chess tournament in Canada — coached entirely online by our FIDE-rated trainers. Join live 1-on-1 or group classes from anywhere in the world, or visit our offline centers in Coimbatore.</p>
-      <div class="hero-actions reveal">
-        <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">🗓️ Book a Free Online Demo Class</a>
-        <a href="#courses" class="btn btn-outline btn-lg">Explore Courses</a>
+  <!-- ============ HERO + BOOKING FORM ============ -->
+  <section class="home-hero" id="home">
+    <div class="container home-hero-grid">
+      <div class="home-hero-copy">
+        <p class="hero-pill">♞ Live online chess coaching, trusted worldwide</p>
+        <h1><span class="gold">Online Chess Coaching</span> That Builds Champions</h1>
+        <p class="hero-sub">One of our students recently won a chess tournament in Canada, coached entirely online by our FIDE-rated trainers. Join live 1-on-1 or group classes from anywhere, or visit our centres in Coimbatore.</p>
+        <ul class="hero-points">
+          <li><span aria-hidden="true">♚</span> 1-on-1 or group classes with FIDE-rated coaches</li>
+          <li><span aria-hidden="true">♞</span> Five clear levels, from first move to tournament play</li>
+          <li><span aria-hidden="true">♜</span> Online worldwide, offline in Coimbatore</li>
+        </ul>
+        <a href="#courses" class="btn btn-dark btn-lg">Explore Courses →</a>
+        <p class="hero-note">Free demo class · No cost, no commitment · <a href="/contact/">Addresses, phone &amp; maps</a></p>
       </div>
-      <p class="hero-microtrust reveal">✅ No cost, no commitment &nbsp;·&nbsp; 1-on-1 with a FIDE-rated coach &nbsp;·&nbsp; Flexible timings worldwide</p>
-      <div class="hero-badges reveal">
-        <span>♔ Online classes available worldwide</span>
-        <span>♕ Offline coaching centers in Coimbatore, Tamil Nadu</span>
+      <div id="contact">
+        <EnquiryForm heading="Book a free demo or enrol" />
       </div>
     </div>
   </section>
@@ -60,96 +71,62 @@ import { levels } from "../data/levels";
     </div>
   </section>
 
-  <!-- ============ GLOBAL PRESENCE ============ -->
-  <GlobalPresence />
-
-  <!-- ============ ABOUT ============ -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">About Us</p>
-        <h2>A Growing Hub for Chess Enthusiasts</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-media reveal">
-          <Img src="/assets/images/about-olympiad.jpg" alt="At the 44th FIDE Chess Olympiad with an international chess player" />
-          <div class="about-card">
-            <p>"Darklight Chess Academy was a dream for me, and I started it with an aim to empower chess coaches and explore the world of chess with a motive to take chess to all the people across the globe."</p>
-            <span>— Karuppasamy, Founder</span>
-          </div>
-        </div>
-        <div class="about-text reveal">
-          <p>Darklight Chess Academy, based in Tamil Nadu, India, is a growing hub for chess enthusiasts of all levels — from curious beginners to seasoned masters. With 70+ currently active students across our physical centers and online platforms, we've built a learning ecosystem where both players and coaches thrive.</p>
-          <p>Our mission is clear: <strong>to make world-class chess coaching accessible to everyone, anywhere.</strong> Whether our students are learning in person or remotely, they benefit from structured training, personalized mentorship, and performance-driven coaching.</p>
-          <ul class="check-list">
-            <li><a href="/online-chess-classes/">Online chess classes</a> for students in the <a href="/online-chess-classes-usa/">USA</a>, <a href="/online-chess-classes-uk/">UK</a>, <a href="/online-chess-classes-canada/">Canada</a>, <a href="/online-chess-classes-india/">India</a> and beyond</li>
-            <li><a href="/chess-academy-coimbatore/">Offline coaching centers in Coimbatore</a>, Tamil Nadu</li>
-            <li>Individual and group classes — learn with chess buddies or one-on-one</li>
-            <li>Regular academy tournaments to learn, compete and grow</li>
-          </ul>
-          <a href="#contact" class="btn btn-purple book-btn" data-course="Free Demo Class">Start Your Chess Journey</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ WHY CHOOSE US ============ -->
-  <section class="section why bg-soft" id="why">
+  <section class="section bg-soft" id="why">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">Why Darklight?</p>
-        <h2>We Don't Just Coach — We Build Confidence</h2>
-        <p class="section-sub">One of our students recently secured a tournament win in Canada, coached entirely online.</p>
+        <h2>We Don't Just Coach. We Build Confidence.</h2>
+        <p class="section-sub">Darklight Chess Academy, based in Tamil Nadu, India, is a growing hub for chess players of all levels. Our mission is to make world-class chess coaching accessible to everyone, anywhere, with structured training, personal mentorship and performance-driven coaching.</p>
+        <div class="section-actions">
+          <a href="/contact/?course=Free%20Demo%20Class#contact" class="btn btn-gold book-btn" data-course="Free Demo Class">Book a Free Demo Class</a>
+          <a href="/about/" class="btn btn-ghost">About the Academy →</a>
+        </div>
       </div>
-      <div class="cards-grid three">
-        <div class="feature-card reveal">
-          <div class="feature-icon">♚</div>
-          <h3>Expert Coaching</h3>
-          <p>Learn from top-rated chess coaches with years of experience. Meet FIDE-rated coaches &amp; certified trainers shaping top chess talent across India and internationally.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🖥️</div>
-          <h3>Online Coaching</h3>
-          <p>Enhance your learning experience with interactive online classes tailored for your needs — accessible from anywhere in the world.</p>
-          <a href="/online-chess-classes/" class="card-learn-more">Explore online classes →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🏫</div>
-          <h3>Offline Classes</h3>
-          <p>Experience face-to-face learning with personalized attention in a traditional classroom setting at our Coimbatore centers.</p>
-          <a href="/chess-academy-coimbatore/" class="card-learn-more">See our Coimbatore centers →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">👥</div>
-          <h3>Group &amp; Individual Classes</h3>
-          <p>Join a group of chess buddies to learn together, or opt for personalized one-on-one coaching sessions for a tailored experience.</p>
-          <a href="/one-to-one-chess-coaching/" class="card-learn-more">Explore 1-to-1 coaching →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🏆</div>
-          <h3>Tournaments &amp; Events</h3>
-          <p>We improve students' skills through academy tournaments — learn from your flaws and compete online and offline with confidence.</p>
-          <a href="/tournament-chess-coaching/" class="card-learn-more">See tournament coaching →</a>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🎯</div>
-          <h3>Every Age, Every Level</h3>
-          <p>Tailored courses for every age group, from children to adults. We strongly believe that age is not a criteria to learn chess.</p>
-          <a href="/chess-classes-for-kids-coimbatore/" class="card-learn-more">Explore kids' chess classes →</a>
-        </div>
+      <div class="photo-cards">
+        {why.map((w, i) => (
+          <a class="photo-card reveal" href={w.href}>
+            <div class="photo-card-img">
+              <Img src={w.image} alt={w.alt} />
+              <span class="photo-num">{String(i + 1).padStart(2, "0")}</span>
+            </div>
+            <div class="photo-card-body">
+              <h3>{w.title}</h3>
+              <p>{w.text}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="band-gap">
+        <CtaBanner
+          heading="Ready to Make the First Move?"
+          subtext="Tell us the student's age and chess experience, and we'll find the right starting point."
+          course="Free Demo Class"
+        />
       </div>
     </div>
   </section>
 
   <!-- ============ COURSES ============ -->
-  <section class="section courses" id="courses">
+  <section class="section checker" id="courses">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">Our Courses</p>
-        <h2>Structured Chess Courses for Every Skill Level</h2>
-        <p class="section-sub">Whether you're starting fresh or looking to compete at the highest level — online access globally and offline centers in Tamil Nadu.</p>
+        <p class="eyebrow light">The Curriculum</p>
+        <h2 class="light-title">Five Levels. One Clear Path.</h2>
+        <p class="section-sub light-sub">Every student starts with a level assessment and moves up through clear milestones, online worldwide or at our Coimbatore centres.</p>
       </div>
-      <div class="program-links reveal">
+      <div class="curriculum">
+        {levels.map((l) => (
+          <a class="curriculum-card reveal" href={`/courses/${l.slug}/`}>
+            <span class="curriculum-top"><span>Level {l.step}</span><span class="curriculum-icon" aria-hidden="true">{l.icon}</span></span>
+            <h3>{l.name}</h3>
+            <span class="curriculum-rating">Rating {l.rating}</span>
+            <p>{l.summary}</p>
+            <span class="curriculum-more">View syllabus →</span>
+          </a>
+        ))}
+      </div>
+      <div class="program-links on-dark reveal">
         <a href="/online-chess-classes/">Online Classes for Kids</a>
         <a href="/chess-classes-for-beginners/">Beginner Classes</a>
         <a href="/advanced-chess-training/">Intermediate &amp; Advanced</a>
@@ -158,95 +135,28 @@ import { levels } from "../data/levels";
         <a href="/chess-academy-coimbatore/">Chess Academy in Coimbatore</a>
         <a href="/chess-classes-for-kids-coimbatore/">Kids Classes in Coimbatore</a>
       </div>
-      <div class="ladder">
-        {levels.map((l) => (
-          <div class="course-card ladder-card reveal">
-            <span class="ladder-step">Level {l.step}</span>
-            <div class="course-icon">{l.icon}</div>
-            <h3>{l.name}</h3>
-            <p class="ladder-rating">{l.rating}</p>
-            <p>{l.summary}</p>
-            <ul>{l.outcomes.map((o) => <li>{o}</li>)}</ul>
-            <button class="btn btn-purple book-btn" data-course={l.course}>Book Now</button>
-            <a href={l.href} class="card-learn-more">Learn more →</a>
-          </div>
-        ))}
-      </div>
-      <p class="ladder-more reveal"><a href="/courses/" class="btn-link">Compare all levels →</a></p>
       <div class="sibling-note reveal">
-        <h3>👨‍👩‍👧‍👦 Sibling Classes — Learn Together, Save Together</h3>
-        <p>We encourage siblings to learn chess together so you can develop your skills side by side. Sibling classes come with special discounts — collaborate with your sibling or cousin and explore the world of chess with your partner in crime.</p>
-        <button class="btn btn-gold book-btn" data-course="Sibling Class">Enquire About Sibling Classes</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BENEFITS ============ -->
-  <section class="section benefits" id="benefits">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Beyond the Board</p>
-        <h2>What Chess Builds in Your Child</h2>
-        <p class="section-sub">Chess is a game, but the habits it builds carry into school and life.</p>
-      </div>
-      <div class="cards-grid three">
-        <div class="feature-card reveal"><div class="feature-icon">🎯</div><h3>Focus</h3><p>Holding one position in mind for a whole game trains sustained attention.</p></div>
-        <div class="feature-card reveal"><div class="feature-icon">🧩</div><h3>Problem-Solving</h3><p>Every move is a small puzzle: weigh options, spot risks, choose a plan.</p></div>
-        <div class="feature-card reveal"><div class="feature-icon">🧠</div><h3>Memory &amp; Logic</h3><p>Patterns, openings and calculation exercise memory and logical thinking.</p></div>
-        <div class="feature-card reveal"><div class="feature-icon">⏳</div><h3>Patience</h3><p>Good moves take time. Students learn to slow down and think before acting.</p></div>
-        <div class="feature-card reveal"><div class="feature-icon">💪</div><h3>Confidence</h3><p>Winning, losing and learning from both builds resilience and self-belief.</p></div>
-        <div class="feature-card reveal"><div class="feature-icon">🖥️</div><h3>Productive Screen Time</h3><p>Live, coach-led classes keep online time active and purposeful.</p></div>
+        <div>
+          <h3>Sibling Classes: Learn Together, Save Together</h3>
+          <p>Sibling classes come with special discounts, so brothers, sisters and cousins can build their skills side by side.</p>
+        </div>
+        <a href="/contact/?course=Sibling%20Class#contact" class="btn btn-gold book-btn" data-course="Sibling Class">Enquire About Sibling Classes</a>
       </div>
     </div>
   </section>
 
   <!-- ============ COACHES ============ -->
-  <section class="section coaches bg-dark-section" id="coaches">
+  <section class="section" id="coaches">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow light">Meet Our Coaches</p>
-        <h2 class="light-title">FIDE-Rated Coaches &amp; Certified Trainers</h2>
-        <p class="section-sub light-sub">Shaping top chess talent across India and internationally at Darklight Chess Academy.</p>
+        <p class="eyebrow">Meet Our Coaches</p>
+        <h2>FIDE-Rated Coaches &amp; Certified Trainers</h2>
+        <p class="section-sub">Shaping top chess talent across India and internationally at Darklight Chess Academy.</p>
       </div>
-      <div class="coach-grid">
-        {coaches.map((c) => (
-          <article class={`coach-card reveal${c.featured ? " featured" : ""}`}>
-            {c.image ? (
-              <div class="coach-photo"><Img src={c.image} alt={c.imageAlt ?? c.name} /></div>
-            ) : (
-              <div class="coach-photo monogram"><span>{c.name.charAt(0)}</span></div>
-            )}
-            <div class="coach-info">
-              <h3>{c.name}</h3>
-              <p class="coach-role">{c.role}</p>
-              <blockquote>"{c.quote}"</blockquote>
-              {c.bio && <p class="coach-bio">{c.bio}</p>}
-              {c.achievement && <p class="coach-achievement">🏅 {c.achievement}</p>}
-            </div>
-          </article>
-        ))}
+      <div class="people-grid">
+        {coaches.map((c) => <PersonCard person={c} />)}
       </div>
-      <p style="text-align:center; margin-top:2.2rem;"><a href="/coaches/" class="btn btn-gold">Meet All Our Coaches</a></p>
-    </div>
-  </section>
-
-  <!-- ============ GALLERY PREVIEW ============ -->
-  <section class="section gallery" id="gallery">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Gallery</p>
-        <h2>Representing Darklight Chess Academy Across the Board</h2>
-        <p class="section-sub">Real moments from our classes, tournaments and events.</p>
-      </div>
-      <div class="gallery-grid reveal">
-        <Img src="/assets/images/gallery-a8.jpg" alt="Anuroop, winner of the 1st Intra Academy Level Chess Tournament" />
-        <Img src="/assets/images/gallery-a11.jpg" alt="Aayush, 1st place in Silver Knight tournament, USA" />
-        <Img src="/assets/images/gallery-a1.jpg" alt="Darklight students at a chess tournament" />
-        <Img src="/assets/images/gallery-a7.jpg" alt="Team Darklight at a tournament venue" />
-        <Img src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" />
-        <Img src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" />
-      </div>
-      <p class="ladder-more reveal"><a href="/gallery/" class="btn-link">View full gallery →</a></p>
+      <p class="ladder-more"><a href="/coaches/" class="btn btn-dark">Meet All Our Coaches →</a></p>
     </div>
   </section>
 
@@ -279,6 +189,81 @@ import { levels } from "../data/levels";
     </div>
   </section>
 
+
+  <!-- ============ GLOBAL PRESENCE ============ -->
+  <GlobalPresence />
+
+  <!-- ============ HOW TO ENROLL ============ -->
+  <section class="section enroll" id="enroll">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Getting Started</p>
+        <h2>Let's Get You Started!</h2>
+        <p class="section-sub">Book a free demo to get to know Darklight coaching and to assess your level in chess — at no cost!</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">1</span>
+          <h3>Book a Free Demo</h3>
+          <p>Fill the form below and pick a slot. Experience our coaching firsthand.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">2</span>
+          <h3>Level Assessment</h3>
+          <p>Our coaches analyse and assess your game to place you at the right level.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">3</span>
+          <h3>Choose Your Batch</h3>
+          <p>Weekday or weekend, group or 1-on-1, online or offline — your pace, your style.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">4</span>
+          <h3>Start Learning</h3>
+          <p>Begin structured training with personalized mentorship and visible progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section class="section bg-soft" id="benefits">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Beyond the Board</p>
+        <h2>What Chess Builds in Your Child</h2>
+        <p class="section-sub">Chess is a game, but the habits it builds carry into school and life.</p>
+      </div>
+      <div class="cards-grid three">
+        {benefits.map((b) => (
+          <div class="feature-card reveal">
+            <div class="icon-tile" aria-hidden="true">{b.icon}</div>
+            <h3>{b.title}</h3>
+            <p>{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY PREVIEW ============ -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Gallery</p>
+        <h2>Representing Darklight Across the Board</h2>
+        <p class="section-sub">Real moments from our classes, tournaments and events.</p>
+      </div>
+      <div class="photo-strip reveal">
+        <Img src="/assets/images/gallery-a1.jpg" alt="Darklight students at a chess tournament" />
+        <Img src="/assets/images/gallery-a7.jpg" alt="Team Darklight at a tournament venue" />
+        <Img src="/assets/images/class-photo.jpg" alt="Chess class in progress at the academy" />
+        <Img src="/assets/images/outdoor-event.jpg" alt="Outdoor chess event with young players" />
+        <Img src="/assets/images/gallery-b1.jpg" alt="Young Darklight student holding a trophy and medal" />
+      </div>
+      <p class="ladder-more reveal"><a href="/gallery/" class="btn btn-ghost">View Full Gallery →</a></p>
+    </div>
+  </section>
 
   <!-- ============ PARTNERS ============ -->
   <Partners />
@@ -326,39 +311,6 @@ import { levels } from "../data/levels";
     </div>
   </section>
 
-  <!-- ============ HOW TO ENROLL ============ -->
-  <section class="section enroll" id="enroll">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Getting Started</p>
-        <h2>Let's Get You Started!</h2>
-        <p class="section-sub">Book a free demo to get to know Darklight coaching and to assess your level in chess — at no cost!</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="step-num">1</span>
-          <h3>Book a Free Demo</h3>
-          <p>Fill the form below and pick a slot. Experience our coaching firsthand.</p>
-        </div>
-        <div class="step reveal">
-          <span class="step-num">2</span>
-          <h3>Level Assessment</h3>
-          <p>Our coaches analyse and assess your game to place you at the right level.</p>
-        </div>
-        <div class="step reveal">
-          <span class="step-num">3</span>
-          <h3>Choose Your Batch</h3>
-          <p>Weekday or weekend, group or 1-on-1, online or offline — your pace, your style.</p>
-        </div>
-        <div class="step reveal">
-          <span class="step-num">4</span>
-          <h3>Start Learning</h3>
-          <p>Begin structured training with personalized mentorship and visible progress.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ FAQ ============ -->
   <section class="section faq bg-soft" id="faq">
     <div class="container narrow">
@@ -378,16 +330,13 @@ import { levels } from "../data/levels";
   </section>
   <FaqSchema items={homeFaqs} />
 
-  <!-- ============ CONTACT / ENQUIRY FORM ============ -->
-  <section class="section contact" id="contact">
-    <div class="container narrow">
-      <div class="section-head reveal">
-        <p class="eyebrow">Contact Us</p>
-        <h2>Book Your Free Demo Class</h2>
-        <p class="section-sub">Got questions or ready to begin? Tell us a little and our team will guide you on the best course, schedule and coaching format.</p>
-      </div>
-      <EnquiryForm />
-      <p class="ladder-more reveal"><a href="/contact/" class="btn-link">Addresses, phone &amp; maps →</a></p>
+  <section class="section">
+    <div class="container">
+      <CtaBanner
+        heading="Every Move Matters. Make Yours."
+        subtext="Book a free demo class. We'll assess the student's level and recommend where to start."
+        course="Free Demo Class"
+      />
     </div>
   </section>
 </BaseLayout>

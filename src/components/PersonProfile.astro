@@ -1,0 +1,36 @@
+---
+// Large two-column profile: portrait beside name, pills and biography. Only
+// confirmed fields from src/data/coaches.ts are shown.
+import Img from "./Img.astro";
+import type { Coach } from "../data/coaches";
+
+interface Props {
+  person: Coach;
+  reverse?: boolean;
+  heading?: "h2" | "h3";
+}
+const { person: c, reverse = false, heading: Heading = "h3" } = Astro.props;
+const pills = [c.titles, c.rating, ...(c.achievement?.replace(/\.$/, "").split(", ") ?? [])].filter(Boolean);
+const quals = [c.qualifications, c.playingExperience, c.coachingExperience, c.specialization].filter(Boolean);
+---
+
+<article class:list={["profile reveal", { reverse }]} id={c.id}>
+  <div class="profile-photo">
+    {c.image ? (
+      <Img src={c.image} alt={c.imageAlt ?? c.name} />
+    ) : (
+      <div class="monogram" aria-hidden="true"><span>{c.name.charAt(0)}</span></div>
+    )}
+  </div>
+  <div class="profile-body">
+    <p class="profile-role">{c.role}</p>
+    <Heading>{c.name}</Heading>
+    {pills.length > 0 && <ul class="pills dark">{pills.map((p) => <li>{p}</li>)}</ul>}
+    {quals.length > 0 && <ul class="pills">{quals.map((p) => <li>{p}</li>)}</ul>}
+    <div class="profile-copy">
+      {c.bio && <p class="lead">{c.bio}</p>}
+      <p>“{c.quote}”</p>
+    </div>
+    {c.linkedin && <a class="rung-link strong" href={c.linkedin} rel="noopener" target="_blank">LinkedIn →</a>}
+  </div>
+</article>

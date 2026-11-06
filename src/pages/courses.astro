@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import CtaBanner from "../components/CtaBanner.astro";
+import BookingSplit from "../components/BookingSplit.astro";
 import LevelCard from "../components/LevelCard.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
 import { levels } from "../data/levels";
@@ -33,21 +33,24 @@ const faqs = [
   <PageHero
     eyebrow="Our Courses"
     title="From First Move to <span class='gold'>Chess Excellence.</span>"
-    subtitle="Structured chess training for every stage of your child's journey."
+    subtitle="Structured chess training for every stage of your child's journey. Students progress through levels based on their skills, understanding and assessment."
     breadcrumbItems={[
       { name: "Home", path: "/" },
       { name: "Courses", path: "/courses/" },
     ]}
-  />
+  >
+    <div class="hero-actions">
+      <a href="/contact/?course=Free%20Demo%20Class#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">Book a Free Demo</a>
+    </div>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Five Levels</p>
-        <h2>Learn at the Right Level</h2>
-        <p class="section-sub">Students progress through levels based on their skills, understanding and a coach's assessment. Not sure where to start? Book a free demo and we'll recommend a level.</p>
+      <div class="section-head reveal">
+        <p class="eyebrow">The Five Levels</p>
+        <h2>Find Your Place on the Board</h2>
       </div>
-      <div class="level-grid">
+      <div class="ladder-list">
         {levels.map((l) => <LevelCard level={l} />)}
       </div>
     </div>
@@ -55,7 +58,7 @@ const faqs = [
 
   <section class="section bg-soft" id="compare">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">Compare</p>
         <h2>Find the Right Chess Level</h2>
       </div>
@@ -65,7 +68,7 @@ const faqs = [
           <tbody>
             {levels.map((l) => (
               <tr>
-                <td data-label="Level"><a href={`/courses/${l.slug}/`}>{l.step}. {l.name}</a></td>
+                <td data-label="Level"><a href={`/courses/${l.slug}/`}><span aria-hidden="true">{l.icon}</span> {l.name}</a></td>
                 <td data-label="Age">{l.age}</td>
                 <td data-label="Rating">{l.rating}</td>
                 <td data-label="Duration">{l.duration}</td>
@@ -78,9 +81,9 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section bg-soft flush-top">
     <div class="container narrow">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">FAQ</p>
         <h2>Choosing a Level</h2>
       </div>
@@ -93,13 +96,5 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section bg-soft">
-    <div class="container">
-      <CtaBanner
-        heading="Ready to Make the First Move?"
-        subtext="Book a free demo class. We'll assess your level and recommend where to start. No commitment."
-        course="Free Demo Class"
-      />
-    </div>
-  </section>
+  <BookingSplit />
 </BaseLayout>
