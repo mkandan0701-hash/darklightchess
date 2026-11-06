@@ -11,6 +11,14 @@ export interface Coach {
   image?: string;
   imageAlt?: string;
   featured?: boolean;
+  // Optional, shown only when filled in. Add these once the academy confirms them.
+  qualifications?: string;
+  rating?: string; // e.g. FIDE rating
+  titles?: string;
+  playingExperience?: string;
+  coachingExperience?: string;
+  specialization?: string;
+  linkedin?: string;
 }
 
 export const coaches: Coach[] = [

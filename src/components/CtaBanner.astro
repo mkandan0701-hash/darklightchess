@@ -22,7 +22,7 @@ const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whats
   <h3>{heading}</h3>
   <p>{subtext}</p>
   <div class="cta-banner-actions">
-    <a href="/#contact" class="btn btn-gold btn-lg book-btn" data-course={course}>🗓️ Book a Free Demo Class</a>
+    <a href={`/contact/?course=${encodeURIComponent(course)}#contact`} class="btn btn-gold btn-lg book-btn" data-course={course}>🗓️ Book a Free Demo Class</a>
     <a href={waLink} target="_blank" rel="noopener" class="btn btn-outline btn-lg cta-whatsapp">💬 WhatsApp Us</a>
   </div>
 </div>

@@ -271,6 +271,13 @@
   // preselect the course dropdown; on any other page there's no #contact
   // section, so we skip and let the browser follow the href normally.
   const courseSelect = document.getElementById("fCourse");
+  // Deep links such as /contact/?course=Intermediate%20Level preselect the course.
+  try {
+    const wanted = new URLSearchParams(location.search).get("course");
+    if (wanted && courseSelect && [...courseSelect.options].some((o) => o.value === wanted)) {
+      courseSelect.value = wanted;
+    }
+  } catch (_) { /* ignore */ }
   document.querySelectorAll(".book-btn").forEach((btn) =>
     btn.addEventListener("click", (e) => {
       const contactSection = document.getElementById("contact");

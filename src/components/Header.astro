@@ -3,6 +3,18 @@ import { LOGO_PATH } from "../consts";
 import { imageSize } from "../lib/image-size";
 
 const logo = imageSize(LOGO_PATH);
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About" },
+  { href: "/coaches/", label: "Our Coaches" },
+  { href: "/courses/", label: "Courses" },
+  { href: "/achievements/", label: "Achievements" },
+  { href: "/gallery/", label: "Gallery" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contact/", label: "Contact Us" },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
 ---
 
 <header class="navbar" id="navbar">
@@ -12,12 +24,10 @@ const logo = imageSize(LOGO_PATH);
       <span>Darklight <em>Chess Academy</em></span>
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Main">
-      <a href="/about/">About</a>
-      <a href="/courses/">Courses</a>
-      <a href="/achievements/">Achievements</a>
-      <a href="/gallery/">Gallery</a>
-      <a href="/blog/">Blog</a>
-      <a href="/#contact" class="btn btn-gold nav-cta" data-course="Free Demo Class">Book a Free Demo</a>
+      {links.map((l) => (
+        <a href={l.href} aria-current={isActive(l.href) ? "page" : undefined}>{l.label}</a>
+      ))}
+      <a href="/contact/?course=Free%20Demo%20Class#contact" class="btn btn-gold nav-cta" data-course="Free Demo Class">Book a Free Demo</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>

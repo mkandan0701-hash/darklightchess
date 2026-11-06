@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import CtaBanner from "../components/CtaBanner.astro";
+import LevelCard from "../components/LevelCard.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
 import { levels } from "../data/levels";
 
@@ -26,13 +27,13 @@ const faqs = [
 
 <BaseLayout
   title="Chess Courses & Levels | Darklight Chess Academy"
-  description="Five clear chess levels from complete beginner to master track, taught live online and in Coimbatore by FIDE-rated coaches. Book a free demo class."
+  description="Five chess levels from beginner to master with ages, ratings, durations and live class counts, online and in Coimbatore. Book a free demo class."
   path="/courses/"
 >
   <PageHero
     eyebrow="Our Courses"
-    title="From First Move to <span class='gold'>Tournament Level</span>"
-    subtitle="Five clear levels so every student knows where they are and what comes next."
+    title="From First Move to <span class='gold'>Chess Excellence.</span>"
+    subtitle="Structured chess training for every stage of your child's journey."
     breadcrumbItems={[
       { name: "Home", path: "/" },
       { name: "Courses", path: "/courses/" },
@@ -41,35 +42,35 @@ const faqs = [
 
   <section class="section">
     <div class="container">
-      <div class="ladder">
-        {levels.map((l) => (
-          <div class="course-card ladder-card reveal">
-            <span class="ladder-step">Level {l.step}</span>
-            <div class="course-icon">{l.icon}</div>
-            <h3>{l.name}</h3>
-            <p class="ladder-rating">{l.rating}</p>
-            <p>{l.summary}</p>
-            <ul>{l.outcomes.map((o) => <li>{o}</li>)}</ul>
-            <button class="btn btn-purple book-btn" data-course={l.course}>Book Now</button>
-            <a href={l.href} class="card-learn-more">Learn more →</a>
-          </div>
-        ))}
+      <div class="section-head">
+        <p class="eyebrow">Five Levels</p>
+        <h2>Learn at the Right Level</h2>
+        <p class="section-sub">Students progress through levels based on their skills, understanding and a coach's assessment. Not sure where to start? Book a free demo and we'll recommend a level.</p>
+      </div>
+      <div class="level-grid">
+        {levels.map((l) => <LevelCard level={l} />)}
       </div>
     </div>
   </section>
 
-  <section class="section bg-soft">
-    <div class="container narrow">
+  <section class="section bg-soft" id="compare">
+    <div class="container">
       <div class="section-head">
         <p class="eyebrow">Compare</p>
-        <h2>Levels at a Glance</h2>
+        <h2>Find the Right Chess Level</h2>
       </div>
       <div class="compare-table-wrap">
         <table class="compare-table">
-          <thead><tr><th>Level</th><th>Rating</th><th>Focus</th></tr></thead>
+          <thead><tr><th>Level</th><th>Age</th><th>Rating</th><th>Duration</th><th>Live Sessions</th></tr></thead>
           <tbody>
             {levels.map((l) => (
-              <tr><td>{l.step}. {l.name}</td><td>{l.rating}</td><td>{l.summary}</td></tr>
+              <tr>
+                <td data-label="Level"><a href={`/courses/${l.slug}/`}>{l.step}. {l.name}</a></td>
+                <td data-label="Age">{l.age}</td>
+                <td data-label="Rating">{l.rating}</td>
+                <td data-label="Duration">{l.duration}</td>
+                <td data-label="Live Sessions">{l.sessionsShort}</td>
+              </tr>
             ))}
           </tbody>
         </table>

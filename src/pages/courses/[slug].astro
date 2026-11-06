@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import CourseSchema from "../../components/schema/CourseSchema.astro";
+import { levels, getLevel } from "../../data/levels";
+
+export function getStaticPaths() {
+  return levels.map((l) => ({ params: { slug: l.slug } }));
+}
+
+const { slug } = Astro.params;
+const l = getLevel(slug as string)!;
+const next = l.nextSlug ? getLevel(l.nextSlug) : undefined;
+const path = `/courses/${l.slug}/`;
+const enquire = `/contact/?course=${encodeURIComponent(l.course)}#contact`;
+const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
+const title = `${l.name} Chess Course | Darklight Chess Academy`;
+const description = `${l.name} chess course (Level ${l.step}): age ${l.age}, rating ${l.rating}, ${l.duration.toLowerCase()}, ${l.sessions.toLowerCase()}. Book a free demo.`;
+---
+
+<BaseLayout title={title} description={description} path={path}>
+  <CourseSchema
+    name={`${l.name} Chess Course`}
+    description={l.description}
+    path={path}
+    modes={["online", "onsite"]}
+    educationalLevel={l.name}
+  />
+  <PageHero
+    eyebrow={`Level ${l.step}`}
+    title={`${l.name} <span class='gold'>Chess Course</span>`}
+    subtitle={l.description}
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Courses", path: "/courses/" },
+      { name: l.name, path },
+    ]}
+  >
+    <div class="hero-actions">
+      <a href={enquire} class="btn btn-gold btn-lg book-btn" data-course={l.course}>Enrol Now</a>
+      <a href={demo} class="btn btn-outline btn-lg book-btn" data-course="Free Demo Class">Book Free Demo</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <dl class="course-facts">
+        <div><dt>Age</dt><dd>{l.age}</dd></div>
+        <div><dt>Rating</dt><dd>{l.rating}</dd></div>
+        <div><dt>Duration</dt><dd>{l.duration}</dd></div>
+        <div><dt>Live classes</dt><dd>{l.sessions}</dd></div>
+      </dl>
+
+      <div class="course-two-col">
+        <div>
+          <h2>Who This Course Is For</h2>
+          <p>{l.whoFor}</p>
+          <h2>What Students Will Achieve</h2>
+          <ul class="check-list">{l.achieve.map((a) => <li>{a}</li>)}</ul>
+        </div>
+        <div>
+          <h2>Learning Outcomes</h2>
+          <ul class="check-list">{l.learningAreas.map((a) => <li>{a}</li>)}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Syllabus</p>
+        <h2>Module-by-Module Curriculum</h2>
+      </div>
+      <ol class="module-list">
+        {l.modules.map((m, i) => (
+          <li>
+            <details open={i === 0}>
+              <summary><span class="module-num">Module {i + 1}</span> {m.title}</summary>
+              <ul>{m.topics.map((t) => <li>{t}</li>)}</ul>
+            </details>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Progression</p>
+        <h2>Assessment and Level-Up Criteria</h2>
+      </div>
+      <ul class="check-list">{l.levelUp.map((a) => <li>{a}</li>)}</ul>
+      {next && (
+        <p class="next-level">
+          Next level: <a href={`/courses/${next.slug}/`}>Level {next.step}: {next.name} →</a>
+        </p>
+      )}
+      <p class="next-level">
+        Related programme: <a href={l.href}>learn more about how we teach this level</a>. Or <a href="/courses/">compare all five levels</a>.
+      </p>
+      <CtaBanner
+        heading={`Start the ${l.name} Course`}
+        subtext="Book a free demo class and a coach will confirm the right starting level for your child."
+        course={l.course}
+      />
+    </div>
+  </section>
+</BaseLayout>

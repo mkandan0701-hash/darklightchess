@@ -1,0 +1,26 @@
+---
+import type { Level } from "../data/levels";
+interface Props { level: Level }
+const { level: l } = Astro.props;
+const enquire = `/contact/?course=${encodeURIComponent(l.course)}#contact`;
+const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
+---
+
+<article class="level-card reveal">
+  <span class="level-num">Level {l.step}</span>
+  <div class="level-icon" aria-hidden="true">{l.icon}</div>
+  <h3>{l.name}</h3>
+  <ul class="level-badges">
+    <li><span>Age</span> {l.age}</li>
+    <li><span>Rating</span> {l.rating}</li>
+    <li><span>Duration</span> {l.duration}</li>
+    <li><span>Sessions</span> {l.sessions}</li>
+  </ul>
+  <p class="level-desc">{l.description}</p>
+  <ul class="level-outcomes">{l.learningAreas.slice(0, 4).map((o) => <li>{o}</li>)}</ul>
+  <div class="level-actions">
+    <a class="btn btn-purple" href={`/courses/${l.slug}/`}>View Full Syllabus</a>
+    <a class="btn btn-gold book-btn" href={enquire} data-course={l.course}>Enrol Now</a>
+    <a class="level-demo" href={demo} data-course="Free Demo Class">Book Free Demo</a>
+  </div>
+</article>

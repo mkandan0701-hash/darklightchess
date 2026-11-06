@@ -1,0 +1,49 @@
+---
+// Shared profile card for founders and coaches. Only renders fields that exist.
+import Img from "./Img.astro";
+import type { Coach } from "../data/coaches";
+
+interface Props {
+  person: Coach;
+  expandLabel?: string;
+}
+const { person: c, expandLabel = "Read More" } = Astro.props;
+const facts: [string, string | undefined][] = [
+  ["FIDE / chess rating", c.rating],
+  ["Titles", c.titles],
+  ["Qualifications", c.qualifications],
+  ["Playing experience", c.playingExperience],
+  ["Coaching experience", c.coachingExperience],
+  ["Specialization", c.specialization],
+  ["Achievements", c.achievement],
+];
+const shown = facts.filter(([, v]) => v);
+const hasMore = Boolean(c.bio) || shown.length > 0 || Boolean(c.linkedin);
+---
+
+<article class="person-card reveal" id={c.id}>
+  <div class="person-photo">
+    {c.image ? (
+      <Img src={c.image} alt={c.imageAlt ?? c.name} />
+    ) : (
+      <div class="monogram" aria-hidden="true"><span>{c.name.charAt(0)}</span></div>
+    )}
+  </div>
+  <div class="person-body">
+    <h3>{c.name}</h3>
+    <p class="person-role">{c.role}</p>
+    <blockquote>“{c.quote}”</blockquote>
+    {hasMore && (
+      <details class="person-more">
+        <summary>{expandLabel}</summary>
+        {c.bio && <p>{c.bio}</p>}
+        {shown.length > 0 && (
+          <dl>
+            {shown.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+          </dl>
+        )}
+        {c.linkedin && <a class="person-link" href={c.linkedin} rel="noopener" target="_blank">LinkedIn →</a>}
+      </details>
+    )}
+  </div>
+</article>

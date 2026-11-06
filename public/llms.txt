@@ -46,6 +46,7 @@ Key facts (as published on this website):
 - [Coaches and their achievements](https://www.darklightchess.com/coaches/)
 - [Blog](https://www.darklightchess.com/blog/)
 - [Courses and levels](https://www.darklightchess.com/courses/)
+- Level pages: [Beginner](https://www.darklightchess.com/courses/beginner/), [Advanced Beginner](https://www.darklightchess.com/courses/advanced-beginner/), [Intermediate](https://www.darklightchess.com/courses/intermediate/), [Advanced](https://www.darklightchess.com/courses/advanced/), [Master](https://www.darklightchess.com/courses/master/)
 - [Student achievements and reviews](https://www.darklightchess.com/achievements/)
 - [Gallery](https://www.darklightchess.com/gallery/)
 - [Contact and free demo](https://www.darklightchess.com/contact/)
