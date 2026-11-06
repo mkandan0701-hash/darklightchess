@@ -1212,3 +1212,9 @@ main { display: block; }
   .testimonials .cards-grid.three { gap: 0.9rem; }
   .footer-grid { gap: 1.4rem; }
 }
+
+/* Home hero: academy class photo, shown clear and uncovered beside the form */
+.home-hero-photo { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center top; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 1.2rem; }
+.home-hero .hero-pill { margin-bottom: 0.9rem; }
+.home-hero h1 { font-size: clamp(2.3rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+.home-hero .hero-sub { font-size: 0.98rem; margin-bottom: 1.1rem; max-width: none; }
