@@ -37,6 +37,10 @@ const {
   includeLocalBusinessSchema = false,
   ...seo
 } = Astro.props;
+
+// Google Analytics 4 loads only when PUBLIC_GA4_ID is set in Vercel's
+// environment at build time (e.g. "G-XXXXXXXXXX"); otherwise nothing is added.
+const ga4Id = import.meta.env.PUBLIC_GA4_ID;
 ---
 
 <!DOCTYPE html>
@@ -51,6 +55,30 @@ const {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href={cssHref} />
+  {ga4Id && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+      <script is:inline define:vars={{ ga4Id }}>
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        // Consent Mode v2: analytics is off until the visitor accepts in regions that
+        // require opt-in (EEA, UK, Switzerland, and Quebec under Law 25); elsewhere it
+        // is on unless they decline. Advertising storage is never used.
+        var noAds = { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" };
+        window.gtag("consent", "default", Object.assign({ analytics_storage: "denied", wait_for_update: 500, region: [
+          "AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL",
+          "PL","PT","RO","SK","SI","ES","SE","IS","LI","NO","GB","CH","CA-QC"
+        ] }, noAds));
+        window.gtag("consent", "default", Object.assign({ analytics_storage: "granted" }, noAds));
+        try {
+          var saved = localStorage.getItem("dlca_consent");
+          if (saved === "granted" || saved === "denied") window.gtag("consent", "update", { analytics_storage: saved });
+        } catch (e) { /* storage blocked: regional defaults apply */ }
+        window.gtag("js", new Date());
+        window.gtag("config", ga4Id);
+      </script>
+    </>
+  )}
   <OrganizationSchema />
   <WebSiteSchema />
   {includeLocalBusinessSchema && <LocalBusinessSchema />}
@@ -73,6 +101,34 @@ const {
     aria-label="Chat on WhatsApp"
   >💬</a>
   <button class="to-top" id="toTop" aria-label="Back to top">♔</button>
+
+  {ga4Id && (
+    <>
+      <div class="consent-banner" id="consentBanner" role="region" aria-label="Cookie choice" hidden>
+        <p>We use Google Analytics cookies to see which pages help families and to count demo bookings. No advertising cookies. <a href="/privacy-policy/">Privacy policy</a></p>
+        <div class="consent-actions">
+          <button type="button" class="btn btn-outline" data-consent="denied">Decline</button>
+          <button type="button" class="btn btn-gold" data-consent="granted">Accept</button>
+        </div>
+      </div>
+      <script is:inline>
+        (function () {
+          var banner = document.getElementById("consentBanner");
+          var saved = null;
+          try { saved = localStorage.getItem("dlca_consent"); } catch (e) {}
+          if (!banner || saved === "granted" || saved === "denied") return;
+          banner.hidden = false;
+          banner.addEventListener("click", function (e) {
+            var choice = e.target.getAttribute && e.target.getAttribute("data-consent");
+            if (!choice) return;
+            try { localStorage.setItem("dlca_consent", choice); } catch (err) {}
+            if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: choice });
+            banner.hidden = true;
+          });
+        })();
+      </script>
+    </>
+  )}
 
   <!-- Chessboard page-transition loader -->
   <div class="page-loader" id="pageLoader" aria-hidden="true">

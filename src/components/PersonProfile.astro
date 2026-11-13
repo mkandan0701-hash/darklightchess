@@ -31,6 +31,7 @@ const quals = [c.qualifications, c.playingExperience, c.coachingExperience, c.sp
       {c.bio && <p class="lead">{c.bio}</p>}
       <p>“{c.quote}”</p>
     </div>
+    {c.fideId && <a class="rung-link strong" href={`https://ratings.fide.com/profile/${c.fideId}`} rel="noopener" target="_blank">Check {c.name}'s FIDE profile →</a>}
     {c.linkedin && <a class="rung-link strong" href={c.linkedin} rel="noopener" target="_blank">LinkedIn →</a>}
   </div>
 </article>

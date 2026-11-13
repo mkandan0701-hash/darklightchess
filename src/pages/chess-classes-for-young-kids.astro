@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import CourseSchema from "../components/schema/CourseSchema.astro";
+import { WHATSAPP_LINK } from "../consts";
+
+const path = "/chess-classes-for-young-kids/";
+
+const faqs = [
+  {
+    question: "Can a 4- or 5-year-old learn chess online?",
+    answer:
+      "Yes, if the class is short, active and live. Young children learn one piece at a time through mini-games, with a parent nearby at first to help with the device. A physical board at home helps them connect the screen to real pieces.",
+  },
+  {
+    question: "What is the best age to start chess lessons?",
+    answer:
+      "Many children are ready for structured lessons around age 5 or 6, once they can concentrate on a short activity and follow simple rules. Some start at 4. Attention span and interest matter more than the exact age, and the free demo class tells you whether your child is ready.",
+  },
+  {
+    question: "How long are classes for young children?",
+    answer:
+      "Lessons for young children are broken into short, game-based activities so they stay engaged. Tell us your child's age when you book, and the coach will suggest the right length and format.",
+  },
+  {
+    question: "Does my child need to read to learn chess?",
+    answer:
+      "No. Young beginners learn by moving pieces and playing mini-games. Reading helps later with notation, but it isn't needed to start.",
+  },
+  {
+    question: "What will my child learn first?",
+    answer:
+      "How each piece moves and captures, one at a time, then check and checkmate, then simple games using a few pieces. Full games come once the basics feel easy.",
+  },
+];
+
+const waHref = `${WHATSAPP_LINK}?text=${encodeURIComponent("Hi Darklight Chess Academy! I'd like to book a free demo chess class for my young child.")}`;
+---
+
+<BaseLayout
+  title="Online Chess Classes for Kids Ages 4–7 | Darklight Chess Academy"
+  description="Live online chess classes for young children aged 4 to 7: short, game-based lessons with a patient coach, after school in US and Canadian time. Free demo class."
+  path={path}
+  locale="en_US"
+>
+  <CourseSchema
+    name="Online Chess Classes for Young Kids (Ages 4–7)"
+    description="Live online beginner chess classes for children aged about 4 to 7, taught through short game-based activities: piece movement, check and checkmate, and first mini-games."
+    path={path}
+    modes={["online"]}
+    educationalLevel="Beginner"
+  />
+  <PageHero
+    eyebrow="Ages 4–7"
+    title="Online Chess Classes for <span class='gold'>Young Kids</span>"
+    subtitle="Short, playful, live lessons that teach young children chess one piece at a time, after school in your time zone."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Online Chess Classes", path: "/online-chess-classes/" },
+      { name: "Chess for Young Kids", path },
+    ]}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">🗓️ Book a Free Demo Class</a>
+      <a href="/courses/beginner/" class="btn btn-outline btn-lg">See the Beginner Level</a>
+    </div>
+  </PageHero>
+
+  <section class="section answer-block">
+    <div class="container narrow">
+      <p class="answer-lead"><strong>Darklight Chess Academy teaches live online chess classes for young children aged about 4 to 7. A patient coach introduces one piece at a time through mini-games on a shared digital board, so children learn by playing. Classes run after school in US and Canadian time zones, and the first demo class is free.</strong></p>
+      <aside class="quick-facts" aria-label="Quick facts">
+        <h2>Quick facts</h2>
+        <ul class="check-list">
+          <li><strong>Ages:</strong> about 4 to 7, complete beginners welcome</li>
+          <li><strong>Style:</strong> short, game-based activities with lots of praise</li>
+          <li><strong>Format:</strong> live online, small group, one-to-one or with a sibling</li>
+          <li><strong>US &amp; Canada times:</strong> weekdays about 4–8 pm local time, plus weekend mornings</li>
+          <li><strong>First step:</strong> a free demo class to see if your child is ready</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">How we teach</p>
+        <h2>How young children learn chess with us</h2>
+      </div>
+      <p>Young children don't learn chess by memorising rules. They learn by playing. Our coaches introduce one piece at a time with a mini-game for each: pawn races, capture-the-flag with rooks, a knight hopping around the board. Only when a piece feels easy does the next one arrive.</p>
+      <p>Lessons are broken into short activities with lots of movement on the board, so children stay engaged. Coaches praise good thinking rather than just wins, which keeps children keen even when they lose.</p>
+      <p>For the youngest children, a parent nearby for the first few classes helps with the device. A physical chess set at home lets children practise with real pieces between lessons.</p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Readiness</p>
+        <h2>Is my child ready?</h2>
+      </div>
+      <p>Many children are ready around age 5 or 6, and some at 4. Signs your child is ready:</p>
+      <ul class="check-list">
+        <li>They can sit with one activity for 15 to 20 minutes.</li>
+        <li>They can follow a simple rule, like "this piece only moves straight".</li>
+        <li>They enjoy board games or puzzles.</li>
+        <li>They can cope, with a little help, when they don't win.</li>
+      </ul>
+      <p>If you're unsure, the free demo class answers the question: the coach will tell you honestly whether to start now or wait a few months. Read more in <a href="/blog/what-age-should-a-child-start-chess-lessons/">what age should a child start chess lessons?</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">What comes next</p>
+        <h2>From first moves to full games</h2>
+      </div>
+      <p>Young children start in our <a href="/courses/beginner/">Beginner level</a>: piece movement, check and checkmate, simple tactics and opening principles. When they can play full games confidently, they move on to <a href="/courses/advanced-beginner/">Advanced Beginner</a>. Many of our tournament players started exactly this way.</p>
+      <p>Families in the <a href="/online-chess-classes-usa/">USA</a> and <a href="/online-chess-classes-canada/">Canada</a> can book after-school slots in their own time zone. Brothers and sisters can learn together in a <strong>sibling class</strong>, with a sibling discount.</p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions From Parents of Young Children</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="lead-grid">
+        <div class="lead-copy">
+          <p class="eyebrow">Free Demo Class</p>
+          <h2>Book a Free Demo Class</h2>
+          <p>A coach plays a few mini-games with your child, sees how they respond, and suggests the right class and time. There is no commitment.</p>
+          <p>Prefer to talk first? <a href={waHref} target="_blank" rel="noopener" data-whatsapp="young-kids">Message us on WhatsApp</a>.</p>
+        </div>
+        <EnquiryForm mode="Online (International batch)" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

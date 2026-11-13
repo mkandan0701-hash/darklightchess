@@ -34,11 +34,32 @@ const countries = [
   "Other",
 ];
 const modes = ["Online (India)", "Online (International batch)", "Offline – Coimbatore"];
+// Suggestions only: the field stays free text and is prefilled from the browser.
+const timeZoneSuggestions = [
+  ["America/New_York", "US Eastern (New York, Atlanta, Miami)"],
+  ["America/Chicago", "US Central (Chicago, Dallas, Houston)"],
+  ["America/Denver", "US Mountain (Denver)"],
+  ["America/Phoenix", "Arizona (no daylight time)"],
+  ["America/Los_Angeles", "US Pacific (Los Angeles, Seattle, Bay Area)"],
+  ["America/Anchorage", "Alaska"],
+  ["Pacific/Honolulu", "Hawaii"],
+  ["America/Toronto", "Canada Eastern (Toronto, Ottawa, Montréal)"],
+  ["America/Winnipeg", "Canada Central (Winnipeg)"],
+  ["America/Regina", "Saskatchewan"],
+  ["America/Edmonton", "Canada Mountain (Calgary, Edmonton)"],
+  ["America/Vancouver", "Canada Pacific (Vancouver)"],
+  ["America/Halifax", "Atlantic (Halifax)"],
+  ["America/St_Johns", "Newfoundland and Labrador"],
+  ["Europe/London", "UK"],
+  ["Asia/Dubai", "UAE"],
+  ["Asia/Kolkata", "India"],
+];
+const heardOptions = ["Google search", "ChatGPT or another AI assistant", "Friend or family", "Outschool or a class directory", "Social media", "Other"];
 const pagePath = Astro.url.pathname;
 ---
 
 <form class="enquiry-form reveal" id="enquiryForm" novalidate>
-  <h3>{heading}</h3>
+  <p class="form-title" role="heading" aria-level="2">{heading}</p>
   <div class="form-row">
     <div class="form-group">
       <label for="fName">Parent / Student Name *</label>
@@ -80,7 +101,10 @@ const pagePath = Astro.url.pathname;
     </div>
     <div class="form-group">
       <label for="fTimezone">Time Zone</label>
-      <input type="text" id="fTimezone" name="timezone" placeholder="e.g. America/New_York" />
+      <input type="text" id="fTimezone" name="timezone" placeholder="e.g. America/New_York" list="tzSuggestions" />
+      <datalist id="tzSuggestions">
+        {timeZoneSuggestions.map(([value, label]) => <option value={value} label={label} />)}
+      </datalist>
       <small class="err"></small>
     </div>
   </div>
@@ -120,6 +144,13 @@ const pagePath = Astro.url.pathname;
       <option>Sibling Class</option>
     </select>
     <small class="err"></small>
+  </div>
+  <div class="form-group">
+    <label for="fHeard">How did you hear about us? (optional)</label>
+    <select id="fHeard" name="heard">
+      <option value="">Choose one</option>
+      {heardOptions.map((o) => <option>{o}</option>)}
+    </select>
   </div>
   <div class="form-group">
     <label for="fMsg">Message (optional)</label>

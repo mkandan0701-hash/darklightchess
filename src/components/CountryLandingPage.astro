@@ -13,7 +13,7 @@ import CourseSchema from "./schema/CourseSchema.astro";
 import { BRANCHES } from "../consts";
 import type { Market } from "../data/markets";
 import { HUB_PATH } from "../lib/seo";
-import { currencies, inr, PRICE_INR_PER_HOUR } from "../data/pricing";
+import { currencies, inr, confirmedRegionalPrice } from "../data/pricing";
 import { WHATSAPP_LINK } from "../consts";
 import { describeDifference, formatOffset, formatTime, toIst } from "../lib/time";
 
@@ -24,14 +24,20 @@ interface Props {
 const { market } = Astro.props;
 
 const exampleZone = market.timeZones.find((z) => z.zone === market.exampleZone);
-const posts = (await getCollection("blog", ({ data }) => !data.draft))
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 3);
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+// Country-specific reading list first (in the order given), topped up with the latest posts.
+const chosen = (market.relatedPosts ?? [])
+  .map((slug) => allPosts.find((p) => p.id === slug))
+  .filter((p): p is (typeof allPosts)[number] => Boolean(p));
+const posts = [...chosen, ...allPosts.filter((p) => !chosen.includes(p))].slice(0, 3);
 
 const waText = encodeURIComponent(`Hi Darklight Chess Academy! I'm in ${market.countryName} and would like to book a free demo class.`);
 const waHref = `${WHATSAPP_LINK}?text=${waText}`;
 const lastUpdated = market.lastUpdated ? new Date(market.lastUpdated) : undefined;
 const priceCurrencies = (market.currencies ?? []).map((c) => currencies[c]).filter(Boolean);
+// Owner-set USD/CAD prices replace the rupee conversion once they are confirmed.
+const regional = (market.currencies ?? []).map(confirmedRegionalPrice).find(Boolean);
 
 const levels = [
   { href: "/chess-classes-for-beginners/", name: "Beginners", text: "Rules, basic tactics and opening principles — age 5+ and adults." },
@@ -238,10 +244,29 @@ const levels = [
           <p class="eyebrow">Fees</p>
           <h2>How much do online chess lessons cost for families in {market.countryName}?</h2>
         </div>
-        <p>
-          Lessons start from <strong>{inr} per hour</strong>. Fees are set in Indian rupees, so the amount you pay in {priceCurrencies[0].label} depends on the exchange rate on the day. As a guide only, {inr} is {priceCurrencies.map((c) => `about ${c.symbol}${c.approx}`).join(" or ")} at recent rates. Siblings learning together get a discount, and the first demo class is free.
-        </p>
-        <p class="tz-note">Currency figures are indicative and rounded. Ask us for the exact amount when you enquire. Full details are on the <a href="/pricing/">pricing page</a>.</p>
+        {regional ? (
+          <>
+            <div class="table-wrap">
+              <table class="tz-table">
+                <caption>Fees for families in {market.countryName} ({regional.currency})</caption>
+                <tbody>
+                  <tr><th scope="row">Live group class</th><td>{regional.symbol}{regional.groupPerClass} per class</td></tr>
+                  <tr><th scope="row">Private 1-to-1 lesson</th><td>{regional.symbol}{regional.privatePerHour} per hour</td></tr>
+                  <tr><th scope="row">Siblings</th><td>{regional.siblingDiscountPercent}% off for each additional child</td></tr>
+                  <tr><th scope="row">Demo class</th><td>Free, with a level assessment</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="tz-note">Full details are on the <a href="/pricing/">pricing page</a>.</p>
+          </>
+        ) : (
+          <>
+            <p>
+              Lessons start from <strong>{inr} per hour</strong>. Fees are set in Indian rupees, so the amount you pay in {priceCurrencies[0].label} depends on the exchange rate on the day. As a guide only, {inr} is {priceCurrencies.map((c) => `about ${c.symbol}${c.approx}`).join(" or ")} at recent rates. Siblings learning together get a discount, and the first demo class is free.
+            </p>
+            <p class="tz-note">Currency figures are indicative and rounded. Ask us for the exact amount when you enquire. Full details are on the <a href="/pricing/">pricing page</a>.</p>
+          </>
+        )}
       </div>
     </section>
   )}
@@ -297,7 +322,7 @@ const levels = [
           <p class="eyebrow">Free Demo Class</p>
           <h2>Book a Free Demo Class</h2>
           <p>The demo is free with no commitment. A coach assesses the student's level, and we suggest a batch or one-to-one slot that fits your time zone.</p>
-          <p>{market.currencies ? <>Lessons start from {inr} per hour.</> : <>Fees depend on the format and how often the student attends, and we share them when you enquire.</>} Siblings learning together get a discount.</p>
+          <p>{regional ? <>Group classes are {regional.symbol}{regional.groupPerClass} per class and private lessons {regional.symbol}{regional.privatePerHour} per hour.</> : market.currencies ? <>Lessons start from {inr} per hour.</> : <>Fees depend on the format and how often the student attends, and we share them when you enquire.</>} Siblings learning together get a discount.</p>
           <p>Prefer to talk first? <a href={waHref} target="_blank" rel="noopener" data-whatsapp="country">Message us on WhatsApp</a> or use the button at the bottom of the screen.</p>
         </div>
         <EnquiryForm country={market.countryName} mode={market.formMode} />

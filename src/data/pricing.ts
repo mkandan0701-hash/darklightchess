@@ -29,6 +29,30 @@ export const currencies: Record<string, CurrencyApprox> = {
 
 export const inr = `₹${PRICE_INR_PER_HOUR.toLocaleString("en-IN")}`;
 
+// Owner-set North American prices (NOT conversions). Leave a value as null until
+// the academy confirms it: null tiers are not rendered anywhere and are never
+// put into schema. Once all three of a currency's tiers are set, the USA/Canada
+// pages and /pricing/ show them instead of the indicative rupee conversion.
+export interface RegionalPrice {
+  currency: "USD" | "CAD";
+  symbol: string;
+  groupPerClass: number | null; // one live group class (about 60 minutes)
+  privatePerHour: number | null; // one-to-one, per hour
+  siblingDiscountPercent: number | null;
+}
+
+export const regionalPrices: Record<"USD" | "CAD", RegionalPrice> = {
+  USD: { currency: "USD", symbol: "$", groupPerClass: null, privatePerHour: null, siblingDiscountPercent: null },
+  CAD: { currency: "CAD", symbol: "CA$", groupPerClass: null, privatePerHour: null, siblingDiscountPercent: null },
+};
+
+/** The regional price for a currency, only when every tier has been confirmed. */
+export const confirmedRegionalPrice = (code: string): RegionalPrice | undefined => {
+  const p = regionalPrices[code as "USD" | "CAD"];
+  if (!p) return undefined;
+  return p.groupPerClass !== null && p.privatePerHour !== null && p.siblingDiscountPercent !== null ? p : undefined;
+};
+
 /** "about £9" style string for a currency code. */
 export const approxPrice = (code: string) => {
   const c = currencies[code];

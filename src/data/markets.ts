@@ -52,6 +52,7 @@ export interface Market {
   sections?: { eyebrow: string; heading: string; paragraphs: string[] }[]; // trusted HTML
   currencies?: string[]; // codes from src/data/pricing.ts shown as approximate conversions
   lastUpdated?: string; // ISO date
+  relatedPosts?: string[]; // blog slugs for "Further Reading"; falls back to the latest posts
   formMode: "Online (India)" | "Online (International batch)";
 }
 
@@ -67,14 +68,63 @@ export const baseMarkets: Market[] = [
     ogLocale: "en_US",
     title: "Online Chess Classes for Kids, USA | Darklight Chess Academy",
     description:
-      "Live online chess classes for US students, scheduled around Eastern, Central, Mountain and Pacific time. Group or 1-to-1, beginner to tournament level.",
+      "Live online chess classes for US kids, with after-school slots from 4 to 8 pm Eastern and Pacific time. Group or 1-to-1, beginner to US Chess tournament prep.",
     eyebrow: "Online Chess Classes · United States",
     heroTitle: "Online Chess Classes for Kids in the <span class='gold'>USA</span>",
     heroSubtitle:
-      "Live coaching from our team in India, scheduled around US time zones — for complete beginners through to students entering US tournaments.",
+      "Live coaching after school in your time zone, from complete beginner to US Chess–rated and scholastic tournaments.",
+    answer:
+      "Darklight Chess Academy teaches live online chess classes to children across the United States. Weekday classes run after school, between about 4 and 8 pm Eastern or Pacific time, with weekend morning slots too. Children learn in small groups or one-to-one, from their first moves to US Chess tournament preparation, and the first demo class is free.",
+    quickFacts: [
+      "<strong>Format:</strong> live online with a coach on a shared digital board, as a small group, one-to-one or a sibling class",
+      "<strong>US class times:</strong> weekdays about 4–8 pm ET or PT, plus weekend mornings",
+      "<strong>Ages:</strong> young beginners to teenagers, plus adults",
+      "<strong>Levels:</strong> five levels, from complete beginner to 1800+ tournament players",
+      "<strong>Tournaments:</strong> preparation for US Chess–rated, scholastic and state events",
+      "<strong>First step:</strong> a free demo class with a level assessment",
+    ],
+    sections: [
+      {
+        eyebrow: "Class times",
+        heading: "When are online chess classes for US families?",
+        paragraphs: [
+          "Our coaches teach US students in the after-school window, roughly 4 pm to 8 pm in your time zone on weekdays, and on Saturday and Sunday mornings. For our coaches in India that is early morning, and they schedule their day around it, so your child doesn't have to stay up late or miss school.",
+          'The tables below show what a few US times are in India. You never need to work this out yourself: classes are always booked and confirmed in your local time. See all <a href="/class-timings/">class timings by time zone</a>.',
+        ],
+      },
+      {
+        eyebrow: "US Chess",
+        heading: "Will online lessons help my child get a US Chess rating?",
+        paragraphs: [
+          'A child gets an official US Chess rating by joining US Chess, the national federation, and playing in a US Chess–rated tournament. Online classes don\'t issue a rating, but they prepare your child to do well once they play rated games. Our guide <a href="/blog/us-chess-ratings-explained-for-parents/">US Chess ratings explained for parents</a> covers how it works.',
+          `When your child has entered an event, our ${TOURNAMENT_LINK} plans the weeks before it and reviews their games afterwards. Our students' US results include 1st place at the USA Chess Festival and a state-level championship title.`,
+        ],
+      },
+      {
+        eyebrow: "Homeschool",
+        heading: "Do you teach homeschooled children during the US school day?",
+        paragraphs: [
+          'Yes. US daytime is evening in India, so daytime classes are easy to arrange for homeschooling families. Chess works well as a logic elective, and coaches can give a short progress note after each level for your records. See <a href="/homeschool-chess-classes/">chess classes for homeschoolers</a>.',
+        ],
+      },
+      {
+        eyebrow: "Families",
+        heading: "Can siblings learn together?",
+        paragraphs: [
+          "Yes. Brothers and sisters can share a sibling class or attend separate classes if their levels are far apart, and families with more than one child get a sibling discount. The free assessment decides the best set-up for each child.",
+        ],
+      },
+      {
+        eyebrow: "Coaches",
+        heading: "Who will teach my child?",
+        paragraphs: [
+          'Our coaches include Marimuthu K, who represented India at the Chess Olympiad in Greece in 2021, and Mega Chakraborty, an Asian silver medalist who represented India at the World Women Championship in 2024. Every coach teaches in English. Meet <a href="/coaches/">all of our coaches</a>.',
+        ],
+      },
+    ],
     intro: [
-      "Darklight Chess Academy is based in Coimbatore, India, and coaches students in the United States entirely online. Every class is live with a coach on a shared digital board — not pre-recorded video — and runs as a small group batch or a one-to-one session.",
-      "The practical question for US families is timing. India is 9½ to 13½ hours ahead of the continental US, depending on your zone and the time of year, so classes are arranged around your local day. Tell us your time zone and preferred days when you book the free demo class, and we'll confirm which slots are open.",
+      "Darklight Chess Academy is based in Coimbatore, India, and coaches students in the United States entirely online. Every class is live with a coach on a shared digital board, not pre-recorded video, and runs as a small group, a one-to-one session or a sibling class.",
+      "We schedule US classes around your child's school day. Tell us your time zone and preferred days when you book the free demo class, and we'll confirm a slot in your local time.",
     ],
     timeZones: [
       { zone: "Eastern (ET)", standard: -5, daylight: -4 },
@@ -84,12 +134,13 @@ export const baseMarkets: Market[] = [
     ],
     exampleZone: "Eastern (ET)",
     examples: [
+      { day: "Monday", hour: 16 },
+      { day: "Wednesday", hour: 18 },
+      { day: "Thursday", hour: 19.5 },
       { day: "Saturday", hour: 9 },
-      { day: "Sunday", hour: 10 },
-      { day: "Wednesday", hour: 17 },
     ],
     dstNote:
-      "US daylight saving time runs from the second Sunday in March to the first Sunday in November. India doesn't change its clocks, so the gap to Indian time is one hour smaller during US daylight time. Alaska and Hawaii are further behind — ask us about slots.",
+      "US daylight saving time runs from the second Sunday in March to the first Sunday in November. India doesn't change its clocks, so the gap to Indian time is one hour smaller during US daylight time. Alaska and Hawaii are further behind, so ask us about slots.",
     chessContext: {
       heading: "Chess Ratings and Tournaments in the US",
       paragraphs: [
@@ -126,20 +177,41 @@ export const baseMarkets: Market[] = [
       {
         question: "What time are online chess classes for students in the US?",
         answer:
-          "Classes are booked in your local time, from the slots our coaches have open. India is 9½–13½ hours ahead of the continental US, so a 9:00 am Saturday class in New York is 7:30 pm Saturday in India in winter (6:30 pm in summer). Share your time zone and preferred days when you book the free demo and we'll confirm what's available.",
+          "Weekday classes run after school, between about 4 pm and 8 pm in your own time zone, and there are Saturday and Sunday morning slots. Our coaches teach these hours from India, where it is early morning. Classes are always booked in your local time and confirmed after the free demo.",
       },
       {
         question: "Can you coach students in every US time zone?",
         answer:
-          "Yes. Classes are online, so the only constraint is timing — we schedule around Eastern, Central, Mountain and Pacific time. One of our students' recent results came at the Continental Chess Concord Tournament in California.",
+          "Yes. We schedule around Eastern, Central, Mountain and Pacific time, and can arrange slots for Alaska and Hawaii. One of our students' recent results came at the Continental Chess Concord Tournament in California.",
       },
       {
         question: "Do you prepare students for US Chess–rated tournaments?",
         answer:
-          "Yes. Tournament coaching can be built around a specific event your child has entered, US Chess–rated or not, and includes reviewing their own games afterwards. A Darklight student recently took 1st place at the USA Chess Festival.",
+          "Yes. Tournament coaching can be built around a specific event your child has entered, whether it is US Chess–rated, scholastic or a state championship, and includes reviewing their own games afterwards. A Darklight student recently took 1st place at the USA Chess Festival.",
+      },
+      {
+        question: "How much do online chess lessons cost for US families?",
+        answer:
+          "Our fees are set in Indian rupees, from ₹1,000 per hour, which is about $11 at recent exchange rates. That is well below the roughly $40 an hour that private chess coaching often costs in the US. Siblings get a discount, and the first demo class is free.",
+      },
+      {
+        question: "Do you teach homeschooled children during the day?",
+        answer:
+          "Yes. US daytime is evening in India, so daytime classes are easy to schedule for homeschooling families, as groups or one-to-one.",
+      },
+      {
+        question: "How do we start?",
+        answer:
+          "Book the free demo class with the form on this page or message us on WhatsApp. A coach plays with your child, assesses their level, and we suggest a class and a time slot that fits your family.",
       },
     ],
     currencies: ["USD"],
+    lastUpdated: "2026-11-13",
+    relatedPosts: [
+      "how-much-do-chess-lessons-cost-in-the-us",
+      "us-chess-ratings-explained-for-parents",
+      "how-to-choose-an-online-chess-coach",
+    ],
     formMode: "Online (International batch)",
   },
   {
@@ -254,14 +326,56 @@ export const baseMarkets: Market[] = [
     ogLocale: "en_CA",
     title: "Online Chess Classes in Canada for Kids | Darklight Chess Academy",
     description:
-      "Live online chess classes for students across Canada, scheduled around Pacific to Atlantic time. Group or one-to-one, from beginner to tournament level.",
+      "Live online chess classes for kids across Canada, with after-school slots from 4 to 8 pm in your province's time. Group or 1-to-1, beginner to CFC tournament prep.",
     eyebrow: "Online Chess Classes · Canada",
     heroTitle: "Online Chess Classes for Kids in <span class='gold'>Canada</span>",
     heroSubtitle:
-      "Coached live from India and scheduled around your province's time zone — the same programme one of our students used to win a tournament in Canada.",
+      "Live coaching after school in your province's time zone, from first moves to CFC-rated tournaments.",
+    answer:
+      "Darklight Chess Academy teaches live online chess classes to children across Canada, from British Columbia to Newfoundland. Weekday classes run after school, between about 4 and 8 pm local time, with weekend morning slots too. Children learn in small groups or one-to-one, from complete beginner to CFC tournament preparation, and the first demo class is free.",
+    quickFacts: [
+      "<strong>Format:</strong> live online with a coach on a shared digital board, as a small group, one-to-one or a sibling class",
+      "<strong>Canadian class times:</strong> weekdays about 4–8 pm in your time zone, plus weekend mornings",
+      "<strong>Provinces:</strong> every province and territory; Pacific to Newfoundland time",
+      "<strong>Levels:</strong> five levels, from complete beginner to 1800+ tournament players",
+      "<strong>Tournaments:</strong> preparation for CFC-rated, junior and provincial events",
+      "<strong>First step:</strong> a free demo class with a level assessment",
+    ],
+    sections: [
+      {
+        eyebrow: "Class times",
+        heading: "When are online chess classes for Canadian families?",
+        paragraphs: [
+          "Our coaches teach Canadian students in the after-school window, roughly 4 pm to 8 pm in your own time zone on weekdays, and on Saturday and Sunday mornings. In India that is early morning, and our coaches plan their day around it, so your child learns at a normal hour.",
+          'Families in Toronto, Ottawa and Montréal use Eastern time; Vancouver is on Pacific time; Calgary and Edmonton on Mountain time; Winnipeg on Central time. The tables below show what a few Eastern times are in India, and our <a href="/class-timings/">class timings page</a> covers every zone.',
+        ],
+      },
+      {
+        eyebrow: "CFC",
+        heading: "Will online lessons help my child get a CFC rating?",
+        paragraphs: [
+          'In Canada, a child gets an official rating by playing in tournaments rated by the Chess Federation of Canada (CFC). Online classes don\'t issue a rating, but they prepare your child for rated play. Our guide <a href="/blog/cfc-ratings-explained-for-parents/">CFC ratings explained for parents</a> covers how it works.',
+          `When your child has entered an event, our ${TOURNAMENT_LINK} plans the weeks before it and reviews the games afterwards.`,
+        ],
+      },
+      {
+        eyebrow: "Homeschool",
+        heading: "Do you teach homeschooled children during the day?",
+        paragraphs: [
+          'Yes. Canadian daytime is evening in India, so daytime classes are easy to arrange. See <a href="/homeschool-chess-classes/">chess classes for homeschoolers</a>.',
+        ],
+      },
+      {
+        eyebrow: "Coaches",
+        heading: "Who will teach my child?",
+        paragraphs: [
+          'Our coaches include Marimuthu K, who represented India at the Chess Olympiad in Greece in 2021, and Mega Chakraborty, an Asian silver medalist who represented India at the World Women Championship in 2024. Classes are taught in English. Meet <a href="/coaches/">all of our coaches</a>.',
+        ],
+      },
+    ],
     intro: [
-      "One of our students recently won a chess tournament in Canada, coached entirely online by our team. That's the format we offer every Canadian family: live classes with a coach on a shared digital board, as a group batch or one-to-one.",
-      "Canada spans six time zones, so we schedule around your province rather than a fixed national timetable. India is 9½ hours ahead of Eastern time in summer and 10½ in winter, and the gap grows further west. Tell us your time zone when you book the free demo and we'll confirm the slots that are open.",
+      "Darklight Chess Academy is based in Coimbatore, India, and coaches Canadian students entirely online: live classes with a coach on a shared digital board, as a group, one-to-one or a sibling class. One of our students recently won a chess tournament in Canada after training with us this way.",
+      "Canada spans six time zones, so we schedule around your province rather than a fixed national timetable. Tell us your time zone when you book the free demo and we'll confirm a slot in your local time.",
     ],
     timeZones: [
       { zone: "Pacific (PT)", standard: -8, daylight: -7 },
@@ -269,13 +383,13 @@ export const baseMarkets: Market[] = [
       { zone: "Central (CT)", standard: -6, daylight: -5, note: "Most of Saskatchewan stays on standard time" },
       { zone: "Eastern (ET)", standard: -5, daylight: -4 },
       { zone: "Atlantic (AT)", standard: -4, daylight: -3 },
-      { zone: "Newfoundland (NT)", standard: -3.5, daylight: -2.5 },
+      { zone: "Newfoundland (NL)", standard: -3.5, daylight: -2.5 },
     ],
     exampleZone: "Eastern (ET)",
     examples: [
-      { day: "Saturday", hour: 9 },
-      { day: "Sunday", hour: 11 },
-      { day: "Tuesday", hour: 17 },
+      { day: "Tuesday", hour: 16 },
+      { day: "Thursday", hour: 18 },
+      { day: "Saturday", hour: 10 },
     ],
     dstNote:
       "Most of Canada observes daylight time from the second Sunday in March to the first Sunday in November. India doesn't change its clocks, so the gap is one hour smaller during Canadian daylight time.",
@@ -287,15 +401,17 @@ export const baseMarkets: Market[] = [
       ],
     },
     proof: {
-      heading: "A Tournament Win in Canada",
+      heading: "Our Students in Canada",
       items: [
         {
-          text: "One of our students recently won a chess tournament in Canada — coached entirely online by our FIDE-rated trainers.",
+          // TODO(owner): replace with the named result once the family agrees:
+          // student name or initials, event, city/province, month and year.
+          text: "One of our students won a chess tournament in Canada after training with our coaches online.",
         },
         {
-          text: "A Darklight student at the Toronto chess centre.",
+          text: "A Darklight student at a chess centre in Toronto.",
           image: "/assets/images/gallery-a2.jpg",
-          imageAlt: "Student at the Toronto chess centre",
+          imageAlt: "Darklight Chess Academy student at a chess centre in Toronto",
         },
       ],
     },
@@ -303,20 +419,40 @@ export const baseMarkets: Market[] = [
       {
         question: "What time are online chess classes for students in Canada?",
         answer:
-          "Classes are booked in your local time, from the slots our coaches have open. A 9:00 am Saturday class in Toronto is 7:30 pm Saturday in India in winter (6:30 pm in summer); in Vancouver, 9:00 am is 10:30 pm in India (9:30 pm in summer). Share your time zone and preferred days when you book the free demo.",
+          "Weekday classes run after school, between about 4 pm and 8 pm in your own time zone, and there are Saturday and Sunday morning slots. Our coaches teach these hours from India, where it is early morning. Classes are always booked in your local time and confirmed after the free demo.",
       },
       {
-        question: "Has Darklight coached a student to a tournament result in Canada?",
+        question: "Do you teach students in every province?",
         answer:
-          "Yes. One of our students recently won a chess tournament in Canada, coached entirely online by our trainers.",
+          "Yes. Classes are online, so we teach families from British Columbia to Newfoundland and Labrador, and schedule around Pacific, Mountain, Central, Eastern, Atlantic and Newfoundland time.",
       },
       {
         question: "Do you prepare students for CFC-rated tournaments?",
         answer:
-          "Yes. Coaches can tailor sessions around a specific event your child has entered and review their tournament games afterwards to find recurring mistakes.",
+          "Yes. Coaches can plan sessions around a specific event your child has entered, including junior and provincial events, and review the tournament games afterwards to find recurring mistakes. One of our students has already won a tournament in Canada.",
+      },
+      {
+        question: "How much do online chess lessons cost for Canadian families?",
+        answer:
+          "Our fees are set in Indian rupees, from ₹1,000 per hour, which is about CA$15 at recent exchange rates. Siblings get a discount, and the first demo class is free.",
+      },
+      {
+        question: "Are classes taught in English?",
+        answer: "Yes. All of our classes are taught in English.",
+      },
+      {
+        question: "How do we start?",
+        answer:
+          "Book the free demo class with the form on this page or message us on WhatsApp. A coach plays with your child, assesses their level, and we suggest a class and a time slot that fits your family.",
       },
     ],
     currencies: ["CAD"],
+    lastUpdated: "2026-11-13",
+    relatedPosts: [
+      "how-much-do-chess-lessons-cost-in-canada",
+      "cfc-ratings-explained-for-parents",
+      "how-to-choose-an-online-chess-coach",
+    ],
     formMode: "Online (International batch)",
   },
   {

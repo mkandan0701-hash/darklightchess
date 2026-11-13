@@ -1,0 +1,28 @@
+week,week_of,type,title,slug_or_url,status_today,pillar,primary_keyword,target_commercial_page,owner_input_needed,notes
+1,2026-11-16,page update,USA page: replace generic proof with named results + US slots,/online-chess-classes-usa/,live,2,online chess classes for kids usa,self,"Permission for named students; real ET/PT slot list",Also add lastUpdated
+1,2026-11-16,page update,Canada page: named tournament win; NA blog cards; NT->NL fix,/online-chess-classes-canada/,live,2,online chess classes for kids canada,self,Canada win details,Remove triple repetition of the claim
+2,2026-11-23,page update,Pricing: publish USD/CAD tiers,/pricing/,live,4,how much do online chess classes cost,self,USD/CAD prices,Then add Course offers schema
+2,2026-11-23,page update,Coaches: FIDE IDs + ratings with ratings.fide.com links,/coaches/,live,4,fide rated chess coach online,self,FIDE IDs,Person schema sameAs
+3,2026-11-30,new post,How Much Do Chess Lessons Cost in the US? (2026 Parent Guide),how-much-do-chess-lessons-cost-in-the-us,new,4,how much do chess lessons cost in the us,/pricing/,USD tiers,Mirror UK post structure; cite sourced ranges
+3,2026-12-03,new post,How Much Do Chess Lessons Cost in Canada? (2026 Parent Guide),how-much-do-chess-lessons-cost-in-canada,new,4,how much do chess lessons cost in canada,/pricing/,CAD tiers,
+4,2026-12-07,new page,Online Chess Classes for Young Kids (Ages 4–7),/chess-classes-for-young-kids/,new,2,chess classes for 5 year olds online,self,Age policy; session length for under-6s,One page for all young ages; no per-age pages
+4,2026-12-10,new post,US Chess Ratings Explained: How Your Child Gets a Rating,us-chess-ratings-explained-for-parents,new,3,us chess rating explained,/tournament-chess-coaching/,Coach fact-check vs uschess.org,Mirror ECF post
+5,2026-12-14,new page,Homeschool Chess Classes (Live Online),/homeschool-chess-classes/,new,2,chess classes for homeschoolers,self,Daytime US slots,Then submit to TheHomeschoolMom directory
+5,2026-12-17,new post,CFC Ratings Explained for Parents in Canada,cfc-ratings-explained-for-parents,new,3,cfc rating explained,/online-chess-classes-canada/,Fact-check vs chess.ca,
+6,2026-12-21,new post,Are Online Chess Classes Effective for Kids?,are-online-chess-classes-effective,outline exists,4,are online chess lessons effective,/online-chess-classes/,Canada win permission,Holiday week: schedule ahead
+6,2026-12-24,new post,How to Choose an Online Chess Coach (and Check a FIDE Rating),how-to-choose-an-online-chess-coach,outline exists,4,how to choose a chess coach for my child,/coaches/,,Publish before the January enrolment window
+7,2026-12-28,new post,Private vs Group Chess Lessons: Which Suits Your Child?,private-vs-group-chess-lessons,outline exists,4,private vs group chess lessons,/one-to-one-chess-coaching/,,
+7,2026-12-31,new post,The First 30 Days of Learning Chess (Week-by-Week),first-30-days-of-chess,new,5,first 30 days of learning chess,/courses/beginner/,,New-year resolution angle
+8,2027-01-04,page update,Beginner course: publish full 24-class syllabus,/courses/beginner/,live,5,complete beginner chess curriculum,self,Syllabus from coaches,High AI-citation value
+8,2027-01-07,new post,How Many Chess Lessons Does a Beginner Need?,how-many-chess-lessons-does-a-beginner-need,new,5,how many chess lessons does a beginner need,/courses/beginner/,Level durations,
+9,2027-01-11,draft->publish,How to Prepare for Your First Chess Tournament (edit for US/CA),how-to-prepare-for-your-first-chess-tournament,draft,3,how to prepare for a chess tournament,/tournament-chess-coaching/,Coach review,Remove Coimbatore framing
+9,2027-01-14,new post,Scholastic Chess Tournaments in the US: A Parent's Guide,scholastic-chess-tournaments-us-parents-guide,new,3,scholastic chess tournaments for kids usa,/tournament-chess-coaching/,Coach review,Spring scholastic season starts
+10,2027-01-18,draft->publish,How Often Should Kids Practice Chess?,how-often-should-kids-practice-chess,draft,3,how often should kids take chess lessons,/online-chess-classes/,Coach review,Editorial calendar #2
+10,2027-01-21,new post,Junior Chess in Canada: A Parent's Guide,junior-chess-in-canada-parents-guide,new,3,junior chess tournaments canada parents guide,/online-chess-classes-canada/,Fact-check,
+11,2027-01-25,new post,How to Teach a Child Chess (Even If You Don't Play),how-to-teach-a-child-chess,new,1,how to teach kids chess,/chess-classes-for-beginners/,,
+11,2027-01-28,draft->publish,Chess Tactics Every Beginner Should Know,chess-tactics-every-beginner-should-know,draft,1,chess tactics for beginners,/chess-classes-for-beginners/,Coach review,
+12,2027-02-01,new post,Chess Learning Milestones: What Progress Looks Like,chess-learning-milestones,new,5,chess milestones for kids,/courses/,,Merge with outline #10 (tracking progress)
+12,2027-02-04,draft->publish,Benefits of Chess for Kids: What the Research Shows (rewrite),benefits-of-chess-for-kids,draft,2,benefits of chess for children,/online-chess-classes/,Coach review,Evidence-honest; no IQ claims
+13,2027-02-08,draft->publish,Chess Tournament Preparation Checklist for Kids,chess-tournament-preparation-checklist-for-kids,draft,3,chess tournament checklist for kids,/tournament-chess-coaching/,Coach review,
+13,2027-02-11,optimisation,GSC-driven rewrites (CTR<1% & >100 impressions; positions 8-20),various,—,—,—,—,GSC export,
+—,—,do-not-publish,What Is the Best Age for a Child to Learn Chess? (duplicate),best-age-for-a-child-to-learn-chess,draft,2,—,—,—,Cannibalises the live what-age post: merge any unique content in and delete the draft

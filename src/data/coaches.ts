@@ -13,7 +13,8 @@ export interface Coach {
   featured?: boolean;
   // Optional, shown only when filled in. Add these once the academy confirms them.
   qualifications?: string;
-  rating?: string; // e.g. FIDE rating
+  rating?: string; // e.g. "FIDE 2150" — only the coach's real, current rating
+  fideId?: string; // FIDE ID number; renders a ratings.fide.com link and schema sameAs
   titles?: string;
   playingExperience?: string;
   coachingExperience?: string;

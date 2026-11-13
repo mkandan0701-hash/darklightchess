@@ -390,7 +390,7 @@ ul { list-style: none; }
   border-top: 5px solid var(--gold);
   scroll-margin-top: 100px;
 }
-.enquiry-form h3 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 1.5rem; }
+.enquiry-form h3, .enquiry-form .form-title { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 1.5rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
 .form-group { margin-bottom: 1.1rem; display: flex; flex-direction: column; }
 .form-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: #334155; }
@@ -942,7 +942,7 @@ main { display: block; }
 
 /* Booking form */
 .enquiry-form { border: 1px solid var(--line); border-top: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.9rem 1.8rem; }
-.enquiry-form h3 { font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.1rem; color: var(--black); }
+.enquiry-form h3, .enquiry-form .form-title { font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.1rem; color: var(--black); }
 .form-row { gap: 0.9rem; }
 .form-group { margin-bottom: 0.8rem; }
 .form-group label { font-size: 0.8rem; color: var(--ink); }
@@ -1217,3 +1217,12 @@ main { display: block; }
 .slides .t-card { flex: 0 0 100%; min-width: 100%; text-align: center; padding: 2.4rem 2.2rem; }
 .slides .t-card blockquote { font-size: 1.08rem; max-width: 640px; margin: 0 auto 1.1rem; }
 @media (max-width: 560px) { .slides .t-card { padding: 1.8rem 1.3rem; } .slides .t-card blockquote { font-size: 1rem; } }
+
+/* ---------- Cookie consent (only rendered when GA4 is configured) ---------- */
+.consent-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .8rem 1.4rem; padding: 1rem max(16px, env(safe-area-inset-right, 0px)) calc(1rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: #111; color: #f2f2f2; font-size: .92rem; box-shadow: 0 -6px 24px rgba(0,0,0,.25); }
+.consent-banner[hidden] { display: none; }
+.consent-banner p { margin: 0; max-width: 62ch; }
+.consent-banner a { color: inherit; text-decoration: underline; }
+.consent-actions { display: flex; gap: .6rem; }
+.consent-actions .btn { padding: .55rem 1.2rem; }
+.consent-actions .btn-outline { color: #f2f2f2; border-color: #f2f2f2; }

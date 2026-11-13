@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
+import FaqSchema from "../components/schema/FaqSchema.astro";
+import CourseSchema from "../components/schema/CourseSchema.astro";
+import { WHATSAPP_LINK } from "../consts";
+
+const path = "/homeschool-chess-classes/";
+
+const faqs = [
+  {
+    question: "Is chess good for homeschoolers?",
+    answer:
+      "Chess fits homeschooling well. It teaches logic, planning and patience, it needs nothing more than a computer or tablet, and live online classes can run during school hours, when many other activities aren't available. Group classes also give homeschooled children regular contact with peers.",
+  },
+  {
+    question: "What time are homeschool chess classes?",
+    answer:
+      "Daytime classes are easy to arrange for families in the US and Canada, because US and Canadian daytime is evening in India, where our coaches are based. Tell us your time zone and preferred hours and we'll confirm a slot in your local time.",
+  },
+  {
+    question: "Can chess count as a homeschool elective?",
+    answer:
+      "Many homeschooling families use chess as a logic or critical-thinking elective. How you record it depends on your state or province's rules. Our structured levels and a short progress note when your child completes a level make it easy to document.",
+  },
+  {
+    question: "Can siblings join the same class?",
+    answer:
+      "Yes. Siblings at a similar level can share a sibling class, and families with more than one child get a sibling discount. If levels differ, each child is placed separately after the free assessment.",
+  },
+  {
+    question: "Can a homeschool co-op book a group?",
+    answer:
+      "Yes. Co-ops and homeschool groups can book a dedicated online group at a time that suits their members. Contact us with the number of children and their ages.",
+  },
+];
+
+const waHref = `${WHATSAPP_LINK}?text=${encodeURIComponent("Hi Darklight Chess Academy! We homeschool and would like to book a free demo chess class.")}`;
+---
+
+<BaseLayout
+  title="Homeschool Chess Classes, Live Online | Darklight Chess Academy"
+  description="Live online chess classes for homeschoolers in the US and Canada, held during the school day. Structured levels, progress notes and a free demo class."
+  path={path}
+  locale="en_US"
+>
+  <CourseSchema
+    name="Homeschool Chess Classes (Live Online)"
+    description="Live online chess classes for homeschooled children, scheduled during the school day in US and Canadian time zones, following a five-level curriculum from beginner to tournament play."
+    path={path}
+    modes={["online"]}
+  />
+  <PageHero
+    eyebrow="Homeschool"
+    title="Chess Classes for <span class='gold'>Homeschoolers</span>"
+    subtitle="Live online chess during the school day, with a structured curriculum you can document, for families across the US and Canada."
+    breadcrumbItems={[
+      { name: "Home", path: "/" },
+      { name: "Online Chess Classes", path: "/online-chess-classes/" },
+      { name: "Homeschool Chess Classes", path },
+    ]}
+  >
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">🗓️ Book a Free Demo Class</a>
+      <a href="/courses/" class="btn btn-outline btn-lg">See the Levels</a>
+    </div>
+  </PageHero>
+
+  <section class="section answer-block">
+    <div class="container narrow">
+      <p class="answer-lead"><strong>Darklight Chess Academy runs live online chess classes for homeschooled children in the US and Canada during the school day. Children learn with a coach on a shared digital board, in a small group, one-to-one or with siblings, and follow a five-level curriculum from complete beginner to tournament play. The first demo class is free.</strong></p>
+      <aside class="quick-facts" aria-label="Quick facts">
+        <h2>Quick facts</h2>
+        <ul class="check-list">
+          <li><strong>When:</strong> daytime classes in your time zone, from Eastern to Pacific</li>
+          <li><strong>Format:</strong> live online; small group, one-to-one, sibling or co-op group</li>
+          <li><strong>Curriculum:</strong> five levels, from first moves to 1800+ tournament play</li>
+          <li><strong>Records:</strong> a short progress note when your child completes a level</li>
+          <li><strong>First step:</strong> a free demo class with a level assessment</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Why it works</p>
+        <h2>Why chess fits a homeschool week</h2>
+      </div>
+      <p>Chess asks children to plan ahead, weigh choices and accept the result of their decisions. It is a natural logic elective, and children can see their progress in their own games. Classes need nothing more than a computer or tablet, and a physical board at home helps younger children.</p>
+      <p>Most live activities for children happen after school. Ours can run in the middle of your school day, because daytime in North America is evening for our coaches in India. That makes it easy to fit chess into a set lesson block.</p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Curriculum</p>
+        <h2>A structured path you can document</h2>
+        <p class="section-sub">Every child starts with a free level assessment and is placed at the right level.</p>
+      </div>
+      <div class="market-links">
+        <a href="/courses/beginner/">Beginner<small>Piece moves, check and checkmate, first tactics and opening principles.</small></a>
+        <a href="/courses/advanced-beginner/">Advanced Beginner<small>Tactics, basic endgames and planning, up to about 1000 rating.</small></a>
+        <a href="/courses/intermediate/">Intermediate<small>Strategy, deeper tactics and first tournaments, about 1000–1400.</small></a>
+        <a href="/courses/advanced/">Advanced<small>Openings, middlegame plans and endgame technique, about 1400–1800.</small></a>
+        <a href="/courses/master/">Master Track<small>Tournament preparation for 1800+ players.</small></a>
+      </div>
+      <p style="text-align:center; margin-top:1.6rem;">When your child completes a level, the coach writes a short note on what they learned, which you can keep with your homeschool records.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">Formats</p>
+        <h2>Groups, one-to-one, siblings and co-ops</h2>
+      </div>
+      <ul class="check-list">
+        <li><strong>Small group:</strong> children at the same level learn and play together, which many homeschooled children enjoy as regular peer time.</li>
+        <li><strong>One-to-one:</strong> fully paced around your child. See <a href="/one-to-one-chess-coaching/">private lessons</a>.</li>
+        <li><strong>Siblings:</strong> brothers and sisters at a similar level can share a class, with a sibling discount.</li>
+        <li><strong>Co-ops:</strong> a dedicated online group for your co-op or homeschool network at a time that suits your members.</li>
+      </ul>
+      <p>Our coaches include Marimuthu K, who represented India at the Chess Olympiad in Greece in 2021, and Mega Chakraborty, an Asian silver medalist who represented India at the World Women Championship in 2024. Meet <a href="/coaches/">all of our coaches</a>.</p>
+      <p>Families outside North America are welcome too. See our pages for the <a href="/online-chess-classes-usa/">USA</a>, <a href="/online-chess-classes-canada/">Canada</a> and <a href="/online-chess-classes/">other countries</a>.</p>
+    </div>
+  </section>
+
+  <section class="section bg-soft">
+    <div class="container narrow">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions From Homeschooling Families</h2>
+      </div>
+      <div class="accordion">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <FaqSchema items={faqs} />
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="lead-grid">
+        <div class="lead-copy">
+          <p class="eyebrow">Free Demo Class</p>
+          <h2>Book a Free Demo Class</h2>
+          <p>A coach plays with your child, assesses their level and suggests a class at a time that suits your school day. There is no commitment.</p>
+          <p>In the message box, tell us your preferred days and hours, and whether you'd like a sibling or co-op group.</p>
+          <p>Prefer to talk first? <a href={waHref} target="_blank" rel="noopener" data-whatsapp="homeschool">Message us on WhatsApp</a>.</p>
+        </div>
+        <EnquiryForm mode="Online (International batch)" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

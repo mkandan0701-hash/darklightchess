@@ -32,7 +32,10 @@ const schema = {
     email: EMAIL,
     availableLanguage: ["English"],
   },
-  areaServed: ["GB", "AE", "QA", "SA", "KW", "BH", "OM", "IE", "DE", "NL", "CH", "BE", "NO", "US", "CA", "IN"].map((c) => ({ "@type": "Country", name: c })),
+  areaServed: [
+    "United States", "Canada", "United Kingdom", "India", "United Arab Emirates", "Qatar", "Saudi Arabia",
+    "Kuwait", "Bahrain", "Oman", "Ireland", "Germany", "Netherlands", "Switzerland", "Belgium", "Norway",
+  ].map((name) => ({ "@type": "Country", name })),
 };
 ---
 

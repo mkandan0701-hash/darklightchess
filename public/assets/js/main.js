@@ -310,19 +310,24 @@
     // Submissions are emailed to the academy via FormSubmit (free service).
     // The first-ever submission sends an activation link to this inbox.
     const FORM_ENDPOINT = "https://formsubmit.co/ajax/darklightchess64@gmail.com";
-    // Every enquiry is also pushed into the Darklight CRM as a new lead, via the
-    // public lead-capture webhook (not the session-authed dashboard API — the
-    // browser has no session). Authenticated by a per-branch shared secret instead.
-    const CRM_ENDPOINT = "https://darklightchess-aios.vercel.app/api/webhooks/lead-capture";
-    const CRM_SECRET = "dffb01de3549b163e0e4e1d69268816c7cc4c45699e58f91445e2fe1a9694c80";
+    // Every enquiry is also pushed into the Darklight CRM as a new lead, through
+    // this site's own server-side relay (api/lead.js). The relay holds the CRM
+    // webhook secret in a Vercel environment variable, so it never reaches the browser.
+    const CRM_ENDPOINT = "/api/lead";
     const WHATSAPP = "918300155259";
 
-    // The CRM API only accepts international-format phone numbers (+91…),
-    // but parents usually type local 10-digit numbers — normalize before sending.
-    function normalizePhone(raw) {
+    // The CRM API only accepts international-format phone numbers (+1…, +91…),
+    // but parents usually type local numbers — normalize using the chosen country.
+    // US and Canada share +1 and 10-digit local numbers, so they must not get +91.
+    function normalizePhone(raw, country) {
       let p = String(raw).replace(/[\s().-]/g, "");
       if (p.startsWith("+")) return p;
       if (p.startsWith("00")) return "+" + p.slice(2);
+      const northAmerica = country === "United States" || country === "Canada";
+      if (northAmerica) {
+        if (/^1\d{10}$/.test(p)) return "+" + p;
+        if (/^\d{10}$/.test(p)) return "+1" + p;
+      }
       p = p.replace(/^0+/, "");
       if (/^91\d{10}$/.test(p)) return "+" + p;
       if (/^\d{10}$/.test(p)) return "+91" + p;
@@ -333,7 +338,7 @@
       const lead = {
         name: data.name,
         email: data.email,
-        phone: normalizePhone(data.phone),
+        phone: normalizePhone(data.phone, data.country),
         source: "website",
         // The webhook requires availability to run coach-matching; this form
         // doesn't collect it, so send a wide-open placeholder.
@@ -346,6 +351,7 @@
           data.country ? `Country: ${data.country}` : "",
           data.timezone ? `Time zone: ${data.timezone}` : "",
           data.experience ? `Experience: ${data.experience}` : "",
+          data.heard ? `Heard via: ${data.heard}` : "",
           data.page ? `Page: ${data.page}` : "",
           data.landing_url ? `Landing: ${data.landing_url}` : "",
           data.utm_source ? `UTM: ${[data.utm_source, data.utm_medium, data.utm_campaign, data.utm_term, data.utm_content].filter(Boolean).join("/")}` : "",
@@ -355,10 +361,7 @@
       };
       return fetch(CRM_ENDPOINT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-lead-webhook-secret": CRM_SECRET,
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(lead),
       }).then((res) => {
         if (!res.ok) {
@@ -468,10 +471,17 @@
       );
       const waLink = `https://wa.me/${WHATSAPP}?text=${waText}`;
 
-      // Conversion signal for analytics, if a tag manager / GA4 is added later.
-      // No analytics script is loaded by the site today, so this is a no-op.
-      if (Array.isArray(window.dataLayer)) {
-        window.dataLayer.push({ event: "generate_lead", lead_course: data.course, lead_mode: data.mode, lead_country: data.country, lead_page: data.page });
+      // GA4 conversion (key event). gtag only exists when PUBLIC_GA4_ID is set at build time.
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          lead_course: data.course,
+          lead_mode: data.mode,
+          lead_country: data.country || "",
+          lead_timezone: data.timezone || "",
+          lead_age: data.age,
+          lead_heard: data.heard || "",
+          lead_page: data.page,
+        });
       }
 
       if (delivered) {
@@ -500,6 +510,16 @@
       return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
     }
   }
+
+  /* ---------- Analytics: WhatsApp clicks (GA4 key event when gtag is loaded) ---------- */
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (!link || typeof window.gtag !== "function") return;
+    window.gtag("event", "whatsapp_click", {
+      link_placement: link.dataset.whatsapp || (link.classList.contains("whatsapp-fab") ? "floating-button" : "inline"),
+      page_path: location.pathname,
+    });
+  });
 
   /* ---------- Back to top ---------- */
   const toTop = document.getElementById("toTop");

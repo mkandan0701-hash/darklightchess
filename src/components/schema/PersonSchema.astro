@@ -9,9 +9,10 @@ interface Props {
   path: string; // page + anchor, e.g. "/coaches/#marimuthu-k"
   image?: string;
   description?: string;
+  sameAs?: string[]; // verifiable profiles, e.g. the coach's ratings.fide.com page
 }
 
-const { name, jobTitle, path, image, description } = Astro.props;
+const { name, jobTitle, path, image, description, sameAs } = Astro.props;
 
 const schema: Record<string, unknown> = {
   "@context": "https://schema.org",
@@ -24,6 +25,7 @@ const schema: Record<string, unknown> = {
 };
 if (image) schema.image = new URL(image, SITE_URL).toString();
 if (description) schema.description = description;
+if (sameAs && sameAs.length > 0) schema.sameAs = sameAs;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

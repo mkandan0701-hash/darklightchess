@@ -21,6 +21,7 @@ import { coaches } from "../data/coaches";
       path={`/coaches/#${c.id}`}
       image={c.image}
       description={[c.bio, c.achievement].filter(Boolean).join(" ") || undefined}
+      sameAs={c.fideId ? [`https://ratings.fide.com/profile/${c.fideId}`] : undefined}
     />
   ))}
   <PageHero
