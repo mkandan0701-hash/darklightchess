@@ -18,7 +18,7 @@ nextStep:
 draft: false
 ---
 
-**Short answer:** in Canada, group chess classes for children are often listed at about $15 to $30 per class, and private online lessons commonly cost $30 to $60 an hour, with titled coaches charging more. Darklight Chess Academy lessons start from ₹1,000 per hour, about CA$15 at recent exchange rates. The figures below come from published price lists in November 2026 and are a guide, not a quote.
+**Short answer:** in Canada, group chess classes for children are often listed at about $15 to $30 per class, and private online lessons commonly cost $30 to $60 an hour, with titled coaches charging more. Darklight Chess Academy's private one-to-one lessons are CA$15 per hour. The figures below come from published price lists in November 2026 and are a guide, not a quote.
 
 ## What do Canadian chess lessons cost?
 
@@ -40,7 +40,7 @@ Group classes are the cheapest route. Private lessons cost more per hour but fol
 
 ## What does Darklight Chess Academy cost?
 
-Darklight teaches live online from Coimbatore, India. Lessons start from ₹1,000 per hour, about CA$15 at recent exchange rates. Fees are set in rupees, so the Canadian-dollar amount moves slightly with the exchange rate. Siblings learning together get a discount, and the first demo class is free and includes a level assessment.
+Darklight teaches live online from Coimbatore, India. Private one-to-one lessons for Canadian families are **CA$15 per hour**, a fixed price in Canadian dollars. Ask us about group classes when you book. Siblings learning together get a discount, and the first demo class is free and includes a level assessment.
 
 Canadian classes run after school, between about 4 and 8 pm in your own time zone on weekdays, plus weekend mornings, from Pacific to Newfoundland time. See our [Canada page](/online-chess-classes-canada/) and the [pricing page](/pricing/).
 

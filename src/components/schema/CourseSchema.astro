@@ -9,9 +9,11 @@ interface Props {
   path: string;
   modes: ("online" | "onsite")[];
   educationalLevel?: string;
+  // Only prices the owner has confirmed and the page shows (see src/data/pricing.ts).
+  offers?: { price: number; currency: string; description: string }[];
 }
 
-const { name, description, path, modes, educationalLevel } = Astro.props;
+const { name, description, path, modes, educationalLevel, offers } = Astro.props;
 
 const schema: Record<string, unknown> = {
   "@context": "https://schema.org",
@@ -28,6 +30,16 @@ const schema: Record<string, unknown> = {
   })),
 };
 if (educationalLevel) schema.educationalLevel = educationalLevel;
+if (offers && offers.length > 0) {
+  schema.offers = offers.map((o) => ({
+    "@type": "Offer",
+    category: "Paid",
+    price: o.price,
+    priceCurrency: o.currency,
+    description: o.description,
+    url: new URL(path, SITE_URL).toString(),
+  }));
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

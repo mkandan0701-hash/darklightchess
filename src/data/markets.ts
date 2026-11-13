@@ -81,6 +81,7 @@ export const baseMarkets: Market[] = [
       "<strong>Ages:</strong> young beginners to teenagers, plus adults",
       "<strong>Levels:</strong> five levels, from complete beginner to 1800+ tournament players",
       "<strong>Tournaments:</strong> preparation for US Chess–rated, scholastic and state events",
+      "<strong>Fees:</strong> private 1-to-1 lessons $15 per hour (USD); sibling discount",
       "<strong>First step:</strong> a free demo class with a level assessment",
     ],
     sections: [
@@ -192,7 +193,7 @@ export const baseMarkets: Market[] = [
       {
         question: "How much do online chess lessons cost for US families?",
         answer:
-          "Our fees are set in Indian rupees, from ₹1,000 per hour, which is about $11 at recent exchange rates. That is well below the roughly $40 an hour that private chess coaching often costs in the US. Siblings get a discount, and the first demo class is free.",
+          "Private one-to-one lessons are $15 per hour, a fixed price in US dollars. That is well below the roughly $40 an hour that private chess coaching often costs in the US. Ask us about group classes when you book, siblings get a discount, and the first demo class is free.",
       },
       {
         question: "Do you teach homeschooled children during the day?",
@@ -339,6 +340,7 @@ export const baseMarkets: Market[] = [
       "<strong>Provinces:</strong> every province and territory; Pacific to Newfoundland time",
       "<strong>Levels:</strong> five levels, from complete beginner to 1800+ tournament players",
       "<strong>Tournaments:</strong> preparation for CFC-rated, junior and provincial events",
+      "<strong>Fees:</strong> private 1-to-1 lessons CA$15 per hour (CAD); sibling discount",
       "<strong>First step:</strong> a free demo class with a level assessment",
     ],
     sections: [
@@ -434,7 +436,7 @@ export const baseMarkets: Market[] = [
       {
         question: "How much do online chess lessons cost for Canadian families?",
         answer:
-          "Our fees are set in Indian rupees, from ₹1,000 per hour, which is about CA$15 at recent exchange rates. Siblings get a discount, and the first demo class is free.",
+          "Private one-to-one lessons are CA$15 per hour, a fixed price in Canadian dollars. Ask us about group classes when you book, siblings get a discount, and the first demo class is free.",
       },
       {
         question: "Are classes taught in English?",

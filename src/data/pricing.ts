@@ -42,15 +42,17 @@ export interface RegionalPrice {
 }
 
 export const regionalPrices: Record<"USD" | "CAD", RegionalPrice> = {
-  USD: { currency: "USD", symbol: "$", groupPerClass: null, privatePerHour: null, siblingDiscountPercent: null },
-  CAD: { currency: "CAD", symbol: "CA$", groupPerClass: null, privatePerHour: null, siblingDiscountPercent: null },
+  // 1-to-1 rate confirmed by the owner on 2026-11-13: US$15 in the US, CA$15 in Canada.
+  // Group price and sibling discount amount not yet confirmed — leave null.
+  USD: { currency: "USD", symbol: "$", groupPerClass: null, privatePerHour: 15, siblingDiscountPercent: null },
+  CAD: { currency: "CAD", symbol: "CA$", groupPerClass: null, privatePerHour: 15, siblingDiscountPercent: null },
 };
+export const REGIONAL_PRICING_UPDATED = "2026-11-13";
 
-/** The regional price for a currency, only when every tier has been confirmed. */
+/** The regional price for a currency, once at least the 1-to-1 rate is confirmed. */
 export const confirmedRegionalPrice = (code: string): RegionalPrice | undefined => {
   const p = regionalPrices[code as "USD" | "CAD"];
-  if (!p) return undefined;
-  return p.groupPerClass !== null && p.privatePerHour !== null && p.siblingDiscountPercent !== null ? p : undefined;
+  return p && p.privatePerHour !== null ? p : undefined;
 };
 
 /** "about £9" style string for a currency code. */

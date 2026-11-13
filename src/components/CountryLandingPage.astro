@@ -58,6 +58,7 @@ const levels = [
     description={market.description}
     path={market.path}
     modes={["online"]}
+    offers={regional ? [{ price: regional.privatePerHour!, currency: regional.currency, description: "Private one-to-one online chess lesson, per hour" }] : undefined}
   />
   <PageHero
     eyebrow={market.eyebrow}
@@ -250,9 +251,9 @@ const levels = [
               <table class="tz-table">
                 <caption>Fees for families in {market.countryName} ({regional.currency})</caption>
                 <tbody>
-                  <tr><th scope="row">Live group class</th><td>{regional.symbol}{regional.groupPerClass} per class</td></tr>
-                  <tr><th scope="row">Private 1-to-1 lesson</th><td>{regional.symbol}{regional.privatePerHour} per hour</td></tr>
-                  <tr><th scope="row">Siblings</th><td>{regional.siblingDiscountPercent}% off for each additional child</td></tr>
+                  <tr><th scope="row">Private 1-to-1 lesson</th><td>{regional.symbol}{regional.privatePerHour} per hour ({regional.currency})</td></tr>
+                  <tr><th scope="row">Live group class</th><td>{regional.groupPerClass !== null ? `${regional.symbol}${regional.groupPerClass} per class` : "Ask us when you book the demo"}</td></tr>
+                  <tr><th scope="row">Siblings</th><td>{regional.siblingDiscountPercent !== null ? `${regional.siblingDiscountPercent}% off for each additional child` : "Discount for each additional child"}</td></tr>
                   <tr><th scope="row">Demo class</th><td>Free, with a level assessment</td></tr>
                 </tbody>
               </table>
@@ -322,7 +323,7 @@ const levels = [
           <p class="eyebrow">Free Demo Class</p>
           <h2>Book a Free Demo Class</h2>
           <p>The demo is free with no commitment. A coach assesses the student's level, and we suggest a batch or one-to-one slot that fits your time zone.</p>
-          <p>{regional ? <>Group classes are {regional.symbol}{regional.groupPerClass} per class and private lessons {regional.symbol}{regional.privatePerHour} per hour.</> : market.currencies ? <>Lessons start from {inr} per hour.</> : <>Fees depend on the format and how often the student attends, and we share them when you enquire.</>} Siblings learning together get a discount.</p>
+          <p>{regional ? <>Private 1-to-1 lessons are {regional.symbol}{regional.privatePerHour} per hour, a fixed price in {regional.currency}.</> : market.currencies ? <>Lessons start from {inr} per hour.</> : <>Fees depend on the format and how often the student attends, and we share them when you enquire.</>} Siblings learning together get a discount.</p>
           <p>Prefer to talk first? <a href={waHref} target="_blank" rel="noopener" data-whatsapp="country">Message us on WhatsApp</a> or use the button at the bottom of the screen.</p>
         </div>
         <EnquiryForm country={market.countryName} mode={market.formMode} />

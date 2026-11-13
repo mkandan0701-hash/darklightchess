@@ -17,8 +17,8 @@ const rows = [
   ["Ireland, Germany, Netherlands, Belgium", "EUR", ""],
   ["Switzerland", "CHF", ""],
   ["Norway", "NOK", ""],
-  ["United States", "USD", ""],
-  ["Canada", "CAD", ""],
+  ["United States", "USD", "$15 (fixed price, 1-to-1)"],
+  ["Canada", "CAD", "CA$15 (fixed price, 1-to-1)"],
 ];
 const faqs = [
   {
@@ -35,14 +35,18 @@ const faqs = [
   },
   {
     question: "Do you charge in my local currency?",
-    answer: "Fees are set in Indian rupees. The local-currency figures shown are approximate and rounded, so ask us for the exact amount when you enquire.",
+    answer: "Families in the United States and Canada pay a fixed price in their own currency: private one-to-one lessons are US$15 per hour in the US and CA$15 per hour in Canada. Everywhere else, fees are set in Indian rupees, and the local-currency figures shown are approximate, so ask us for the exact amount when you enquire.",
+  },
+  {
+    question: "How much are online chess lessons in the US and Canada?",
+    answer: "Private one-to-one lessons are $15 per hour in the US (USD) and CA$15 per hour in Canada (CAD). Ask us about group classes when you book. Siblings get a discount, and the first demo class is free.",
   },
 ];
 ---
 
 <BaseLayout
   title="Online Chess Lesson Fees | Darklight Chess Academy"
-  description="Online chess lessons from ₹1,000 per hour, with approximate prices in GBP, AED, QAR, SAR, EUR, USD and more. Free demo class, sibling discount."
+  description="Online chess lesson fees: private lessons $15/hour in the US and CA$15 in Canada, from ₹1,000/hour elsewhere. Free demo class and sibling discount."
   path="/pricing/"
 >
   <PageHero
@@ -55,10 +59,10 @@ const faqs = [
     <div class="container narrow">
       <p class="answer-lead"><strong>Darklight Chess Academy lessons start from {inr} per hour. The first demo class is free, and siblings learning together get a discount.</strong></p>
       <h2>What does ₹1,000 per hour cost in my currency?</h2>
-      <p>Fees are set in Indian rupees. The table shows a rounded, indicative conversion at recent exchange rates. It is a guide, not a quote, so ask us for the exact amount when you enquire.</p>
+      <p>Fees are set in Indian rupees, except in the United States and Canada, where private lessons have a fixed price in US or Canadian dollars. For other countries the table shows a rounded, indicative conversion at recent exchange rates: a guide, not a quote, so ask us for the exact amount when you enquire.</p>
       <div class="table-wrap">
         <table class="tz-table">
-          <caption>Approximate cost of one hour of coaching</caption>
+          <caption>Cost of one hour of coaching</caption>
           <thead><tr><th scope="col">Where you live</th><th scope="col">Currency</th><th scope="col">From (per hour)</th></tr></thead>
           <tbody>
             {rows.map(([where, code, fixed]) => (
@@ -71,7 +75,7 @@ const faqs = [
           </tbody>
         </table>
       </div>
-      <p class="tz-note">Last updated: <time datetime={PRICING_UPDATED}>5 November 2026</time>. Conversions are rounded and indicative.</p>
+      <p class="tz-note">Last updated: <time datetime="2026-11-13">13 November 2026</time>. US and Canadian prices are fixed; other conversions are rounded and indicative.</p>
       <h2>Is there a difference between group and 1-to-1 pricing?</h2>
       <p>The rate above is the confirmed starting price. Tell us whether you prefer a small group batch or <a href="/one-to-one-chess-coaching/">one-to-one lessons</a> when you book the demo, and we will confirm the exact fee for that format.</p>
       <h2>Questions about fees</h2>

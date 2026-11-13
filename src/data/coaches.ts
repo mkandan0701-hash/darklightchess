@@ -31,6 +31,7 @@ export const coaches: Coach[] = [
     bio: "A passionate mentor and visionary, Karuppasamy founded Darklight Chess Academy with a bold ambition: to empower chess coaches and spread chess culture globally. His belief in lifelong learning and chess as a tool for personal development drives our academy's core.",
     image: "/assets/images/founder-karuppasamy.jpg",
     imageAlt: "Karuppasamy – Founder of Darklight Chess Academy",
+    fideId: "45033021", // FIDE: Karuppasamy C, India (confirmed by owner 2026-11-13)
     featured: true,
   },
   {
@@ -42,6 +43,7 @@ export const coaches: Coach[] = [
     achievement: "Under-15 National Championship Participant (2016), Tamil Nadu State Medalist.",
     image: "/assets/images/cofounder-manikandan.jpg",
     imageAlt: "Manikandan – Co-founder and Head Coach",
+    fideId: "45033064", // FIDE: Manikandan C, India (confirmed by owner 2026-11-13)
     featured: true,
   },
   {
