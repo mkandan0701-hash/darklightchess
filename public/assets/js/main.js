@@ -313,7 +313,7 @@
     // Every enquiry is also pushed into the Darklight CRM as a new lead, through
     // this site's own server-side relay (api/lead.js). The relay holds the CRM
     // webhook secret in a Vercel environment variable, so it never reaches the browser.
-    const CRM_ENDPOINT = "/api/lead";
+    const CRM_ENDPOINT = "/api/lead/"; // trailing slash: vercel.json sets trailingSlash, so "/api/lead" would 308
     const WHATSAPP = "918300155259";
 
     // The CRM API only accepts international-format phone numbers (+1…, +91…),
