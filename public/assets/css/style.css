@@ -927,7 +927,7 @@ main { display: block; }
 .page-hero .hero-actions { justify-content: center; margin-bottom: 0; }
 
 /* Home hero */
-.home-hero { background: linear-gradient(115deg, var(--white) 55%, var(--sky-soft)); padding: 3.5rem 0 4.5rem; }
+.home-hero { background: url("/assets/images/hero-bg-left.svg") left bottom / min(900px, 62%) auto no-repeat, url("/assets/images/hero-bg-right.svg") right top / auto 100% no-repeat, linear-gradient(115deg, var(--white) 55%, var(--sky-soft)); padding: 3.5rem 0 4.5rem; }
 .home-hero-grid { display: grid; grid-template-columns: 1fr 1.02fr; gap: 3.5rem; align-items: center; }
 .hero-pill { display: inline-block; border: 1px solid var(--line); background: var(--white); border-radius: 999px; padding: 0.3rem 0.95rem; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.1rem; }
 .home-hero h1 { font-size: clamp(2.5rem, 4.8vw, 3.7rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; color: var(--black); margin-bottom: 1.1rem; }
@@ -1180,7 +1180,7 @@ main { display: block; }
   .photo-cards, .people-grid, .people-grid.four, .footer-grid { grid-template-columns: 1fr; }
   .curriculum { grid-template-columns: 1fr; }
   .photo-strip { grid-template-columns: 1fr 1fr; }
-  .home-hero { padding: 2.2rem 0 3rem; }
+  .home-hero { padding: 2.2rem 0 3rem; background-position: left top 30rem, right top, center; background-size: 640px auto, 240px auto, auto; }
   .brand span { font-size: 0.86rem; }
   .form-group input, .form-group select, .form-group textarea { font-size: 16px; }
 }
