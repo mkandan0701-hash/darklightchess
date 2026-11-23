@@ -14,9 +14,9 @@ const l = getLevel(slug as string)!;
 const next = l.nextSlug ? getLevel(l.nextSlug) : undefined;
 const path = `/courses/${l.slug}/`;
 const enquire = `/contact/?course=${encodeURIComponent(l.course)}#contact`;
-const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
+const demo = `/contact/?course=${encodeURIComponent("Free Chess Assessment")}#contact`;
 const title = `${l.name} Chess Course | Darklight Chess Academy`;
-const description = `${l.name} chess course (Level ${l.step}): age ${l.age}, rating ${l.rating}, ${l.duration.toLowerCase()}, ${l.sessions.toLowerCase()}. Book a free demo.`;
+const description = `${l.name} chess course (Level ${l.step}): age ${l.age}, rating ${l.rating}, ${l.duration.toLowerCase()}, ${l.sessions.toLowerCase()}. Book a free chess assessment.`;
 const facts = [
   ["Age", l.age],
   ["Rating", l.rating],
@@ -46,7 +46,7 @@ const facts = [
         <h1>{l.name} <span class="gold">Chess Course</span></h1>
         <p class="page-hero-sub">{l.description}</p>
         <div class="hero-actions">
-          <a href={demo} class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">Book Free Demo</a>
+          <a href={demo} class="btn btn-gold btn-lg book-btn" data-course="Free Chess Assessment">Book Free Assessment</a>
           <a href={enquire} class="btn btn-outline btn-lg book-btn" data-course={l.course}>Enrol Now</a>
         </div>
       </div>
@@ -104,6 +104,6 @@ const facts = [
 
   <BookingSplit
     heading={`Start ${l.name} With a Free Class`}
-    text="Book a free demo class. A coach will assess the student's level and confirm the right starting point, with no commitment."
+    text="Book a free chess assessment. A coach will assess the student's level and confirm the right starting point, with no commitment."
   />
 </BaseLayout>

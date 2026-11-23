@@ -1,7 +1,7 @@
 # USA & Canada SEO / AEO / GEO: Stage 1 research pack
 
 **Prepared:** 2026-11-13 · **Goal:** 10+ paying students from the US and Canada through organic search, AI answers and earned mentions.
-**Status:** research and strategy only. No site code has been changed yet. Stage 2 (implementation) starts after review.
+**Status (23 Nov 2026):** Stage 2 implementation is under way. See `brief-coverage.md` for what is done, what is drafted and what still needs owner input.
 
 ## Data honesty
 | Data | Status |

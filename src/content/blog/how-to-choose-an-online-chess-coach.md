@@ -73,6 +73,6 @@ Compare the price per hour, not per package, and check the currency. Our guides 
 
 ## How Darklight answers these
 
-Every class is live, the free demo includes a level assessment, and children follow our five-level curriculum. Our coaches include Marimuthu K, who represented India at the Chess Olympiad in Greece in 2021, and Mega Chakraborty, an Asian silver medalist who represented India at the World Women Championship in 2024. You can read about every coach on our [coaches page](/coaches/), and see [students' results](/achievements/), including 1st place at the USA Chess Festival.
+Every class is live, the free chess assessment shows the coach their level, and children follow our five-level curriculum. Our coaches include Marimuthu K, who represented India at the Chess Olympiad in Greece in 2021, and Mega Chakraborty, an Asian silver medalist who represented India at the World Women Championship in 2024. You can read about every coach on our [coaches page](/coaches/), and see [students' results](/achievements/), including 1st place at the USA Chess Festival.
 
-To book a free demo, use the form on our [US page](/online-chess-classes-usa/) or [Canada page](/online-chess-classes-canada/).
+To book a free chess assessment, use the form on our [US page](/online-chess-classes-usa/) or [Canada page](/online-chess-classes-canada/).

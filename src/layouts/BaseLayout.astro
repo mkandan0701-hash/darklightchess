@@ -55,6 +55,8 @@ const ga4Id = import.meta.env.PUBLIC_GA4_ID;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href={cssHref} />
+  <!-- Scroll-reveal content starts hidden and is shown by JS; keep it visible without JS. -->
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   {ga4Id && (
     <>
       <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
@@ -94,7 +96,7 @@ const ga4Id = import.meta.env.PUBLIC_GA4_ID;
   <Footer />
 
   <a
-    href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Hi Darklight Chess Academy! I would like to book a free demo class.")}`}
+    href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Hi Darklight Chess Academy! I would like to book a free chess assessment.")}`}
     class="whatsapp-fab"
     target="_blank"
     rel="noopener"
@@ -105,7 +107,7 @@ const ga4Id = import.meta.env.PUBLIC_GA4_ID;
   {ga4Id && (
     <>
       <div class="consent-banner" id="consentBanner" role="region" aria-label="Cookie choice" hidden>
-        <p>We use Google Analytics cookies to see which pages help families and to count demo bookings. No advertising cookies. <a href="/privacy-policy/">Privacy policy</a></p>
+        <p>We use Google Analytics cookies to see which pages help families and to count assessment bookings. No advertising cookies. <a href="/privacy-policy/">Privacy policy</a></p>
         <div class="consent-actions">
           <button type="button" class="btn btn-outline" data-consent="denied">Decline</button>
           <button type="button" class="btn btn-gold" data-consent="granted">Accept</button>

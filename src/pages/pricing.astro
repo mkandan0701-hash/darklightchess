@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "Is the first class free?",
-    answer: "Yes. The demo class is free, with no commitment, and includes a level assessment by a coach.",
+    answer: "Yes. The chess assessment is free, with no commitment: a coach plays with your child and recommends a level.",
   },
   {
     question: "Do siblings get a discount?",
@@ -39,25 +39,25 @@ const faqs = [
   },
   {
     question: "How much are online chess lessons in the US and Canada?",
-    answer: "Private one-to-one lessons are $15 per hour in the US (USD) and CA$15 per hour in Canada (CAD). Ask us about group classes when you book. Siblings get a discount, and the first demo class is free.",
+    answer: "Private one-to-one lessons are $15 per hour in the US (USD) and CA$15 per hour in Canada (CAD). Ask us about group classes when you book. Siblings get a discount, and the first session (a chess assessment) is free.",
   },
 ];
 ---
 
 <BaseLayout
   title="Online Chess Lesson Fees | Darklight Chess Academy"
-  description="Online chess lesson fees: private lessons $15/hour in the US and CA$15 in Canada, from ₹1,000/hour elsewhere. Free demo class and sibling discount."
+  description="Online chess lesson fees: private lessons $15/hour in the US and CA$15 in Canada, from ₹1,000/hour elsewhere. Free chess assessment and sibling discount."
   path="/pricing/"
 >
   <PageHero
     eyebrow="Fees"
     title="Online Chess Lesson <span class='gold'>Fees</span>"
-    subtitle="Lessons start from ₹1,000 per hour, with a free demo class first."
+    subtitle="Lessons start from ₹1,000 per hour, with a free chess assessment first."
     breadcrumbItems={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing/" }]}
   />
   <section class="section">
     <div class="container narrow">
-      <p class="answer-lead"><strong>Darklight Chess Academy lessons start from {inr} per hour. The first demo class is free, and siblings learning together get a discount.</strong></p>
+      <p class="answer-lead"><strong>Darklight Chess Academy lessons start from {inr} per hour. The first session, a chess assessment, is free, and siblings learning together get a discount.</strong></p>
       <h2>What does ₹1,000 per hour cost in my currency?</h2>
       <p>Fees are set in Indian rupees, except in the United States and Canada, where private lessons have a fixed price in US or Canadian dollars. For other countries the table shows a rounded, indicative conversion at recent exchange rates: a guide, not a quote, so ask us for the exact amount when you enquire.</p>
       <div class="table-wrap">
@@ -77,7 +77,7 @@ const faqs = [
       </div>
       <p class="tz-note">Last updated: <time datetime="2026-11-13">13 November 2026</time>. US and Canadian prices are fixed; other conversions are rounded and indicative.</p>
       <h2>Is there a difference between group and 1-to-1 pricing?</h2>
-      <p>The rate above is the confirmed starting price. Tell us whether you prefer a small group batch or <a href="/one-to-one-chess-coaching/">one-to-one lessons</a> when you book the demo, and we will confirm the exact fee for that format.</p>
+      <p>The rate above is the confirmed starting price. Tell us whether you prefer a small group batch or <a href="/one-to-one-chess-coaching/">one-to-one lessons</a> when you book the free assessment, and we will confirm the exact fee for that format.</p>
       <h2>Questions about fees</h2>
       <div class="accordion">
         {faqs.map((f) => <details><summary>{f.question}</summary><p>{f.answer}</p></details>)}

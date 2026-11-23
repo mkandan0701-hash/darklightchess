@@ -64,4 +64,4 @@ That's normal, especially against other beginners. Stick to the same principles 
 
 No. These same openings work at any time control. Faster games simply reward knowing your first several moves quickly, which repetition takes care of naturally.
 
-We teach these openings — and the reasoning behind each move — as part of our [beginner chess classes](/chess-classes-for-beginners/), where students practise them against real opponents rather than just reading about them. If you'd like your child or yourself to build a real opening repertoire, [reach out to us](/#contact) about a free demo class.
+We teach these openings — and the reasoning behind each move — as part of our [beginner chess classes](/chess-classes-for-beginners/), where students practise them against real opponents rather than just reading about them. If you'd like your child or yourself to build a real opening repertoire, [reach out to us](/#contact) about a free chess assessment.

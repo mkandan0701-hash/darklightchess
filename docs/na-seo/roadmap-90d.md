@@ -1,5 +1,7 @@
 # 90-day execution roadmap: 16 Nov 2026 to 14 Feb 2027
 
+**Progress (23 Nov 2026):** weeks 1–7 are complete (tracking, prices, FIDE IDs, NA pages, young-kids and homeschool pages, seven parent guides). The week 8–11 posts are written as drafts waiting for coach review. Details are in `brief-coverage.md`.
+
 **Timing:**
 - North American families often start new activities in **early January** (new-year activities and the second school semester). The proof, pricing and tracking work must be live before 4 January.
 - Spring scholastic tournament season gives tournament content extra relevance from January.

@@ -32,7 +32,7 @@ const chosen = (market.relatedPosts ?? [])
   .filter((p): p is (typeof allPosts)[number] => Boolean(p));
 const posts = [...chosen, ...allPosts.filter((p) => !chosen.includes(p))].slice(0, 3);
 
-const waText = encodeURIComponent(`Hi Darklight Chess Academy! I'm in ${market.countryName} and would like to book a free demo class.`);
+const waText = encodeURIComponent(`Hi Darklight Chess Academy! I'm in ${market.countryName} and would like to book a free chess assessment.`);
 const waHref = `${WHATSAPP_LINK}?text=${waText}`;
 const lastUpdated = market.lastUpdated ? new Date(market.lastUpdated) : undefined;
 const priceCurrencies = (market.currencies ?? []).map((c) => currencies[c]).filter(Boolean);
@@ -71,7 +71,7 @@ const levels = [
     ]}
   >
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Demo Class">🗓️ Book a Free Demo Class</a>
+      <a href="#contact" class="btn btn-gold btn-lg book-btn" data-course="Free Chess Assessment">🗓️ Book a Free Chess Assessment</a>
       <a href="/coaches/" class="btn btn-outline btn-lg">Meet the Coaches</a>
     </div>
   </PageHero>
@@ -119,7 +119,7 @@ const levels = [
           <h2>Class Times and Time Zones</h2>
         </div>
         <p>
-          Classes are booked in your local time from the slots our coaches have open. Exact days and times are confirmed with you before the free demo — we don't publish a fixed timetable, because slots depend on your time zone and the student's level.
+          Classes are booked in your local time from the slots our coaches have open. Exact days and times are confirmed with you before the free chess assessment — we don't publish a fixed timetable, because slots depend on your time zone and the student's level.
         </p>
         <div class="table-wrap">
           <table class="tz-table">
@@ -189,7 +189,7 @@ const levels = [
       <div class="section-head">
         <p class="eyebrow">Programmes</p>
         <h2>Choose a Level</h2>
-        <p class="section-sub">Not sure where your child fits? The free demo includes a level assessment, and we place them from there.</p>
+        <p class="section-sub">Not sure where your child fits? The free chess assessment tells us where to start, and we place them from there.</p>
       </div>
       <div class="market-links">
         {levels.map((l) => (
@@ -252,9 +252,9 @@ const levels = [
                 <caption>Fees for families in {market.countryName} ({regional.currency})</caption>
                 <tbody>
                   <tr><th scope="row">Private 1-to-1 lesson</th><td>{regional.symbol}{regional.privatePerHour} per hour ({regional.currency})</td></tr>
-                  <tr><th scope="row">Live group class</th><td>{regional.groupPerClass !== null ? `${regional.symbol}${regional.groupPerClass} per class` : "Ask us when you book the demo"}</td></tr>
+                  <tr><th scope="row">Live group class</th><td>{regional.groupPerClass !== null ? `${regional.symbol}${regional.groupPerClass} per class` : "Ask us when you book the free assessment"}</td></tr>
                   <tr><th scope="row">Siblings</th><td>{regional.siblingDiscountPercent !== null ? `${regional.siblingDiscountPercent}% off for each additional child` : "Discount for each additional child"}</td></tr>
-                  <tr><th scope="row">Demo class</th><td>Free, with a level assessment</td></tr>
+                  <tr><th scope="row">Chess assessment</th><td>Free, with a coach</td></tr>
                 </tbody>
               </table>
             </div>
@@ -263,7 +263,7 @@ const levels = [
         ) : (
           <>
             <p>
-              Lessons start from <strong>{inr} per hour</strong>. Fees are set in Indian rupees, so the amount you pay in {priceCurrencies[0].label} depends on the exchange rate on the day. As a guide only, {inr} is {priceCurrencies.map((c) => `about ${c.symbol}${c.approx}`).join(" or ")} at recent rates. Siblings learning together get a discount, and the first demo class is free.
+              Lessons start from <strong>{inr} per hour</strong>. Fees are set in Indian rupees, so the amount you pay in {priceCurrencies[0].label} depends on the exchange rate on the day. As a guide only, {inr} is {priceCurrencies.map((c) => `about ${c.symbol}${c.approx}`).join(" or ")} at recent rates. Siblings learning together get a discount, and the first session (a chess assessment) is free.
             </p>
             <p class="tz-note">Currency figures are indicative and rounded. Ask us for the exact amount when you enquire. Full details are on the <a href="/pricing/">pricing page</a>.</p>
           </>
@@ -320,9 +320,9 @@ const levels = [
     <div class="container">
       <div class="lead-grid">
         <div class="lead-copy">
-          <p class="eyebrow">Free Demo Class</p>
-          <h2>Book a Free Demo Class</h2>
-          <p>The demo is free with no commitment. A coach assesses the student's level, and we suggest a batch or one-to-one slot that fits your time zone.</p>
+          <p class="eyebrow">Free Chess Assessment</p>
+          <h2>Book a Free Chess Assessment</h2>
+          <p>The chess assessment is free with no commitment. A coach plays with the student to gauge their level, and we suggest a batch or one-to-one slot that fits your time zone.</p>
           <p>{regional ? <>Private 1-to-1 lessons are {regional.symbol}{regional.privatePerHour} per hour, a fixed price in {regional.currency}.</> : market.currencies ? <>Lessons start from {inr} per hour.</> : <>Fees depend on the format and how often the student attends, and we share them when you enquire.</>} Siblings learning together get a discount.</p>
           <p>Prefer to talk first? <a href={waHref} target="_blank" rel="noopener" data-whatsapp="country">Message us on WhatsApp</a> or use the button at the bottom of the screen.</p>
         </div>

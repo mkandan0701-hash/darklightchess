@@ -13,7 +13,7 @@ export interface Level {
   slug: string;
   name: string;
   icon: string;
-  age: string; // e.g. "3+"
+  age: string; // e.g. "4+"
   rating: string;
   duration: string;
   sessions: string; // e.g. "24 Live Classes"
@@ -37,7 +37,7 @@ export const levels: Level[] = [
     slug: "beginner",
     name: "Beginner",
     icon: "♟︎", // text style, so phones don't draw the pawn as an emoji
-    age: "3+",
+    age: "4+",
     rating: "Unrated",
     duration: "3 Months",
     sessions: "24 Live Classes",

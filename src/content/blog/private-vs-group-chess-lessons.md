@@ -54,7 +54,7 @@ A common pattern is a weekly group class for steady progress, plus a private ses
 
 ## How to decide
 
-1. **Start with a level assessment.** At Darklight the free demo includes one, and the coach will recommend a format.
+1. **Start with a level assessment.** At Darklight the first session is a free chess assessment, and the coach will recommend a format.
 2. **Think about your goal.** Enjoyment and steady learning usually suit a group. A specific tournament or rating goal often needs private time.
 3. **Review after a month.** It's easy to switch formats once you see how your child responds.
 

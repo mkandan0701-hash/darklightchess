@@ -38,4 +38,4 @@ Unless there is a concrete tactical reason, moving an already-developed piece ag
 
 When your rooks see each other along the back rank, your opening is complete. Place them on open or half-open files — usually where a pawn exchange has happened or is about to happen.
 
-In our [beginner chess classes](/chess-classes-for-beginners/) these five principles are drilled through mini-games and puzzles until they become automatic. Want your child to build the habit early? [Book a free demo class](/#contact) and see how we teach it.
+In our [beginner chess classes](/chess-classes-for-beginners/) these five principles are drilled through mini-games and puzzles until they become automatic. Want your child to build the habit early? [Book a free chess assessment](/#contact) and see how we teach it.

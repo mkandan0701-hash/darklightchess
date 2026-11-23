@@ -54,4 +54,4 @@ This is normal, especially early on. Let the frustration pass before discussing 
 
 It helps a little, mostly so you can ask better questions, but it isn't necessary. Plenty of parents support strong young players without playing themselves, simply by handling practice consistency and emotional support well.
 
-Darklight's coaches in Coimbatore work closely with parents on exactly this kind of support — [book a free demo class](/#contact) and we'll walk you through what to expect.
+Darklight's coaches in Coimbatore work closely with parents on exactly this kind of support — [book a free chess assessment](/#contact) and we'll walk you through what to expect.

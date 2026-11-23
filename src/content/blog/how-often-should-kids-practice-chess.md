@@ -67,4 +67,4 @@ A few times a week is enough for most children and is easier to sustain long-ter
 
 This happens, and it's not necessarily a problem. A short break rarely undoes real progress. If disinterest continues for several weeks, it's worth checking with your child's coach — sometimes the homework has become too easy, too hard, or simply repetitive, and adjusting it revives interest.
 
-For a routine tailored to your child's actual level rather than a generic schedule, our coaches at [chess classes for kids](/chess-classes-for-kids-coimbatore/) set specific weekly homework — [book a free demo](/#contact) to see how it works for your child.
+For a routine tailored to your child's actual level rather than a generic schedule, our coaches at [chess classes for kids](/chess-classes-for-kids-coimbatore/) set specific weekly homework — [book a free chess assessment](/#contact) to see how it works for your child.

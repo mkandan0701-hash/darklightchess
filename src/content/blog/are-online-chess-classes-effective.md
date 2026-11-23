@@ -57,7 +57,7 @@ One of our students won a chess tournament in Canada after training with our coa
 
 ## How to try it
 
-The easiest test is a free trial lesson. At Darklight the first demo class is free and includes a level assessment. US and Canadian classes run after school, between about 4 and 8 pm in your own time zone. See our pages for the [USA](/online-chess-classes-usa/) and [Canada](/online-chess-classes-canada/), or read about [how our online classes work](/online-chess-classes/).
+The easiest test is a free trial lesson. At Darklight the first session is a free chess assessment with a coach. US and Canadian classes run after school, between about 4 and 8 pm in your own time zone. See our pages for the [USA](/online-chess-classes-usa/) and [Canada](/online-chess-classes-canada/), or read about [how our online classes work](/online-chess-classes/).
 
 ## Frequently asked questions
 

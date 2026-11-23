@@ -45,6 +45,13 @@ Ask your coach or the organiser, or check the tournament notice, for these detai
 
 Walking in with these answers already known removes a surprising amount of first-tournament anxiety. Nervousness about the unknown format is often worse than nervousness about the chess itself.
 
+## Playing your first tournament in the US or Canada
+
+- **US Chess-rated events** need a current US Chess membership. Your first rated games give you a provisional rating; see [US Chess ratings explained for parents](/blog/us-chess-ratings-explained-for-parents/).
+- **Scholastic events** are split into sections by grade or rating, and many have a novice or unrated section that's ideal for a first event. Our [guide to scholastic chess tournaments](/blog/scholastic-chess-tournaments-us-parents-guide/) explains how they work.
+- **In Canada**, rated junior events use CFC ratings; see [CFC ratings explained](/blog/cfc-ratings-explained-for-parents/).
+- **Recording moves:** in longer games you're usually expected to write your moves down, though some events relax this for the youngest sections. Check the event rules.
+
 ## Sleep and food matter more than one last late-night session
 
 A tired brain calculates worse than a rested one, no matter how much theory it holds. The night before, resist the temptation to cram in one more hour of study. Get a normal night's sleep, eat a proper breakfast, and arrive at the venue with enough time to settle in rather than rushing to your board as the round starts.

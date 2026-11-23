@@ -54,4 +54,4 @@ No. The benefits come from playing and practising regularly, not from being unus
 
 Largely yes for the thinking skills — the game itself is the same. What differs is engagement for younger children, who often focus better at a physical board; our [online chess classes](/online-chess-classes/) work well for children who are comfortable on a screen.
 
-If you'd like your child to experience these benefits firsthand, Darklight runs chess classes both online and at our Coimbatore centres — [book a free demo class](/#contact) and see how your child takes to it.
+If you'd like your child to experience these benefits firsthand, Darklight runs chess classes both online and at our Coimbatore centres — [book a free chess assessment](/#contact) and see how your child takes to it.

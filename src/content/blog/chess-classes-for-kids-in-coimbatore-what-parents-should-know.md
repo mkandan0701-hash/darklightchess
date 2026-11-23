@@ -63,4 +63,4 @@ It helps to have a basic board at home for the light practice a coach assigns, b
 
 The clearest sign is whether your child is a little challenged but not lost — bored in every class suggests the level is too easy, and constant confusion suggests it's too advanced. A coach should be open to moving a child between levels if the initial placement isn't quite right.
 
-If you'd like a coach to assess where your child currently stands, [book a free demo class](/#contact) and see how they respond to an actual lesson before deciding anything.
+If you'd like a coach to assess where your child currently stands, [book a free chess assessment](/#contact) and see how they respond to an actual lesson before deciding anything.

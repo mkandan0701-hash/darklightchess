@@ -58,4 +58,4 @@ Not really. What matters is recognising the underlying pattern — a fork looks 
 
 Even ten to fifteen minutes a day, done consistently, builds pattern recognition faster than an occasional long session once a week.
 
-Our [beginner chess classes](/chess-classes-for-beginners/) build these tactical patterns through guided puzzles rather than passive learning, so students actually start spotting them mid-game. If that sounds useful for you or your child, feel free to [get in touch](/#contact) about a free demo class.
+Our [beginner chess classes](/chess-classes-for-beginners/) build these tactical patterns through guided puzzles rather than passive learning, so students actually start spotting them mid-game. If that sounds useful for you or your child, feel free to [get in touch](/#contact) about a free chess assessment.

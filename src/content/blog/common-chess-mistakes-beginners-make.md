@@ -58,4 +58,4 @@ Yes, especially under time pressure or against a stronger opponent. Recognising 
 
 Both matter, but at the beginner stage, cutting out blunders usually improves your results faster than finding brilliant moves, simply because most beginner games are decided by who blunders first.
 
-If you'd like feedback on your own games from a coach rather than guessing which habit to fix next, our [beginner chess classes](/chess-classes-for-beginners/) include exactly that kind of review — you're welcome to [ask about a free demo class](/#contact).
+If you'd like feedback on your own games from a coach rather than guessing which habit to fix next, our [beginner chess classes](/chess-classes-for-beginners/) include exactly that kind of review — you're welcome to [ask about a free chess assessment](/#contact).

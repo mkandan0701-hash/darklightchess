@@ -58,7 +58,7 @@ Our guide on [how to choose an online chess coach](/blog/how-to-choose-an-online
 
 ## What does Darklight Chess Academy cost?
 
-Darklight teaches live online from Coimbatore, India. Private one-to-one lessons for US families are **$15 per hour**, a fixed price in US dollars. Ask us about group classes when you book. Siblings learning together get a discount, and the first demo class is free and includes a level assessment.
+Darklight teaches live online from Coimbatore, India. Private one-to-one lessons for US families are **$15 per hour**, a fixed price in US dollars. Ask us about group classes when you book. Siblings learning together get a discount, and the first session is a free chess assessment with a coach.
 
 US classes run after school, between about 4 and 8 pm in your time zone on weekdays, plus weekend mornings. See our [US page](/online-chess-classes-usa/) and the [pricing page](/pricing/).
 
@@ -85,7 +85,7 @@ Usually. Online lessons have no travel or venue costs, and you can choose coache
 Not for a beginner. Clear teaching, a structured curriculum and regular practice matter far more in the first year or two.
 
 ### Is there a free trial?
-Many providers offer one. At Darklight the first demo class is free and includes a level assessment.
+Many providers offer one. At Darklight the first session is a free chess assessment with a coach.
 
 ### How do I book?
 Use the form on our [US page](/online-chess-classes-usa/), which already selects the United States, or message us on WhatsApp.

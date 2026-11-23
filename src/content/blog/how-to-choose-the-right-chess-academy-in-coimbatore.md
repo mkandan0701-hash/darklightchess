@@ -65,6 +65,6 @@ Reviews are a reasonable starting point, not a substitute for seeing a class you
 
 ### What's a reasonable trial period before committing to a term or course?
 
-Most academies offer a single free demo class rather than an extended trial period. Use that one class deliberately — ask questions, watch how the coach handles your child specifically, and decide from there rather than committing to a longer term untested.
+Most academies offer a single free chess assessment rather than an extended trial period. Use that one class deliberately — ask questions, watch how the coach handles your child specifically, and decide from there rather than committing to a longer term untested.
 
-If you'd like to see how these questions play out in an actual class, [book a free demo](/#contact) at our Coimbatore centres or online and judge for yourself.
+If you'd like to see how these questions play out in an actual class, [book a free chess assessment](/#contact) at our Coimbatore centres or online and judge for yourself.

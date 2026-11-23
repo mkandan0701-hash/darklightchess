@@ -15,6 +15,10 @@ const blog = defineCollection({
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().default("Darklight Chess Academy"),
+    // Name of the coach (exactly as in src/data/coaches.ts) who has actually
+    // read and checked this post. Set it ONLY after that review has happened:
+    // it renders a "Reviewed by" byline and WebPage.reviewedBy schema.
+    reviewedBy: z.string().optional(),
     // Contextual call-to-action shown after the article, pointing readers to
     // the most relevant course or landing page.
     nextStep: z.object({ href: z.string(), label: z.string() }).optional(),

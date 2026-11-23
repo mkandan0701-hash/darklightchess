@@ -74,15 +74,15 @@ export const baseMarkets: Market[] = [
     heroSubtitle:
       "Live coaching after school in your time zone, from complete beginner to US Chess–rated and scholastic tournaments.",
     answer:
-      "Darklight Chess Academy teaches live online chess classes to children across the United States. Weekday classes run after school, between about 4 and 8 pm Eastern or Pacific time, with weekend morning slots too. Children learn in small groups or one-to-one, from their first moves to US Chess tournament preparation, and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess classes to children across the United States. Weekday classes run after school, between about 4 and 8 pm Eastern or Pacific time, with weekend morning slots too. Children learn in small groups or one-to-one, from their first moves to US Chess tournament preparation, and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online with a coach on a shared digital board, as a small group, one-to-one or a sibling class",
       "<strong>US class times:</strong> weekdays about 4–8 pm ET or PT, plus weekend mornings",
-      "<strong>Ages:</strong> young beginners to teenagers, plus adults",
+      "<strong>Ages:</strong> from age 4 to teenagers, plus adults",
       "<strong>Levels:</strong> five levels, from complete beginner to 1800+ tournament players",
       "<strong>Tournaments:</strong> preparation for US Chess–rated, scholastic and state events",
       "<strong>Fees:</strong> private 1-to-1 lessons $15 per hour (USD); sibling discount",
-      "<strong>First step:</strong> a free demo class with a level assessment",
+      "<strong>First step:</strong> a free chess assessment with a coach",
     ],
     sections: [
       {
@@ -125,7 +125,7 @@ export const baseMarkets: Market[] = [
     ],
     intro: [
       "Darklight Chess Academy is based in Coimbatore, India, and coaches students in the United States entirely online. Every class is live with a coach on a shared digital board, not pre-recorded video, and runs as a small group, a one-to-one session or a sibling class.",
-      "We schedule US classes around your child's school day. Tell us your time zone and preferred days when you book the free demo class, and we'll confirm a slot in your local time.",
+      "We schedule US classes around your child's school day. Tell us your time zone and preferred days when you book the free chess assessment, and we'll confirm a slot in your local time.",
     ],
     timeZones: [
       { zone: "Eastern (ET)", standard: -5, daylight: -4 },
@@ -178,7 +178,7 @@ export const baseMarkets: Market[] = [
       {
         question: "What time are online chess classes for students in the US?",
         answer:
-          "Weekday classes run after school, between about 4 pm and 8 pm in your own time zone, and there are Saturday and Sunday morning slots. Our coaches teach these hours from India, where it is early morning. Classes are always booked in your local time and confirmed after the free demo.",
+          "Weekday classes run after school, between about 4 pm and 8 pm in your own time zone, and there are Saturday and Sunday morning slots. Our coaches teach these hours from India, where it is early morning. Classes are always booked in your local time and confirmed after the free chess assessment.",
       },
       {
         question: "Can you coach students in every US time zone?",
@@ -193,7 +193,7 @@ export const baseMarkets: Market[] = [
       {
         question: "How much do online chess lessons cost for US families?",
         answer:
-          "Private one-to-one lessons are $15 per hour, a fixed price in US dollars. That is well below the roughly $40 an hour that private chess coaching often costs in the US. Ask us about group classes when you book, siblings get a discount, and the first demo class is free.",
+          "Private one-to-one lessons are $15 per hour, a fixed price in US dollars. That is well below the roughly $40 an hour that private chess coaching often costs in the US. Ask us about group classes when you book, siblings get a discount, and the first session (a chess assessment) is free.",
       },
       {
         question: "Do you teach homeschooled children during the day?",
@@ -203,7 +203,7 @@ export const baseMarkets: Market[] = [
       {
         question: "How do we start?",
         answer:
-          "Book the free demo class with the form on this page or message us on WhatsApp. A coach plays with your child, assesses their level, and we suggest a class and a time slot that fits your family.",
+          "Book the free chess assessment with the form on this page or message us on WhatsApp. A coach plays with your child, assesses their level, and we suggest a class and a time slot that fits your family.",
       },
     ],
     currencies: ["USD"],
@@ -234,14 +234,14 @@ export const baseMarkets: Market[] = [
       "The whole UK shares one time zone, and India is only 4½ hours ahead in summer (BST) and 5½ hours ahead in winter (GMT). We run a dedicated international batch for students outside Indian time zones — one of our London students described it as fitting “perfectly” — and you can also ask about one-to-one slots.",
     ],
     answer:
-      "Darklight Chess Academy teaches live online chess lessons to children and adults across the UK, in English. India is 5½ hours ahead of UK winter time and 4½ hours ahead in summer, so after-school and weekend slots are available. Lessons start from ₹1,000 per hour (about £9), and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess lessons to children and adults across the UK, in English. India is 5½ hours ahead of UK winter time and 4½ hours ahead in summer, so after-school and weekend slots are available. Lessons start from ₹1,000 per hour (about £9), and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online, small groups or 1-to-1, on a shared digital board",
       "<strong>Time zone:</strong> GMT in winter, BST in summer; India is 5½ or 4½ hours ahead",
       "<strong>Timings:</strong> flexible, around the UK school day and weekends",
       "<strong>Fees:</strong> from ₹1,000 per hour (about £9, indicative)",
       "<strong>Levels:</strong> complete beginner to junior tournament preparation",
-      "<strong>First step:</strong> free demo class with a level assessment",
+      "<strong>First step:</strong> a free chess assessment with a coach",
     ],
     sections: [
       {
@@ -301,7 +301,7 @@ export const baseMarkets: Market[] = [
       {
         question: "What time would online chess lessons be in the UK?",
         answer:
-          "Lessons are booked in UK time. India is 5½ hours ahead in winter and 4½ in summer, so a 10:00 am Saturday lesson in London is 3:30 pm in India in winter (2:30 pm in summer). Share your preferred days and times when you book the free demo and we'll confirm availability.",
+          "Lessons are booked in UK time. India is 5½ hours ahead in winter and 4½ in summer, so a 10:00 am Saturday lesson in London is 3:30 pm in India in winter (2:30 pm in summer). Share your preferred days and times when you book the free chess assessment and we'll confirm availability.",
       },
       {
         question: "Can my child play ECF-rated tournaments while learning with an online coach?",
@@ -333,7 +333,7 @@ export const baseMarkets: Market[] = [
     heroSubtitle:
       "Live coaching after school in your province's time zone, from first moves to CFC-rated tournaments.",
     answer:
-      "Darklight Chess Academy teaches live online chess classes to children across Canada, from British Columbia to Newfoundland. Weekday classes run after school, between about 4 and 8 pm local time, with weekend morning slots too. Children learn in small groups or one-to-one, from complete beginner to CFC tournament preparation, and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess classes to children across Canada, from British Columbia to Newfoundland. Weekday classes run after school, between about 4 and 8 pm local time, with weekend morning slots too. Children learn in small groups or one-to-one, from complete beginner to CFC tournament preparation, and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online with a coach on a shared digital board, as a small group, one-to-one or a sibling class",
       "<strong>Canadian class times:</strong> weekdays about 4–8 pm in your time zone, plus weekend mornings",
@@ -341,7 +341,7 @@ export const baseMarkets: Market[] = [
       "<strong>Levels:</strong> five levels, from complete beginner to 1800+ tournament players",
       "<strong>Tournaments:</strong> preparation for CFC-rated, junior and provincial events",
       "<strong>Fees:</strong> private 1-to-1 lessons CA$15 per hour (CAD); sibling discount",
-      "<strong>First step:</strong> a free demo class with a level assessment",
+      "<strong>First step:</strong> a free chess assessment with a coach",
     ],
     sections: [
       {
@@ -377,7 +377,7 @@ export const baseMarkets: Market[] = [
     ],
     intro: [
       "Darklight Chess Academy is based in Coimbatore, India, and coaches Canadian students entirely online: live classes with a coach on a shared digital board, as a group, one-to-one or a sibling class. One of our students recently won a chess tournament in Canada after training with us this way.",
-      "Canada spans six time zones, so we schedule around your province rather than a fixed national timetable. Tell us your time zone when you book the free demo and we'll confirm a slot in your local time.",
+      "Canada spans six time zones, so we schedule around your province rather than a fixed national timetable. Tell us your time zone when you book the free chess assessment and we'll confirm a slot in your local time.",
     ],
     timeZones: [
       { zone: "Pacific (PT)", standard: -8, daylight: -7 },
@@ -421,7 +421,7 @@ export const baseMarkets: Market[] = [
       {
         question: "What time are online chess classes for students in Canada?",
         answer:
-          "Weekday classes run after school, between about 4 pm and 8 pm in your own time zone, and there are Saturday and Sunday morning slots. Our coaches teach these hours from India, where it is early morning. Classes are always booked in your local time and confirmed after the free demo.",
+          "Weekday classes run after school, between about 4 pm and 8 pm in your own time zone, and there are Saturday and Sunday morning slots. Our coaches teach these hours from India, where it is early morning. Classes are always booked in your local time and confirmed after the free chess assessment.",
       },
       {
         question: "Do you teach students in every province?",
@@ -436,7 +436,7 @@ export const baseMarkets: Market[] = [
       {
         question: "How much do online chess lessons cost for Canadian families?",
         answer:
-          "Private one-to-one lessons are CA$15 per hour, a fixed price in Canadian dollars. Ask us about group classes when you book, siblings get a discount, and the first demo class is free.",
+          "Private one-to-one lessons are CA$15 per hour, a fixed price in Canadian dollars. Ask us about group classes when you book, siblings get a discount, and the first session (a chess assessment) is free.",
       },
       {
         question: "Are classes taught in English?",
@@ -445,7 +445,7 @@ export const baseMarkets: Market[] = [
       {
         question: "How do we start?",
         answer:
-          "Book the free demo class with the form on this page or message us on WhatsApp. A coach plays with your child, assesses their level, and we suggest a class and a time slot that fits your family.",
+          "Book the free chess assessment with the form on this page or message us on WhatsApp. A coach plays with your child, assesses their level, and we suggest a class and a time slot that fits your family.",
       },
     ],
     currencies: ["CAD"],
@@ -526,12 +526,12 @@ export const baseMarkets: Market[] = [
       {
         question: "How much do online chess lessons cost in the UK?",
         answer:
-          "Lessons start from ₹1,000 per hour, which is about £9 at recent exchange rates. The rupee figure is fixed, so the pound amount varies slightly. Siblings get a discount and the first demo class is free.",
+          "Lessons start from ₹1,000 per hour, which is about £9 at recent exchange rates. The rupee figure is fixed, so the pound amount varies slightly. Siblings get a discount and the first session (a chess assessment) is free.",
       },
       {
         question: "What age should a child start chess lessons?",
         answer:
-          "Many children are ready from about age 5, if they can concentrate on a short activity and follow simple rules. There is no upper age limit.",
+          "We teach children from age 4, once they can concentrate on a short activity and follow simple rules. There is no upper age limit.",
       },
       {
         question: "Are online chess lessons good for children?",
@@ -568,7 +568,7 @@ export const baseMarkets: Market[] = [
     heroSubtitle: "Live coaching from our team in India, scheduled around Australian time zones.",
     intro: [
       "Australia is among the countries our online students join from. Classes are live with a coach on a shared digital board, as a group batch or one-to-one.",
-      "Australia is ahead of India — by 4½ to 5½ hours on the east coast and 2½ hours in Perth — so Australian after-school hours fall around midday in India. Tell us your time zone when you book the free demo and we'll confirm the slots that are open.",
+      "Australia is ahead of India — by 4½ to 5½ hours on the east coast and 2½ hours in Perth — so Australian after-school hours fall around midday in India. Tell us your time zone when you book the free chess assessment and we'll confirm the slots that are open.",
     ],
     timeZones: [
       { zone: "Eastern — NSW, VIC, ACT, TAS", standard: 10, daylight: 11 },
@@ -596,7 +596,7 @@ export const baseMarkets: Market[] = [
       {
         question: "What time are online chess classes for students in Australia?",
         answer:
-          "Classes are booked in your local time. A 5:00 pm weekday class in Sydney is 12:30 pm in India during Australian winter (11:30 am during daylight time). Share your time zone and preferred days when you book the free demo.",
+          "Classes are booked in your local time. A 5:00 pm weekday class in Sydney is 12:30 pm in India during Australian winter (11:30 am during daylight time). Share your time zone and preferred days when you book the free chess assessment.",
       },
     ],
     formMode: "Online (International batch)",

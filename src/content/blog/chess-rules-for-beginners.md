@@ -77,4 +77,4 @@ Yes, as long as the square the piece is on isn't defended by another enemy piece
 
 In casual games, nothing — just be careful and move on. In rated tournaments, the touch-move rule usually applies: if a piece can legally move, touching it means you must move it. It's worth knowing before your first event; our [tournament chess coaching](/tournament-chess-coaching/) covers tournament etiquette like this in detail.
 
-Once these rules feel automatic, the next step is learning how to use your pieces well from the very first move — our [chess classes for beginners](/chess-classes-for-beginners/) build exactly that foundation, one idea at a time. If you'd like to see how a class actually runs, you're welcome to [get in touch](/#contact) and ask about a demo.
+Once these rules feel automatic, the next step is learning how to use your pieces well from the very first move — our [chess classes for beginners](/chess-classes-for-beginners/) build exactly that foundation, one idea at a time. If you'd like to see how a class actually runs, you're welcome to [get in touch](/#contact) and ask about a free chess assessment.

@@ -2,9 +2,11 @@
 
 Darklight Chess Academy is a chess academy based in Coimbatore, Tamil Nadu, India. It teaches live online chess classes to students worldwide and offline classes at two centres in Coimbatore, for children and adults from complete beginner to tournament level.
 
+It is an India-based academy. It has no offices in the US, Canada or elsewhere outside Coimbatore; all international coaching is online.
+
 ## People
-- Founder: Karuppasamy.
-- Co-founder and Head Coach: Manikandan (Under-15 National Championship participant 2016, Tamil Nadu state medalist).
+- Founder: Karuppasamy (FIDE ID 45033021: https://ratings.fide.com/profile/45033021).
+- Co-founder and Head Coach: Manikandan (FIDE ID 45033064: https://ratings.fide.com/profile/45033064; Under-15 National Championship participant 2016, Tamil Nadu state medalist).
 - Marimuthu K: represented India at the Olympiad in Greece in 2021; multiple-time national champion in Open FIDE (VI).
 - Gopinath: Open FIDE title winner.
 - Mega Chakraborty: Asian silver medalist; represented India at the World Women Championship (VI) in 2024.
@@ -13,13 +15,15 @@ Details: https://www.darklightchess.com/coaches/
 
 ## How classes work
 - Live online lessons with a coach on a shared digital board, taught in English. Not pre-recorded.
-- Small group batches or private 1-to-1 lessons. Levels: beginner, intermediate, advanced, tournament preparation.
-- The first demo class is free and includes a level assessment.
-- Timings are flexible and set in the student's local time.
+- Small group batches or private 1-to-1 lessons. Five levels: Beginner, Advanced Beginner, Intermediate, Advanced, Master; plus tournament preparation.
+- Ages: from age 4 (the Beginner level starts at 4), teenagers and adults. Ages 4–7 have a shorter, game-based format.
+- The Beginner level is 24 live classes over about 3 months: piece movement and rules, checkmate, basic tactics (forks, pins), opening principles and complete games.
+- The first session is a free chess assessment with a coach: they find the student's level and recommend a class and time.
+- Timings are flexible and set in the student's local time. US and Canadian classes run on weekdays about 4–8 pm local time, plus weekend mornings.
 
 ## Fees
-- Lessons start from INR 1,000 per hour. Siblings learning together get a discount.
-- Fees are set in Indian rupees. Other currencies are indicative conversions only: https://www.darklightchess.com/pricing/
+- United States: private 1-to-1 lessons US$15 per hour (fixed USD price). Canada: CA$15 per hour (fixed CAD price). Group prices on request.
+- Elsewhere, lessons start from INR 1,000 per hour; other currencies are indicative conversions only. Siblings learning together get a discount. https://www.darklightchess.com/pricing/
 
 ## Time zones (India is UTC+5:30, no daylight saving)
 - UK and Ireland: India is 5.5 h ahead in winter (GMT), 4.5 h ahead in summer.
@@ -48,7 +52,7 @@ More: https://www.darklightchess.com/class-timings/
 - Courses (five-level ladder from beginner to tournament): https://www.darklightchess.com/courses/
 - Achievements and student results: https://www.darklightchess.com/achievements/
 - Gallery: https://www.darklightchess.com/gallery/
-- Contact and free demo booking: https://www.darklightchess.com/contact/
+- Contact and free chess assessment booking: https://www.darklightchess.com/contact/
 
 ## Offline centres (Coimbatore)
 - 4th Street, NSR Rd, Saibaba Colony, Coimbatore 641011

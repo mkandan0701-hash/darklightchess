@@ -2,7 +2,7 @@ export const homeFaqs = [
   {
     question: "What is the right age to start learning chess at Darklight Chess Academy?",
     answer:
-      "We welcome learners of all ages! At Darklight Chess Academy, we've trained children as young as 4–6 years old and helped adults rediscover their love for the game. It's never too early or too late to start your chess journey with us.",
+      "We welcome learners of all ages! At Darklight Chess Academy, we teach children from age 4 and helped adults rediscover their love for the game. It's never too early or too late to start your chess journey with us.",
   },
   {
     question: "Do I need any prior chess experience to join?",

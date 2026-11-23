@@ -52,4 +52,4 @@ Usually once a child moves past learning how pieces move and starts playing full
 
 Ask questions rather than giving answers. After a game, instead of pointing out a mistake directly, ask "what were you trying to do there, and what else could you have tried?" The goal is to get your child comparing options themselves, which is the actual skill in play.
 
-If you'd like a coach to work on this kind of thinking with your child directly, [get in touch](/#contact) for a free demo class.
+If you'd like a coach to work on this kind of thinking with your child directly, [get in touch](/#contact) for a free chess assessment.

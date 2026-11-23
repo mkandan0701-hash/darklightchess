@@ -4,7 +4,7 @@ import type { Level } from "../data/levels";
 interface Props { level: Level }
 const { level: l } = Astro.props;
 const enquire = `/contact/?course=${encodeURIComponent(l.course)}#contact`;
-const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`;
+const demo = `/contact/?course=${encodeURIComponent("Free Chess Assessment")}#contact`;
 ---
 
 <article class="rung reveal">
@@ -21,7 +21,7 @@ const demo = `/contact/?course=${encodeURIComponent("Free Demo Class")}#contact`
         <li>{l.sessions}</li>
       </ul>
       <div class="rung-actions">
-        <a class="rung-link book-btn" href={demo} data-course="Free Demo Class">Book Free Demo</a>
+        <a class="rung-link book-btn" href={demo} data-course="Free Chess Assessment">Book Free Assessment</a>
         <a class="rung-link book-btn" href={enquire} data-course={l.course}>Enrol Now</a>
         <a class="rung-link strong" href={`/courses/${l.slug}/`}>Full syllabus →</a>
       </div>

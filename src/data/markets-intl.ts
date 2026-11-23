@@ -19,13 +19,13 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_AE",
     title: "Online Chess Classes in Dubai & UAE | Darklight Chess Academy",
     description:
-      "Live online chess classes for kids in Dubai, Abu Dhabi and Sharjah. Only 1½ hours behind India, so after-school slots are easy. Free demo class.",
+      "Live online chess classes for kids in Dubai, Abu Dhabi and Sharjah. Only 1½ hours behind India, so after-school slots are easy. Free chess assessment.",
     eyebrow: "Online Chess Classes · UAE",
     heroTitle: "Online Chess Classes for Kids in Dubai and the <span class='gold'>UAE</span>",
     heroSubtitle:
       "Live coaching from our team in India. The UAE is just 1½ hours behind, so classes fit comfortably after school.",
     answer:
-      "Darklight Chess Academy teaches live online chess classes to children in Dubai, Abu Dhabi, Sharjah and across the UAE. India is only 1½ hours ahead of UAE time, so after-school slots are easy to arrange. Lessons start from ₹1,000 per hour (about AED 42), and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess classes to children in Dubai, Abu Dhabi, Sharjah and across the UAE. India is only 1½ hours ahead of UAE time, so after-school slots are easy to arrange. Lessons start from ₹1,000 per hour (about AED 42), and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online, small groups or 1-to-1, on a shared digital board",
       "<strong>Time difference:</strong> UAE (GST, UTC+4) is 1½ hours behind India, with no daylight saving",
@@ -33,7 +33,7 @@ export const intlMarkets: Market[] = [
       "<strong>Fees:</strong> from ₹1,000 per hour (about AED 42, indicative)",
       "<strong>Levels:</strong> complete beginner to tournament preparation",
       "<strong>Language:</strong> English",
-      "<strong>First step:</strong> free demo class with a level assessment",
+      "<strong>First step:</strong> a free chess assessment with a coach",
     ],
     intro: [
       "Darklight Chess Academy is based in Coimbatore, India, and coaches students in the UAE entirely online. Every class is live with a coach on a shared board, not a recorded video, and follows the same structured curriculum we teach at our centres in Coimbatore.",
@@ -44,7 +44,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are online chess classes for UAE students?",
         paragraphs: [
-          "Classes are booked in UAE time and our timings are flexible. A 5:00 pm lesson in Dubai is 6:30 pm in India, so weekday after-school and weekend slots are straightforward. Tell us your child's school hours and preferred days when you book the demo and we will suggest what is open.",
+          "Classes are booked in UAE time and our timings are flexible. A 5:00 pm lesson in Dubai is 6:30 pm in India, so weekday after-school and weekend slots are straightforward. Tell us your child's school hours and preferred days when you book the free assessment and we will suggest what is open.",
           "School calendars differ between curricula and emirates, so we do not fix a rigid timetable. We plan around yours, including exam periods and school holidays.",
         ],
       },
@@ -78,7 +78,7 @@ export const intlMarkets: Market[] = [
       {
         question: "How much do online chess classes cost in Dubai and the UAE?",
         answer:
-          "Lessons start from ₹1,000 per hour, which is about AED 42 at recent exchange rates. The rupee amount is the fixed figure, so the dirham total varies slightly. Siblings learning together get a discount, and the first demo class is free.",
+          "Lessons start from ₹1,000 per hour, which is about AED 42 at recent exchange rates. The rupee amount is the fixed figure, so the dirham total varies slightly. Siblings learning together get a discount, and the first session (a chess assessment) is free.",
       },
       {
         question: "What time are the classes for students in the UAE?",
@@ -93,7 +93,7 @@ export const intlMarkets: Market[] = [
       {
         question: "Can beginners join?",
         answer:
-          "Yes. We start children at about age 5 with no experience. The free demo includes a level assessment so we can place your child correctly.",
+          "Yes. We start children from age 4, with no experience needed. The free chess assessment tells us where to start so we can place your child correctly.",
       },
       {
         question: "Do you prepare students for tournaments in the UAE?",
@@ -105,7 +105,7 @@ export const intlMarkets: Market[] = [
         answer: "Yes. Adults can join as a beginner or improving player in a group batch or one-to-one.",
       },
       {
-        question: "How do I book the free demo class?",
+        question: "How do I book the free chess assessment?",
         answer:
           "Use the form on this page, which already selects the UAE, or message us on WhatsApp. We confirm a time in UAE time and a coach assesses your child's level.",
       },
@@ -121,12 +121,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_QA",
     title: "Online Chess Classes in Qatar | Darklight Chess Academy",
     description:
-      "Live online chess classes for children in Doha and across Qatar, timed for Arabia Standard Time. Free demo class, group or 1-to-1.",
+      "Live online chess classes for children in Doha and across Qatar, timed for Arabia Standard Time. Free chess assessment, group or 1-to-1.",
     eyebrow: "Online Chess Classes · Qatar",
     heroTitle: "Online Chess Classes for Kids in Doha and <span class='gold'>Qatar</span>",
     heroSubtitle: "Live coaching from India, just 2½ hours apart, so lessons slot in after school.",
     answer:
-      "Darklight Chess Academy teaches live online chess classes to children in Doha and across Qatar. Qatar runs on Arabia Standard Time, 2½ hours behind India all year, so after-school lessons are easy to schedule. Lessons start from ₹1,000 per hour (about QAR 41), with a free demo class first.",
+      "Darklight Chess Academy teaches live online chess classes to children in Doha and across Qatar. Qatar runs on Arabia Standard Time, 2½ hours behind India all year, so after-school lessons are easy to schedule. Lessons start from ₹1,000 per hour (about QAR 41), with a free chess assessment first.",
     quickFacts: [
       "<strong>Format:</strong> live online, groups or 1-to-1",
       "<strong>Time difference:</strong> Qatar (AST, UTC+3) is 2½ hours behind India, no daylight saving",
@@ -144,7 +144,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are online chess classes for Qatar students?",
         paragraphs: [
-          "Our timings are flexible. Most families choose a weekday after-school window or a weekend morning, and we confirm the slot in Qatar time when you book the free demo. Because there is no daylight saving change on either end, the arrangement stays the same all year.",
+          "Our timings are flexible. Most families choose a weekday after-school window or a weekend morning, and we confirm the slot in Qatar time when you book the free chess assessment. Because there is no daylight saving change on either end, the arrangement stays the same all year.",
         ],
       },
       {
@@ -173,7 +173,7 @@ export const intlMarkets: Market[] = [
       {
         question: "How much are online chess classes in Qatar?",
         answer:
-          "Lessons start from ₹1,000 per hour, about QAR 41 at recent rates. The rupee figure is fixed, so the riyal amount can vary slightly. Siblings get a discount and the demo is free.",
+          "Lessons start from ₹1,000 per hour, about QAR 41 at recent rates. The rupee figure is fixed, so the riyal amount can vary slightly. Siblings get a discount and the first session, a chess assessment, is free.",
       },
       {
         question: "What time are classes in Qatar?",
@@ -185,7 +185,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "What age can my child start?",
-        answer: "From about age 5. Complete beginners are welcome, and the demo includes a level assessment.",
+        answer: "From age 4. Complete beginners are welcome, and the free chess assessment shows where to start.",
       },
       {
         question: "How do I book a trial class?",
@@ -203,12 +203,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_SA",
     title: "Online Chess Classes in Saudi Arabia | Darklight Chess Academy",
     description:
-      "Live online chess classes for children in Riyadh, Jeddah, Dammam and across Saudi Arabia, in Arabia Standard Time. Free demo class.",
+      "Live online chess classes for children in Riyadh, Jeddah, Dammam and across Saudi Arabia, in Arabia Standard Time. Free chess assessment.",
     eyebrow: "Online Chess Classes · Saudi Arabia",
     heroTitle: "Online Chess Classes for Kids in <span class='gold'>Saudi Arabia</span>",
     heroSubtitle: "Live coaching from India for families in Riyadh, Jeddah, Dammam and beyond.",
     answer:
-      "Darklight Chess Academy teaches live online chess classes to children in Riyadh, Jeddah, Dammam and across Saudi Arabia. Saudi time is 2½ hours behind India all year, so after-school lessons are easy to arrange. Lessons start from ₹1,000 per hour (about SAR 42), and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess classes to children in Riyadh, Jeddah, Dammam and across Saudi Arabia. Saudi time is 2½ hours behind India all year, so after-school lessons are easy to arrange. Lessons start from ₹1,000 per hour (about SAR 42), and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online, groups or 1-to-1",
       "<strong>Time difference:</strong> Saudi Arabia (AST, UTC+3) is 2½ hours behind India, no daylight saving",
@@ -225,7 +225,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are online chess classes for students in Riyadh and Jeddah?",
         paragraphs: [
-          "Timings are flexible. Many families prefer Friday or Saturday sessions or a weekday evening. We confirm the exact slot in Saudi time when you book the demo.",
+          "Timings are flexible. Many families prefer Friday or Saturday sessions or a weekday evening. We confirm the exact slot in Saudi time when you book the free assessment.",
         ],
       },
       {
@@ -254,7 +254,7 @@ export const intlMarkets: Market[] = [
       {
         question: "How much are online chess lessons in Saudi Arabia?",
         answer:
-          "Lessons start from ₹1,000 per hour, about SAR 42 at recent rates. The rupee figure is fixed, so the riyal amount varies slightly. Siblings get a discount and the demo is free.",
+          "Lessons start from ₹1,000 per hour, about SAR 42 at recent rates. The rupee figure is fixed, so the riyal amount varies slightly. Siblings get a discount and the first session, a chess assessment, is free.",
       },
       {
         question: "What time are classes in Riyadh and Jeddah?",
@@ -267,7 +267,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "Can beginners join?",
-        answer: "Yes, from about age 5. A level assessment is part of the free demo.",
+        answer: "Yes, from age 4. The free chess assessment tells us where to start.",
       },
       {
         question: "How do I book?",
@@ -285,12 +285,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_OM",
     title: "Chess Classes in Kuwait, Bahrain & Oman | Darklight",
     description:
-      "Live online chess classes for kids in Kuwait, Bahrain and Muscat, Oman. 1½ to 2½ hours behind India. Free demo class.",
+      "Live online chess classes for kids in Kuwait, Bahrain and Muscat, Oman. 1½ to 2½ hours behind India. Free chess assessment.",
     eyebrow: "Online Chess Classes · Kuwait, Bahrain, Oman",
     heroTitle: "Online Chess Classes in <span class='gold'>Kuwait, Bahrain and Oman</span>",
     heroSubtitle: "Live coaching from India for families across the Gulf, in your own time zone.",
     answer:
-      "Darklight Chess Academy teaches live online chess classes to children in Kuwait, Bahrain and Oman. India is 2½ hours ahead of Kuwait and Bahrain and 1½ hours ahead of Oman, and none of them observe daylight saving. Lessons start from ₹1,000 per hour, and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess classes to children in Kuwait, Bahrain and Oman. India is 2½ hours ahead of Kuwait and Bahrain and 1½ hours ahead of Oman, and none of them observe daylight saving. Lessons start from ₹1,000 per hour, and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Kuwait and Bahrain:</strong> UTC+3, 2½ hours behind India",
       "<strong>Oman:</strong> UTC+4, 1½ hours behind India",
@@ -307,7 +307,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are classes in Kuwait, Bahrain and Muscat?",
         paragraphs: [
-          "Our timings are flexible. A 5:00 pm lesson in Kuwait or Bahrain is 7:30 pm in India, and a 5:00 pm lesson in Muscat is 6:30 pm in India. Tell us your child's school hours when you book the demo and we will confirm a slot in your local time.",
+          "Our timings are flexible. A 5:00 pm lesson in Kuwait or Bahrain is 7:30 pm in India, and a 5:00 pm lesson in Muscat is 6:30 pm in India. Tell us your child's school hours when you book the free assessment and we will confirm a slot in your local time.",
         ],
       },
     ],
@@ -347,7 +347,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "Can my child start as a complete beginner?",
-        answer: "Yes, from about age 5. The free demo includes a level assessment.",
+        answer: "Yes, from age 4. The free chess assessment tells us where to start.",
       },
     ],
     formMode: INTL,
@@ -361,12 +361,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_IE",
     title: "Online Chess Classes in Ireland | Darklight Chess Academy",
     description:
-      "Live online chess lessons for children in Dublin, Cork and across Ireland, timed for GMT and IST. Free demo class, group or 1-to-1.",
+      "Live online chess lessons for children in Dublin, Cork and across Ireland, timed for GMT and IST. Free chess assessment, group or 1-to-1.",
     eyebrow: "Online Chess Classes · Ireland",
     heroTitle: "Online Chess Lessons for Children in <span class='gold'>Ireland</span>",
     heroSubtitle: "Live coaching from India, scheduled around Irish school hours.",
     answer:
-      "Darklight Chess Academy teaches live online chess lessons to children across Ireland, in English. India is 5½ hours ahead of Irish winter time and 4½ hours ahead in summer, so after-school and weekend slots are available. Lessons start from ₹1,000 per hour (about €10), and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess lessons to children across Ireland, in English. India is 5½ hours ahead of Irish winter time and 4½ hours ahead in summer, so after-school and weekend slots are available. Lessons start from ₹1,000 per hour (about €10), and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online, groups or 1-to-1",
       "<strong>Time zone:</strong> GMT in winter, Irish Summer Time (UTC+1) in summer",
@@ -383,7 +383,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are online chess lessons for Irish students?",
         paragraphs: [
-          "Timings are flexible. A 5:00 pm weekday lesson in Dublin is 10:30 pm in India in winter and 9:30 pm in summer, which suits our coaching hours. Weekend mornings are the other popular option. We confirm slots in Irish time when you book the demo.",
+          "Timings are flexible. A 5:00 pm weekday lesson in Dublin is 10:30 pm in India in winter and 9:30 pm in summer, which suits our coaching hours. Weekend mornings are the other popular option. We confirm slots in Irish time when you book the free assessment.",
         ],
       },
       {
@@ -412,7 +412,7 @@ export const intlMarkets: Market[] = [
       {
         question: "How much do online chess lessons cost in Ireland?",
         answer:
-          "Lessons start from ₹1,000 per hour, about €10 at recent rates. The rupee figure is fixed, so the euro amount varies slightly. Siblings get a discount and the first demo is free.",
+          "Lessons start from ₹1,000 per hour, about €10 at recent rates. The rupee figure is fixed, so the euro amount varies slightly. Siblings get a discount and the first session (a chess assessment) is free.",
       },
       {
         question: "What time are lessons in Irish time?",
@@ -425,7 +425,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "Can beginners start?",
-        answer: "Yes, from about age 5, and the demo includes a level assessment.",
+        answer: "Yes, from age 4, and the free chess assessment shows where to start.",
       },
       {
         question: "How do I book?",
@@ -443,12 +443,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_DE",
     title: "Chess Lessons in English for Kids in Germany | Darklight",
     description:
-      "Live online chess lessons in English for children in Germany. Partner of the Erlangen & Herzogenaurach Tamil Sangam. CET timings, free demo class.",
+      "Live online chess lessons in English for children in Germany. Partner of the Erlangen & Herzogenaurach Tamil Sangam. CET timings, free chess assessment.",
     eyebrow: "Online Chess Classes · Germany",
     heroTitle: "Online Chess Lessons in English for Kids in <span class='gold'>Germany</span>",
     heroSubtitle: "Live coaching from India, timed for German school days.",
     answer:
-      "Darklight Chess Academy teaches live online chess lessons in English to children in Germany, including Tamil-speaking families. Germany is 4½ hours behind India in winter and 3½ hours behind in summer, so afternoon and weekend slots work well. Lessons start from ₹1,000 per hour (about €10), with a free demo class first.",
+      "Darklight Chess Academy teaches live online chess lessons in English to children in Germany, including Tamil-speaking families. Germany is 4½ hours behind India in winter and 3½ hours behind in summer, so afternoon and weekend slots work well. Lessons start from ₹1,000 per hour (about €10), with a free chess assessment first.",
     quickFacts: [
       "<strong>Format:</strong> live online, groups or 1-to-1",
       "<strong>Time zone:</strong> CET (UTC+1) in winter, CEST (UTC+2) in summer",
@@ -465,7 +465,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are classes for students in Germany?",
         paragraphs: [
-          "Timings are flexible. A 4:00 pm weekday lesson in Germany is 8:30 pm in India in winter and 7:30 pm in summer. Saturday and Sunday mornings work for many families. We confirm slots in German time when you book the demo.",
+          "Timings are flexible. A 4:00 pm weekday lesson in Germany is 8:30 pm in India in winter and 7:30 pm in summer. Saturday and Sunday mornings work for many families. We confirm slots in German time when you book the free assessment.",
         ],
       },
       {
@@ -525,12 +525,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_NL",
     title: "Chess Lessons in English, Netherlands | Darklight Chess Academy",
     description:
-      "Live online chess lessons in English for expat and international families in Amsterdam, Rotterdam, The Hague and Eindhoven. Free demo class.",
+      "Live online chess lessons in English for expat and international families in Amsterdam, Rotterdam, The Hague and Eindhoven. Free chess assessment.",
     eyebrow: "Online Chess Classes · Netherlands",
     heroTitle: "Online Chess Lessons in English for Kids in the <span class='gold'>Netherlands</span>",
     heroSubtitle: "Live coaching from India for expat and international families.",
     answer:
-      "Darklight Chess Academy teaches live online chess lessons in English to children in the Netherlands, including expat families in Amsterdam, Rotterdam, The Hague and Eindhoven. The Netherlands is 4½ hours behind India in winter and 3½ hours behind in summer. Lessons start from ₹1,000 per hour (about €10), and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess lessons in English to children in the Netherlands, including expat families in Amsterdam, Rotterdam, The Hague and Eindhoven. The Netherlands is 4½ hours behind India in winter and 3½ hours behind in summer. Lessons start from ₹1,000 per hour (about €10), and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online, groups or 1-to-1",
       "<strong>Time zone:</strong> CET (UTC+1) in winter, CEST (UTC+2) in summer",
@@ -545,7 +545,7 @@ export const intlMarkets: Market[] = [
         eyebrow: "Scheduling",
         heading: "What time are online chess lessons for students in the Netherlands?",
         paragraphs: [
-          "Timings are flexible. A 4:00 pm weekday lesson in Amsterdam is 8:30 pm in India in winter and 7:30 pm in summer. Weekend mornings also work. We confirm slots in Dutch time when you book the demo.",
+          "Timings are flexible. A 4:00 pm weekday lesson in Amsterdam is 8:30 pm in India in winter and 7:30 pm in summer. Weekend mornings also work. We confirm slots in Dutch time when you book the free assessment.",
         ],
       },
       {
@@ -577,7 +577,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "How much do lessons cost?",
-        answer: "From ₹1,000 per hour, about €10 at recent rates. Siblings get a discount and the first demo is free.",
+        answer: "From ₹1,000 per hour, about €10 at recent rates. Siblings get a discount and the first session (a chess assessment) is free.",
       },
       {
         question: "What time are classes?",
@@ -585,7 +585,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "Can beginners join?",
-        answer: "Yes, from about age 5. The demo includes a level assessment.",
+        answer: "Yes, from age 4. The free chess assessment shows where to start.",
       },
     ],
     formMode: INTL,
@@ -599,12 +599,12 @@ export const intlMarkets: Market[] = [
     ogLocale: "en_CH",
     title: "Online Chess Classes for Kids in Europe | Darklight Chess Academy",
     description:
-      "Live online chess lessons in English for children across Europe: Ireland, Germany, Netherlands, Switzerland, Belgium, Norway. Free demo class.",
+      "Live online chess lessons in English for children across Europe: Ireland, Germany, Netherlands, Switzerland, Belgium, Norway. Free chess assessment.",
     eyebrow: "Online Chess Classes · Europe",
     heroTitle: "Online Chess Classes for Kids Across <span class='gold'>Europe</span>",
     heroSubtitle: "Live coaching in English from India, timed to your country's school day.",
     answer:
-      "Darklight Chess Academy teaches live online chess lessons in English to children across Europe, including Ireland, Germany, the Netherlands, Switzerland, Belgium and Norway. Central Europe is 3½ to 4½ hours behind India depending on the season. Lessons start from ₹1,000 per hour, and the first demo class is free.",
+      "Darklight Chess Academy teaches live online chess lessons in English to children across Europe, including Ireland, Germany, the Netherlands, Switzerland, Belgium and Norway. Central Europe is 3½ to 4½ hours behind India depending on the season. Lessons start from ₹1,000 per hour, and the first session (a chess assessment) is free.",
     quickFacts: [
       "<strong>Format:</strong> live online, groups or 1-to-1",
       "<strong>Time zones:</strong> GMT/BST in Ireland, CET/CEST in Germany, the Netherlands, Switzerland, Belgium and Norway",
@@ -662,7 +662,7 @@ export const intlMarkets: Market[] = [
       },
       {
         question: "How much do lessons cost in Europe?",
-        answer: "From ₹1,000 per hour, about €10, CHF 9.5 or NOK 115 at recent rates. Siblings get a discount and the first demo is free.",
+        answer: "From ₹1,000 per hour, about €10, CHF 9.5 or NOK 115 at recent rates. Siblings get a discount and the first session (a chess assessment) is free.",
       },
       {
         question: "What time are lessons?",

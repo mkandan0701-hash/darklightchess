@@ -1,0 +1,36 @@
+---
+// "For families in the US" section for commercial pages. Facts come from
+// src/data/pricing.ts so prices never drift from /pricing/.
+import { regionalPrices } from "../data/pricing";
+
+interface Props {
+  heading?: string;
+  links?: { href: string; label: string; text: string }[];
+}
+const usd = regionalPrices.USD;
+const cad = regionalPrices.CAD;
+const defaultLinks = [
+  { href: "/online-chess-classes-usa/", label: "Online chess classes in the USA", text: "Time zones, US Chess and scholastic events, US results" },
+  { href: "/blog/how-much-do-chess-lessons-cost-in-the-us/", label: "What chess lessons cost in the US", text: "Typical US rates compared, and what's included" },
+  { href: "/blog/us-chess-ratings-explained-for-parents/", label: "US Chess ratings explained", text: "How a child gets a rating, and what the numbers mean" },
+  { href: "/online-chess-classes-canada/", label: "Families in Canada", text: "CFC ratings, provinces and CA$ prices" },
+];
+const { heading = "For Families in the US and Canada", links = defaultLinks } = Astro.props;
+---
+<section class="section bg-soft">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">North America</p>
+      <h2>{heading}</h2>
+      <p class="section-sub">
+        Darklight is an India-based academy (Coimbatore, Tamil Nadu) that teaches live online.
+        US and Canadian classes run on weekdays after school, between about 4 and 8 pm in your own time zone (Eastern to Pacific), plus weekend mornings.
+        {usd.privatePerHour !== null && <> Private one-to-one lessons are <strong>${usd.privatePerHour} an hour</strong> in the US{cad.privatePerHour !== null && <> and <strong>CA${cad.privatePerHour}</strong> in Canada</>}, fixed in local currency.</>}
+      </p>
+    </div>
+    <slot />
+    <div class="market-links">
+      {links.map((l) => <a href={l.href}>{l.label}<small>{l.text}</small></a>)}
+    </div>
+  </div>
+</section>

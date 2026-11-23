@@ -46,7 +46,7 @@ Avoid cramming new openings or ideas in the final days before a tournament — i
 
 ### What age do most kids play their first tournament?
 
-There's real variation, but many children play their first low-pressure event somewhere between seven and ten, once they can complete games independently. Age matters less than the skill and emotional readiness signs above — some children are ready earlier, others later, and that's fine. If you're still weighing when to introduce chess at all, our guide on the [best age to start chess](/blog/best-age-for-a-child-to-learn-chess/) covers that earlier stage.
+There's real variation, but many children play their first low-pressure event somewhere between seven and ten, once they can complete games independently. Age matters less than the skill and emotional readiness signs above — some children are ready earlier, others later, and that's fine. If you're still weighing when to introduce chess at all, our guide on the [what age to start chess lessons](/blog/what-age-should-a-child-start-chess-lessons/) covers that earlier stage.
 
 ### How do I find an appropriate first tournament for a beginner?
 

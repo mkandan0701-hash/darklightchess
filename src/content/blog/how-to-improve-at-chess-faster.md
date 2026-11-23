@@ -58,4 +58,4 @@ Both have a role. Self-study builds the daily habit, but a coach accelerates thi
 
 Engines are useful once you already understand basic tactics and principles, since they can otherwise overwhelm a new player with moves they don't yet understand the reasoning behind. Early on, a simple manual review — or a coach's feedback — usually teaches more per hour spent.
 
-If you'd like a structured plan rather than figuring this out alone, our [chess classes for beginners](/chess-classes-for-beginners/) are built around these exact habits — you're welcome to [reach out](/#contact) about a free demo class.
+If you'd like a structured plan rather than figuring this out alone, our [chess classes for beginners](/chess-classes-for-beginners/) are built around these exact habits — you're welcome to [reach out](/#contact) about a free chess assessment.

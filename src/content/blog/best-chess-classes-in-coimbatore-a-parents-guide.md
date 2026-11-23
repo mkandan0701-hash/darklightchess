@@ -62,4 +62,4 @@ It's a reasonable starting point for finding options, but it shouldn't be the de
 
 Yes, switching is common and not something to worry about upfront. It's better to start somewhere reasonable now than to delay months searching for a guaranteed perfect fit.
 
-If you'd like an honest read on which track fits your child, [book a free demo class](/#contact) and a coach will tell you directly rather than leave you guessing.
+If you'd like an honest read on which track fits your child, [book a free chess assessment](/#contact) and a coach will tell you directly rather than leave you guessing.

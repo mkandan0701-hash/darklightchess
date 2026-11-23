@@ -1,8 +1,8 @@
 ---
-// The single enquiry / free-demo form. Field names and ids are what
+// The single enquiry / free-chess-assessment form. Field names and ids are what
 // public/assets/js/main.js validates and submits (FormSubmit email + CRM lead),
 // so keep them stable. Rendered on the homepage and on landing pages, always
-// inside an element with id="contact" so "Book a Free Demo" buttons scroll to it.
+// inside an element with id="contact" so "Book a Free Chess Assessment" buttons scroll to it.
 interface Props {
   country?: string; // preselect, must match an option below
   mode?: string; // preselect, must match an option below
@@ -133,7 +133,7 @@ const pagePath = Astro.url.pathname;
     <label for="fCourse">Course / Interest *</label>
     <select id="fCourse" name="course" required>
       <option value="">Choose a level</option>
-      <option>Free Demo Class</option>
+      <option>Free Chess Assessment</option>
       <option>Beginner Level</option>
       <option>Advanced Beginner Level</option>
       <option>Intermediate Level</option>

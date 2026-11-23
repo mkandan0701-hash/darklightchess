@@ -2,41 +2,57 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import CtaBanner from "../components/CtaBanner.astro";
+import AnswerFirst from "../components/AnswerFirst.astro";
+import UsFamilies from "../components/UsFamilies.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
 import CourseSchema from "../components/schema/CourseSchema.astro";
+import { levels } from "../data/levels";
+import { regionalPrices } from "../data/pricing";
+
+// The Beginner level is the single source for syllabus facts on this page.
+const beginner = levels.find((l) => l.slug === "beginner")!;
+const usd = regionalPrices.USD.privatePerHour;
 
 const faqs = [
   {
-    question: "What is the best age to start chess coaching?",
+    question: "What should a beginner learn first in chess?",
     answer:
-      "Many children are ready for structured chess classes from about age 5, and we have taught children as young as 4–6 — there's no upper age limit, and adults start from scratch with us too. Readiness matters more than age: a child who can concentrate on a short activity and follow simple rules is usually ready for a beginner class.",
+      "Start with how each piece moves and captures, then check and checkmate, then a few simple checkmates with a queen or rook. After that come basic tactics such as forks and pins, and three opening principles: control the centre, develop your pieces and castle early. Playing full games with feedback ties it together.",
+  },
+  {
+    question: "What is the best age to start chess lessons?",
+    answer:
+      "Our beginner level starts at age 4, and there's no upper age limit; adults start from scratch with us too. Readiness matters more than age: a child who can concentrate on a short activity and follow simple rules is usually ready for a beginner class.",
+  },
+  {
+    question: "How many chess lessons does a beginner need?",
+    answer: `Our Beginner level is ${beginner.sessions.toLowerCase()} over about ${beginner.duration.toLowerCase()}. Most children who attend weekly and do short practice between classes can play a complete, legal game with basic tactics by the end of it. Children move up when they meet the level-up criteria, not after a fixed date.`,
   },
   {
     question: "Can beginners learn chess online?",
     answer:
-      "Yes. The beginner track runs live online on the same curriculum as our offline classes, and no prior knowledge is assumed. A coach demonstrates each idea on a shared digital board, students practise it straight away in class, and mistakes are corrected as they happen.",
+      "Yes. The beginner track runs live online on the same curriculum as our offline classes, and no prior knowledge is assumed. A coach demonstrates each idea on a shared digital board, students practice it straight away, and mistakes are corrected as they happen.",
   },
   {
     question: "I've never played chess. Can I still join?",
     answer:
-      "Yes — this track is built specifically for complete beginners, whether you're a child or an adult. No prior experience or knowledge of the rules is assumed.",
+      "Yes. This track is built for complete beginners, whether you're a child or an adult. No prior experience or knowledge of the rules is assumed.",
   },
   {
-    question: "How long does it take to go from beginner to playing confidently?",
+    question: "Do beginners need their own chess set?",
     answer:
-      "It varies by how often you practice, but most students who attend classes consistently and do the weekly puzzle homework can play a full, sensible game within a few months.",
-  },
-  {
-    question: "Do beginners need their own chess set or board?",
-    answer:
-      "It helps to have a basic set at home for practice, but it isn't required to start — the class itself provides everything you need, and we'll guide you on simple tools for practicing between sessions.",
+      "A basic set at home helps with practice, but it isn't required to start. Everything in class happens on a shared digital board, and we'll suggest simple free tools for practicing between classes.",
   },
 ];
+
+const description =
+  "Beginner chess classes for kids (age 4+) and adults, live online with a coach: rules, checkmates, basic tactics and opening principles over 24 classes. Free chess assessment.";
+const lead = `Darklight Chess Academy runs live online chess classes for complete beginners: kids from age 4, teens and adults. In ${beginner.sessions.toLowerCase()} over about ${beginner.duration.toLowerCase()}, a coach teaches how every piece moves, checkmate, simple tactics such as forks and pins, and opening principles, until students can play a complete game. The first session, a chess assessment, is free.`;
 ---
 
 <BaseLayout
-  title="Chess Classes for Beginners, Online | Darklight Chess Academy"
-  description="Online chess classes for complete beginners — kids from age 5 and adults. Learn the rules, basic tactics and opening principles live with a coach. Free demo class."
+  title="Beginner Chess Classes for Kids & Adults, Online | Darklight Chess Academy"
+  description={description}
   path="/chess-classes-for-beginners/"
 >
   <CourseSchema
@@ -48,48 +64,50 @@ const faqs = [
   />
   <PageHero
     eyebrow="Start Here"
-    title="Chess Classes for <span class='gold'>Beginners</span>"
-    subtitle="A structured, no-pressure start to chess — for children and adults alike, live online from anywhere or at our Coimbatore centres."
+    title="Beginner Chess Classes for <span class='gold'>Kids &amp; Adults</span>"
+    subtitle="A structured, no-pressure start to chess, live online from anywhere or at our Coimbatore centres. Everyone in the batch starts from the same place."
     breadcrumbItems={[
       { name: "Home", path: "/" },
       { name: "Online Chess Classes", path: "/online-chess-classes/" },
       { name: "Chess Classes for Beginners", path: "/chess-classes-for-beginners/" },
     ]}
+  >
+    <div class="hero-actions">
+      <a href="/contact/?course=Beginner%20Level#contact" class="btn btn-gold btn-lg book-btn" data-course="Beginner Level">Book a Free Chess Assessment</a>
+      <a href="#syllabus" class="btn btn-outline btn-lg">See the Syllabus</a>
+    </div>
+  </PageHero>
+
+  <AnswerFirst
+    lead={lead}
+    facts={[
+      { label: "Ages", text: "kids from 4, teens and adults; no experience needed" },
+      { label: "Length", text: `${beginner.sessions}, about ${beginner.duration.toLowerCase()}` },
+      { label: "Format", text: "live online small group, or <a href=\"/one-to-one-chess-coaching/\">private 1-to-1</a>" },
+      { label: "Young children", text: "ages 4–7 get a shorter, game-based format: <a href=\"/chess-classes-for-young-kids/\">young kids' classes</a>" },
+      { label: "Price", text: usd !== null ? `1-to-1 $${usd}/hour in the US; group fees on request (<a href="/pricing/">all fees</a>)` : "<a href=\"/pricing/\">see fees</a>" },
+    ]}
   />
 
-  <section class="section">
-    <div class="container narrow">
-      <p>
-        Starting chess as a total beginner can feel intimidating, especially watching others who already "know how to play." Our beginner track exists specifically to remove that gap — everyone in the batch starts from the same place, and the curriculum is built so each class adds exactly one new idea rather than assuming prior knowledge.
-      </p>
-    </div>
-  </section>
-
-  <section class="section bg-soft">
+  <section class="section bg-soft" id="syllabus">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">What You'll Learn</p>
-        <h2>The Beginner Curriculum</h2>
+        <h2>The Beginner Chess Syllabus</h2>
+        <p class="section-sub">{beginner.description} Each class adds one new idea, then students practice it straight away with a coach watching.</p>
       </div>
       <div class="cards-grid three">
-        <div class="feature-card">
-          <div class="feature-icon">♟</div>
-          <h3>Rules &amp; Piece Movement</h3>
-          <p>How each piece moves and captures, check and checkmate, castling, and other basic rules — taught through play, not memorisation.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Basic Tactics</h3>
-          <p>Forks, pins and simple combinations — the patterns that decide most beginner-level games.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧭</div>
-          <h3>Opening Principles</h3>
-          <p>Controlling the centre, developing pieces early and castling on time — see our full breakdown in the blog below.</p>
-        </div>
+        {beginner.modules.map((m) => (
+          <div class="feature-card">
+            <h3>{m.title}</h3>
+            <ul class="check-list">
+              {m.topics.map((t) => <li>{t}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
       <p style="text-align:center; margin-top:2rem;">
-        <a href="/blog/5-opening-principles-every-beginner-should-master/" class="card-learn-more">Read: 5 Opening Principles Every Beginner Should Master →</a>
+        <a href="/courses/beginner/" class="card-learn-more">Full Beginner level: outcomes and level-up criteria →</a>
       </p>
     </div>
   </section>
@@ -97,11 +115,17 @@ const faqs = [
   <section class="section">
     <div class="container narrow">
       <div class="section-head">
-        <p class="eyebrow">Who This Is For</p>
-        <h2>Kids and Adults, Same Structured Start</h2>
+        <p class="eyebrow">By the End</p>
+        <h2>What a Beginner Can Do After the Course</h2>
       </div>
+      <ul class="check-list">
+        {beginner.achieve.map((a) => <li>{a}</li>)}
+      </ul>
       <p>
-        We run beginner batches for children as well as adults who are picking up chess for the first time — the pace and structure adapt, but the same principle applies: one idea at a time, with plenty of guided practice. If your beginner is a child, our <a href="/online-chess-classes/">online chess classes for kids</a> page answers the questions parents ask most. When you're ready for more competitive play, the natural next step is <a href="/advanced-chess-training/">intermediate and advanced training</a> or, for tournament ambitions, <a href="/tournament-chess-coaching/">tournament preparation</a>.
+        Students move up when they meet the level-up criteria, not after a fixed date. The next step is <a href="/courses/advanced-beginner/">Advanced Beginner</a>, then <a href="/advanced-chess-training/">intermediate and advanced training</a>, or <a href="/tournament-chess-coaching/">tournament preparation</a> for children who want to compete.
+      </p>
+      <p>
+        Want to get a head start? Read <a href="/blog/5-opening-principles-every-beginner-should-master/">5 opening principles every beginner should master</a>, or, for parents, <a href="/blog/what-age-should-a-child-start-chess-lessons/">what age a child should start chess lessons</a> and <a href="/blog/private-vs-group-chess-lessons/">private vs group lessons</a>.
       </p>
     </div>
   </section>
@@ -109,20 +133,22 @@ const faqs = [
   <section class="section bg-soft">
     <div class="container narrow">
       <div class="section-head">
-        <p class="eyebrow">Format</p>
-        <h2>Learn Online, or In Person in Coimbatore</h2>
+        <p class="eyebrow">Who This Is For</p>
+        <h2>Beginner Chess Classes for Kids, and for Adults</h2>
       </div>
       <p>
-        Beginner classes run <a href="/online-chess-classes/">live online</a> for students anywhere, and <a href="/chess-academy-coimbatore/">offline at our Coimbatore centres</a>, on identical material. If you'd rather have completely individual pacing instead of a group batch, our <a href="/one-to-one-chess-coaching/">one-to-one coaching</a> is also available from day one.
+        Children and adults learn in separate batches, at a pace that suits each, on the same principle: one idea at a time, with plenty of guided practice. Children aged 4 to 7 do best in our <a href="/chess-classes-for-young-kids/">young kids' classes</a>, with shorter activities and more games. Homeschooling families can join <a href="/homeschool-chess-classes/">daytime classes</a>. If you'd rather have fully individual pacing, <a href="/one-to-one-chess-coaching/">private 1-to-1 lessons</a> are available from day one.
       </p>
     </div>
   </section>
 
-  <section class="section bg-soft">
+  <UsFamilies />
+
+  <section class="section">
     <div class="container narrow">
       <div class="section-head">
         <p class="eyebrow">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
+        <h2>Beginner Chess Lessons: Questions Parents Ask</h2>
       </div>
       <div class="accordion">
         {faqs.map((faq) => (
@@ -139,8 +165,8 @@ const faqs = [
   <section class="section">
     <div class="container">
       <CtaBanner
-        heading="Take Your First Class, Free"
-        subtext="Book a free demo class — no prior experience needed, and no pressure to continue if it isn't the right fit."
+        heading="Take Your First Step, Free"
+        subtext="Book a free chess assessment. No experience needed, and no pressure to continue if it isn't the right fit."
         course="Beginner Level"
       />
     </div>

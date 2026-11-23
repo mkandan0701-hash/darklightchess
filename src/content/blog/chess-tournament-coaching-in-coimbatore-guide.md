@@ -62,4 +62,4 @@ Tournament coaching suits adult competitive players just as well as children —
 
 It varies by how many events a student is preparing for and their current level, but consistency matters more than frequency — regular weekly sessions with real game review tend to outperform occasional intensive bursts before each event.
 
-If you think your child, or you, is ready for competitive play, [book a free demo](/#contact) and talk to a coach about your tournament goals.
+If you think your child, or you, is ready for competitive play, [book a free chess assessment](/#contact) and talk to a coach about your tournament goals.

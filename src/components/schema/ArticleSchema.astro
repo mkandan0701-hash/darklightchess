@@ -9,9 +9,10 @@ interface Props {
   updatedDate?: Date;
   image?: string;
   author?: string;
+  reviewer?: { name: string; jobTitle: string; url: string; sameAs?: string[] };
 }
 
-const { title, description, path, publishDate, updatedDate, image, author = SITE_NAME } = Astro.props;
+const { title, description, path, publishDate, updatedDate, image, author = SITE_NAME, reviewer } = Astro.props;
 const url = new URL(path, SITE_URL).toString();
 
 const schema: Record<string, unknown> = {
@@ -20,7 +21,21 @@ const schema: Record<string, unknown> = {
   headline: title,
   description,
   url,
-  mainEntityOfPage: url,
+  // reviewedBy is a WebPage property, so it lives on the page entity.
+  mainEntityOfPage: reviewer
+    ? {
+        "@type": "WebPage",
+        "@id": url,
+        reviewedBy: {
+          "@type": "Person",
+          name: reviewer.name,
+          jobTitle: reviewer.jobTitle,
+          url: new URL(reviewer.url, SITE_URL).toString(),
+          worksFor: { "@id": ORG_ID },
+          ...(reviewer.sameAs?.length ? { sameAs: reviewer.sameAs } : {}),
+        },
+      }
+    : url,
   inLanguage: "en",
   datePublished: publishDate.toISOString(),
   dateModified: (updatedDate ?? publishDate).toISOString(),

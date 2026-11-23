@@ -40,7 +40,7 @@ Group classes are the cheapest route. Private lessons cost more per hour but fol
 
 ## What does Darklight Chess Academy cost?
 
-Darklight teaches live online from Coimbatore, India. Private one-to-one lessons for Canadian families are **CA$15 per hour**, a fixed price in Canadian dollars. Ask us about group classes when you book. Siblings learning together get a discount, and the first demo class is free and includes a level assessment.
+Darklight teaches live online from Coimbatore, India. Private one-to-one lessons for Canadian families are **CA$15 per hour**, a fixed price in Canadian dollars. Ask us about group classes when you book. Siblings learning together get a discount, and the first session is a free chess assessment with a coach.
 
 Canadian classes run after school, between about 4 and 8 pm in your own time zone on weekdays, plus weekend mornings, from Pacific to Newfoundland time. See our [Canada page](/online-chess-classes-canada/) and the [pricing page](/pricing/).
 
@@ -72,7 +72,7 @@ Usually, because there is no travel or venue cost, and you can choose coaches fr
 Yes. Classes are online, so we teach families from British Columbia to Newfoundland and Labrador.
 
 ### Is there a free trial?
-At Darklight the first demo class is free and includes a level assessment.
+At Darklight the first session is a free chess assessment with a coach.
 
 ### How do I book?
 Use the form on our [Canada page](/online-chess-classes-canada/), which already selects Canada, or message us on WhatsApp.

@@ -62,4 +62,4 @@ It can be, depending on the student — many students engage just as well with a
 
 Ask your child directly whether they enjoy the class, and watch whether they're making visible progress on specific skills over a few months, not just enjoying the social time. A coach who welcomes questions about progress is usually a good sign in itself.
 
-If you'd like to see our coaches teach a class firsthand, [book a free demo](/#contact) and judge the fit for yourself before committing to anything.
+If you'd like to see our coaches teach a class firsthand, [book a free chess assessment](/#contact) and judge the fit for yourself before committing to anything.

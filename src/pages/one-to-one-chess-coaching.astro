@@ -2,36 +2,54 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import CtaBanner from "../components/CtaBanner.astro";
+import AnswerFirst from "../components/AnswerFirst.astro";
+import UsFamilies from "../components/UsFamilies.astro";
 import FaqSchema from "../components/schema/FaqSchema.astro";
 import CourseSchema from "../components/schema/CourseSchema.astro";
+import { regionalPrices, inr } from "../data/pricing";
+
+const usd = regionalPrices.USD.privatePerHour;
+const cad = regionalPrices.CAD.privatePerHour;
 
 const faqs = [
   {
-    question: "What is the difference between private and group chess coaching?",
+    question: "How much do private chess lessons cost online?",
+    answer: `At Darklight, private one-to-one lessons are $${usd} an hour in the US and CA$${cad} an hour in Canada, fixed in local currency. Elsewhere they start from ${inr} an hour. The first session, a chess assessment, is free, and siblings get a discount on group classes.`,
+  },
+  {
+    question: "Are private chess lessons better than group lessons?",
     answer:
-      "Private coaching is built around one student's pace, gaps and goals; group coaching follows a shared curriculum with other students at a similar level. In a private lesson there's no group schedule to keep up with or wait for, which suits students working on specific weaknesses or who prefer individual attention. Group classes let students learn and play alongside peers, and suit most learners well.",
+      "Neither is better for everyone. Private lessons move at one student's pace and focus on their own games and weak spots, which suits a child who is shy in groups, far ahead or behind their age group, or preparing for a tournament. Group classes cost less per hour and let children learn alongside peers, which suits most beginners.",
+  },
+  {
+    question: "What does a private chess tutor do for a child?",
+    answer:
+      "A private chess tutor assesses the child's level, plans lessons around their gaps, teaches new ideas on a shared board, sets short practice between lessons and reviews the child's own games. Parents get a clear picture of what was covered and what to practice next.",
   },
   {
     question: "Is one-to-one coaching only for advanced players?",
     answer:
-      "No — it's available at every level, from complete beginners who want individual pacing to tournament players working on specific rating goals.",
+      "No. It's available at every level, from complete beginners who want individual pacing to tournament players working on a rating goal.",
+  },
+  {
+    question: "How often should my child have private chess lessons?",
+    answer:
+      "Once a week suits most children, with 15–20 minutes of puzzles or games on a few other days. Students preparing for a tournament sometimes add a second weekly session for a few weeks. The coach recommends a frequency after the free chess assessment.",
   },
   {
     question: "Can siblings share a one-to-one session?",
     answer:
-      "One-to-one sessions are designed around a single student's pace. For siblings learning together, our sibling group classes (see the homepage) are usually a better and more affordable fit.",
-  },
-  {
-    question: "Is one-to-one coaching available online?",
-    answer:
-      "Yes. Private lessons run online for students anywhere in the world, and offline at our Coimbatore centres.",
+      "One-to-one sessions are designed around a single student's pace. For siblings learning together, a sibling group class is usually a better and more affordable fit.",
   },
 ];
+
+const description = `Private chess lessons online, one-to-one with a FIDE-rated coach: $${usd}/hour in the US, CA$${cad} in Canada. For kids and adults, beginner to tournament level. Free chess assessment.`;
+const lead = `Darklight Chess Academy gives private chess lessons online, one-to-one with a coach, for kids from age 4 and adults. Each lesson is planned around one student's level, games and goals. Lessons are $${usd} an hour in the US and CA$${cad} in Canada, scheduled after school in your time zone, and the first session, a chess assessment, is free.`;
 ---
 
 <BaseLayout
-  title="Private Online Chess Lessons (1-to-1) | Darklight Chess Academy"
-  description="Private one-to-one chess lessons online with a Darklight coach — individual pacing for beginners, kids and tournament players anywhere. Offline in Coimbatore too."
+  title="Private Chess Lessons Online (1-to-1) | Darklight Chess Academy"
+  description={description}
   path="/one-to-one-chess-coaching/"
 >
   <CourseSchema
@@ -43,44 +61,53 @@ const faqs = [
   />
   <PageHero
     eyebrow="Personalised Coaching"
-    title="Private Online Chess Lessons, <span class='gold'>One-to-One</span>"
-    subtitle="Fully individual sessions, paced around one student's level and goals — for any age, from first-timers to competitive players."
+    title="Private Chess Lessons Online, <span class='gold'>One-to-One</span>"
+    subtitle="Fully individual sessions with a Darklight coach, paced around one student's level and goals: for any age, from first-timers to competitive players."
     breadcrumbItems={[
       { name: "Home", path: "/" },
       { name: "Online Chess Classes", path: "/online-chess-classes/" },
       { name: "Private 1-to-1 Lessons", path: "/one-to-one-chess-coaching/" },
     ]}
-  />
-
-  <section class="section">
-    <div class="container narrow">
-      <p>
-        Group classes work well for most students, but some do better with a coach's undivided attention — moving faster through material they've already grasped, spending more time on a specific weakness, or simply preferring one-on-one interaction over a group setting. One-to-one coaching at Darklight is built for exactly that, at any level.
-      </p>
+  >
+    <div class="hero-actions">
+      <a href="/contact/?course=Private%201-to-1%20Lessons#contact" class="btn btn-gold btn-lg book-btn" data-course="Private 1-to-1 Lessons">Book a Free Chess Assessment</a>
+      <a href="#faq" class="btn btn-outline btn-lg">Questions &amp; Fees</a>
     </div>
-  </section>
+  </PageHero>
+
+  <AnswerFirst
+    lead={lead}
+    facts={[
+      { label: "Price", text: `$${usd}/hour (US), CA$${cad}/hour (Canada), from ${inr}/hour elsewhere` },
+      { label: "Who it suits", text: "beginners who want individual pacing, shy or fast learners, tournament players" },
+      { label: "Format", text: "live video lesson on a shared digital board, about 60 minutes" },
+      { label: "Coaches", text: "academy coaches led by FIDE-rated founders; <a href=\"/coaches/\">see profiles and FIDE IDs</a>" },
+      { label: "First step", text: "a free chess assessment with a coach" },
+    ]}
+  />
 
   <section class="section bg-soft">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Why Choose 1-to-1</p>
-        <h2>What Personalised Coaching Adds</h2>
+        <h2>What a Private Chess Tutor Adds</h2>
+        <p class="section-sub">Group classes work well for most students, but some do better with a coach's undivided attention: moving faster through material they've grasped, spending longer on a weakness, or simply preferring one-to-one over a group.</p>
       </div>
       <div class="cards-grid three">
         <div class="feature-card">
           <div class="feature-icon">🎯</div>
           <h3>Targeted on Your Gaps</h3>
-          <p>Every session is planned around what this specific student needs next — not a fixed group curriculum pace.</p>
+          <p>Every session is planned around what this student needs next, not a fixed group pace.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">♟️</div>
+          <h3>Built on Their Own Games</h3>
+          <p>The coach reviews games your child actually played, so lessons fix the mistakes they really make.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⏱️</div>
           <h3>Flexible Scheduling</h3>
-          <p>Easier to schedule around school, work or travel than a fixed-batch group class.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧑‍🏫</div>
-          <h3>Full Coach Attention</h3>
-          <p>Every minute of the session is focused on one student — ideal for working through a specific rating plateau or weakness quickly.</p>
+          <p>Easier to fit around school, sports or travel than a fixed group batch, in your own time zone.</p>
         </div>
       </div>
     </div>
@@ -89,20 +116,29 @@ const faqs = [
   <section class="section">
     <div class="container narrow">
       <div class="section-head">
-        <p class="eyebrow">Who It's For</p>
-        <h2>Any Level, Any Age</h2>
+        <p class="eyebrow">How It Works</p>
+        <h2>What Happens in a Private Chess Lesson</h2>
       </div>
+      <ol class="check-list">
+        <li><strong>Free chess assessment.</strong> A coach plays and talks with the student to find their level and goals.</li>
+        <li><strong>A plan.</strong> The coach picks the next topics from our <a href="/courses/">five-level curriculum</a>, adjusted to the student.</li>
+        <li><strong>Live lessons.</strong> New ideas on a shared board, then positions to solve and games to play, with feedback as they think.</li>
+        <li><strong>Practice and review.</strong> Short practice between lessons, and regular review of the student's own games.</li>
+        <li><strong>Progress updates.</strong> Parents hear what was covered and what to practice next.</li>
+      </ol>
       <p>
-        One-to-one coaching suits complete beginners who want individual pacing just as well as it suits <a href="/tournament-chess-coaching/">tournament players</a> working on a specific rating goal. If you're choosing for a child and unsure whether group or individual sessions fit better, our <a href="/online-chess-classes/">online chess classes for kids</a> page covers the questions parents ask most. One-to-one sessions are available <a href="/online-chess-classes/">online</a> or offline at our <a href="/chess-academy-coimbatore/">Coimbatore centres</a>.
+        One-to-one suits complete beginners who want individual pacing just as well as <a href="/tournament-chess-coaching/">tournament players</a> working on a rating goal. Still deciding? Read <a href="/blog/private-vs-group-chess-lessons/">private vs group chess lessons</a> or <a href="/blog/how-to-choose-an-online-chess-coach/">how to choose an online chess coach</a>. Lessons run <a href="/online-chess-classes/">online</a> worldwide and offline at our <a href="/chess-academy-coimbatore/">Coimbatore centres</a>.
       </p>
     </div>
   </section>
 
-  <section class="section bg-soft">
+  <UsFamilies />
+
+  <section class="section" id="faq">
     <div class="container narrow">
       <div class="section-head">
         <p class="eyebrow">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
+        <h2>Private Chess Lessons: Questions Parents Ask</h2>
       </div>
       <div class="accordion">
         {faqs.map((faq) => (
@@ -119,8 +155,8 @@ const faqs = [
   <section class="section">
     <div class="container">
       <CtaBanner
-        heading="Start With a Free 1-to-1 Demo"
-        subtext="Book a free demo session and experience personalised coaching before you commit."
+        heading="Start With a Free 1-to-1 Chess Assessment"
+        subtext="A coach meets the student one-to-one, finds their level and suggests a plan, before you commit to anything."
         course="Private 1-to-1 Lessons"
         whatsappMessage="Hi Darklight Chess Academy! I'd like to know more about private one-to-one chess lessons."
       />

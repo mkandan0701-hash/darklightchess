@@ -1,0 +1,23 @@
+---
+// Answer-first summary placed right under a page hero: one 40–60 word direct
+// answer (the passage search engines and AI assistants quote) plus quick facts.
+// Keep every fact here verifiable and consistent with src/data/*.
+interface Props {
+  lead: string; // plain text or simple HTML, 40–60 words
+  facts?: { label: string; text: string }[];
+}
+const { lead, facts = [] } = Astro.props;
+---
+<section class="section answer-block">
+  <div class="container narrow">
+    <p class="answer-lead"><strong set:html={lead} /></p>
+    {facts.length > 0 && (
+      <aside class="quick-facts" aria-label="Quick facts">
+        <h2>Quick facts</h2>
+        <ul class="check-list">
+          {facts.map((f) => <li><strong>{f.label}:</strong> <span set:html={f.text} /></li>)}
+        </ul>
+      </aside>
+    )}
+  </div>
+</section>

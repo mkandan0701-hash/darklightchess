@@ -5,6 +5,7 @@ import PageHero from "../../components/PageHero.astro";
 import ArticleSchema from "../../components/schema/ArticleSchema.astro";
 import CtaBanner from "../../components/CtaBanner.astro";
 import BlogCard from "../../components/BlogCard.astro";
+import { coaches } from "../../data/coaches";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -32,7 +33,19 @@ const related = posts
   })
   .slice(0, 3);
 
-const dateFmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+// "Reviewed by" coach, only when the post names one and they exist in coaches.ts.
+const reviewerCoach = data.reviewedBy ? coaches.find((c) => c.name === data.reviewedBy) : undefined;
+if (data.reviewedBy && !reviewerCoach) {
+  throw new Error(`Post ${post.id}: reviewedBy "${data.reviewedBy}" is not a coach in src/data/coaches.ts`);
+}
+const reviewer = reviewerCoach && {
+  name: reviewerCoach.name,
+  jobTitle: reviewerCoach.role,
+  url: `/coaches/#${reviewerCoach.id}`,
+  sameAs: reviewerCoach.fideId ? [`https://ratings.fide.com/profile/${reviewerCoach.fideId}`] : [],
+};
+
+const dateFmt =(d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 ---
 
 <BaseLayout
@@ -53,6 +66,7 @@ const dateFmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", mon
     updatedDate={data.updatedDate}
     image={data.image}
     author={data.author}
+    reviewer={reviewer}
   />
   <PageHero
     eyebrow={data.category}
@@ -75,6 +89,9 @@ const dateFmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", mon
         {data.updatedDate && (
           <> · Updated <time datetime={data.updatedDate.toISOString()}>{dateFmt(data.updatedDate)}</time></>
         )}
+        {reviewer && (
+          <> · Reviewed by <a href={reviewer.url}>{reviewer.name}</a>, {reviewer.jobTitle}</>
+        )}
       </p>
       <div class="prose">
         <Content />
@@ -86,8 +103,8 @@ const dateFmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", mon
       )}
       <CtaBanner
         heading="Ready to put this into practice?"
-        subtext="Book a free demo class and our coaches will show you exactly how we teach it — live online from anywhere, or at our Coimbatore centres."
-        course="Free Demo Class"
+        subtext="Book a free chess assessment and our coaches will show you exactly how we teach it — live online from anywhere, or at our Coimbatore centres."
+        course="Free Chess Assessment"
       />
     </div>
   </section>

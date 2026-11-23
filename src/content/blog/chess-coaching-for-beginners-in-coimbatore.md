@@ -58,4 +58,4 @@ It varies with practice consistency, but most students who attend classes regula
 
 Apps are fine for casual exposure, but they don't correct specific mistakes or build habits the way a coach watching your actual games can. Most complete beginners use apps for casual practice alongside structured classes, not instead of them.
 
-If you're ready to start from the very beginning, [book a free demo class](/#contact) — no prior experience needed, and no pressure to continue if it isn't the right fit.
+If you're ready to start from the very beginning, [book a free chess assessment](/#contact) — no prior experience needed, and no pressure to continue if it isn't the right fit.

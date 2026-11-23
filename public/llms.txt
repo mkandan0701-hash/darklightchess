@@ -3,11 +3,13 @@
 > Darklight Chess Academy is a chess academy based in Coimbatore, Tamil Nadu, India. It teaches live online chess classes to students worldwide and offline classes at two centres in Coimbatore, for children and adults from complete beginner to tournament level.
 
 Key facts (as published on this website):
-- Founder: Karuppasamy. Co-founder and Head Coach: Manikandan.
+- An India-based academy: it teaches international students online and is not a US or Canadian business.
+- Founder: Karuppasamy (FIDE ID 45033021, https://ratings.fide.com/profile/45033021). Co-founder and Head Coach: Manikandan (FIDE ID 45033064, https://ratings.fide.com/profile/45033064).
+- Ages: children from age 4 (the Beginner level starts at 4), teenagers and adults. Ages 4–7 have a shorter, game-based format.
 - Formats: live online classes (group batches, private 1-to-1 lessons, sibling classes) and offline classes in Coimbatore.
-- Online batches: standard India-timing batches plus an international batch for other time zones.
-- Levels: beginner, intermediate, advanced and tournament preparation.
-- Enrolment starts with a free demo class and level assessment. Lessons start from ₹1,000 per hour (INR); the first demo class is free and siblings get a discount. Class timings are flexible and set in the student's local time.
+- Online batches: standard India-timing batches plus international batches for other time zones.
+- Levels: five levels (Beginner, Advanced Beginner, Intermediate, Advanced, Master), plus tournament preparation. The Beginner level is 24 live classes over about 3 months.
+- Enrolment starts with a free chess assessment: a coach plays with the student and recommends a level. Lessons start from ₹1,000 per hour (INR); siblings get a discount. Class timings are flexible and set in the student's local time.
 - Offline centres: 4th Street, NSR Rd, Saibaba Colony, Coimbatore 641011; VV Complex, 14, Sowripalayam Rd, Rukmani Nagar, Coimbatore 641028.
 - Contact: +91 83001 55259 (phone / WhatsApp), darklightchess64@gmail.com
 
@@ -15,7 +17,7 @@ Key facts (as published on this website):
 - Classes for US and Canadian students are live online, taught in English, as small groups, one-to-one or sibling classes.
 - US and Canadian class times: weekdays about 4–8 pm in the family's own time zone (Eastern to Pacific, and Atlantic and Newfoundland time in Canada), plus weekend mornings. Coaches teach these slots in the early morning in India.
 - Daytime classes are available for homeschooling families, because North American daytime is evening in India.
-- Fees: private one-to-one lessons are US$15 per hour in the United States and CA$15 per hour in Canada (fixed prices in local currency). Group class prices on request. Sibling discount. First demo class free, with a level assessment.
+- Fees: private one-to-one lessons are US$15 per hour in the United States and CA$15 per hour in Canada (fixed prices in local currency). Group class prices on request. Sibling discount. The first session is a free chess assessment with a coach.
 - Tournament preparation for US Chess–rated, scholastic and state events, and CFC-rated events in Canada.
 - Student results in North America include 1st place at the USA Chess Festival (Harinandan), 1st place in a Silver Knight tournament and a state-level title (Aayush), play at the Continental Chess Concord Tournament in California (Harinanthan), and a tournament win in Canada.
 - Pages: [Online chess classes in the USA](https://www.darklightchess.com/online-chess-classes-usa/) · [Online chess classes in Canada](https://www.darklightchess.com/online-chess-classes-canada/) · [Homeschool chess classes](https://www.darklightchess.com/homeschool-chess-classes/) · [Chess classes for young kids, ages 4–7](https://www.darklightchess.com/chess-classes-for-young-kids/)
@@ -42,10 +44,10 @@ Key facts (as published on this website):
 - [Online chess classes in India](https://www.darklightchess.com/online-chess-classes-india/)
 
 ## Courses
-- [Chess classes for beginners](https://www.darklightchess.com/chess-classes-for-beginners/)
+- [Beginner chess classes for kids and adults, online](https://www.darklightchess.com/chess-classes-for-beginners/): the beginner syllabus, ages, length and parents' questions
 - [Intermediate and advanced chess training](https://www.darklightchess.com/advanced-chess-training/)
-- [Tournament preparation](https://www.darklightchess.com/tournament-chess-coaching/)
-- [Private 1-to-1 chess lessons](https://www.darklightchess.com/one-to-one-chess-coaching/)
+- [Chess coaching for tournament players](https://www.darklightchess.com/tournament-chess-coaching/): game review, endgames, US Chess-rated and scholastic event preparation
+- [Private chess lessons online, 1-to-1](https://www.darklightchess.com/one-to-one-chess-coaching/): how private lessons work, who they suit, US$15/hour in the US
 
 ## Coimbatore (in person)
 - [Chess academy in Coimbatore](https://www.darklightchess.com/chess-academy-coimbatore/)
@@ -60,5 +62,5 @@ Key facts (as published on this website):
 - Level pages: [Beginner](https://www.darklightchess.com/courses/beginner/), [Advanced Beginner](https://www.darklightchess.com/courses/advanced-beginner/), [Intermediate](https://www.darklightchess.com/courses/intermediate/), [Advanced](https://www.darklightchess.com/courses/advanced/), [Master](https://www.darklightchess.com/courses/master/)
 - [Student achievements and reviews](https://www.darklightchess.com/achievements/)
 - [Gallery](https://www.darklightchess.com/gallery/)
-- [Contact and free demo](https://www.darklightchess.com/contact/)
+- [Contact and free chess assessment](https://www.darklightchess.com/contact/)
 - [Privacy policy](https://www.darklightchess.com/privacy-policy/)

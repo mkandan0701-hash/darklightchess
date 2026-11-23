@@ -34,4 +34,4 @@ Progress depends far more on consistency than on format. A student who attends t
 
 Several of our Coimbatore families do offline weekend classes plus a midweek online session. Hybrid schedules are absolutely possible — just ask.
 
-Still unsure? The fastest way to decide is to experience one of each. [Book a free demo](/#contact) and we'll help you compare.
+Still unsure? The fastest way to decide is to experience one of each. [Book a free chess assessment](/#contact) and we'll help you compare.

@@ -43,7 +43,7 @@ Four things move the price most.
 
 ## What does a chess academy cost compared with a tutor?
 
-An academy usually spreads the cost across several coaches and a fixed curriculum, so the hourly rate can be lower than a single private tutor. Darklight Chess Academy teaches live online from Coimbatore, India, with lessons starting from ₹1,000 per hour, about £9 at recent rates. Fees are set in Indian rupees, so the pound amount moves slightly with the exchange rate. The first demo class is free and siblings learning together get a discount. See our [pricing page](/pricing/) for indicative amounts in other currencies.
+An academy usually spreads the cost across several coaches and a fixed curriculum, so the hourly rate can be lower than a single private tutor. Darklight Chess Academy teaches live online from Coimbatore, India, with lessons starting from ₹1,000 per hour, about £9 at recent rates. Fees are set in Indian rupees, so the pound amount moves slightly with the exchange rate. The first session, a chess assessment, is free and siblings learning together get a discount. See our [pricing page](/pricing/) for indicative amounts in other currencies.
 
 ## Is a cheaper lesson worse?
 
@@ -83,7 +83,7 @@ Once a week is a sensible start for most children, with a little practice betwee
 Often slightly, because there is no travel. Marketplace listings show online and in-person coaches at similar hourly ranges, so compare individual coaches.
 
 ### Is there a free trial?
-At Darklight Chess Academy the first demo class is free and includes a level assessment. Many UK tutors also offer a free first lesson.
+At Darklight Chess Academy the first session is a free chess assessment with a coach. Many UK tutors also offer a free first lesson.
 
 ### Do I pay more for a titled coach?
 Usually yes. For a beginner, clear teaching and a good curriculum matter more than a title.
